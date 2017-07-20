@@ -1,0 +1,296 @@
+@import "../../global/variables";
+@import "../../global/mixins";
+@import "../../global/extends";
+
+.c--metric-card-rule {
+    margin-left: -48px;
+    margin-right: -48px;
+    border: none;
+    height: 1px;
+    background-color: $default-border-color;
+}
+
+.at-a-glance {
+    display: flex;
+    background: $white;
+    border-radius: $border-radius;
+
+    &.can-filter {
+        position: relative;
+    }
+
+    &.can-filter:before {
+        content: '';
+        position: absolute;
+        left: 23px;
+        bottom: -1.2rem;;
+        width: 0;
+        height: 0;
+        transition: left .33s ease-in-out, border-color .33s linear;
+        border-style: solid;
+        border-width: 0 12.5px 12px;
+        border-color: transparent transparent $info-blue transparent;
+    }
+
+    .three-quarter-col {
+        flex: 0 0 auto;
+        width: 75%;
+    }
+
+    .one-half-col {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+
+    .one-third-col {
+        flex: 0 0 auto;
+        width: 33%;
+    }
+}
+
+.at-a-glance.can-filter.pendingDeletion:before {
+    border-color: transparent transparent $error-red transparent;
+    transition: border-color .33s linear;
+}
+
+.metric-card.pendingDeletion.selected::after {
+    background: $error-red;
+    transition: background .33s linear;
+}
+
+// By default, metric cards will setup to be 25% width as specified below. Using flex basis values
+// led to browser inconsistencies which affected the arrow placement for filtering. If another width
+// is necessary, specify the width in a class (i.e. 'one-half-col') like above and add that class
+// to the appropriate card(s).
+.metric-card {
+    flex: 0 0 auto;
+    width: 25%;
+    margin: 0 0 1.469rem;
+    /* 23.5/16 */
+    padding: 0 0 0 1.469rem;
+    /* 23.5/16 */
+    vertical-align: top;
+    position: relative;
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 1px;
+        top: 25px;
+        bottom: 0;
+        right: 0;
+        @include border(right);
+    }
+
+    &:last-child::before {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        opacity: 0;
+        transition: height .33s ease-in-out, opacity .33s ease-in-out, background .33s linear;
+        background: $info-blue;
+    }
+
+    &:first-child::after {
+        border-radius: 3px 0 0 0;
+    }
+
+    &:last-child::after {
+        border-radius: 0 3px 0 0;
+    }
+
+    &.selected::after {
+        height: 5px;
+        opacity: 1;
+    }
+
+    .what {
+        display: block;
+        font-family: $heading-font-family;
+        font-weight: $bold-font-weight;
+        font-size: $medium-font-size;
+        line-height: 1;
+        color: $default-text-color;
+        margin-bottom: $header-margin-bottom-spacing;
+
+        a {
+            color: $default-text-color;
+        }
+    }
+
+    .number {
+        display: block;
+        font-family: $base-font-family;
+        font-size: $largest-font-size;
+        font-weight: $bold-font-weight;
+        line-height: $small-line-height;
+        margin-bottom: .313rem;
+        /* 5/16 */
+        color: $default-text-color;
+
+        &.warning,
+        &.warning a {
+            color: $error-red;
+        }
+
+        a {
+            color: $default-text-color;
+            text-decoration: none;
+            @include no-box-shadow;
+        }
+
+        a:hover {
+            @include box-shadow(0 3px 0 0 currentColor);
+        }
+
+    }
+
+    .meta-chart,
+    .meta-link {
+        margin-bottom: $header-margin-bottom-spacing;
+    }
+
+    .chart-panel-graphics {
+        height: .813rem;
+        /* 13/16 */
+    }
+
+    .multiple-values {
+        display: flex;
+    }
+
+    &:last-child {
+        border-right: 0;
+    }
+
+    .meta-text {
+        font-size: .8rem;
+        font-weight: $base-font-weight;
+        line-height: 1;
+        color: $default-text-color;
+
+        > i {
+            vertical-align: middle;
+            font-size: $base-font-size;
+            display: none;
+        }
+
+        i.info {
+            color: $info-blue;
+            font-size: $medium-font-size;
+            vertical-align: middle;
+        }
+
+        &.warning {
+            color: $error-red;
+
+            span {
+                color: $error-red;
+            }
+
+            > i {
+                display: none;
+            }
+
+            i.info {
+                display: inline;
+            }
+
+            a {
+                color: $error-red;
+
+            }
+        }
+
+        &.over-limit {
+            span {
+                color: $error-red;
+            }
+
+            > i {
+                &:not(.info) {
+                    color: $error-red;
+                }
+
+                display: inline;
+            }
+
+            a {
+                color: $error-red;
+            }
+        }
+
+    }
+
+    .info-tooltip {
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 100%;
+    }
+
+    i {
+        vertical-align: middle;
+    }
+
+    i.icon-normal {
+        font-size: 1rem;
+    }
+
+    i.icon-circle {
+        margin: 0 2px 4px 0;
+        width: 10px;
+        height: 10px;
+        border: 0;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    i.filled-red {
+        background-color: $error-red;
+    }
+
+    i.icon-blue {
+        color: $base-link-color;
+    }
+    @media screen and (max-width: 1200px) {
+        .meta-link,
+        .meta-text,
+        .what {
+            font-size: $small-font-size;
+        }
+
+        .number {
+            font-size: $large-font-size;
+        }
+
+        .meta-chart {
+            margin-left: -10%;
+            transform: scale(.8,.8);
+        }
+
+        i.icon-normal {
+            font-size: $base-font-size !important;
+        }
+    }
+
+}
+
+.a--metric-card-green {
+    .metric-card {
+        .number,
+        .number a {
+            color: $duo-green;
+        }
+    }
+}

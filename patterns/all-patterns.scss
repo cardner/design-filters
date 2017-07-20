@@ -1,0 +1,16 @@
+//Import global sass functions and variables
+@import "global/variables";
+@import "global/mixins";
+@import "global/extends";
+
+// Pull in all fonts used
+@import "../fonts/all-fonts";
+
+// Pull in all UI patterns
+@import "ui/all-ui";
+
+// Pull in all global layout classes
+@import "layout/all-layout";
+
+// Get all the various styles used to make up non modualized style patterns TODO: finish modualizing all these
+@import "reference/duo";

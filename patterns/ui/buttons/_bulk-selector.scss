@@ -1,0 +1,130 @@
+.bulk-selector-wrap {
+    padding: 0;
+    border: none;
+    display: flex;
+    float: left;
+    margin-top: -10px;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: none;
+        box-shadow: none;
+    }
+
+    .a--dropdown-trigger {
+        @extend .button;
+
+        &:hover {
+            text-decoration: none;
+            box-shadow: none;
+        }
+    }
+
+    .bulk-selector {
+
+        &:hover + .bulk-actions .a--dropdown-trigger {
+            border-left-color: $default-button-hover-color;
+        }
+
+        &:hover .a--dropdown-trigger {
+            border-color: $default-button-hover-color;
+        }
+
+        .a--dropdown-trigger {
+            display: flex;
+            padding: .65rem 1.25rem .4rem;
+            @include borders($border-color: $button-border-color);
+            border-right: 0;
+            border-radius: $border-radius 0 0 $border-radius;
+            margin-right: 0;
+
+            &[aria-expanded="true"]:after {
+                right: 17px;
+                bottom: -.9em;
+            }
+
+            &:before {
+                padding: 0 0 2px 2px;
+            }
+
+            &:hover {
+                border-color: $default-button-hover-color;
+            }
+
+        }
+
+        .a--dropdown-content[aria-hidden="false"] {
+            left: -27px;
+            right: 0;
+        }
+    }
+
+    .bulk-actions {
+
+        .a--dropdown-trigger {
+            padding: .65rem 1.25rem .4rem;
+            @include borders($border-color: $button-border-color);
+            border-radius: 0 $border-radius $border-radius 0;
+            height: 40px; // Necessary to match height of bulk-selector since there is no icon via content
+            font-size: 1.6em;
+            line-height: 5px;
+            margin-left: 0;
+
+            &:before {
+                content: '';
+                display: block;
+            }
+
+            &[aria-expanded="true"]:after {
+                right: 17px;
+                bottom: -0.67em;
+            }
+
+            &:hover {
+                border-color: $default-button-hover-color;
+            }
+
+            &.active {
+                background: $primary-button-hover-color;
+                border-color: $primary-button-hover-color;
+                color: $white;
+
+                & + .action-list a {
+                    cursor: pointer;
+                }
+            }
+
+            &.active:focus {
+                @include box-shadow(0 0 0 1px $white, 0 0 0 2px $primary-border-color);
+                @include borders($border-color: $button-border-color);
+            }
+
+            &:focus {
+                @include box-shadow(0 0 0 1px $white, 0 0 0 2px $primary-border-color);
+                @include borders($border-color: $button-border-color);
+            }
+
+            /* margins for spacer up next, see nth-last-child(2) */
+            /* adds horizontal rule */
+            & + .action-list #delete {
+                margin-top: 15px;
+            }
+
+            /* adds horizontal rule */
+            & + .action-list #delete {
+              border-top: 1px solid $base-border-color;
+            }
+
+            & + .action-list a {
+                cursor: default;
+
+                &.a--destruction {
+                    margin-top: 12px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+}

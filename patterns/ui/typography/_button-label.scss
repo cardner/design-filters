@@ -1,0 +1,14 @@
+
+label {
+    color: $default-text-color;
+
+    [type=checkbox] + &,
+    [type=radio] + & {
+        color: inherit;
+    }
+}
+
+.subline {
+    display: block;
+    margin-bottom: .25rem;
+}

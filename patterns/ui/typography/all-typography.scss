@@ -1,0 +1,84 @@
+@import "../../global/variables";
+@import "../../global/mixins";
+@import "../../global/extends";
+
+// Base fonts and sizes
+$browser-context: 16;
+
+//From CSS Tricks to allow use of em calculation
+@function em($pixels, $context: $browser-context) {
+     @if (unitless($pixels)){
+        $pixels: $pixels * 1px;
+    }
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+    @return $pixels / $context * 1em;
+}
+
+@mixin header {
+    color: $heading-color;
+    font-family: $heading-font-family;
+    font-weight: $bold-font-weight;
+    line-height: 1.2;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    color: $default-text-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+    letter-spacing: $base-letter-spacing;
+}
+
+// Type classes for reseting visual styles of elements
+.a--font-reset {
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
+    letter-spacing: initial;
+}
+// Override normal reset for small size
+.a--font-size-smallest {
+    font-size: $smallest-font-size;
+}
+
+.a--font-size-smaller {
+    font-size: $smaller-font-size;
+}
+
+.a--font-size-small,
+small {
+    font-size: $small-font-size;
+}
+
+// Just some normal weight classes
+.a--font-weight-default {
+    font-weight: $base-font-weight;
+}
+
+.a--font-weight-medium {
+    font-weight: $bold-font-weight;
+}
+
+.a--font-weight-bold {
+    font-weight: $bold-font-weight;
+}
+
+b,
+strong {
+    font-weight: $bold-font-weight;
+}
+
+// set generic text color styles
+.a--text-color {
+    color: $default-text-color;
+}
+@import "body";
+@import "h1";
+@import "h2";
+@import "h3";
+@import "instructional";
+@import "button-label";

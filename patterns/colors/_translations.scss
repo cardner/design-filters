@@ -1,0 +1,78 @@
+//// Color name translations
+// Header names
+$default-header-color: map-get($gray, dark);
+$mid-header-color: map-get($gray, mid);
+$light-header-color: map-get($gray, light);
+
+// Text names
+$default-text-color: map-get($gray, dark);
+$mid-text-color: map-get($gray, mid);
+$disabled-text-color: map-get($gray, disabled);
+$pagination-text-color: map-get($gray, mid);
+$button-text-color: map-get($blue, cta);
+
+// Link names
+$default-link-color: map-get($blue, cta);
+$dropdown-link-hover-color: map-get($blue, cta-light);
+
+// Button names
+$default-button-color: map-get($blue, cta);
+$default-button-hover-color: map-get($blue, cta-light);
+$primary-button-color: map-get($blue, cta);
+$primary-button-hover-color: map-get($blue, cta-light);
+$destructive-button-color: map-get($red, alert);
+$destructive-button-hover-color: map-get($red, darker);
+$disabled-button-color: map-get($gray, lightest);
+$disabled-pagination-color: map-get($gray, light);
+$download-button-hover-color: map-get($blue, cta);
+
+// Border names
+$default-border-color: map-get($blue, lightest);
+$dark-border-color: map-get($blue, cta);
+$button-border-color: map-get($gray, cta);
+$button-border-hover-color: map-get($blue, cta-light);
+$primary-border-color: map-get($blue, cta);
+$primary-border-hover-color: map-get($blue, cta-light);
+$default-input-border-color: map-get($gray, light);
+$hover-input-border-color: map-get($blue, cta);
+
+// Box Shadows
+$default-boxshadow-color: map-get($gray, dark);
+$primary-boxshadow-color: map-get($blue, cta);
+$destructive-boxshadow-color: map-get($red, darker);
+
+// Dropshadow
+$default-dropshadow-color: map-get($gray, dropshadow);
+
+// Form elements
+$select-hover-color: map-get($blue, cta);
+
+// UI Elements
+$search-icon-color: map-get($gray, mid);
+
+// Modal/Messages
+$default-message-background-color: map-get($blue, cta);
+
+// Main Nav
+$nav-state-color: map-get($gray, nav-active);
+$nav-active-tab-color: map-get($green, nav-tab);
+$nav-background-color: map-get($gray, dark);
+$nav-text-color: $white;
+$nav-border-color: map-get($gray, nav-border);
+$default-headernav-color: map-get($gray, headernav);
+
+// Background Colors
+$lightest-background-color: map-get($gray, lightest);
+$body-background-color: map-get($gray, background);
+
+// Table Colors
+$hover-table-cell: map-get($gray, headernav);
+
+// Message box colors
+$default-message-background-color: map-get($gray, headernav);
+$default-message-border-color: map-get($blue, lightest);
+
+// Misc metrics
+$disabled-opacity: 0.5;
+$disabled-color: transparentize($base-color, $disabled-opacity);
+$disabled-input-color: rgb(235, 235, 228);

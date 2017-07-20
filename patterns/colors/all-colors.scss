@@ -1,0 +1,62 @@
+$app-version: '1.1.0';
+@import "../global/deprecate";
+// Colors
+$white: #fff;
+
+$gray: (
+    dropshadow: rgba(68, 68, 68, .59),
+    disabled: #686868,
+    background: #FCFDFF,
+    lightest: #efefef,
+    light: #ccc,
+    mid: #888888,
+    dark: #363f44,
+    nav-active: #282F33,
+    nav-border: #686f72,
+    headernav: #f5f7fa
+);
+
+$blue: (
+    duo-light: #476376,
+    cta-light: #4993E1,
+    cta: #3E75AF,
+    duo: #405665,
+    lightest: #E8EDF3,
+    light: #6ca7e4,
+    dark: #508ccb,
+    info: #3E75AF
+);
+
+$red: (
+    alert: #E06969,
+    darker: #FED1D1
+);
+
+$yellow: (
+    warn: #F0C473
+);
+
+$orange: (
+    orange: #EE7450,
+    warn: #F0C473
+);
+
+$green: (
+    success: #6dbe50,
+    duo: #6dbe50,
+    dark: #569E44,
+    nav-tab: #6dbe50,
+    info: #8CC873,
+    light: #88cb6c
+);
+
+// we should eventually just get rid of these all together
+$grey-darker: map-get($gray, dark);
+$grey-dark: map-get($gray, mid);
+$grey: map-get($gray, mid);
+$grey-light: map-get($gray, light);
+$grey-lighter: map-get($gray, lightest);
+
+@import "brand";
+@import "secondary";
+@import "translations";

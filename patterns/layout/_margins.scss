@@ -1,0 +1,51 @@
+@import '../global/variables';
+@import '../global/mixins';
+
+.l--margin-top-1-8 {
+    // this helps equalize base font sized elements that sit inline with header elements
+    @include l--margin-top-1-8;
+}
+
+.l--margin-bottom-reset {
+    @include l--margin-reset(bottom);
+}
+
+.l--margin-bottom-reset-default {
+    // this pulls the bottom up to clear a space below of the default
+    @include l--margin-reset(bottom, -$header-margin-spacing);
+}
+
+.l--margin-bottom-small {
+    @include l--margin-bottom-small;
+}
+
+.l--margin-bottom-default {
+    // this is the default space after for our base font size
+    @include l--margin-bottom-default;
+}
+
+.l--margin-bottom-large {
+    @include l--margin-bottom-large;
+}
+
+.l--margin-top-reset {
+    @include l--margin-reset(top);
+}
+
+.l--margin-top-reset-default {
+    // this pulls the top up to reset a default space after
+    @include l--margin-reset(top, -.8em);
+}
+
+.l--margin-top-small {
+    margin-top: $small-margin-spacing;
+}
+
+.l--margin-top-default {
+    // this sets the top margin to the default space after based on font size
+    @include l--margin-top-default;
+}
+
+.l--margin-left-mid {
+    margin-left: $mid-margin-spacing;
+}

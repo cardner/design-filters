@@ -1,0 +1,42 @@
+@import "../global/variables";
+@import "../global/mixins";
+
+.box {
+    @include box;
+}
+
+.box-header {
+    @include clearfix;
+    @include border(bottom);
+    position: relative;
+
+    h3 {
+        margin-bottom: 0;
+        margin-top: .375rem;
+        /* 6/16 */
+
+        & + .box-header-info {
+            margin-bottom: 1.414em;
+        }
+    }
+}
+
+.box-header-group {
+    float: left;
+}
+
+.box-header-info {
+    color: $default-text-color;
+    display: block;
+}
+
+.box-header-buttons {
+    float: right;
+    margin-top: .5rem;
+    /* 8/16 */
+
+    & > * {
+        float: right;
+        margin-left: 16px;
+    }
+}

@@ -1,0 +1,51 @@
+.subnav {
+    padding: 0;
+    background-color: $nav-state-color;
+
+    .count {
+        top: .5rem; // 8/16
+    }
+
+    > a {
+        @include transition(color, border);
+        color: $nav-text-color;
+        background-color: $nav-state-color;
+        display: block;
+        font-size: $smaller-font-size;
+        line-height: 1.25em;
+        padding: .5rem 1.25rem; /* 8/16 */
+        position: relative;
+        text-decoration: none;
+        @include border($direction: left, $border-width: 5px, $border-color: $nav-state-color);
+        margin: 0;
+
+        &:hover {
+            @include active-nav-tab;
+            background-color: $nav-state-color;
+            border-radius: 0;
+            .count {
+                color: $white;
+            }
+        }
+
+        &:focus {
+            border-radius: 0;
+            z-index: 3000;
+        }
+
+        &.current {
+            @include active-nav-tab;
+            background-color: $nav-state-color;
+            font-weight: $bold-font-weight;
+
+            .count {
+                color: $white;
+            }
+        }
+
+        .flexbox & {
+            display: flex;
+            align-items: baseline;
+        }
+    }
+}

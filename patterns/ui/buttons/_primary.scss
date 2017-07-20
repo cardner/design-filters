@@ -1,0 +1,21 @@
+&.c--primary {
+    color: $white;
+    background-color: $primary-button-color;
+    border-color: $primary-border-color;
+
+    &:hover {
+        background-color: $primary-button-hover-color;
+        border-color: $primary-border-hover-color;
+    }
+
+    &:focus {
+        @include box-shadow(0 0 0 1px $white, 0 0 0 2px $default-button-color);
+    }
+
+    &:active {
+        @include box-shadow(inset 0 0 10px -1px $primary-boxshadow-color);
+        background-color: $primary-button-hover-color;
+        border-color: $primary-button-hover-color;
+        color: $white;
+    }
+}

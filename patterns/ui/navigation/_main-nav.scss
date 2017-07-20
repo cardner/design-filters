@@ -1,0 +1,71 @@
+.navigation {
+    margin-bottom: .688rem; // 11/16
+
+    > a {
+        @include transition(background, color, border);
+        color: $nav-text-color;
+        display: block;
+        font-size: .938rem; /* 15/16 */
+        line-height: 1.25em;
+        padding: .75rem 1.25rem .625rem; /* 12/16, 10/16 */
+        position: relative;
+        text-decoration: none;
+        border-left: 5px solid $nav-background-color;
+
+        &:focus {
+            transition-duration: 0s;
+            border-radius: 0;
+            z-index: 3000;
+        }
+
+        &:hover {
+            background-color: $nav-state-color;
+            @include active-nav-tab;
+            .count {
+                color: $white;
+            }
+        }
+
+        &:active {
+            background-color: $nav-state-color;
+        }
+
+        &.current {
+            background-color: $nav-state-color;
+            font-weight: $bold-font-weight;
+            @include active-nav-tab;
+
+            .count {
+                color: $white;
+            }
+        }
+
+        &.active {
+            background-color: $nav-state-color;
+            border-color: $nav-state-color;
+            font-weight: $bold-font-weight;
+
+            &:hover {
+                border-color: $nav-active-tab-color;
+            }
+        }
+
+        .flexbox & {
+            display: flex;
+            align-items: baseline;
+
+        }
+    }
+
+    .count {
+        position: absolute;
+        top: .688rem; // 11/16
+        right: 1.5rem; // 24/16
+        color: lighten($default-text-color, 20%);
+        transition: color $fast-ease;
+
+        .flexbox & {
+            position: absolute;
+        }
+    }
+}

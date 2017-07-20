@@ -1,0 +1,145 @@
+.c--dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.a--dropdown-trigger {
+    text-decoration: none;
+    display: flex;
+
+    &:before {
+        @include duo-icons;
+        @include transitions(transform $fast-ease);
+        content: $downCarret;
+        font-size: .65rem;
+        position: relative;
+        vertical-align: bottom;
+        display: inline-block;
+        line-height: 1rem;
+        order: 2;
+        align-self: center;
+        padding: .125rem 0 0 .5rem; /* 2/16 */
+    }
+
+    &:focus {
+        @include borders($border-color: $button-border-color);
+    }
+
+    &[aria-expanded="false"] {
+        overflow: hidden;
+    }
+
+    &[aria-expanded="true"] {
+
+        &:after {
+            box-sizing: border-box;
+            position: absolute;
+            display: block;
+            line-height: 1em;
+            bottom: -1.28em;
+            height: 0.8em;
+            right: -4px;
+            z-index: 5000;
+            width: 25px;
+            height: 14px;
+            content: url('../shared/images/dropdown-arrow.svg');
+            stroke: map-get($gray, light);
+        }
+
+    }
+    &.button {
+        &[aria-expanded="true"]:after {
+            left: calc(100% - 42px);
+        }
+        &:before {
+            padding-top: 0;
+            padding-bottom: 2px;
+        }
+    }
+}
+.a--dropdown-trigger:not(.button) {
+    padding-right: 0;
+}
+
+.button-row {
+    .a--dropdown-trigger {
+        &[aria-expanded="true"] {
+            &:after {
+                bottom: -1.45em;
+            }
+        }
+    }
+}
+
+
+.a--dropdown-content {
+    @include border-radius;
+    @include box-shadow(0 2px 2px 0 map-get($gray, light));
+    display: block;
+    position: absolute;
+    padding: 15px 0 12px;
+    border: 1px solid map-get($gray, light);
+    background-color: $white;
+    width: auto;
+    min-width: 125px;
+    white-space: nowrap;
+    margin-top: 1.15em;
+    z-index: 4000;
+
+    &[aria-hidden="true"] {
+        opacity: 0;
+        height: 0;
+        visibility: hidden;
+        display: none;
+    }
+
+    &[aria-hidden="false"] {
+        opacity: 1;
+        height: auto;
+        visibility: visible;
+    }
+
+    &.edge {
+        right: -.5em;
+    }
+
+    li {
+        margin-bottom: 0;
+        line-height: 1.5em;
+        list-style: none;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            @include transitions;
+            padding: 5px 45px 5px 20px;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 100%;
+            box-shadow: none;
+            text-align: left;
+            margin: 0;
+
+            &:hover {
+                text-decoration: none;
+                background-color: $dropdown-link-hover-color;
+                color: $white;
+
+                &.a--destruction {
+                    background-color: $error-red;
+                }
+            }
+
+            &:focus {
+                @include box-shadow;
+            }
+        }
+    }
+
+    &.disabled li a:hover {
+        color: $disabled-color;
+        background-color: $white;
+    }
+}

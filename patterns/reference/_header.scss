@@ -1,0 +1,44 @@
+@import "../global/variables";
+@import "../global/mixins";
+
+.header,
+.subhead {
+    @include clearfix;
+
+    li,
+    p {
+        margin-bottom: 0;
+    }
+
+    form {
+        display: inline-block;
+    }
+
+    h1 + div.button-row {
+        margin-bottom: 1.414em;
+    }
+
+    .flexbox & {
+        display: flex;
+        align-items: center;
+
+        > :first-child {
+            flex: 1;
+        }
+    }
+
+}
+
+// This creates the two line header with a descriptor line below the larger header title
+.c--header-stacked {
+    .header-description {
+        display: block;
+        font-size: $base-font-size;
+        font-weight: $base-font-weight;
+        line-height: $medium-line-height;
+    }
+
+    .header-type {
+        display: block;
+    }
+}

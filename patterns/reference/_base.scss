@@ -1,0 +1,927 @@
+
+body {
+    background: $body-background-color;
+}
+
+.offscreen {
+    position: absolute;
+    left: -5000px;
+}
+
+.auto_width {
+    width: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.important {
+    font-weight: bold;
+}
+
+.darker-red-text {
+    color: $error-red;
+}
+
+.grey-text {
+    color: $grey-light;
+}
+
+.or-cancel {
+    padding-left: 5px;
+    vertical-align: middle;
+
+    &.disabled a {
+        color: #999;
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.button-div {
+    text-align: right;
+    min-width: 120px;
+}
+
+.tight {
+    margin-bottom: 0;
+}
+
+[data-expire-count]:not(.modal),
+[data-expire-name]:not(.modal) {
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+}
+
+select#billing_info_credit_card_month {
+    margin-right: 5px;
+}
+
+.plus {
+    vertical-align: 10%;
+}
+
+.trial-feature-marker {
+  display: inline-block;
+  padding: .3rem .75rem;
+  border-radius: 16px;
+  font-size: .75rem;
+  line-height: .75rem;
+  color: $default-text-color;
+  background-color: #ccc;
+  vertical-align: middle;
+  font-family: $base-font-family;
+  font-weight: 500;
+  margin-left: 6px;
+
+  &.soon {
+    background-color: #f5ddb3;
+  }
+}
+
+// .base-container
+//   > .base-sidebar
+//   | > .base-header
+//   | > .navigation
+//   | | > .subnav
+//   | > .help-links
+//   > .base-main
+//   | > .base-actions
+//   | > .base-content
+.base-container {
+    background: $white;
+    @include border(right);
+    margin: 0 auto;
+    min-height: 100vh;
+    min-width: 1024px;
+    max-width: 1400px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.base-sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: $nav-background-color;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.base-header {
+    a {
+        @include no-box-shadow;
+        display: block;
+        padding: 1.438rem 0; /* 23/16 */
+
+        &:active,
+        &:focus,
+        &:hover {
+            @include no-box-shadow;
+        }
+    }
+
+    h1 {
+        display: none;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 0 0 1.563rem; /* 25/16 */
+        height: 2.188rem; /* 35/16 */
+        max-width: 100px;
+        width: 100%;
+    }
+
+    img.logo {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .logo-path {
+        @include transition(opacity);
+        fill: $white;
+    }
+
+    .logo-path-translucent {
+        opacity: 0.8;
+    }
+
+    &:hover .logo-path-translucent {
+        opacity: 1;
+    }
+}
+
+.base-actions {
+    @include clearfix;
+    background-color: $default-headernav-color;
+    padding: 1.188rem 2.938rem 1.25rem; /* 19/16, 20/16, 47/16 */
+    position: relative;
+    z-index: 100;
+
+    .wonka-bar {
+        float: left;
+
+        input[type="search"] {
+            color: map-get($gray, mid);
+            @include borders($border-color: $default-border-color);
+
+            &:placeholder {
+                color: map-get($gray, mid);
+            }
+
+            &:hover {
+                border-color: $button-border-hover-color;
+            }
+            &:focus {
+                color: $default-text-color;
+            }
+        }
+    }
+
+    .dropdown {
+        float: right;
+    }
+}
+
+.base-progress {
+    padding: 16px 48px;
+}
+
+.base-temporary-actions-container {
+    display: none;
+    float: right;
+    font-size: smaller;
+
+    [type="submit"] {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .select2-container {
+        width: 250px;
+    }
+}
+
+.base-content {
+    padding: .938rem 3rem; /* 15/16, 48/16 */
+}
+
+.base-footer {
+    padding-bottom: 20px;
+    grid-column-start: start;
+    grid-column-end: 2;
+    grid-row-start: 2;
+
+    a {
+        color: $default-link-color;
+    }
+
+    .inner {
+        margin: 0 auto;
+        text-align: center;
+        color: $default-text-color;
+    }
+}
+
+.delete {
+    text-align: right;
+    padding-top: 1px;
+}
+
+.base-title {
+    h1 {
+        margin-top: 0;
+    }
+}
+
+
+.subtitle {
+    color: #555;
+}
+
+
+#div_bypass,
+#div_desktoptokens,
+#div_endpoints,
+#div_hardtokens,
+#div_phones,
+#div_security_key {
+    margin-bottom: 30px;
+}
+
+.mobile-status {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.box-text {
+    border-radius: $border-radius;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 5px;
+    vertical-align: bottom;
+    white-space: nowrap;
+
+    &.green {
+        background-color: $duo-green;
+    }
+
+    &.red {
+        background-color: #df5446;
+        color: white;
+    }
+}
+// HELP
+a.helpicon {
+    vertical-align: top;
+    display: inline-block;
+    text-indent: -9999px;
+    margin: 5px 0 0 4px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    background: url("../images/help-sprite.png") 0 0;
+    cursor: pointer;
+
+    &.intext {
+        margin-top: 0;
+    }
+
+    &:focus,
+    &:hover {
+        background-position: 0 16px;
+    }
+
+    &.phone-help {
+        margin: 4px;
+    }
+
+    &.tight-help {
+        margin: 0 0 0 4px;
+    }
+}
+
+.explanation-text {
+    color: #777;
+}
+// DEVICES WIDGET
+.remove_phone_container {
+    padding: 2px 6px;
+    font-size: 11px;
+    background-color: #eee;
+    text-align: right;
+}
+
+.remove_phone_container a {
+    color: red;
+}
+// MOBILE ACTIVATION
+.send_instructions_check_box {
+    margin-bottom: 6px;
+}
+
+.send_instructions_check_box input {
+    margin-right: 3px;
+}
+
+#activation_msg,
+#installation_msg {
+    padding: 5px;
+    width: 400px;
+}
+// ADMIN ACTIVATION
+table#phone_entry {
+    width: 158px;
+}
+
+.calling_code_hint_td {
+    padding: 0 5px 0 0;
+}
+
+table#phone_entry input#phone {
+    width: 97% !important;
+    margin-bottom: 2px;
+}
+
+.numberhint {
+    font-size: 11px;
+    color: #777;
+    padding-left: 5px;
+}
+// ADMINS VIEW PAGE
+.bottom-margin {
+    margin-bottom: 1em;
+}
+
+.top-margin {
+    margin-top: 1em;
+}
+
+#email-barcode-link,
+#enable-push,
+.show_pointer {
+    cursor: pointer;
+}
+
+.read-only {
+    font-weight: bold;
+    color: #6377FB;
+}
+// LOGS
+#adminlog-table_wrapper,
+#authlog-table_wrapper {
+    margin-bottom: 20px;
+}
+
+.logs-form {
+    margin-bottom: 20px;
+}
+
+select.small {
+    width: 50px;
+}
+
+select.medium {
+    width: 100px;
+}
+
+.highcharts-tooltip {
+    padding: 5px;
+}
+
+// Settings page
+.image-placeholder {
+    padding: 6px;
+    border: 2px dashed #ccc;
+    width: 152px;
+    height: 152px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #ccc;
+    display: inline-block;
+    background-color: #eeeff4;
+}
+
+.image-placeholder > div {
+    background-color: #eeeff4;
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+.apns-error,
+.image-error {
+    color: #F16673;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+// A logo is being dragged on top of the element
+.image-placeholder.active,
+.image-placeholder.active div {
+    background-color: #fcfcfc;
+    color: #333;
+}
+// A custom logo is used
+.image-placeholder.custom {
+    padding: 8px;
+    border: none;
+}
+
+.image-placeholder.custom > div {
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    vertical-align: middle;
+    max-height: 152px;
+    width: 100%;
+}
+
+.image-placeholder p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.image-placeholder p.drop-text {
+    font-family: $base-font-family;
+    font-size: 15px;
+}
+// For the arrow
+.image-placeholder p.ss-icon {
+    font-size: 55px;
+    line-height: 50px;
+    margin-top: 40px;
+}
+
+.filereader .logo-file-name {
+    display: none;
+}
+
+.no-filereader .logo-file-name {
+    color: green;
+}
+
+.username.title {
+    width: 340px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.help-block {
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 1.3em;
+    color: #777;
+    font-size: 12px;
+    line-height: 20px;
+    @include low-res {
+        color: $default-text-color;
+    }
+
+    &.l--margin-top-reset-default {
+        @include l--margin-reset(top);
+    }
+
+    &.l--margin-bottom-default {
+        @include l--margin-bottom-default;
+    }
+}
+
+.help-block.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+
+.help-block.no-margin-top {
+    margin-top: 0;
+}
+
+.example-block {
+    display: block;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    color: #999;
+    font-size: 11px;
+}
+
+.checkbox-indent {
+    margin-left: 1.85rem; /* 20/16 */
+
+    &.subline {
+        display: block;
+        margin-bottom: $mid-margin-spacing;
+        font-size: $smaller-font-size;
+    }
+}
+
+textarea.checkbox-indent {
+    margin-top: 4px;
+    width: calc(100% - 24px);
+}
+// Activation page
+.user-filter {
+    margin-bottom: 30px;
+}
+
+.email-message #subject {
+    width: 490px;
+}
+
+.email-message #email-body {
+    width: 96%;
+    width: 490px;
+    height: 300px;
+}
+
+.email-message .help-block b,
+.sms-message .help-block b {
+    white-space: nowrap;
+}
+// Import Users page
+.form-error {
+    padding: 15px 20px;
+    background-color: #f7a1a9;
+    color: #333;
+    border: 1px solid #f16673;
+}
+
+.form-error p {
+    margin-bottom: 0.5em;
+}
+
+.form-error li {
+    list-style: disc;
+}
+
+.form-error ul {
+    margin-left: 30px;
+}
+
+.translucent {
+    filter: alpha(opacity = 70);
+    opacity: 0.7;
+}
+// Groups index page user count header
+th.users .ss-user {
+    color: #555;
+}
+
+.user-status-disabled,
+.user-status-locked-out {
+    color: $error-red;
+}
+
+.user-status-bypass {
+    color: $info-blue;
+}
+
+.user-status-active {
+    color: $success-green;
+}
+
+.user-status-pending-deletion {
+    color: $grey;
+}
+// Directory Sync styles
+.form-status {
+    padding: 15px 20px;
+    background-color: #ccc;
+    margin-bottom: 20px;
+}
+
+.form-status p {
+    margin: 0;
+}
+// AD Sync view page
+.adsync-hostname {
+    margin-bottom: 5px;
+}
+
+@mixin topnav-profile-size {
+    height: 2.375rem;
+    line-height: 3em;
+}
+.admin-menu,
+.customer-menu {
+    .a--dropdown-trigger {
+        @include topnav-profile-size;
+        color: $default-text-color;
+
+        &:before {
+            height: 2.375em;
+            line-height: 2.45em;
+            padding-top: 2px;
+            text-decoration: none;
+        }
+
+        &:hover {
+            &:before {
+                text-decoration: none;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.admin-menu {
+    margin-left: $large-margin-spacing;
+}
+
+.customer-menu {
+    .search {
+        &:before {
+            content: none;
+        }
+    }
+    .a--dropdown {
+        &-trigger {
+            svg {
+                @include topnav-profile-size;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 .5em;
+            }
+        }
+        &-content {
+            padding-right: 1.2em;
+            padding-left: 1.2em;
+        }
+    }
+    button {
+        display: block;
+        float: right;
+    }
+}
+
+.search .select2-container {
+    display: block;
+    margin: 0 0 8px;
+
+    .select2-choice .select2-arrow {
+        background: none;
+        border: none;
+    }
+
+    a {
+        background: $white;
+        height: 25px;
+        line-height: 25px;
+    }
+}
+
+.select2-results {
+    .select2-result {
+        font-size: 12px;
+        margin: 2px 0;
+
+        &.select2-highlighted {
+            background: $hover-input-border-color;
+        }
+    }
+}
+
+#custom_code {
+    width: 100px;
+}
+
+.customer-name-header {
+    display: inline-block;
+    position: relative;
+    border-radius: $border-radius;
+    height: 40px;
+    padding: 0 8px;
+    @include no-box-shadow;
+
+    &:hover {
+        @include no-box-shadow;
+    }
+
+    img,
+    span {
+        height: calc(100% - 8px);
+        line-height: calc(100% - 8px);
+        vertical-align: middle;
+        margin: 4px;
+    }
+
+    img {
+        border-radius: $border-radius;
+    }
+}
+// Balloon Tooltips
+.info-tooltip-parent {
+    position: relative;
+}
+
+.info-tooltip {
+    position: absolute;
+    background-color: $white;
+    border: 2px solid $base-border-color;
+    bottom: -10px;
+    left: 35%;
+    width: 29%;
+    z-index: 9999;
+    padding: 15px;
+    font-size: 12px;
+    border-radius: 6px;
+    color: $default-text-color;
+
+    h3 {
+        text-transform: none;
+        margin: 0;
+        margin-bottom: 6px !important;
+    }
+
+    p,
+    ul {
+        font-family: $base-font-family;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+        margin: 0;
+    }
+}
+
+.info-tooltip-small {
+    width: 200px;
+}
+.info-tooltip-medium {
+    width: 310px;
+}
+.info-tooltip-large {
+    width: 600px;
+}
+// CSS From http://www.cssarrowplease.com/ for arrow/point under tooltip
+.info-tooltip:after,
+.info-tooltip:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+
+.info-tooltip:after {
+    border-top-color: $white;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.info-tooltip:before {
+    border-top-color: $base-border-color;
+    border-width: 13px;
+    margin-left: -13px;
+}
+
+/* Tooltips below */
+.info-tooltip.popover-below {
+    bottom: auto;
+    top: 30px;
+}
+
+.info-tooltip.popover-below:after,
+.info-tooltip.popover-below:before {
+    top: auto;
+    bottom: 100%;
+}
+
+.info-tooltip.popover-below:after {
+    border-top: none;
+    border-bottom-color: $white;
+}
+
+.info-tooltip.popover-below:before {
+    border-top: none;
+    border-bottom-color: $base-border-color;
+}
+
+/* Tooltips to right */
+.info-tooltip.popover-to-right {
+    bottom: auto;
+    top: 0;
+    left: calc(100% + 20px);
+    transform: translateY(-50%);
+}
+.info-tooltip.popover-to-right:after,
+.info-tooltip.popover-to-right:before {
+    left: auto;
+    right: 100%;
+    top: 50%;
+    margin-left: 0;
+    border-top-color: transparent;
+}
+
+.info-tooltip.popover-to-right:after {
+    border-right-color: $white;
+    margin-top: -10px;
+}
+
+.info-tooltip.popover-to-right:before {
+    border-right-color: $base-border-color;
+    margin-top: -13px;
+}
+
+/* Tooltips to left */
+.info-tooltip.popover-to-left {
+    bottom: auto;
+    top: 0;
+    left: 0;
+    right: calc(100% + 20px);
+    transform: translateY(-50%);
+}
+.info-tooltip.popover-to-left:after,
+.info-tooltip.popover-to-left:before {
+    left: 100%;
+    top: 50%;
+    margin-left: 0;
+    border-top-color: transparent;
+}
+
+.info-tooltip.popover-to-left:after {
+    border-left-color: $white;
+    margin-top: -10px;
+}
+
+.info-tooltip.popover-to-left:before {
+    border-left-color: $base-border-color;
+    margin-top: -13px;
+}
+
+.info-tooltip .button-container {
+    text-align: right;
+}
+
+.info-tooltip button.close-button {
+    background-color: $info-blue;
+    border-color: $info-blue;
+    color: $white;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 15px;
+    font-size: 12px;
+    padding: 0 16px;
+}
+
+.info-tooltip .popover-close {
+    width: 11px;
+    height: 11px;
+    overflow: hidden;
+    text-indent: -2000em;
+    background-image: url('../images/tooltip-close.png');
+    @include retina {
+        background-image: url('../images/tooltip-close@2x.png');
+    }
+}
+
+// Circular number label
+.section-label {
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
+    letter-spacing: initial;
+    text-align: center;
+    display: inline-block;
+    width: 2.215em;
+    height: 2.215em;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $info-blue-border;
+    background-color: $info-blue-light;
+    margin: -.3em 10px 0 0;
+    padding-top: .2em;
+    vertical-align: middle;
+    font-size: 0.64em;
+    line-height: 1.8;
+    color: #818E97;
+}

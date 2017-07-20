@@ -1,0 +1,8 @@
+.a--h2-style,
+h3 {
+    @include header;
+    font-size: $medium-font-size;
+    line-height: 1.438rem; /* 23/16 */
+    margin-bottom: 0;
+    letter-spacing: normal;
+}

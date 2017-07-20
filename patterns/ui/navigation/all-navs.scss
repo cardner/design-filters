@@ -1,0 +1,12 @@
+@import "../../global/variables";
+@import "../../global/mixins";
+@import "../../global/extends";
+
+@mixin active-nav-tab {
+    border-left: 5px solid $nav-active-tab-color;
+}
+
+@import "main-nav";
+@import "sub-nav";
+@import "support-nav";
+@import "duo-prompt-nav";

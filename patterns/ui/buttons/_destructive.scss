@@ -1,0 +1,23 @@
+%destructive,
+.c--destruction {
+    &:before {
+        content: $trashcan;
+        display: inline-block;
+        font-size: 1.05rem;
+        font-weight: $bold-font-weight;
+        padding-right: 6px;
+        margin-top: -.2em;
+    }
+
+    &:after {
+        background-color: $destructive-button-color;
+    }
+
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+&.a--destruction-ico:before {
+    padding-right: 0;
+}

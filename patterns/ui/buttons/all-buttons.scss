@@ -1,0 +1,228 @@
+@import "../../global/variables";
+@import "../../global/mixins";
+@import "../../global/extends";
+
+a,
+button {
+    cursor: pointer;
+    text-decoration: none;
+}
+/////////////// Buttons
+///////// Primary Button
+
+%button,
+.button,
+button:not(.link),
+input[type="button"],
+input[type="src"]:not(.link) input[type="reset"] {
+    @include border-radius;
+    @include transitions(color $fast-ease, background-color $fast-ease, border $slow-ease, box-shadow $slow-ease, max-height $slow-ease);
+    display: inline-block;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    text-decoration: none;
+    line-height: 1.5em;
+    min-height: 2.5rem;
+    @include borders($border-color: $button-border-color);
+    padding: .65rem 1.25rem .4rem; // 10/16, 20/16
+    color: $button-text-color;
+    background-color: transparent;
+    letter-spacing: .04em;
+
+    &:hover {
+        text-decoration: none;
+        background-color: $default-button-hover-color;
+        border-color: $default-button-hover-color;
+        color: $white;
+        cursor: pointer;
+    }
+
+    &:focus {
+        @include box-shadow;
+        outline: none;
+        border-color: $button-border-hover-color;
+    }
+
+    &:active {
+        @include box-shadow(inset 0 0 6px 0px $default-dropshadow-color);
+        border-color: $default-button-hover-color;
+    }
+
+    &.icon:after,
+    &.icon:before {
+        vertical-align: middle;
+    }
+
+    &.icon-only {
+        padding-left: 12px;
+        padding-right: 6px;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    // Hide the disabled tool tip if the button has been enabled
+    i[role="tooltip"] {
+        display: none;
+    }
+
+    //Add all imports here for different button types
+    @import "primary";
+    @import "disabled";
+
+    &.square {
+        text-align: center;
+        padding-left: 4px;
+        padding-right: 4px;
+
+        i {
+            display: block;
+            font-size: 2rem;
+            height: 2rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &.a--btn-icon-clear {
+        &:before {
+            content: none;
+            display: none;
+        }
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+}
+
+/* this is to create the new buttons style of button links */
+.c--button-link {
+    @include button-to-link-reset;
+
+    /* modifier for destructive button links TODO come back and fix inheritance with extends and buttons */
+
+    &.c--destruction:before {
+        content: $trashcan;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: $bold-font-weight;
+        padding-right: 6px;
+        margin-top: -.2em;
+    }
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &.centered {
+        justify-content: center;
+    }
+
+    &.right {
+        justify-content: flex-end;
+    }
+
+    &.top {
+        align-self: flex-start;
+    }
+
+    // Fix vertical alignment of primary buttons when the button-row is itself
+    // inside a flex container.
+    a.button.c--primary {
+        align-self: flex-start;
+    }
+
+    // Prevent button text from wrapping, since we're letting the items wrap.
+    // Style buttons and anchors with margin and piping
+    > a,
+    > button {
+        white-space: nowrap;
+        position: relative;
+        margin: 0 16px;
+
+        /* Between two adjacent non-buttons, put a separator */
+        &:after {
+            content: '';
+            display: inline-block;
+            margin-left: 15px;
+            margin-right: -16px;
+            top: 2px;
+            background-color: $default-text-color;
+            width: 1px;
+            height: 14px;
+        }
+
+        // Drastic but resets all button and links that are not .c--primary to link style
+        &:not(.c--primary):not(.a--dropdown-trigger) {
+            color: $default-text-color;
+            @include button-to-link-reset;
+        }
+
+        // clear left margin on these selectors
+        &.c--primary {
+            margin-left: 0;
+        }
+
+        // if there's only one item in the row kill right padding
+        &:first-child:last-child {
+            margin-right: 0;
+        }
+
+        // Remove the border right for these selectors / elements
+        &:last-child,
+        &.a--piping-none,
+        &.c--primary,
+        &.a--dropdown-trigger {
+            &:after {
+                content: unset;
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    a + .c--primary,
+    a + .a--dropdown-trigger {
+        &:nth-last-child(2) {
+            &:after {
+                content: unset;
+            }
+        }
+    }
+
+    // Make exception on margin for bulk selector buttons
+    .bulk-selector-wrap .a--dropdown-trigger {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    // When button row has an embedded form, don't wrap items inside it.
+    // Also, remove outside margins.
+    form.button-row {
+        display: flex; // Needs to win over .header form
+        flex-wrap: nowrap;
+
+        a:first-child,
+        button:first-child {
+            margin-left: 0;
+        }
+        a:last-child,
+        button:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+@import "destructive";
+@import "download";
+@import "dropdowns";
+@import "bulk-selector";
+@import "form-elements";
+@import "navigational";
+@import "pagination";

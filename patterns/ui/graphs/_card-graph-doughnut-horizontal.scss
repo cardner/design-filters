@@ -1,0 +1,14 @@
+.c--card-doughnutgraph-horizontal {
+    $card-values: 160px 1fr 1fr 1fr, 2;
+    @include c--chart-doughnut($card-values...);
+    grid-row-gap: 1.25rem; /* 20/16 */
+    list-style-type: none;
+    text-align: left;
+
+    .highcharts-series {
+        path {
+            stroke: $white;
+            stroke-width: 3px;
+        }
+    }
+}

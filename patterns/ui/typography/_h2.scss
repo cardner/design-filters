@@ -1,0 +1,7 @@
+.a--h2-style,
+h2 {
+    @include header;
+    font-size: $large-font-size;
+    margin-bottom: $header-margin-bottom-spacing;
+    letter-spacing: 0,;
+}
