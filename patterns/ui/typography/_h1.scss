@@ -1,0 +1,20 @@
+
+// Title:
+// Main Heading
+//
+// Version:
+// Stable
+// Styleguide 1.0.0
+//
+// Code:
+// <h1>Main Heading</h1>
+//
+// Usage:
+// Main headings should only exist once on each page. Use them to title the entire page.
+
+h1 {
+  @extend %header;
+  font-size:   $largest-font-size;
+  margin-bottom: $h1-header-margin-bottom-spacing;
+  letter-spacing: 0rem;
+}

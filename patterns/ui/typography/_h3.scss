@@ -1,0 +1,20 @@
+
+// Title:
+// NA
+//
+// Version:
+// Stable
+// Styleguide 1.0.0
+//
+// Code:
+// <h3>NA</h3>
+//
+// Usage:
+// NA
+
+h3 {
+  @extend %header;
+  font-size: $large-font-size;
+  margin-bottom: $header-margin-bottom-spacing;
+  letter-spacing: -.0125em;
+}

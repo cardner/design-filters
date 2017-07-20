@@ -1,0 +1,842 @@
+
+body {
+    background: $duo-blue;
+}
+
+.offscreen {
+  position: absolute;
+  left: -5000px;
+}
+
+.auto_width {
+  width: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.important {
+    font-weight: bold;
+}
+
+.darker-red-text {
+  color: $error-red;
+}
+
+.grey-text {
+  color: $grey-light;
+}
+
+.or-cancel {
+    padding-left: 5px;
+    vertical-align: middle;
+
+    &.disabled a {
+        color: #999;
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+.table-row {
+    display: table-row;
+}
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.button-div {
+    text-align: right;
+    min-width: 120px;
+}
+
+.tight {
+  margin-bottom: 0;
+}
+
+[data-expire-name]:not(.modal),
+[data-expire-count]:not(.modal) {
+  display: none;
+
+  &.visible {
+      display: block;
+  }
+
+}
+
+/* BILLING FORM */
+
+select#billing_info_country {
+  width: 150px;
+}
+input.city {
+  width: 110px;
+  margin-right: 5px;
+}
+input.state {
+  /* Needed for Recurly */
+  width: 25px;
+}
+input.state-full {
+  width: 110px;
+}
+input.cvv {
+  width: 35px;
+}
+input.zipcode {
+  width: 50px;
+}
+
+select#billing_info_credit_card_month, select#billing_info_credit_card_year {
+  width: 120px !important;
+}
+select#billing_info_credit_card_month {
+  margin-right: 5px;
+}
+
+.plus {
+  vertical-align: 10%;
+}
+
+.breadcrumbs {
+    font-size: small;
+
+    a {
+        color: $grey;
+
+        &:hover {
+            color: $grey-dark;
+        }
+    }
+
+    i {
+        margin: 0 8px;
+        line-height: 1.5em;
+        display: inline-block;
+        vertical-align: text-top;
+    }
+
+    @include low-res {
+        a:hover {
+            color: $grey-dark-low-res;
+        }
+    }
+}
+
+// .base-container
+//   > .base-sidebar
+//   | > .base-header
+//   | > .help-links
+//   > .base-main
+//   | > .base-actions
+//   | > .base-content
+$base-sidebar-width: 200px;
+
+.base-container {
+    background: $grey-lighter;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+    margin: 0 auto;
+    min-height: 100vh;
+    min-width: 1024px;
+    max-width: 1400px;
+    position: relative;
+    overflow: overlay;
+
+    @include low-res {
+        background: $grey-lighter-low-res;
+    }
+}
+
+.base-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    width: $base-sidebar-width;
+}
+
+.base-header {
+    a {
+        display: block;
+        padding: 20px 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        height: 40px;
+        max-width: 100px;
+        width: 100%;
+    }
+
+    img.logo {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .logo-path {
+        @include transition(opacity);
+        fill: $duo-green;
+    }
+
+    .logo-path-translucent {
+        opacity: 0.8;
+    }
+
+    &:hover .logo-path-translucent {
+        opacity: 1;
+    }
+}
+
+.base-main {
+    margin-left: $base-sidebar-width;
+}
+
+.base-actions {
+    @include clearfix;
+    background: darken($grey-lighter, 4%);
+    padding: 20px 48px;
+    position: relative;
+    z-index: 100;
+
+    .wonka-bar {
+        float: left;
+    }
+
+    .dropdown {
+        float: right;
+        margin-left: 16px;
+    }
+
+    @include low-res {
+        background: #dadada;
+    }
+}
+
+.base-progress {
+    padding: 16px 48px;
+}
+
+.base-temporary-actions-container {
+    display: none;
+    float: right;
+    font-size: smaller;
+
+    [type="submit"] {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .select2-container {
+        width: 250px;
+    }
+}
+
+.base-content {
+    padding: 20px 48px;
+
+    @include low-res {
+        background: $grey-lighter-low-res;
+    }
+}
+
+.base-footer {
+    padding-bottom: 20px;
+
+    a {
+        text-decoration: none;
+        color: #777;
+
+        &:hover {
+            color: #555;
+        }
+    }
+
+    .inner {
+        margin: 0 auto;
+        text-align: center;
+        color: #aaa;
+    }
+
+    @include low-res {
+        background: $grey-lighter-low-res;
+
+        .inner, a {
+            color: $grey-dark-low-res;
+        }
+    }
+}
+
+.delete {
+  text-align: right;
+  padding-top: 1px;
+}
+
+.base-title {
+    h1 {
+        margin-top: 0;
+    }
+}
+
+.subtitle {
+  color: #555;
+}
+
+#div_phones, #div_endpoints, #div_desktoptokens, #div_hardtokens, #div_bypass {
+  margin-bottom: 30px;
+}
+
+.mobile-status {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.box-text {
+  border-radius: $border-radius;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 5px;
+  vertical-align: bottom;
+  white-space: nowrap;
+
+  &.green {
+    background-color: $duo-green;
+  }
+  &.red {
+    background-color: #df5446;
+  }
+}
+
+/* HELP */
+
+a.helpicon {
+  vertical-align: top;
+  display: inline-block;
+  text-indent: -9999px;
+  margin: 5px 0 0 4px;
+  overflow: hidden;
+  width: 16px;
+  height: 16px;
+  background: url(../images/help-sprite.png) 0 0;
+  cursor: pointer;
+
+  &.intext {
+    margin-top: 0;
+  }
+
+  &:hover, &:focus {
+    background-position: 0 16px;
+  }
+
+  &.phone-help {
+    margin: 4px;
+  }
+
+  &.tight-help {
+    margin: 0 0 0 4px;
+  }
+}
+
+.explanation-text {
+  color: #777;
+}
+
+/* DEVICES WIDGET */
+
+.remove_phone_container {
+  padding: 2px 6px;
+  font-size: 11px;
+  background-color: #eee;
+  text-align: right;
+}
+.remove_phone_container a {
+  color: red;
+}
+
+/* MOBILE ACTIVATION */
+
+.send_instructions_check_box {
+  margin-bottom: 6px;
+}
+  .send_instructions_check_box input {
+    margin-right: 3px;
+  }
+#installation_msg, #activation_msg {
+  padding: 5px;
+  width: 400px;
+}
+
+
+/* ADMIN ACTIVATION */
+
+table#phone_entry {
+  width: 158px;
+}
+
+.calling_code_hint_td {
+  padding: 0 5px 0 0;
+}
+
+table#phone_entry input#phone {
+  width: 97% !important;
+  margin-bottom: 2px;
+}
+
+.numberhint {
+  font-size: 11px;
+  color: #777;
+  padding-left: 5px;
+}
+
+/* ADMINS VIEW PAGE */
+.bottom-margin {
+  margin-bottom: 1em;
+}
+
+.top-margin {
+  margin-top: 1em;
+}
+
+#enable-push, #email-barcode-link, .show_pointer {
+  cursor: pointer;
+}
+
+.read-only {
+  font-weight: bold;
+  color: #6377FB;
+}
+
+/* LOGS */
+
+#authlog-table_wrapper, #adminlog-table_wrapper {
+  margin-bottom: 20px;
+}
+
+.logs-form {
+  margin-bottom: 20px;
+}
+
+select.small {
+  width: 50px;
+}
+select.medium {
+  width: 100px;
+}
+
+.highcharts-tooltip {
+  padding: 5px;
+}
+
+.select2-container {
+    width: 350px;
+}
+
+/* Settings page */
+.image-placeholder {
+  padding: 6px;
+  border: 2px dashed #ccc;
+  width: 152px;
+  height: 152px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #ccc;
+  display:inline-block;
+  background-color: #eeeff4;
+}
+
+.image-placeholder > div {
+  background-color: #eeeff4;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+
+.image-error, .apns-error {
+  color: #F16673;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+/* A logo is being dragged on top of the element */
+.image-placeholder.active,
+.image-placeholder.active div {
+  background-color: #fcfcfc;
+  color: #333;
+}
+
+/* A custom logo is used */
+.image-placeholder.custom {
+  padding: 8px;
+  border: none;
+}
+
+.image-placeholder.custom > div {
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-placeholder img {
+  vertical-align: middle;
+  max-height: 152px;
+  width: 100%;
+}
+
+.image-placeholder p {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.image-placeholder p.drop-text {
+  font-family: $base-font-family;
+  font-size: 15px;
+}
+
+/* For the arrow */
+.image-placeholder p.ss-icon {
+  font-size: 55px;
+  line-height: 50px;
+  margin-top: 40px;
+}
+
+.apns-file-upload-wrapper, .logo-file-upload-wrapper {
+  .reset-apns, .reset-logo {
+    span {
+      color: $grey-darker;
+    }
+  }
+}
+
+.filereader .logo-file-name {
+  display: none;
+}
+
+.no-filereader .logo-file-name {
+  color: green;
+}
+
+.username.title {
+  width: 340px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.help-block {
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 1.3em;
+    color: #777;
+    font-size: 12px;
+    line-height: 20px;
+
+    @include low-res {
+        color: $grey-dark-low-res;
+    }
+
+    &.l--margin-top-reset-default {
+        @include l--margin-reset(top, -.8em);
+    }
+
+    &.l--margin-bottom-default {
+        @include l--margin-bottom-default;
+    }
+}
+
+.help-block.no-margin-bottom {
+  @include l--margin-reset(bottom);
+}
+
+.help-block.no-margin-top {
+  @include l--margin-reset(top);
+}
+
+.example-block {
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  color: #999;
+  font-size: 11px;
+}
+
+.checkbox-indent {
+    margin-left: 1.25rem; /* 20/16 */
+
+    &.subline {
+        display: block;
+        margin-bottom: 10px;
+        color: $grey;
+        font-size: 12px;
+
+        @include low-res {
+            color: $grey-dark-low-res;
+        }
+    }
+}
+
+textarea.checkbox-indent {
+  margin-top: 4px;
+  width: calc(100% - 24px);
+}
+
+/* Activation page */
+
+.user-filter {
+    margin-bottom: 30px;
+}
+
+.email-message #subject {
+    width: 490px;
+}
+
+.email-message #email-body {
+    width: 96%;
+    width: 490px;
+    height: 300px;
+}
+
+.email-message .help-block b,
+.sms-message .help-block b {
+    white-space: nowrap;
+}
+
+/* Import Users page */
+.form-error {
+    padding: 15px 20px;
+    background-color: #f7a1a9;
+    color: #333;
+    border: 1px solid #f16673;
+}
+
+.form-error p {
+    margin-bottom: 0.5em;
+}
+
+.form-error li {
+    list-style: disc;
+}
+
+.form-error ul {
+    margin-left: 30px;
+}
+
+.translucent {
+    filter: alpha(opacity = 70);
+    opacity: 0.7;
+}
+
+/* Groups index page user count header */
+th.users .ss-user {
+    color: #555;
+}
+
+.user-status-disabled {
+    color: $error-red;
+}
+
+.user-status-bypass {
+    color: $info-blue;
+}
+
+.user-status-active {
+    color: $duo-green;
+}
+
+.user-status-locked-out {
+    color: darken($error-red, 20%);
+}
+
+.user-status-pending-deletion {
+    color: $grey;
+}
+
+/* Directory Sync styles */
+input.text250 {
+    width: 250px;
+}
+
+input[name="hostname"] {
+    width: 190px;
+}
+
+input[name="port"] {
+    width: 51px;
+}
+
+.form-status {
+    padding: 15px 20px;
+    background-color: #ccc;
+    margin-bottom: 20px;
+}
+
+.form-status p {
+    margin: 0;
+}
+
+
+/* AD Sync view page */
+.adsync-hostname {
+    margin-bottom: 5px;
+}
+
+.labs-feature {
+  background-color: #F6F7F9;
+  background-image: url('../images/duo-seal-white.svg');
+  background-repeat: no-repeat;
+  background-position: 98% 30%;
+  background-size: 480px;
+
+  padding: 5px 10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  position: relative;
+
+  .fg, .fg path {
+    fill: #364955;
+  }
+  .bg, .bg path {
+    fill: white;
+  }
+
+  &.disabled {
+    .fg, .fg path {
+      fill: #999;
+    }
+    .bg, .bg path {
+      fill: #F6F7F9;
+    }
+  }
+
+  .field {
+    margin-top: 5px;
+  }
+}
+
+.labs-icon {
+  display: inline-block;
+  vertical-align: -7px;
+  margin-right: 3px;
+  text-decoration: none;
+}
+
+.labs-upsell {
+  display: none;
+
+  .disabled & {
+    display: block;
+  }
+}
+
+/* Circle Icons */
+@mixin status-circle($color) {
+    border-color: $color;
+    color: $color;
+
+    g > * {
+      stroke: $color;
+    }
+    line {
+      stroke: $color;
+    }
+}
+
+.status-circle {
+  border: 2px solid;
+  border-radius: 50%;
+  display: inline-block;
+  height: 64px;
+  text-align: center;
+  vertical-align: middle;
+  width: 64px;
+
+  &.green {
+    @include status-circle($duo-green);
+  }
+  &.red {
+    @include status-circle($error-red);
+  }
+  &.gray {
+    @include status-circle(#b8b8b8);
+  }
+  &.dark-gray {
+    @include status-circle(#939393);
+  }
+  &.filled-green {
+    @include status-circle(#FFF);
+    background-color: $duo-green;
+  }
+  &.filled-red {
+    @include status-circle(#FFF);
+    background-color: $error-red;
+  }
+
+  svg {
+    height: 34px;
+    margin: -17px 0 0 0;
+    position: relative;
+    top: 50%;
+    width: 34px;
+  }
+}
+
+.red {
+    color: $error-red;
+}
+
+.search .select2-container {
+  margin: 0;
+  margin-bottom: 8px;
+
+  .select2-choice .select2-arrow {
+    background: none;
+    border: none;
+  }
+
+  a {
+    background: white;
+    height: 25px;
+    line-height: 25px;
+  }
+}
+
+.select2-results {
+  .select2-result {
+    font-size: 12px;
+    margin: 2px 0;
+
+    &.select2-highlighted {
+      background: $duo-green;
+    }
+  }
+}
+#custom_code{
+  width: 100px;
+}
+
+.customer-name-header {
+  display: inline-block;
+  position: relative;
+  border-radius: $border-radius;
+  height: 40px;
+  padding: 0 8px;
+  img, span {
+    height: calc(100% - 8px);
+    line-height: calc(100% - 8px);
+    vertical-align: middle;
+    margin: 4px
+   }
+  img {
+    border-radius: $border-radius;
+  }
+}

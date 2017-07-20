@@ -1,0 +1,81 @@
+$app-version: '1.1.0';
+<<<<<<< HEAD:assets/styles/patterns/colors/_colors.scss
+@import "../../reference/deprecate";
+=======
+@import "../global/deprecate";
+>>>>>>> titanAE:patterns/colors/all-colors.scss
+// Colors
+$white: #fff;
+
+$gray: (
+    dropshadow: rgba(68, 68, 68, .59),
+    disabled: #686868,
+    background: #f7f7f7,
+    lightest: #efefef,
+    light: #ccc,
+    mid: #757575,
+    dark: #444444
+);
+
+$blue: (
+    duo-light: #476376,
+    cta-light: #2774D5,
+    cta: #306FC3,
+    cta-dark: #1550AF,
+    duo: #405665,
+    light: #2798D4,
+    info: #2698D4
+);
+
+$red: (
+    alert: #D0011B,
+    darker: #BA0013
+);
+
+$orange: (
+    warn: #df6a27
+);
+
+$green: (
+    success: #44A91D,
+    duo: #6DBE4F,
+    dark: #569E44
+);
+
+// we should eventually just get rid of these all together
+$grey-darker: map-get($gray, dark);
+$grey-dark: map-get($gray, mid);
+$grey: map-get($gray, mid);
+$grey-light: map-get($gray, light);
+$grey-lighter: map-get($gray, lightest);
+
+$white: white;
+
+// Platform colors
+$chrome-green: #68cf6a;
+$safari-red: #fe5255;
+$firefox-orange: #f9923e;
+$ie-blue: #3eb2ef;
+$edge-blue: #2e6fb3;
+$macosx-blue: #08C0E5;
+$windows-green: #1E896F;
+
+// Insight graph colors
+$insight-card-border: #dadada;
+
+$insight-os-tooltip-color: #317867;
+$insight-os-selected-color: #357E6D;
+$insight-browser-tooltip-color: #606E7A;
+$insight-browser-selected-color: #606E7A;
+$insight-plugin-tooltip-color: #67A3B7;
+$insight-plugin-selected-color: #379ED4;
+
+$policy-builder-warning-text-brown: #806840;
+$policy-builder-warning-background-yellow: #FEF4E2;
+$policy-builder-warning-border-yellow: #F5E1BF;
+$policy-builder-help-text-grey: #757E81;
+$policy-builder-help-text-background-grey: #F8F8F8;
+$policy-builder-help-text-border-grey: #D0DCE2;
+
+@import "brand";
+@import "secondary";

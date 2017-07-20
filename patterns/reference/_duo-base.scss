@@ -1,0 +1,64 @@
+// because border-box is awesome
+// http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    background-color: $grey-lighter;
+    color: $default-text-color;
+}
+
+a[target="_blank"] {
+    margin-right: 1.4em;
+
+    .feed-section & {
+        margin-right: 0;
+    }
+
+    i.icon-new-window {
+      display: inline-block;
+      text-decoration: none;
+      padding-left: 4px;
+      font-size: 80%;
+      margin-right: -1.6em; // -20/16
+    }
+  }
+
+dl {
+    margin-top: 0;
+}
+
+p, li {
+    margin-bottom: 0.875rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.disabled, .disabled-row {
+    &, h1, h2, h3, h4, h5, h6 {
+        color: $disabled-color;
+    }
+
+    a {
+        color: darken($disabled-color, 10%);
+    }
+}
+
+.disabled-row {
+    color: #999;
+
+    a {
+        color: #777;
+    }
+}

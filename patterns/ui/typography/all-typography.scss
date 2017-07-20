@@ -1,0 +1,77 @@
+@import "../../global/variables";
+@import "../../global/mixins";
+@import "../../global/extends";
+
+// Base fonts and sizes
+$browser-context: 14;
+
+//From CSS Tricks to allow use of em calculation
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+%header {
+  color:       $heading-color;
+  font-family: $heading-font-family;
+  font-weight: $bold-font-weight;
+  line-height: 1.2;
+}
+
+body {
+    color: $base-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+    letter-spacing: $base-letter-spacing;
+}
+
+// Type classes for reseting visual styles of elements
+.a--font-reset {
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
+    letter-spacing: initial;
+}
+// Override normal reset for small size
+small {
+    font-size: $small-font-size;
+}
+.a--font-size-smaller {
+    font-size: $smaller-font-size;
+}
+
+// Just some normal weight classes
+.a--font-weight-default {
+    font-weight: $base-font-weight;
+}
+
+.a--font-weight-medium {
+    font-weight: $medium-font-weight;
+}
+
+.a--font-weight-bold {
+    font-weight: $bold-font-weight;
+}
+
+b,
+strong {
+    font-weight: $medium-font-weight;
+}
+
+@import "body";
+@import "h1";
+@import "h2";
+@import "h3";
+@import "h4";
+@import "h5";
+@import "h6";
+@import "instructional";
+@import "button-label";

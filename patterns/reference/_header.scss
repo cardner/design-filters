@@ -1,0 +1,26 @@
+@import "../global/variables";
+@import "../global/mixins";
+
+.header, .subhead {
+    @include clearfix;
+    p, li {
+        margin-bottom: 0;
+    }
+
+    form {
+        display: inline-block;
+    }
+
+    h1 + div.button-row {
+        margin-bottom: 1.414em;
+    }
+
+    .flexbox & {
+        display: flex;
+        align-items: center;
+
+        > :first-child {
+            flex: 1;
+        }
+    }
+}

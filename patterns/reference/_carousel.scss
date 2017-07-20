@@ -1,0 +1,64 @@
+.carousel-view .navigation {
+    height: 25px;
+    padding: 10px 0px;
+    font-size: 12px;
+    position: relative;
+    width: 100%;
+
+    .nav-button {
+        color: $grey-dark;
+        cursor: pointer;
+
+        & .navigation-label {
+          text-decoration: underline;
+        }
+
+        & > i[class^="icon-"]:before {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        & > i {
+            vertical-align: middle;
+        }
+
+        &.back {
+            position: absolute;
+            left: 0;
+        }
+
+        &.next {
+            position: absolute;
+            right: 0;
+            text-align: right;
+        }
+
+        &.hidden {
+          visibility: hidden;
+        }
+    }
+
+    .card-dots {
+        text-align: center;
+
+        .dot {
+            // Increase the click-target size
+            padding: 3px;
+            cursor: pointer;
+            margin: 1px;
+            display: inline-block;
+            vertical-align: middle;
+
+            & > div {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: $grey-light;
+            }
+
+            &.active > div {
+                background-color: $grey-dark
+            }
+        }
+    }
+}

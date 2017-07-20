@@ -1,0 +1,161 @@
+@import "../global/variables";
+@import "../global/mixins";
+
+// XXX If this is changed, the kludgy timeout in addTransitionEndHandler
+// in modal.js should be adjusted also
+$animation-duration: 250ms;
+
+.noscroll {
+    overflow: hidden;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    transition-property: opacity;
+    transition-duration: $animation-duration;
+    transition-timing-function: ease-in-out;
+
+    &.hiding {
+        opacity: 0;
+    }
+
+    &.hidden {
+        display: none;
+        opacity: 0;
+        transition: none;
+    }
+
+    &.before-showing {
+        opacity: 0;
+    }
+}
+
+.modal {
+    background-color: $white;
+    border-radius: $border-radius;
+
+    position: relative;
+
+    // TODO-XXX: Z-index needed when using frameserv/.../v3/modal.js,
+    // but not static/shared/js/modal.js
+    // This is because the former doesn't make .modal a child of .overlay,
+    // whose z-index is 1000.
+    z-index: 1001;
+
+    opacity: 1;
+
+    transition-property: opacity;
+    transition-duration: $animation-duration;
+    transition-timing-function: ease-in-out;
+
+    &.hiding {
+      opacity: 0;
+    }
+
+    &.hidden {
+      opacity: 0;
+      display: none;
+      transition: none;
+    }
+
+    &.before-showing {
+      opacity: 0;
+    }
+}
+
+.ie9 .modal {
+    // IE9 hacks due to no flex support
+    // XXX .no-flexbox is not applied correctly, so we use .ie9 instead.
+    margin: auto;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+}
+
+form.modal {
+    padding: 0;
+}
+
+.modal-fixed {
+    height: 90%;
+    margin: auto;
+    max-width: 600px;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 90%;
+}
+.modal-fixed-content,
+.modal-fixed-footer,
+.modal-fixed-header {
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+.modal-fixed-content {
+    top: 80px;
+    bottom: 80px;
+}
+.modal-fixed-footer {
+    height: 80px;
+    bottom: 0;
+}
+.modal-fixed-header {
+    height: 80px;
+    top: 0;
+}
+
+.modal-auto {
+    transition: opacity $animation-duration ease-in-out;
+}
+
+.modal-header, .modal-footer {
+    padding: 20px 32px;
+}
+
+.modal-header {
+    padding-bottom: 0;
+
+    h1 {
+        font-size: 24px;
+        line-height: 48px;
+        margin: 0;
+    }
+
+    .modal-close {
+        @include no-box-shadow;
+        color: $grey;
+        font-size: 20px;
+        padding: 20px;
+        position: absolute;
+        right: .5em;
+        text-decoration: none;
+        top: .5em;
+
+        &:hover {
+            color: $grey-darker;
+        }
+    }
+}
+
+.modal-content {
+    padding: 24px 32px;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    border-top: solid 1px $grey-light;
+    text-align: center;
+}

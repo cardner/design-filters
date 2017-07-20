@@ -1,0 +1,42 @@
+.modal-confirm {
+    max-width: 560px;
+}
+
+.confirm-content.hidden + .modal-footer {
+    border: none;
+}
+
+.confirm-header {
+    text-align: center;
+
+    h1 {
+        line-height: 32px;
+    }
+
+    i {
+        color: $error-red;
+        display: block;
+        font-size: 80px;
+        margin-bottom: 32px;
+    }
+}
+
+.confirm-message {
+    margin: 0;
+    text-align: center;
+}
+
+.confirm-button {
+    min-width: 96px;
+
+     & + & {
+        margin-left: 16px;
+     }
+}
+
+.confirm-positive {
+    i {
+        color: $duo-green;
+        font-size: 64px;
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "pattern-library",
+  "version": "1.0.0",
+  "description": "Duo Design Standards",
+  "private": true,
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duosecurity/design.git"
+  },
+  "author": "Bryan Witherspoon <bspoon@duosecurity.com>",
+  "bugs": {
+    "url": "https://github.com/duosecurity/design/issues"
+  },
+  "homepage": "https://github.com/duosecurity/design#readme",
+  "devDependencies": {
+    "cssnano": "^3.7.1",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2"
+  }
+}
