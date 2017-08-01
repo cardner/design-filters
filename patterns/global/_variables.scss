@@ -29,7 +29,7 @@ $error-red-light: lighten($error-red, 20%);
 $error-red-lightest: #f4d5d5;
 $error-red-dark: map-get($red, dark);
 $info-blue: #379ed4;
-$info-blue-light: lighten($info-blue, 40%);
+$info-blue-light: #D4ECFF;
 $info-blue-border: #CBD9E1;
 $warning-orange: #df6a27;
 $warning-orange-light: lighten($warning-orange, 40%);
@@ -198,7 +198,7 @@ $mid-header-color: map-get($gray, mid);
 $light-header-color: map-get($gray, light);
 
 // Main Nav
-$nav-state-color: #D4ECFF;
+$nav-state-color: $info-blue-light;
 $count-color: #DADADA;
 
 // Transitions

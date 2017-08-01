@@ -1,4 +1,3 @@
-const browserSync = require('browser-sync').create()
 const cssnano = require('cssnano')
 const gulp = require('gulp')
 const sass = require('gulp-sass')
@@ -12,7 +11,6 @@ gulp.task('styles', () => (
             cssnano()
         ]))
         .pipe(gulp.dest('dist/patterns'))
-        .pipe(browserSync.stream())
 ))
 
 
@@ -42,11 +40,4 @@ gulp.task('refresh', ['styles'])
 
 gulp.task('watch', ['refresh'], () => {
     gulp.watch('patterns/**/**/*.scss', ['styles'])
-
-    browserSync.init({
-        server: {
-            baseDir: 'dist',
-        },
-        open: false,
-    })
 })
