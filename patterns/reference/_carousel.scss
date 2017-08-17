@@ -1,6 +1,6 @@
 .carousel-view .navigation {
     height: 25px;
-    padding: 10px 0px;
+    padding: 10px 0;
     font-size: 12px;
     position: relative;
     width: 100%;
@@ -10,7 +10,7 @@
         cursor: pointer;
 
         & .navigation-label {
-          text-decoration: underline;
+            text-decoration: underline;
         }
 
         & > i[class^="icon-"]:before {
@@ -34,7 +34,7 @@
         }
 
         &.hidden {
-          visibility: hidden;
+            visibility: hidden;
         }
     }
 
@@ -57,7 +57,7 @@
             }
 
             &.active > div {
-                background-color: $grey-dark
+                background-color: $grey-dark;
             }
         }
     }

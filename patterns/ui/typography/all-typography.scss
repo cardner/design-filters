@@ -3,30 +3,30 @@
 @import "../../global/extends";
 
 // Base fonts and sizes
-$browser-context: 14;
+$browser-context: 16;
 
 //From CSS Tricks to allow use of em calculation
 @function em($pixels, $context: $browser-context) {
-  @if (unitless($pixels)) {
-    $pixels: $pixels * 1px;
-  }
-
-  @if (unitless($context)) {
-    $context: $context * 1px;
-  }
-
-  @return $pixels / $context * 1em;
+     @if (unitless($pixels)){
+        $pixels: $pixels * 1px;
+    }
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+    @return $pixels / $context * 1em;
 }
 
-%header {
-  color:       $heading-color;
-  font-family: $heading-font-family;
-  font-weight: $bold-font-weight;
-  line-height: 1.2;
+@mixin header {
+    color: $heading-color;
+    font-family: $heading-font-family;
+    font-weight: $bold-font-weight;
+    line-height: 1.2;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
 }
 
 body {
-    color: $base-color;
+    color: $default-text-color;
     font-family: $base-font-family;
     font-size: $base-font-size;
     font-weight: $base-font-weight;
@@ -41,11 +41,17 @@ body {
     letter-spacing: initial;
 }
 // Override normal reset for small size
-small {
-    font-size: $small-font-size;
+.a--font-size-smallest {
+    font-size: $smallest-font-size;
 }
+
 .a--font-size-smaller {
     font-size: $smaller-font-size;
+}
+
+.a--font-size-small,
+small {
+    font-size: $small-font-size;
 }
 
 // Just some normal weight classes
@@ -54,7 +60,7 @@ small {
 }
 
 .a--font-weight-medium {
-    font-weight: $medium-font-weight;
+    font-weight: $bold-font-weight;
 }
 
 .a--font-weight-bold {
@@ -63,15 +69,16 @@ small {
 
 b,
 strong {
-    font-weight: $medium-font-weight;
+    font-weight: $bold-font-weight;
 }
 
+// set generic text color styles
+.a--text-color {
+    color: $default-text-color;
+}
 @import "body";
 @import "h1";
 @import "h2";
 @import "h3";
-@import "h4";
-@import "h5";
-@import "h6";
 @import "instructional";
 @import "button-label";

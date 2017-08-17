@@ -1,20 +1,7 @@
-
-// Title:
-// Subtitle
-//
-// Version:
-// Stable
-// Styleguide 1.0.0
-//
-// Code:
-// <h2>Subtitle</h2>
-//
-// Usage:
-// Use subtitles to break up each section after the main heading.
-
+.a--h2-style,
 h2 {
-  @extend %header;
-  font-size: $xlarge-font-size;
-  margin-bottom: $header-margin-bottom-spacing;
-  letter-spacing: -.0125em;
+    @include header;
+    font-size: $large-font-size;
+    margin-bottom: $header-margin-bottom-spacing;
+    letter-spacing: 0,;
 }

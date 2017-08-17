@@ -1,28 +1,46 @@
 // States for alerts, buttons, etc
-$success-green: $duo-green;
+$success-green: map-get($green, success);
 $success-green-light: $duo-green-light;
 $success-green-lightest: lighten($duo-green, 40%);
-$error-red: #D4423B;
-$error-red-light: lighten($error-red, 20%);
-$error-red-lightest: lighten($error-red, 40%);
-$error-red-dark: darken($error-red, 40%);
-$info-blue: #379ed4;
-$info-blue-light: lighten($info-blue, 40%);
-$info-blue-border: #CBD9E1;
-$warning-orange: #df6a27;
+$error-red: map-get($red, alert);
+$error-red-light: #FFEFEF;
+$error-red-lightest: #FFEFEF;
+$error-red-dark: map-get($red, darker);
+$info-blue: map-get($blue, info);
+$info-blue-light: #F5F7FA;
+$info-blue-border: #E8EDF3;
+$warning-orange: map-get($orange, warn);
 $warning-orange-light: lighten($warning-orange, 40%);
+$warning-orange-border: #ebcfbe;
 
-//Default colors
-$base-color: $grey-darker;
-$base-link-color: $info-blue;
-
-// High contrast colors
-$grey-dark-low-res: #444;
-$grey-light-low-res: #efefef;
-$grey-lighter-low-res: #f2f2f2;
-$base-border-color-low-res: #dadada;
+// Base colors, fonts and sizes
+$base-color: map-get($gray, dark);
+$base-link-color: map-get($blue, cta);
 
 // Disabled
 $disabled-opacity: 0.5;
 $disabled-color: transparentize($base-color, $disabled-opacity);
 $disabled-input-color: rgb(235, 235, 228);
+
+// Platform colors
+$chrome-green: #68cf6a;
+$safari-red: #fe5255;
+$firefox-orange: #f9923e;
+$ie-blue: #3eb2ef;
+$edge-blue: #2e6fb3;
+$macosx-blue: #08c0e5;
+$windows-green: #1e896f;
+$managed-device-blue: #379ed4;
+
+// Graph Colors
+$graph-color-1: #407DB2;
+$graph-color-2: #EE7450;
+$graph-color-3: #466172;
+$graph-color-4: #FCC46A ;
+$graph-color-5: #8C8778;
+$graph-color-6: #7EB3FF;
+$graph-color-7: #A08CC6;
+$graph-color-8: #778FA1;
+$graph-positive: map-get($green, info);
+$graph-negative: map-get($red, alert);
+$graph-neutral: #688daf;

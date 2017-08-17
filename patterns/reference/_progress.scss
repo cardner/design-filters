@@ -1,5 +1,6 @@
 .base-progress {
-    background-color: $grey-darker;
+    background-color: $default-headernav-color;
+    @include border(top);
     position: relative;
     top: 0;
 
@@ -11,8 +12,8 @@
     .dropdown-progress {
         .a--dropdown-trigger {
             height: 2rem;
-            margin: 0 1rem;
-            color: $white;
+            margin: -.063rem 1rem;
+            /* -1/16 */
             @include no-box-shadow;
             border-radius: 0;
 
@@ -25,11 +26,13 @@
                     color: $success-green;
                 }
             }
+
             &:after {
                 margin: 0 1rem;
             }
 
         }
+
         .a--dropdown-content {
             padding: 0 1em;
         }
@@ -48,24 +51,28 @@
         position: relative;
         width: 2rem;
 
-        &:before,
-        &:after {
+        &:after,
+        &:before {
             background-color: white;
-            content: "";
-            height: 0.25rem;
+            content: '';
+            height: .25rem;
             position: absolute;
             top: 1em;
             width: 1em;
         }
+
         &:before {
-           left: -0.75em;
+            left: -0.75em;
         }
+
         &:after {
             left: 2em;
         }
+
         &:first-child:before {
             content: none;
         }
+
         &:last-child:after {
             content: none;
         }
@@ -78,11 +85,12 @@
             background-color: $success-green;
             color: white;
 
-            &:before,
-            &:after {
+            &:after,
+            &:before {
                 background-color: $success-green;
             }
         }
+
         &:not(.completed) {
             background-color: white;
         }
@@ -114,12 +122,14 @@
         &:not(.completed) {
             margin-left: 30px;
         }
+
         a {
             padding: 0;
             @include box-shadow(0 1px 0 0 currentColor);
             color: $default-text-color;
             width: auto;
             display: inline;
+
             &:hover {
                 color: $default-text-color;
                 @include box-shadow(0 3px 0 0 currentColor);
@@ -168,23 +178,16 @@
         top: 2px;
         vertical-align: bottom;
     }
-
     @media all and (max-width: 1200px) {
         margin-top: -0.5rem;
     }
 }
 
-.dropdown-finish {
-    .c--primary {
-        &:before {
-            content: '';
-            display: none;
-        }
-    }
-    .a--dropdown-content {
-        min-width: 300px;
-        max-width: 500px;
-        padding: 1em;
+.progress-finish-button {
+    float: right;
+
+    &:hover + .progress-finish-box {
+        display: block;
     }
 }
 
@@ -195,7 +198,6 @@
     top: 150px;
     width: 300px;
     z-index: 200;
-
     @media all and (max-width: 1200px) {
         top: 185px;
     }
@@ -204,7 +206,7 @@
 .progress-finish-image {
     background: url('../images/progress-bg.png');
     background-size: 100%;
-    margin: -1rem -1rem 1rem -1rem;
+    margin: -1rem -1rem 1rem;
     text-align: center;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -222,9 +224,8 @@
 }
 
 .progress-welcome {
-    color: white;
+    color: $default-text-color;
     margin: 0 2rem 0 0;
-
     @media all and (max-width: 1200px) {
         display: block;
         margin-bottom: 1rem;

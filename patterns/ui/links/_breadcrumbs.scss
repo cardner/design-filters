@@ -1,40 +1,20 @@
-// Title:
-// Dark Link
-//
-// Version:
-// Stable
-// Styleguide 1.0.0
-//
-// Code:
-// <p class="breadcrumbs">
-//  <a href="#">Base Directory</a>
-//  <i class="icon-chevron-thick-right"></i>
-//  <a href="#">Previous Directory</a>
-//  <i class="icon-chevron-thick-right"></i>
-//  Current Directory
-// </p>
-//
-// Usage:
-// Breadcrumb links navigate users to pages higher in the page hierarchy.
-
 .breadcrumbs {
-  font-size: small;
+    font-size: $smaller-font-size;
 
-  a {
-      color: $grey;
+    a {
+        color: $default-text-color;
+        text-decoration: underline;
 
-      &:hover {
-          color: $grey-dark;
-      }
-  }
+        &:hover {
+            color: $default-link-color;
+        }
+    }
 
-  i {
-      margin: 0 8px;
-  }
-
-  @include low-res {
-      a:hover {
-          color: $grey-dark-low-res;
-      }
-  }
+    i {
+        font-size: $smallest-font-size;
+        margin: 0 8px;
+        line-height: 1.5em;
+        display: inline-block;
+        vertical-align: text-top;
+    }
 }

@@ -1,26 +1,30 @@
 %icon {
-  @include duo-icons;
-  font-size: 14px;
-  font-size: 1.25rem;
-  &:hover {
-    @extend %no-box-shadow;
-  }
+    @include duo-icons;
+    font-size: 1rem;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
-.icon:before,
-%icon-before {
-  @extend %icon;
-  padding-right: 0.25rem;
+
+%icon-before,
+.icon:before {
+    @include duo-icons;
+    padding-right: .25rem;
 }
-.icon:after,
-%icon-after {
-  @extend %icon;
-  padding-left: 0.125rem;
+
+%icon-after,
+.icon:after {
+    @include duo-icons;
+    padding-left: .125rem;
 }
+
 %no-box-shadow {
-  @include box-shadow(none);
+    @include box-shadow(none);
 }
+
 %button-reset {
-  background-color: transparent;
-  border: none;
-  padding: 0;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }

@@ -1,46 +1,28 @@
-// Title:
-// Destructive Action
-//
-// Version:
-// Development
-// Styleguide 1.1.0
-//
-// Code:
-//  <nav class="options-menu c--dropdown" role="navigation">
-//    <a role="button" class="a--dropdown-trigger" tabindex="0" aria-label="device options" aria-expanded="false" aria-controls="dropdown1">
-//      Device Options
-//    </a>
-//    <ul class="a--dropdown-content closed" id="dropdown1" aria-hidden="true">
-//      <li><a href="#" title="">Reactivate Duo Mobile</a></li>
-//      <li><a href="#" title="">Change Device Name</a></li>
-//      <li><a href="#" class="a--destruction" title="">Delete</a></li>
-//    </ul>
-//  </nav>
-//
-
-
 .c--dropdown {
     position: relative;
     display: inline-block;
 }
 
 .a--dropdown-trigger {
-    @include box-shadow(0 0 0 0 currentColor);
     text-decoration: none;
     display: flex;
 
     &:before {
-        @extend %icon;
-        @extend %icon-after;
+        @include duo-icons;
         @include transitions(transform $fast-ease);
         content: $downCarret;
+        font-size: .65rem;
         position: relative;
         vertical-align: bottom;
         display: inline-block;
         line-height: 1rem;
         order: 2;
         align-self: center;
-        padding: 2px 0 0 2px;
+        padding: .125rem 0 0 .5rem; /* 2/16 */
+    }
+
+    &:focus {
+        outline: 2px solid $default-border-color;
     }
 
     &[aria-expanded="false"] {
@@ -54,20 +36,20 @@
             position: absolute;
             display: block;
             line-height: 1em;
-            bottom: -1.3em;
+            bottom: -1.28em;
             height: 0.8em;
-            right: -2px;
+            right: -4px;
             z-index: 5000;
             width: 25px;
             height: 14px;
-            content: url('../images/dropdown-arrow.svg');
+            content: url('../shared/images/dropdown-arrow.svg');
             stroke: map-get($gray, light);
         }
 
     }
     &.button {
         &[aria-expanded="true"]:after {
-            left: calc(100% - 45px);
+            left: calc(100% - 42px);
         }
         &:before {
             padding-top: 0;
@@ -77,6 +59,16 @@
 }
 .a--dropdown-trigger:not(.button) {
     padding-right: 0;
+}
+
+.button-row {
+    .a--dropdown-trigger {
+        &[aria-expanded="true"] {
+            &:after {
+                bottom: -1.45em;
+            }
+        }
+    }
 }
 
 
@@ -128,9 +120,10 @@
             width: 100%;
             box-shadow: none;
             text-align: left;
+            margin: 0;
 
             &:hover {
-                @include box-shadow(none);
+                text-decoration: none;
                 background-color: $dropdown-link-hover-color;
                 color: $white;
 
@@ -143,5 +136,10 @@
                 @include box-shadow;
             }
         }
+    }
+
+    &.disabled li a:hover {
+        color: $disabled-color;
+        background-color: $white;
     }
 }

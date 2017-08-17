@@ -1,19 +1,23 @@
 
 body {
-    background: $duo-blue;
+    background: $body-background-color;
 }
 
 .offscreen {
-  position: absolute;
-  left: -5000px;
+    position: absolute;
+    left: -5000px;
 }
 
 .auto_width {
-  width: auto;
+    width: auto;
 }
 
 .hidden {
     display: none;
+}
+
+.block {
+    display: block;
 }
 
 .important {
@@ -21,11 +25,11 @@ body {
 }
 
 .darker-red-text {
-  color: $error-red;
+    color: $error-red;
 }
 
 .grey-text {
-  color: $grey-light;
+    color: $grey-light;
 }
 
 .or-cancel {
@@ -43,9 +47,11 @@ body {
     display: table;
     width: 100%;
 }
+
 .table-row {
     display: table-row;
 }
+
 .table-cell {
     display: table-cell;
     vertical-align: middle;
@@ -57,115 +63,85 @@ body {
 }
 
 .tight {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
-[data-expire-name]:not(.modal),
-[data-expire-count]:not(.modal) {
-  display: none;
+[data-expire-count]:not(.modal),
+[data-expire-name]:not(.modal) {
+    display: none;
 
-  &.visible {
-      display: block;
-  }
-
-}
-
-/* BILLING FORM */
-
-select#billing_info_country {
-  width: 150px;
-}
-input.city {
-  width: 110px;
-  margin-right: 5px;
-}
-input.state {
-  /* Needed for Recurly */
-  width: 25px;
-}
-input.state-full {
-  width: 110px;
-}
-input.cvv {
-  width: 35px;
-}
-input.zipcode {
-  width: 50px;
+    &.visible {
+        display: block;
+    }
 }
 
-select#billing_info_credit_card_month, select#billing_info_credit_card_year {
-  width: 120px !important;
-}
 select#billing_info_credit_card_month {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .plus {
-  vertical-align: 10%;
+    vertical-align: 10%;
 }
 
-.breadcrumbs {
-    font-size: small;
+.trial-feature-marker {
+  display: inline-block;
+  padding: .3rem .75rem;
+  border-radius: 16px;
+  font-size: .75rem;
+  line-height: .75rem;
+  color: $default-text-color;
+  background-color: #ccc;
+  vertical-align: middle;
+  font-family: $base-font-family;
+  font-weight: 500;
+  margin-left: 6px;
 
-    a {
-        color: $grey;
-
-        &:hover {
-            color: $grey-dark;
-        }
-    }
-
-    i {
-        margin: 0 8px;
-        line-height: 1.5em;
-        display: inline-block;
-        vertical-align: text-top;
-    }
-
-    @include low-res {
-        a:hover {
-            color: $grey-dark-low-res;
-        }
-    }
+  &.soon {
+    background-color: #f5ddb3;
+  }
 }
 
 // .base-container
 //   > .base-sidebar
 //   | > .base-header
+//   | > .navigation
+//   | | > .subnav
 //   | > .help-links
 //   > .base-main
 //   | > .base-actions
 //   | > .base-content
-$base-sidebar-width: 200px;
-
 .base-container {
-    background: $grey-lighter;
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+    background: $white;
+    @include border(right);
     margin: 0 auto;
     min-height: 100vh;
     min-width: 1024px;
     max-width: 1400px;
     position: relative;
-    overflow: overlay;
-
-    @include low-res {
-        background: $grey-lighter-low-res;
-    }
+    display: grid;
+    grid-template-columns: 200px 1fr;
 }
 
 .base-sidebar {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
-    background: white;
-    width: $base-sidebar-width;
+    background: $nav-background-color;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
 
 .base-header {
     a {
+        @include no-box-shadow;
         display: block;
-        padding: 20px 0;
-        box-shadow: none;
+        padding: 1.438rem 0; /* 23/16 */
+
+        &:active,
+        &:focus,
+        &:hover {
+            @include no-box-shadow;
+        }
     }
 
     h1 {
@@ -174,8 +150,8 @@ $base-sidebar-width: 200px;
 
     .logo {
         display: block;
-        margin: 0 auto;
-        height: 40px;
+        margin: 0 0 0 1.563rem; /* 25/16 */
+        height: 2.188rem; /* 35/16 */
         max-width: 100px;
         width: 100%;
     }
@@ -187,7 +163,7 @@ $base-sidebar-width: 200px;
 
     .logo-path {
         @include transition(opacity);
-        fill: $duo-green;
+        fill: $white;
     }
 
     .logo-path-translucent {
@@ -199,28 +175,35 @@ $base-sidebar-width: 200px;
     }
 }
 
-.base-main {
-    margin-left: $base-sidebar-width;
-}
-
 .base-actions {
     @include clearfix;
-    background: darken($grey-lighter, 4%);
-    padding: 20px 48px;
+    background-color: $default-headernav-color;
+    padding: 1.188rem 2.938rem 1.25rem; /* 19/16, 20/16, 47/16 */
     position: relative;
     z-index: 100;
 
     .wonka-bar {
         float: left;
+
+        input[type="search"] {
+            color: map-get($gray, mid);
+            @include borders($border-color: $default-border-color);
+
+            &:placeholder {
+                color: map-get($gray, mid);
+            }
+
+            &:hover {
+                border-color: $button-border-hover-color;
+            }
+            &:focus {
+                color: $default-text-color;
+            }
+        }
     }
 
     .dropdown {
         float: right;
-        margin-left: 16px;
-    }
-
-    @include low-res {
-        background: #dadada;
     }
 }
 
@@ -244,43 +227,29 @@ $base-sidebar-width: 200px;
 }
 
 .base-content {
-    padding: 20px 48px;
-
-    @include low-res {
-        background: $grey-lighter-low-res;
-    }
+    padding: .938rem 3rem; /* 15/16, 48/16 */
 }
 
 .base-footer {
     padding-bottom: 20px;
+    grid-column-start: start;
+    grid-column-end: 2;
+    grid-row-start: 2;
 
     a {
-        text-decoration: none;
-        color: #777;
-
-        &:hover {
-            color: #555;
-        }
+        color: $default-link-color;
     }
 
     .inner {
         margin: 0 auto;
         text-align: center;
-        color: #aaa;
-    }
-
-    @include low-res {
-        background: $grey-lighter-low-res;
-
-        .inner, a {
-            color: $grey-dark-low-res;
-        }
+        color: $default-text-color;
     }
 }
 
 .delete {
-  text-align: right;
-  padding-top: 1px;
+    text-align: right;
+    padding-top: 1px;
 }
 
 .base-title {
@@ -289,248 +258,240 @@ $base-sidebar-width: 200px;
     }
 }
 
+
 .subtitle {
-  color: #555;
+    color: #555;
 }
 
-#div_phones, #div_endpoints, #div_desktoptokens, #div_hardtokens, #div_bypass {
-  margin-bottom: 30px;
+
+#div_bypass,
+#div_desktoptokens,
+#div_endpoints,
+#div_hardtokens,
+#div_phones,
+#div_security_key {
+    margin-bottom: 30px;
 }
 
 .mobile-status {
-  font-weight: bold;
-  margin-bottom: 3px;
+    font-weight: bold;
+    margin-bottom: 3px;
 }
 
 .box-text {
-  border-radius: $border-radius;
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 2px 5px;
-  vertical-align: bottom;
-  white-space: nowrap;
+    border-radius: $border-radius;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 5px;
+    vertical-align: bottom;
+    white-space: nowrap;
 
-  &.green {
-    background-color: $duo-green;
-  }
-  &.red {
-    background-color: #df5446;
-  }
+    &.green {
+        background-color: $duo-green;
+    }
+
+    &.red {
+        background-color: #df5446;
+        color: white;
+    }
 }
-
-/* HELP */
-
+// HELP
 a.helpicon {
-  vertical-align: top;
-  display: inline-block;
-  text-indent: -9999px;
-  margin: 5px 0 0 4px;
-  overflow: hidden;
-  width: 16px;
-  height: 16px;
-  background: url(../images/help-sprite.png) 0 0;
-  cursor: pointer;
+    vertical-align: top;
+    display: inline-block;
+    text-indent: -9999px;
+    margin: 5px 0 0 4px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    background: url("../images/help-sprite.png") 0 0;
+    cursor: pointer;
 
-  &.intext {
-    margin-top: 0;
-  }
+    &.intext {
+        margin-top: 0;
+    }
 
-  &:hover, &:focus {
-    background-position: 0 16px;
-  }
+    &:focus,
+    &:hover {
+        background-position: 0 16px;
+    }
 
-  &.phone-help {
-    margin: 4px;
-  }
+    &.phone-help {
+        margin: 4px;
+    }
 
-  &.tight-help {
-    margin: 0 0 0 4px;
-  }
+    &.tight-help {
+        margin: 0 0 0 4px;
+    }
 }
 
 .explanation-text {
-  color: #777;
+    color: #777;
 }
-
-/* DEVICES WIDGET */
-
+// DEVICES WIDGET
 .remove_phone_container {
-  padding: 2px 6px;
-  font-size: 11px;
-  background-color: #eee;
-  text-align: right;
+    padding: 2px 6px;
+    font-size: 11px;
+    background-color: #eee;
+    text-align: right;
 }
+
 .remove_phone_container a {
-  color: red;
+    color: red;
 }
-
-/* MOBILE ACTIVATION */
-
+// MOBILE ACTIVATION
 .send_instructions_check_box {
-  margin-bottom: 6px;
+    margin-bottom: 6px;
 }
-  .send_instructions_check_box input {
+
+.send_instructions_check_box input {
     margin-right: 3px;
-  }
-#installation_msg, #activation_msg {
-  padding: 5px;
-  width: 400px;
 }
 
-
-/* ADMIN ACTIVATION */
-
+#activation_msg,
+#installation_msg {
+    padding: 5px;
+    width: 400px;
+}
+// ADMIN ACTIVATION
 table#phone_entry {
-  width: 158px;
+    width: 158px;
 }
 
 .calling_code_hint_td {
-  padding: 0 5px 0 0;
+    padding: 0 5px 0 0;
 }
 
 table#phone_entry input#phone {
-  width: 97% !important;
-  margin-bottom: 2px;
+    width: 97% !important;
+    margin-bottom: 2px;
 }
 
 .numberhint {
-  font-size: 11px;
-  color: #777;
-  padding-left: 5px;
+    font-size: 11px;
+    color: #777;
+    padding-left: 5px;
 }
-
-/* ADMINS VIEW PAGE */
+// ADMINS VIEW PAGE
 .bottom-margin {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .top-margin {
-  margin-top: 1em;
+    margin-top: 1em;
 }
 
-#enable-push, #email-barcode-link, .show_pointer {
-  cursor: pointer;
+#email-barcode-link,
+#enable-push,
+.show_pointer {
+    cursor: pointer;
 }
 
 .read-only {
-  font-weight: bold;
-  color: #6377FB;
+    font-weight: bold;
+    color: #6377FB;
 }
-
-/* LOGS */
-
-#authlog-table_wrapper, #adminlog-table_wrapper {
-  margin-bottom: 20px;
+// LOGS
+#adminlog-table_wrapper,
+#authlog-table_wrapper {
+    margin-bottom: 20px;
 }
 
 .logs-form {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 select.small {
-  width: 50px;
+    width: 50px;
 }
+
 select.medium {
-  width: 100px;
+    width: 100px;
 }
 
 .highcharts-tooltip {
-  padding: 5px;
+    padding: 5px;
 }
 
-.select2-container {
-    width: 350px;
-}
-
-/* Settings page */
+// Settings page
 .image-placeholder {
-  padding: 6px;
-  border: 2px dashed #ccc;
-  width: 152px;
-  height: 152px;
-  margin-bottom: 12px;
-  font-size: 20px;
-  color: #ccc;
-  display:inline-block;
-  background-color: #eeeff4;
+    padding: 6px;
+    border: 2px dashed #ccc;
+    width: 152px;
+    height: 152px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #ccc;
+    display: inline-block;
+    background-color: #eeeff4;
 }
 
 .image-placeholder > div {
-  background-color: #eeeff4;
-  text-align: center;
-  width: 100%;
-  height: auto;
+    background-color: #eeeff4;
+    text-align: center;
+    width: 100%;
+    height: auto;
 }
 
-.image-error, .apns-error {
-  color: #F16673;
-  font-weight: bold;
-  margin-bottom: 3px;
+.apns-error,
+.image-error {
+    color: #F16673;
+    font-weight: bold;
+    margin-bottom: 3px;
 }
-
-/* A logo is being dragged on top of the element */
+// A logo is being dragged on top of the element
 .image-placeholder.active,
 .image-placeholder.active div {
-  background-color: #fcfcfc;
-  color: #333;
+    background-color: #fcfcfc;
+    color: #333;
 }
-
-/* A custom logo is used */
+// A custom logo is used
 .image-placeholder.custom {
-  padding: 8px;
-  border: none;
+    padding: 8px;
+    border: none;
 }
 
 .image-placeholder.custom > div {
-  height: 100%;
-  overflow: hidden;
+    height: 100%;
+    overflow: hidden;
 }
 
 .image-placeholder img {
-  vertical-align: middle;
-  max-height: 152px;
-  width: 100%;
+    vertical-align: middle;
+    max-height: 152px;
+    width: 100%;
 }
 
 .image-placeholder p {
-  text-align: center;
-  margin: 0;
-  padding: 0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .image-placeholder p.drop-text {
-  font-family: $base-font-family;
-  font-size: 15px;
+    font-family: $base-font-family;
+    font-size: 15px;
 }
-
-/* For the arrow */
+// For the arrow
 .image-placeholder p.ss-icon {
-  font-size: 55px;
-  line-height: 50px;
-  margin-top: 40px;
-}
-
-.apns-file-upload-wrapper, .logo-file-upload-wrapper {
-  .reset-apns, .reset-logo {
-    span {
-      color: $grey-darker;
-    }
-  }
+    font-size: 55px;
+    line-height: 50px;
+    margin-top: 40px;
 }
 
 .filereader .logo-file-name {
-  display: none;
+    display: none;
 }
 
 .no-filereader .logo-file-name {
-  color: green;
+    color: green;
 }
 
 .username.title {
-  width: 340px;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    width: 340px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .help-block {
@@ -540,13 +501,12 @@ select.medium {
     color: #777;
     font-size: 12px;
     line-height: 20px;
-
     @include low-res {
-        color: $grey-dark-low-res;
+        color: $default-text-color;
     }
 
     &.l--margin-top-reset-default {
-        @include l--margin-reset(top, -.8em);
+        @include l--margin-reset(top);
     }
 
     &.l--margin-bottom-default {
@@ -555,43 +515,37 @@ select.medium {
 }
 
 .help-block.no-margin-bottom {
-  @include l--margin-reset(bottom);
+    margin-bottom: 0;
 }
 
+
 .help-block.no-margin-top {
-  @include l--margin-reset(top);
+    margin-top: 0;
 }
 
 .example-block {
-  display: block;
-  margin-top: 2px;
-  margin-bottom: 10px;
-  color: #999;
-  font-size: 11px;
+    display: block;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    color: #999;
+    font-size: 11px;
 }
 
 .checkbox-indent {
-    margin-left: 1.25rem; /* 20/16 */
+    margin-left: 1.85rem; /* 20/16 */
 
     &.subline {
         display: block;
-        margin-bottom: 10px;
-        color: $grey;
-        font-size: 12px;
-
-        @include low-res {
-            color: $grey-dark-low-res;
-        }
+        margin-bottom: $mid-margin-spacing;
+        font-size: $smaller-font-size;
     }
 }
 
 textarea.checkbox-indent {
-  margin-top: 4px;
-  width: calc(100% - 24px);
+    margin-top: 4px;
+    width: calc(100% - 24px);
 }
-
-/* Activation page */
-
+// Activation page
 .user-filter {
     margin-bottom: 30px;
 }
@@ -610,8 +564,7 @@ textarea.checkbox-indent {
 .sms-message .help-block b {
     white-space: nowrap;
 }
-
-/* Import Users page */
+// Import Users page
 .form-error {
     padding: 15px 20px;
     background-color: #f7a1a9;
@@ -635,13 +588,13 @@ textarea.checkbox-indent {
     filter: alpha(opacity = 70);
     opacity: 0.7;
 }
-
-/* Groups index page user count header */
+// Groups index page user count header
 th.users .ss-user {
     color: #555;
 }
 
-.user-status-disabled {
+.user-status-disabled,
+.user-status-locked-out {
     color: $error-red;
 }
 
@@ -650,30 +603,13 @@ th.users .ss-user {
 }
 
 .user-status-active {
-    color: $duo-green;
-}
-
-.user-status-locked-out {
-    color: darken($error-red, 20%);
+    color: $success-green;
 }
 
 .user-status-pending-deletion {
     color: $grey;
 }
-
-/* Directory Sync styles */
-input.text250 {
-    width: 250px;
-}
-
-input[name="hostname"] {
-    width: 190px;
-}
-
-input[name="port"] {
-    width: 51px;
-}
-
+// Directory Sync styles
 .form-status {
     padding: 15px 20px;
     background-color: #ccc;
@@ -683,160 +619,309 @@ input[name="port"] {
 .form-status p {
     margin: 0;
 }
-
-
-/* AD Sync view page */
+// AD Sync view page
 .adsync-hostname {
     margin-bottom: 5px;
 }
 
-.labs-feature {
-  background-color: #F6F7F9;
-  background-image: url('../images/duo-seal-white.svg');
-  background-repeat: no-repeat;
-  background-position: 98% 30%;
-  background-size: 480px;
-
-  padding: 5px 10px;
-  margin-left: -10px;
-  margin-right: -10px;
-  position: relative;
-
-  .fg, .fg path {
-    fill: #364955;
-  }
-  .bg, .bg path {
-    fill: white;
-  }
-
-  &.disabled {
-    .fg, .fg path {
-      fill: #999;
-    }
-    .bg, .bg path {
-      fill: #F6F7F9;
-    }
-  }
-
-  .field {
-    margin-top: 5px;
-  }
+@mixin topnav-profile-size {
+    height: 2.375rem;
+    line-height: 3em;
 }
+.admin-menu,
+.customer-menu {
+    .a--dropdown-trigger {
+        @include topnav-profile-size;
+        color: $default-text-color;
 
-.labs-icon {
-  display: inline-block;
-  vertical-align: -7px;
-  margin-right: 3px;
-  text-decoration: none;
-}
+        &:before {
+            height: 2.375em;
+            line-height: 2.45em;
+            padding-top: 2px;
+            text-decoration: none;
+        }
 
-.labs-upsell {
-  display: none;
-
-  .disabled & {
-    display: block;
-  }
-}
-
-/* Circle Icons */
-@mixin status-circle($color) {
-    border-color: $color;
-    color: $color;
-
-    g > * {
-      stroke: $color;
-    }
-    line {
-      stroke: $color;
+        &:hover {
+            &:before {
+                text-decoration: none;
+                display: inline-block;
+            }
+        }
     }
 }
 
-.status-circle {
-  border: 2px solid;
-  border-radius: 50%;
-  display: inline-block;
-  height: 64px;
-  text-align: center;
-  vertical-align: middle;
-  width: 64px;
-
-  &.green {
-    @include status-circle($duo-green);
-  }
-  &.red {
-    @include status-circle($error-red);
-  }
-  &.gray {
-    @include status-circle(#b8b8b8);
-  }
-  &.dark-gray {
-    @include status-circle(#939393);
-  }
-  &.filled-green {
-    @include status-circle(#FFF);
-    background-color: $duo-green;
-  }
-  &.filled-red {
-    @include status-circle(#FFF);
-    background-color: $error-red;
-  }
-
-  svg {
-    height: 34px;
-    margin: -17px 0 0 0;
-    position: relative;
-    top: 50%;
-    width: 34px;
-  }
+.admin-menu {
+    margin-left: $large-margin-spacing;
 }
 
-.red {
-    color: $error-red;
+.customer-menu {
+    .search {
+        &:before {
+            content: none;
+        }
+    }
+    .a--dropdown {
+        &-trigger {
+            svg {
+                @include topnav-profile-size;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 .5em;
+            }
+        }
+        &-content {
+            padding-right: 1.2em;
+            padding-left: 1.2em;
+        }
+    }
+    button {
+        display: block;
+        float: right;
+    }
 }
 
 .search .select2-container {
-  margin: 0;
-  margin-bottom: 8px;
+    display: block;
+    margin: 0 0 8px;
 
-  .select2-choice .select2-arrow {
-    background: none;
-    border: none;
-  }
+    .select2-choice .select2-arrow {
+        background: none;
+        border: none;
+    }
 
-  a {
-    background: white;
-    height: 25px;
-    line-height: 25px;
-  }
+    a {
+        background: $white;
+        height: 25px;
+        line-height: 25px;
+    }
 }
 
 .select2-results {
-  .select2-result {
-    font-size: 12px;
-    margin: 2px 0;
+    .select2-result {
+        font-size: 12px;
+        margin: 2px 0;
 
-    &.select2-highlighted {
-      background: $duo-green;
+        &.select2-highlighted {
+            background: $hover-input-border-color;
+        }
     }
-  }
 }
-#custom_code{
-  width: 100px;
+
+#custom_code {
+    width: 100px;
 }
 
 .customer-name-header {
-  display: inline-block;
-  position: relative;
-  border-radius: $border-radius;
-  height: 40px;
-  padding: 0 8px;
-  img, span {
-    height: calc(100% - 8px);
-    line-height: calc(100% - 8px);
-    vertical-align: middle;
-    margin: 4px
-   }
-  img {
+    display: inline-block;
+    position: relative;
     border-radius: $border-radius;
-  }
+    height: 40px;
+    padding: 0 8px;
+    @include no-box-shadow;
+
+    &:hover {
+        @include no-box-shadow;
+    }
+
+    img,
+    span {
+        height: calc(100% - 8px);
+        line-height: calc(100% - 8px);
+        vertical-align: middle;
+        margin: 4px;
+    }
+
+    img {
+        border-radius: $border-radius;
+    }
+}
+// Balloon Tooltips
+.info-tooltip-parent {
+    position: relative;
+}
+
+.info-tooltip {
+    position: absolute;
+    background-color: $white;
+    border: 2px solid $base-border-color;
+    bottom: -10px;
+    left: 35%;
+    width: 29%;
+    z-index: 9999;
+    padding: 15px;
+    font-size: 12px;
+    border-radius: 6px;
+    color: $default-text-color;
+
+    h3 {
+        text-transform: none;
+        margin: 0;
+        margin-bottom: 6px !important;
+    }
+
+    p,
+    ul {
+        font-family: $base-font-family;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+        margin: 0;
+    }
+}
+
+.info-tooltip-small {
+    width: 200px;
+}
+.info-tooltip-medium {
+    width: 310px;
+}
+.info-tooltip-large {
+    width: 600px;
+}
+// CSS From http://www.cssarrowplease.com/ for arrow/point under tooltip
+.info-tooltip:after,
+.info-tooltip:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+
+.info-tooltip:after {
+    border-top-color: $white;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.info-tooltip:before {
+    border-top-color: $base-border-color;
+    border-width: 13px;
+    margin-left: -13px;
+}
+
+/* Tooltips below */
+.info-tooltip.popover-below {
+    bottom: auto;
+    top: 30px;
+}
+
+.info-tooltip.popover-below:after,
+.info-tooltip.popover-below:before {
+    top: auto;
+    bottom: 100%;
+}
+
+.info-tooltip.popover-below:after {
+    border-top: none;
+    border-bottom-color: $white;
+}
+
+.info-tooltip.popover-below:before {
+    border-top: none;
+    border-bottom-color: $base-border-color;
+}
+
+/* Tooltips to right */
+.info-tooltip.popover-to-right {
+    bottom: auto;
+    top: 0;
+    left: calc(100% + 20px);
+    transform: translateY(-50%);
+}
+.info-tooltip.popover-to-right:after,
+.info-tooltip.popover-to-right:before {
+    left: auto;
+    right: 100%;
+    top: 50%;
+    margin-left: 0;
+    border-top-color: transparent;
+}
+
+.info-tooltip.popover-to-right:after {
+    border-right-color: $white;
+    margin-top: -10px;
+}
+
+.info-tooltip.popover-to-right:before {
+    border-right-color: $base-border-color;
+    margin-top: -13px;
+}
+
+/* Tooltips to left */
+.info-tooltip.popover-to-left {
+    bottom: auto;
+    top: 0;
+    left: 0;
+    right: calc(100% + 20px);
+    transform: translateY(-50%);
+}
+.info-tooltip.popover-to-left:after,
+.info-tooltip.popover-to-left:before {
+    left: 100%;
+    top: 50%;
+    margin-left: 0;
+    border-top-color: transparent;
+}
+
+.info-tooltip.popover-to-left:after {
+    border-left-color: $white;
+    margin-top: -10px;
+}
+
+.info-tooltip.popover-to-left:before {
+    border-left-color: $base-border-color;
+    margin-top: -13px;
+}
+
+.info-tooltip .button-container {
+    text-align: right;
+}
+
+.info-tooltip button.close-button {
+    background-color: $info-blue;
+    border-color: $info-blue;
+    color: $white;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 15px;
+    font-size: 12px;
+    padding: 0 16px;
+}
+
+.info-tooltip .popover-close {
+    width: 11px;
+    height: 11px;
+    overflow: hidden;
+    text-indent: -2000em;
+    background-image: url('../images/tooltip-close.png');
+    @include retina {
+        background-image: url('../images/tooltip-close@2x.png');
+    }
+}
+
+// Circular number label
+.section-label {
+    font-family: $base-font-family;
+    font-weight: $base-font-weight;
+    letter-spacing: initial;
+    text-align: center;
+    display: inline-block;
+    width: 2.215em;
+    height: 2.215em;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $info-blue-border;
+    background-color: $info-blue-light;
+    margin: -.3em 10px 0 0;
+    padding-top: .2em;
+    vertical-align: middle;
+    font-size: 0.64em;
+    line-height: 1.8;
+    color: #818E97;
 }

@@ -1,0 +1,28 @@
+.c--card-doughnutgraph-vertical {
+    $card-values: 160px 1fr, auto;
+    @include c--chart-doughnut($card-values...);
+    grid-row-gap: $default-column-gap-margin; /* 14/16 */
+    list-style-type: none;
+    text-align: left;
+    align-items: start;
+}
+
+.a--card-doughnutgraph {
+    grid-row: 1 / 5;
+    grid-column: 1 / 1;
+
+    .highcharts-series {
+        path {
+            stroke: $white;
+            stroke-width: 2px;
+        }
+    }
+}
+
+.a--graph-2row-span {
+    grid-row: 1 / 3;
+}
+
+.a--graph-3row-span {
+    grid-row: 1 / 4;
+}

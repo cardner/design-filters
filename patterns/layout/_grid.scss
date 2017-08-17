@@ -39,3 +39,27 @@
         }
     }
 }
+
+// These styles are for use with new css grid spec
+.l--grid-auto {
+    @include l--grid-col;
+    @include l--grid-row;
+    display: grid;
+}
+
+.l--grid-col2 {
+    @include l--grid-row;
+    @include l--grid-col($columns: 2);
+    display: grid;
+}
+
+.l--grid-col4 {
+    @include l--grid-col($columns: 4);
+    display: grid;
+}
+
+
+.l--grid-row2 {
+    @include l--grid-row($rows: 2);
+    display: grid;
+}

@@ -1,23 +1,10 @@
-// Title:
-// Destructive Action
-//
-// Version:
-// Development
-// Styleguide 1.1.0
-//
-// Code:
-// <button class="tiny positive">Inline Positive Button</button>
-//
-
-
 %destructive,
-&.c--destruction {
+.c--destruction {
     &:before {
         content: $trashcan;
         display: inline-block;
-        color: $destructive-button-color;
         font-size: 1.05rem;
-        font-weight: bold !important;
+        font-weight: $bold-font-weight;
         padding-right: 6px;
         margin-top: -.2em;
     }
@@ -28,11 +15,6 @@
 
     &:hover {
         background-color: transparent;
-        border-color: $destructive-button-color;
-    }
-
-    &:active {
-        @include box-shadow(inset 0 0 4px 0px $destructive-boxshadow-color);
     }
 }
 

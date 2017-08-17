@@ -1,15 +1,3 @@
-// Title:
-// Disabled
-//
-// Version:
-// Development
-// Styleguide 1.1.0
-//
-// Code:
-// <button role="button" type="button" name="disabled button" class="c--disabled" aria-disabled="true">Disabled <i role="tooltip">Please preform the following tasks to enable this button</i></button>
-//
-
-
 &[disabled] {
     @include no-box-shadow;
     background-color: $disabled-button-color;

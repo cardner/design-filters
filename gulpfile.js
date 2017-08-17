@@ -13,6 +13,10 @@ gulp.task('styles', () => (
         .pipe(gulp.dest('dist/patterns'))
 ))
 
+gulp.task('html', () => (
+    gulp.src('*.html')
+        .pipe(gulp.dest('dist/'))
+))
 
 gulp.task('images', () => (
     gulp.src('images/*')
@@ -33,7 +37,7 @@ gulp.task('font-styles', () => (
         .pipe(gulp.dest('dist/fonts'))
 ))
 
-gulp.task('build', ['styles','images', 'fonts', 'font-styles'])
+gulp.task('build', ['html', 'styles','images', 'fonts', 'font-styles'])
 
 gulp.task('refresh', ['styles'])
 

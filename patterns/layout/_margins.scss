@@ -15,6 +15,10 @@
     @include l--margin-reset(bottom, -$header-margin-spacing);
 }
 
+.l--margin-bottom-small {
+    @include l--margin-bottom-small;
+}
+
 .l--margin-bottom-default {
     // this is the default space after for our base font size
     @include l--margin-bottom-default;
@@ -33,7 +37,15 @@
     @include l--margin-reset(top, -.8em);
 }
 
+.l--margin-top-small {
+    margin-top: $small-margin-spacing;
+}
+
 .l--margin-top-default {
     // this sets the top margin to the default space after based on font size
     @include l--margin-top-default;
+}
+
+.l--margin-left-mid {
+    margin-left: $mid-margin-spacing;
 }

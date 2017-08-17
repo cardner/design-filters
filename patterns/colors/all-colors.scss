@@ -6,36 +6,48 @@ $white: #fff;
 $gray: (
     dropshadow: rgba(68, 68, 68, .59),
     disabled: #686868,
-    background: #f7f7f7,
+    background: #FCFDFF,
     lightest: #efefef,
     light: #ccc,
-    mid: #757575,
-    dark: #444444
+    mid: #888888,
+    dark: #363f44,
+    nav-active: #282F33,
+    nav-border: #686f72,
+    headernav: #f5f7fa
 );
 
 $blue: (
     duo-light: #476376,
-    cta-light: #2774D5,
-    cta: #306FC3,
-    cta-dark: #1550AF,
+    cta-light: #4993E1,
+    cta: #3E75AF,
     duo: #405665,
-    light: #2798D4,
-    info: #2698D4
+    lightest: #E8EDF3,
+    light: #6ca7e4,
+    dark: #508ccb,
+    info: #3E75AF
 );
 
 $red: (
-    alert: #D0011B,
-    darker: #BA0013
+    alert: #E06969,
+    darker: #FED1D1
+);
+
+$yellow: (
+    warn: #F0C473
 );
 
 $orange: (
-    warn: #df6a27
+    orange: #EE7450,
+    warn: #F0C473
 );
 
 $green: (
-    success: #44A91D,
-    duo: #6DBE4F,
-    dark: #569E44
+    success: #6dbe50,
+    duo: #6dbe50,
+    dark: #569E44,
+    nav-tab: #6dbe50,
+    info: #8CC873,
+    light: #88cb6c
 );
 
 // we should eventually just get rid of these all together
@@ -45,33 +57,6 @@ $grey: map-get($gray, mid);
 $grey-light: map-get($gray, light);
 $grey-lighter: map-get($gray, lightest);
 
-$white: white;
-
-// Platform colors
-$chrome-green: #68cf6a;
-$safari-red: #fe5255;
-$firefox-orange: #f9923e;
-$ie-blue: #3eb2ef;
-$edge-blue: #2e6fb3;
-$macosx-blue: #08C0E5;
-$windows-green: #1E896F;
-
-// Insight graph colors
-$insight-card-border: #dadada;
-
-$insight-os-tooltip-color: #317867;
-$insight-os-selected-color: #357E6D;
-$insight-browser-tooltip-color: #606E7A;
-$insight-browser-selected-color: #606E7A;
-$insight-plugin-tooltip-color: #67A3B7;
-$insight-plugin-selected-color: #379ED4;
-
-$policy-builder-warning-text-brown: #806840;
-$policy-builder-warning-background-yellow: #FEF4E2;
-$policy-builder-warning-border-yellow: #F5E1BF;
-$policy-builder-help-text-grey: #757E81;
-$policy-builder-help-text-background-grey: #F8F8F8;
-$policy-builder-help-text-border-grey: #D0DCE2;
-
 @import "brand";
 @import "secondary";
+@import "translations";

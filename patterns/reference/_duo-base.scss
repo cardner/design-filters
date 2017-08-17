@@ -56,9 +56,9 @@ p, li {
 }
 
 .disabled-row {
-    color: #999;
+    color: $disabled-text-color;
 
     a {
-        color: #777;
+        color: $disabled-text-color;
     }
 }

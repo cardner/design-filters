@@ -1,9 +1,12 @@
 @import "../global/variables";
 @import "../global/mixins";
 
-.header, .subhead {
+.header,
+.subhead {
     @include clearfix;
-    p, li {
+
+    li,
+    p {
         margin-bottom: 0;
     }
 
@@ -22,5 +25,20 @@
         > :first-child {
             flex: 1;
         }
+    }
+
+}
+
+// This creates the two line header with a descriptor line below the larger header title
+.c--header-stacked {
+    .header-description {
+        display: block;
+        font-size: $base-font-size;
+        font-weight: $base-font-weight;
+        line-height: $medium-line-height;
+    }
+
+    .header-type {
+        display: block;
     }
 }

@@ -18,27 +18,29 @@ input[type="src"]:not(.link) input[type="reset"] {
     @include border-radius;
     @include transitions(color $fast-ease, background-color $fast-ease, border $slow-ease, box-shadow $slow-ease, max-height $slow-ease);
     display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1rem;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    text-decoration: none;
+    line-height: 1.5em;
     min-height: 2.5rem;
-    border: 2px solid $button-border-color;
-    padding: .65rem 1.25rem .5rem; // 10/16, 20/16
+    @include borders($border-color: $button-border-color);
+    padding: .65rem 1.25rem .4rem; // 10/16, 20/16
     color: $button-text-color;
     background-color: transparent;
     letter-spacing: .04em;
 
     &:hover {
-        background-color: transparent;
+        text-decoration: none;
+        background-color: $default-button-hover-color;
         border-color: $default-button-hover-color;
-        color: $default-text-color;
+        color: $white;
         cursor: pointer;
     }
 
     &:focus {
         @include box-shadow;
         outline: none;
-        border-color: $default-border-color;
+        border-color: $button-border-hover-color;
         background-color: transparent;
         color: inherit;
     }
@@ -58,6 +60,11 @@ input[type="src"]:not(.link) input[type="reset"] {
         padding-left: 12px;
         padding-right: 6px;
     }
+
+    &.hidden {
+        display: none;
+    }
+
     // Hide the disabled tool tip if the button has been enabled
     i[role="tooltip"] {
         display: none;
@@ -65,7 +72,6 @@ input[type="src"]:not(.link) input[type="reset"] {
 
     //Add all imports here for different button types
     @import "primary";
-    @import "destructive";
     @import "disabled";
 
     &.square {
@@ -81,80 +87,161 @@ input[type="src"]:not(.link) input[type="reset"] {
         }
     }
 
+    &.a--btn-icon-clear {
+        &:before {
+            content: none;
+            display: none;
+        }
+    }
+
     &.full-width {
         width: 100%;
     }
 }
 
-a.button {
-    @include no-box-shadow;
+/* this is to create the new buttons style of button links */
+.c--button-link {
+    border: none;
+    padding: unset;
+    height: unset;
+    min-height: unset;
+    background-color: unset;
+
+    &:hover {
+        color: inherit;
+        background-color: unset;
+        text-decoration: underline;
+    }
+
+    /* modifier for destructive button links TODO come back and fix inheritance with extends and buttons */
+
+    &.c--destruction:before {
+        content: $trashcan;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: $bold-font-weight;
+        padding-right: 6px;
+        margin-top: -.2em;
+    }
 }
 
 .button-row {
-    @include clearfix;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 
-    > * {
-        float: left;
+    &.centered {
+        justify-content: center;
+    }
+
+    &.right {
+        justify-content: flex-end;
+    }
+
+    &.top {
+        align-self: flex-start;
+    }
+
+    a {
+        margin: 0 16px;
+
+        &[target="_blank"] {
+            // To account for i.icon-new-window's negative margin.
+            margin-right: 32px;
+        }
+
+        /* Between two adjacent non-buttons, put a separator */
+        &.c--button-link:after,
+        &.button.c--button-link:after,
+        &:not(.a--dropdown-trigger):after {
+            content: '';
+            display: inline-block;
+            margin-left: 15px;
+            margin-right: -16px;
+            top: 2px;
+            background-color: $default-text-color;
+            width: 1px;
+            height: 14px;
+        }
+
+        &:first-child:last-child {
+            margin-right: 0;
+        }
+    }
+
+
+    // Add extra margin between two adjacent buttons.
+    // Not only can buttons can be a.button or button, but in some cases
+    // we have a form around a button, so account for all these combos
+    a.button + a.button,
+    a.button + button,
+    a.button + form,
+    button + a.button,
+    button + button,
+    button + form,
+    form + .button,
+    form + button,
+    form + form,
+    a + form,
+    .c--button-link + button,
+    .c--button-link + .button {
+        margin-left: 16px;
+    }
+
+    .c--button-link.button {
         margin-right: 16px;
     }
 
-    &.reverse > * {
-        float: right;
-        margin-left: 16px;
-        margin-right: 0;
+    // Fix vertical alignment of primary buttons when the button-row is itself
+    // inside a flex container.
+    a.button.c--primary {
+        align-self: flex-start;
     }
 
-    &.centered {
-        text-align: center;
-    }
-
-    [type="text"] {
-        width: 200px;
-    }
-    > a:not(.button) {
-        margin: 10px 16px 0 16px;
+    // Prevent button text from wrapping, since we're letting the items wrap.
+    a, button {
+        white-space: nowrap;
         position: relative;
-        &:after {
-            content: '';
-            position: absolute;
-            right: -16px;
-            top: -3px;
-            display: inline-block;
-            width: 2px;
-            background-color: $default-border-color;
-            height: 28px;
-        }
-        &:first-of-type {
-            margin-right: 4px;
+
+        // Remove the border right for these selectors / elements
+        &:last-child,
+        &.a--piping-none {
             &:after {
-                display: none;
+                content: unset;
             }
         }
-    }
-    a.button + a {
-        margin-right: 4px;
-        &:after {
-            display: none;
+
+        &:last-child {
+            margin-right: 0;
         }
     }
 
-    .flexbox & {
-        display: flex;
-        align-items: flex-start;
-
-        &.reverse {
-            flex-direction: row-reverse;
-        }
-
-        &.centered {
-            justify-content: center;
-
-            > :last-child {
-                margin-right: 0;
+    a + .button,
+    a + button {
+        &:nth-last-child(2) & {
+            &:after {
+                content: unset;
             }
+        }
+    }
+
+    // When button row has an embedded form, don't wrap items inside it.
+    // Also, remove outside margins.
+    form.button-row {
+        display: flex; // Needs to win over .header form
+        flex-wrap: nowrap;
+
+        a:first-child, button:first-child {
+            margin-left: 0;
+        }
+        a:last-child, button:last-child {
+            margin-right: 0;
         }
     }
 }
+
+@import "destructive";
 @import "download";
 @import "dropdowns";
 @import "form-elements";

@@ -1,14 +1,15 @@
 .support {
-    font-size: $small-font-size;
-    padding: 1.5rem .75rem 2rem 1.5rem; // 24/16
-    border-top: solid 1px $grey-lighter;
+    font-size: $smaller-font-size;
+    padding: 1.563rem .75rem 2rem 1.563rem; /* 25/16, 25/16 */
+    border-top: solid 1px $nav-border-color;
+    color: $white;
 
     h2,
     h3 {
-        color: $grey;
+        color: $white;
         font-family: $base-font-family;
-        font-size: .7rem;
-        font-weight: $base-font-weight;
+        font-size: $smaller-font-size;
+        font-weight: $bold-font-weight;
         line-height: 1;
         margin-bottom: 0.25rem;
     }
@@ -22,6 +23,14 @@
         margin: 0;
         padding: 0;
 
+        a {
+            color: $white;
+            text-decoration: underline;
+            i {
+                color: $white;
+            }
+        }
+
         dd,
         dt {
             margin-left: 0;
@@ -31,6 +40,7 @@
 
         dt {
             margin-top: 0.875rem;
+            font-weight: $bold-font-weight;
             &:first-child {
                 margin-top: 0;
             }

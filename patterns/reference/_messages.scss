@@ -8,26 +8,22 @@
     padding: 1rem;
     position: relative;
     margin-top: 0;
-    margin-bottom: 1rem;
-
-    a {
-        color: darken($color, 10%);
-
-        &:hover { color: darken($color, 20%); }
-    }
+    margin-bottom: $large-margin-spacing;
 }
 
 @keyframes barberpole {
     from {
         background-position: 0 0;
     }
+
     to {
         background-position: 2rem 0;
     }
 }
 
 .flash {
-    .info, .message {
+    .info,
+    .message {
         @include message($grey-dark, $info-blue-light);
     }
 
@@ -46,33 +42,34 @@
     .progress {
         @include message($grey-darker, $grey-light);
         background-size: 2rem 2rem;
-        background-image: linear-gradient(
-            45deg,
-            transparentize($grey-darker, .95) 25%,
-            transparent 25%,
-            transparent 50%,
-            transparentize($grey-darker, .95) 50%,
-            transparentize($grey-darker, .95) 75%,
-            transparent 75%,
-            transparent
-        );
-        animation: barberpole 0.5s linear infinite;
+        background-image: linear-gradient( 45deg, transparentize($grey-darker, .95) 25%, transparent 25%, transparent 50%, transparentize($grey-darker, .95) 50%, transparentize($grey-darker, .95) 75%, transparent 75%, transparent );
+        animation: barberpole .5s linear infinite;
     }
 
     p:last-child {
         margin-bottom: 0;
     }
 }
+@mixin message-content($background-color, $border-color) {
+    background-color: $background-color;
+    @include borders($border-color: $border-color);
+
+}
 
 .page-message {
     @include clearfix;
-    @include message($grey-dark, $info-blue-light);
+    @include message($color: $default-text-color, $color-light: $default-message-background-color);
+
+    & + & {
+        margin-top: 1rem;
+    }
 
     img {
         float: right;
     }
 
-    ul, ol {
+    ol,
+    ul {
         margin: 4px 30px 10px 20px;
     }
 
@@ -87,31 +84,21 @@
     }
 
     &.info {
-        border: 1px solid $info-blue-border;
-        > * {
-            margin-left: 48px;
-        }
-
-        &:before {
-            content: "\e0d0";
-            font-family: $icon-font-family;
-            font-size: 32px;
-            position: absolute;
-            display: block;
-            transform: translateY(-50%);
-            top: 50%;
-            left: 16px;
-        }
+        @include message-content($background-color: $default-message-background-color, $border-color: $default-message-border-color);
 
         .info-box-title {
-            font-weight: bold;
+            font-weight: $bold-font-weight;
             margin-bottom: 0;
         }
     }
 
+    &.warning {
+        @include message-content($warning-orange-light, $warning-orange-border);
+    }
+
     &.secure {
         &:before {
-            content: "\e01a";
+            content: '\e01a';
         }
     }
 
@@ -119,15 +106,19 @@
         margin-bottom: 2.5em;
     }
 
+    &.top-aligned:before {
+        top: 2rem;
+    }
+
     &.no-top-margin {
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     &.success {
         @include message($grey-dark, $success-green-light);
 
         &.limit {
-            padding: 15px 20px 15px 20px;
+            padding: 15px 20px;
         }
     }
 

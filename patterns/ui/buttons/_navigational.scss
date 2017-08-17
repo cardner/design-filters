@@ -1,14 +1,3 @@
-// Title:
-// Navigational
-//
-// Version:
-// Development
-// Styleguide 1.1.0
-//
-// Code:
-//  <button role="button" type="button" name="button" class="icon c--continue">Continue</button>
-//
-
 .dataTables_paginate a {
     border: none;
 
@@ -17,7 +6,7 @@
     }
 }
 @mixin back-arrow {
-    @extend %icon;
+    @include duo-icons;
     content: $lessThan;
     display: inline-block;
     position: relative;
@@ -25,7 +14,7 @@
     padding: 0;
 }
 @mixin forward-arrow {
-    @extend %icon;
+    @include duo-icons;
     content: $greaterThan;
     display: inline-block;
 }
@@ -41,7 +30,6 @@
 }
 %forward {
   &:after {
-    @extend %icon-after;
     @include forward-arrow;
   }
 }
