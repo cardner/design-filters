@@ -1,6 +1,6 @@
 {
   "name": "pattern-library",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Duo Design Standards",
   "private": true,
   "scripts": {
@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duosecurity/design.git"
+    "url": "git+ssh://git@phab.duosec.org/diffusion/80/design-pattern-library.git"
   },
-  "author": "Bryan Witherspoon <bspoon@duosecurity.com>",
+  "author": "Ryan Williamson-Cardneau <rcardneau@duosecurity.com>",
   "bugs": {
     "url": "https://github.com/duosecurity/design/issues"
   },
