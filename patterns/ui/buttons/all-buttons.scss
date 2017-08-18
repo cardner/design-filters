@@ -101,17 +101,7 @@ input[type="src"]:not(.link) input[type="reset"] {
 
 /* this is to create the new buttons style of button links */
 .c--button-link {
-    border: none;
-    padding: unset;
-    height: unset;
-    min-height: unset;
-    background-color: unset;
-
-    &:hover {
-        color: inherit;
-        background-color: unset;
-        text-decoration: underline;
-    }
+    @include button-to-link-reset;
 
     /* modifier for destructive button links TODO come back and fix inheritance with extends and buttons */
 
@@ -143,18 +133,22 @@ input[type="src"]:not(.link) input[type="reset"] {
         align-self: flex-start;
     }
 
-    a {
+    // Fix vertical alignment of primary buttons when the button-row is itself
+    // inside a flex container.
+    a.button.c--primary {
+        align-self: flex-start;
+    }
+
+    // Prevent button text from wrapping, since we're letting the items wrap.
+    // Style buttons and anchors with margin and piping
+    a,
+    button {
+        white-space: nowrap;
+        position: relative;
         margin: 0 16px;
 
-        &[target="_blank"] {
-            // To account for i.icon-new-window's negative margin.
-            margin-right: 32px;
-        }
-
         /* Between two adjacent non-buttons, put a separator */
-        &.c--button-link:after,
-        &.button.c--button-link:after,
-        &:not(.a--dropdown-trigger):after {
+        &:after {
             content: '';
             display: inline-block;
             margin-left: 15px;
@@ -165,48 +159,27 @@ input[type="src"]:not(.link) input[type="reset"] {
             height: 14px;
         }
 
+        // Drastic but resets all button and links that are not .c--primary to link style
+        &:not(.c--primary):not(.a--dropdown-trigger) {
+            color: $default-text-color;
+            @include button-to-link-reset;
+        }
+
+        // clear left padding on these selectors
+        &.c--primary {
+            margin-left: 0;
+        }
+
+        // if there's only one item in the row kill right padding
         &:first-child:last-child {
             margin-right: 0;
         }
-    }
-
-
-    // Add extra margin between two adjacent buttons.
-    // Not only can buttons can be a.button or button, but in some cases
-    // we have a form around a button, so account for all these combos
-    a.button + a.button,
-    a.button + button,
-    a.button + form,
-    button + a.button,
-    button + button,
-    button + form,
-    form + .button,
-    form + button,
-    form + form,
-    a + form,
-    .c--button-link + button,
-    .c--button-link + .button {
-        margin-left: 16px;
-    }
-
-    .c--button-link.button {
-        margin-right: 16px;
-    }
-
-    // Fix vertical alignment of primary buttons when the button-row is itself
-    // inside a flex container.
-    a.button.c--primary {
-        align-self: flex-start;
-    }
-
-    // Prevent button text from wrapping, since we're letting the items wrap.
-    a, button {
-        white-space: nowrap;
-        position: relative;
 
         // Remove the border right for these selectors / elements
         &:last-child,
-        &.a--piping-none {
+        &.a--piping-none,
+        &.c--primary,
+        &.a--dropdown-trigger {
             &:after {
                 content: unset;
             }
@@ -217,9 +190,9 @@ input[type="src"]:not(.link) input[type="reset"] {
         }
     }
 
-    a + .button,
-    a + button {
-        &:nth-last-child(2) & {
+    a + .c--primary,
+    a + .a--dropdown-trigger {
+        &:nth-last-child(2) {
             &:after {
                 content: unset;
             }
@@ -232,10 +205,12 @@ input[type="src"]:not(.link) input[type="reset"] {
         display: flex; // Needs to win over .header form
         flex-wrap: nowrap;
 
-        a:first-child, button:first-child {
+        a:first-child,
+        button:first-child {
             margin-left: 0;
         }
-        a:last-child, button:last-child {
+        a:last-child,
+        button:last-child {
             margin-right: 0;
         }
     }
