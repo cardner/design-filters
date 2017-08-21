@@ -61,6 +61,24 @@
         <hr />
         <section>
             <div class="button-row right">
+                <div class="bulk-selector-wrap">
+                    <div class="bulk-selector c--dropdown">
+                        <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">
+                        Select (<span class="num-selected">0</span>)
+                        </a>
+                        <ul class="a--dropdown-content select-quantity-list" aria-hidden="true">
+                            <li><a href="#selectAll">Select All</a></li>
+                            <li><a href="#selectNone">Select None</a></li>
+                        </ul>
+                    </div>
+                    <div class="bulk-actions c--dropdown">
+                        <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">…</a>
+                        <ul class="a--dropdown-content disabled action-list" aria-hidden="true">
+                            <li><a href="#add-to-group">Add to Group</a></li>
+                            <li><a href="#change-user-status">Change User Status</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <a href="#" title="perform a directory sync">Directory Sync</a>
                 <a href="#" title="import your users">Import Users</a>
                 <a href="#" class="a--piping-none" title="bulk enroll your users">Bulk Enroll Users</a>

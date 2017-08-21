@@ -165,7 +165,7 @@ input[type="src"]:not(.link) input[type="reset"] {
             @include button-to-link-reset;
         }
 
-        // clear left padding on these selectors
+        // clear left margin on these selectors
         &.c--primary {
             margin-left: 0;
         }
@@ -199,6 +199,12 @@ input[type="src"]:not(.link) input[type="reset"] {
         }
     }
 
+    // Make exception on margin for bulk selector buttons
+    .bulk-selector-wrap .a--dropdown-trigger {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     // When button row has an embedded form, don't wrap items inside it.
     // Also, remove outside margins.
     form.button-row {
@@ -219,6 +225,7 @@ input[type="src"]:not(.link) input[type="reset"] {
 @import "destructive";
 @import "download";
 @import "dropdowns";
+@import "bulk-selector";
 @import "form-elements";
 @import "navigational";
 @import "pagination";
