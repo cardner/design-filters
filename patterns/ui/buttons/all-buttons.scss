@@ -138,8 +138,8 @@ input[type="src"]:not(.link) input[type="reset"] {
 
     // Prevent button text from wrapping, since we're letting the items wrap.
     // Style buttons and anchors with margin and piping
-    a,
-    button {
+    > a,
+    > button {
         white-space: nowrap;
         position: relative;
         margin: 0 16px;

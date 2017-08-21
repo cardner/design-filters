@@ -52,10 +52,6 @@
                 border-color: $default-button-hover-color;
             }
 
-            &:focus {
-                @include box-shadow;
-                @include borders;
-            }
         }
 
         .a--dropdown-content[aria-hidden="false"] {
@@ -100,12 +96,12 @@
             }
 
             &.active:focus {
-                @include box-shadow(0 0 0 2px $white, 0 0 0 4px $primary-border-color);
+                @include box-shadow(0 0 0 1px $white, 0 0 0 2px $primary-border-color);
                 @include borders($border-color: $button-border-color);
             }
 
             &:focus {
-                @include box-shadow;
+                @include box-shadow(0 0 0 1px $white, 0 0 0 2px $primary-border-color);
                 @include borders($border-color: $button-border-color);
             }
 
