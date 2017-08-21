@@ -9,7 +9,7 @@
     }
 
     &:focus {
-        @include box-shadow(0 0 0 1px $white, 0 0 0 3px $default-button-color);
+        @include box-shadow(0 0 0 1px $white, 0 0 0 2px $default-button-color);
     }
 
     &:active {

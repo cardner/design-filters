@@ -13,7 +13,7 @@ a {
         text-decoration: underline;
     }
 
-    &:not(.button):focus {
+    &:focus {
         text-shadow: none;
         box-shadow: none;
         outline: none;
@@ -21,7 +21,7 @@ a {
         text-decoration: none;
         //padding:0; this may be problematic but can cause oddities for non inline links
         @include border-radius;
-        @include box-shadow(0 0 0 1px $white, 0 0 0 3px currentColor);
+        @include box-shadow(0 0 0 1px $white, 0 0 0 2px currentColor);
     }
 
     // import other link types here
