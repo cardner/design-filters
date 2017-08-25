@@ -81,7 +81,7 @@
                 </div>
                 <a href="#" title="perform a directory sync">Directory Sync</a>
                 <a href="#" title="import your users">Import Users</a>
-                <a href="#" class="a--piping-none" title="bulk enroll your users">Bulk Enroll Users</a>
+                <a href="#" class="" title="bulk enroll your users">Bulk Enroll Users</a>
                 <a href="#" class="button c--primary primary" role="button"> Add User </a>
             </div>
             <div class="button-row left">
@@ -109,6 +109,68 @@
                 <i class="icon-chevron-thick-right"></i>
                 Current Directory
             </p>
+        </section>
+        <hr />
+        <section>
+            <div class="at-a-glance can-filter allUsers">
+                <input type="hidden" id="user-table_filter_param" value="allUsers">
+                <div class="metric-card selected">
+                  <div class="number">
+                    <a href="#" class="filter-table" data-filter-by="allUsers|0" data-mixpanel-event-type="filter-all-users">
+                                15
+                                </a>
+                  </div>
+                  <div class="what">Total Users</div>
+
+                </div>
+                <div class="metric-card">
+                  <div class="number">
+                    <a href="#" class="filter-table" data-filter-by="no2faDevices|1" data-mixpanel-event-type="filter-no-2fa-devices">
+                                0
+                                </a>
+                  </div>
+                  <div class="what">Has No 2FA Devices</div>
+
+                  <div class="meta-text">
+                    <a href="/users/enroll-codes">
+                                0 Pending
+
+                                Enrollments
+
+                                </a>
+                  </div>
+
+                </div>
+                <div class="metric-card">
+                  <div class="number">
+                    <a href="#" class="filter-table" data-filter-by="inactive|2" data-mixpanel-event-type="filter-inactive">
+                                13
+                                </a>
+                  </div>
+                  <div class="what">Inactive Users</div>
+                  <div class="meta-text">last 30 days</div>
+                </div>
+                <div class="metric-card">
+                  <div class="multiple-values">
+                    <div class="one-half-col">
+                      <div class="number  warning ">
+                        <a href="#" class="filter-table" data-filter-by="bypass|3" data-mixpanel-event-type="filter-bypass">
+                                1
+                                </a>
+                      </div>
+                      <div class="what">User Bypass</div>
+                    </div>
+                    <div class="one-half-col">
+                      <div class="number  warning ">
+                        <a href="#" class="filter-table" data-filter-by="lockedOut|3" data-mixpanel-event-type="filter-lockedout">
+                                1
+                                </a>
+                      </div>
+                      <div class="what">Locked Out</div>
+                    </div>
+                  </div>
+                </div>
+        </div>
         </section>
         <hr />
         <section class="line">

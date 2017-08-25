@@ -187,15 +187,6 @@ input[type="src"]:not(.link) input[type="reset"] {
         }
     }
 
-    a + .c--primary,
-    a + .a--dropdown-trigger {
-        &:nth-last-child(2) {
-            &:after {
-                content: unset;
-            }
-        }
-    }
-
     // Make exception on margin for bulk selector buttons
     .bulk-selector-wrap .a--dropdown-trigger {
         margin-left: 0;

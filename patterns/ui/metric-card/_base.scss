@@ -46,6 +46,7 @@
         flex: 0 0 auto;
         width: 33%;
     }
+
 }
 
 .at-a-glance.can-filter.pendingDeletion:before {
@@ -72,25 +73,17 @@
     vertical-align: top;
     position: relative;
 
-    &:first-child {
-        padding-left: 0;
-    }
-
-    &::before {
+    &:before {
         position: absolute;
         content: '';
         width: 1px;
-        top: 25px;
+        top: 0;
         bottom: 0;
         right: 0;
         @include border(right);
     }
 
-    &:last-child::before {
-        display: none;
-    }
-
-    &::after {
+    &:after {
         content: '';
         position: absolute;
         top: 0;
@@ -102,12 +95,22 @@
         background: $info-blue;
     }
 
-    &:first-child::after {
-        border-radius: 3px 0 0 0;
+    &:last-child {
+        &:before {
+            display: none;
+        }
+
+        &:after {
+            border-radius: 0 $border-radius 0 0;
+        }
     }
 
-    &:last-child::after {
-        border-radius: 0 3px 0 0;
+    &:first-of-type {
+        padding-left: 0;
+
+        &:after {
+            border-radius: $border-radius 0 0;
+        }
     }
 
     &.selected::after {

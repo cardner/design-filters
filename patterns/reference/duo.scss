@@ -1,9 +1,5 @@
 // This document is intended if you want to pull ALL STYLES for the admin panel, not just the ui pattern styles
 
-
-// Normalize includes both SCSS and CSS files, so specify the extension to
-// avoid ambiguity.
-@import "normalize/normalize.scss";
 // Use this to deprecate old transitional sass
 $app-version: '1.1.0';
 $deprecate-mode: 'verbose';
