@@ -1,16 +1,4 @@
 .c--btn {
-    &-next {
-        @extend %button;
-
-        &:after {
-            @include forward-arrow;
-            vertical-align: middle;
-            margin-right: -.25em;
-            line-height: 0;
-            top: -.075em;
-            position: relative;
-        }
-    }
     &-download {
         @extend %button;
         @include no-box-shadow;
@@ -18,7 +6,7 @@
         height: auto;
         border: none;
         padding: 12px 20px 12px 0;
-        color: $info-blue;
+        color: $default-button-color;
         font-size: 0.8125rem;
         line-height: 1em;
         transition: color .2s ease;
@@ -28,7 +16,7 @@
             width: 1.72em;
             float: left;
             height: auto;
-            fill: $info-blue;
+            fill: $default-button-color;
             margin-right: 0.86em;
         }
 
@@ -44,23 +32,22 @@
         }
 
         &:hover {
-            @include no-box-shadow;
-            color: $info-blue;
             background-color: transparent;
             text-decoration: underline;
+            color: $default-button-hover-color;
 
             svg {
-                fill: $info-blue;
+                fill: $default-button-hover-color;
             }
 
             i {
+                color: $default-button-hover-color;
                 text-decoration: none;
             }
         }
 
         &:focus,
         &:active {
-            @include box-shadow;
             outline: none;
             border: inherit;
             background-color: transparent;

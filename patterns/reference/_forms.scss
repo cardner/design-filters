@@ -317,8 +317,11 @@ select.wider {
             .select2-arrow > b {
                 margin-top: -2px;
             }
-            height: 18px;
-            line-height: 18px;
+        }
+    }
+    .select2-dropdown-open {
+        a {
+            border-color: $hover-input-border-color;
         }
     }
 }

@@ -33,14 +33,16 @@
 }
 
 .dataTables_wrapper {
+    @include border-radius;
+    @include borders;
+
     form {
         margin-bottom: 0;
     }
 
     table {
+        @include border(top);
         width: 100% !important;
-        @include border-radius;
-        @include borders;
         border-collapse: separate;
     }
 
