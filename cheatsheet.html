@@ -81,7 +81,7 @@
                 </div>
                 <a href="#" title="perform a directory sync">Directory Sync</a>
                 <a href="#" title="import your users">Import Users</a>
-                <a href="#" class="" title="bulk enroll your users">Bulk Enroll Users</a>
+                <a href="#" class="a--piping-none" title="bulk enroll your users">Bulk Enroll Users</a>
                 <a href="#" class="button c--primary primary" role="button"> Add User </a>
             </div>
             <div class="button-row left">
@@ -611,6 +611,50 @@
                   </tfoot>
                 </table>
               </div>
+            </div>
+        </section>
+        <section>
+            <div id="modal-confirm-1505058807281" class="modal modal-auto modal-confirm">
+            <div class="modal-header confirm-header">
+                <h2 class="confirm-title l--margin-top-reset l--margin-bottom-reset">Removing this application will disable Duo Restore.</h2>
+                <a href="#" class="modal-close button-cancel">
+                <i class="icon-delete icon-exclamation-mark-circle"></i>
+                </a>
+                </div>
+                <div class="modal-content confirm-content">
+                <p class="confirm-message"><strong>This action is permanent.</strong><br>This application is currently being used to verify users' identities when reactivating Duo accounts on new devices.<br>Learn about Duo Restore in Settings.</p>
+                </div>
+                <div class="modal-footer">
+                <span class="button-group buttons-alert hidden">
+                <button class="confirm-button button-alert button-accept">Remove Application</button>
+                </span>
+                <span class="button-group buttons-confirm">
+                <button class="confirm-button button-accept c--primary primary">Remove Application</button>
+                <button class="confirm-button button-cancel"> Cancel </button>
+                </span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="modal-confirm-1505063139879" class="modal modal-auto modal-confirm">
+            <div class="modal-header confirm-header">
+            <h2 class="confirm-title l--margin-top-reset">Deleting this user cannot be undone.</h2>
+            <a href="#" class="modal-close button-cancel">
+            <i class="icon-delete icon-exclamation-mark-circle"></i>
+            </a>
+            </div>
+            <div class="modal-content confirm-content hidden">
+            <p class="confirm-message"></p>
+            </div>
+            <div class="modal-footer">
+            <span class="button-group buttons-alert hidden">
+            <button class="confirm-button button-alert button-accept">Delete</button>
+            </span>
+            <span class="button-group buttons-confirm">
+            <button class="confirm-button button-accept c--primary primary">Delete</button>
+            <button class="confirm-button button-cancel"> Cancel </button>
+            </span>
+            </div>
             </div>
         </section>
     </body>
