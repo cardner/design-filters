@@ -51,6 +51,9 @@ $animation-duration: 250ms;
     border: none;
     border-radius: 0;
 
+    // set a min width for modals because otherwise they can get pretty small
+    min-width: 43.75rem; /* 700/16 */
+
     // TODO-XXX: Z-index needed when using frameserv/.../v3/modal.js,
     // but not static/shared/js/modal.js
     // This is because the former doesn't make .modal a child of .overlay,
@@ -130,7 +133,11 @@ form.modal {
 
 .modal-footer,
 .modal-header {
-    padding: $large-margin-spacing 0 $default-margin-spacing $xlarge-margin-spacing;
+    padding: $large-margin-spacing 4rem $small-margin-spacing $xlarge-margin-spacing;
+}
+
+.a--header-red {
+    color: $error-red;
 }
 
 .modal-header {
@@ -139,11 +146,10 @@ form.modal {
     .modal-close {
         color: $default-text-color;
         font-size: .875rem;
-        padding: 20px;
         position: absolute;
-        right: .5em;
+        right: 1.75rem; /* 28/16 */
         text-decoration: none;
-        top: .5em;
+        top: 2.125rem;
 
         &:hover {
             color: $default-text-color;
@@ -152,10 +158,17 @@ form.modal {
 }
 
 .modal-content {
-    padding: $large-margin-spacing 0 $default-margin-spacing $xlarge-margin-spacing;
+    padding: $large-margin-spacing 4rem $large-margin-spacing $xlarge-margin-spacing;
     overflow-y: auto;
 }
 
 .modal-footer {
     @include border(top);
+}
+
+/* lets put some space between the buttons in a button group */
+.button-group {
+    button + button {
+        margin-left: $small-margin-spacing;
+    }
 }
