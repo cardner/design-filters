@@ -93,7 +93,7 @@
     }
 
     &.warning {
-        @include message-content($warning-orange-light, $warning-orange-border);
+        @include message-content($background-color: $warning-orange-lightest, $border-color: $warning-orange-light);
     }
 
     &.secure {
@@ -115,7 +115,7 @@
     }
 
     &.success {
-        @include message($grey-dark, $success-green-light);
+        @include message-content($background-color: $success-green-lightest, $border-color: $success-green-light);
 
         &.limit {
             padding: 15px 20px;
@@ -123,7 +123,7 @@
     }
 
     &.error {
-        @include message($grey-dark, $error-red-lightest);
+        @include message-content($background-color: $error-red-lightest, $border-color: $error-red-light);
     }
 }
 
