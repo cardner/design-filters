@@ -1,16 +1,17 @@
 // States for alerts, buttons, etc
 $success-green: map-get($green, success);
-$success-green-light: $duo-green-light;
-$success-green-lightest: lighten($duo-green, 40%);
+$success-green-light: lighten($success-green, 38%);
+$success-green-lightest: lighten($success-green, 43%);
 $error-red: map-get($red, alert);
-$error-red-light: #FFEFEF;
-$error-red-lightest: #FFEFEF;
+$error-red-light: lighten($error-red, 29%);
+$error-red-lightest: lighten($error-red, 33%);
 $error-red-dark: map-get($red, darker);
 $info-blue: map-get($blue, info);
 $info-blue-light: #F5F7FA;
 $info-blue-border: #E8EDF3;
 $warning-orange: map-get($orange, warn);
-$warning-orange-light: lighten($warning-orange, 40%);
+$warning-orange-light: lighten($warning-orange, 23%);
+$warning-orange-lightest: lighten($warning-orange, 28%);
 $warning-orange-border: #ebcfbe;
 
 // Base colors, fonts and sizes
@@ -18,7 +19,7 @@ $base-color: map-get($gray, dark);
 $base-link-color: map-get($blue, cta);
 
 // Disabled
-$disabled-opacity: 0.5;
+$disabled-opacity: .5;
 $disabled-color: transparentize($base-color, $disabled-opacity);
 $disabled-input-color: rgb(235, 235, 228);
 

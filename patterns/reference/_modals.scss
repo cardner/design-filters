@@ -136,6 +136,10 @@ form.modal {
     padding: $large-margin-spacing 4rem $small-margin-spacing $xlarge-margin-spacing;
 }
 
+.modal-footer {
+    padding-bottom: $large-margin-spacing;
+}
+
 .a--header-red {
     color: $error-red;
 }
