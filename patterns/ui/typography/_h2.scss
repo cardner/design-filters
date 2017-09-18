@@ -2,7 +2,7 @@
 h2 {
     @include header;
     font-size: $large-font-size;
-    margin-top: $xlarge-margin-spacing;
+    margin-top: $large-margin-spacing;
     margin-bottom: $header-margin-bottom-spacing;
     letter-spacing: 0;
 }
