@@ -2,6 +2,6 @@
 h1 {
     @include header;
     font-size: $largest-font-size;
-    margin-bottom: $h1-header-margin-bottom-spacing; /* -0.9/16 */
+    margin-bottom: $header-margin-bottom-spacing;
     letter-spacing: -.056rem,;
 }
