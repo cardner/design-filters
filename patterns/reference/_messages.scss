@@ -1,8 +1,8 @@
 @import "../global/variables";
 @import "../global/mixins";
 
-@mixin message($color, $color-light) {
-    background-color: $color-light;
+@mixin message($color: $default-text-color, $background-color: $default-message-background-color) {
+    background-color: $background-color;
     border-radius: $border-radius;
     color: $color;
     padding: 1rem;
@@ -24,23 +24,23 @@
 .flash {
     .info,
     .message {
-        @include message($grey-dark, $info-blue-light);
+        @include message;
     }
 
     .error {
-        @include message($grey-dark, $error-red-lightest);
+        @include message($background-color: $error-red-light);
     }
 
     .success {
-        @include message($grey-dark, $success-green-lightest);
+        @include message($background-color: $success-green-light);
     }
 
     .warning {
-        @include message($grey-dark, $warning-orange-light);
+        @include message($background-color: $warning-orange-light);
     }
 
     .progress {
-        @include message($grey-darker, $grey-light);
+        @include message($background-color: $grey-light);
         background-size: 2rem 2rem;
         background-image: linear-gradient( 45deg, transparentize($grey-darker, .95) 25%, transparent 25%, transparent 50%, transparentize($grey-darker, .95) 50%, transparentize($grey-darker, .95) 75%, transparent 75%, transparent );
         animation: barberpole .5s linear infinite;
@@ -58,7 +58,7 @@
 
 .page-message {
     @include clearfix;
-    @include message($color: $default-text-color, $color-light: $default-message-background-color);
+    @include message;
 
     & + & {
         margin-top: 1rem;
