@@ -13,8 +13,8 @@ fieldset {
 }
 
 legend {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: $base-font-size;
+    font-weight: $bold-font-weight;
 }
 
 label {
@@ -32,8 +32,8 @@ ul.error-list {
     margin: 0;
 
     li {
-        font-size: 12px;
-        color: $error-red-light;
+        font-size: $smallest-font-size;
+        color: $error-red;
         margin: 2px 0;
     }
 }
