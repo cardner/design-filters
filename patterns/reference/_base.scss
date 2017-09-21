@@ -631,11 +631,14 @@ th.users .ss-user {
     }
     .a--dropdown {
         &-trigger {
-            svg {
+            svg,
+            img {
                 @include topnav-profile-size;
+                height: 1rem;
+                width: auto;
                 display: inline-block;
                 vertical-align: middle;
-                margin: 0 .5em;
+                margin: .75rem .5em 0;
             }
         }
         &-content {
