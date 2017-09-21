@@ -640,6 +640,11 @@ th.users .ss-user {
                 vertical-align: middle;
                 margin: .75rem .5em 0;
             }
+            // we need a little overriding to make images bigger than svgs
+            img {
+                height: 2rem;
+                margin-top: .25rem;
+            }
         }
         &-content {
             padding-right: 1.2em;
