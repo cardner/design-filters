@@ -159,40 +159,51 @@
 
 // Grid specific
 @mixin c--chart-doughnut($columns: 2, $rows: 1) {
+    display: -ms-grid;
     display: grid;
     @if type_of($columns) == list {
+        -ms-grid-columns: $columns;
         grid-template-columns: $columns;
     }
 
     else {
+        -ms-grid-columns: repeat($columns 1fr);
         grid-template-columns: repeat($columns, 1fr);
     }
     @if $rows == auto {
+        -ms-grid-rows: auto;
         grid-template-rows: auto;
     }
 
     else {
+        -ms-grid-rows: repeat($rows, 1fr);
         grid-template-rows: repeat($rows, 1fr);
     }
     align-items: center;
 }
 @mixin l--grid-col1-fullheight($row-stop: 2) {
+    -ms-grid-column-span: 1;
     grid-column: 1 / 1;
+    -ms-grid-row-span: $row-stop;
     grid-row: 1 / #{$row-stop};
 }
 @mixin l--grid-col($columns: null) {
      @if $columns{
+        -ms-grid-columns: repeat($columns 1fr);
         grid-template-columns: repeat($columns, 1fr);
     }
     @else {
+        -ms-grid-columns: auto;
         grid-template-columns: auto;
     }
 }
 @mixin l--grid-row($rows: null) {
      @if $rows{
+        -ms-grid-rows: repeat($rows, 1fr);
         grid-template-rows: repeat($rows, 1fr);
     }
     @else {
+        -ms-grid-rows: auto;
         grid-template-rows: auto;
     }
 }
