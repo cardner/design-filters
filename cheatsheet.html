@@ -665,6 +665,33 @@
             </div>
         </section>
         <section>
+            <form class="modal modal-fixed" id="modal-advanced-group-search" method="post" action="{{ enc_attr(search_group_url) }}">
+
+              <div class="advanced-group-search-attributes">
+
+                  <div class="modal-header modal-header">
+                    <h2 class="modal-title l--margin-top-reset">
+                        Enter an exact group name.
+                    </h2>
+                    <a href="#" class="modal-close">
+                      <i class="icon-delete"></i>
+                    </a>
+                  </div>
+
+                  <div class="modal-content">
+                    <input class="query-input">
+                    <button class="submit-query">Search</button>
+                    <div class="query-results"></div>
+                  </div>
+
+                <div class="modal-footer modal-footer">
+                  <button class='select-group' disabled='true'> Select group(s) </button>
+                </div>
+
+              </div>
+            </form>
+        </section>
+        <section>
             <div class="page-message warning">
                 <p>
                 Duo Mobile integration is the default
