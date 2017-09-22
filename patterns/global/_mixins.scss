@@ -182,8 +182,10 @@
     align-items: center;
 }
 @mixin l--grid-col1-fullheight($row-stop: 2) {
+    -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1 / 1;
+    -ms-grid-row: 1;
     -ms-grid-row-span: $row-stop;
     grid-row: 1 / #{$row-stop};
 }
