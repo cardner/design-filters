@@ -50,12 +50,14 @@
 
 .l--grid-col2 {
     @include l--grid-row;
+    -ms-grid-columns: 1fr 1fr;
     @include l--grid-col($columns: 2);
     display: -ms-grid;
     display: grid;
 }
 
 .l--grid-col4 {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
     @include l--grid-col($columns: 4);
     display: -ms-grid;
     display: grid;
@@ -63,6 +65,7 @@
 
 
 .l--grid-row2 {
+    -ms-grid-rows: 1fr 1fr;
     @include l--grid-row($rows: 2);
     display: -ms-grid;
     display: grid;
