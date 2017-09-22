@@ -167,7 +167,7 @@
     }
 
     else {
-        -ms-grid-columns: repeat($columns 1fr);
+        -ms-grid-columns: (1fr)[$columns];
         grid-template-columns: repeat($columns, 1fr);
     }
     @if $rows == auto {
@@ -176,7 +176,7 @@
     }
 
     else {
-        -ms-grid-rows: repeat($rows, 1fr);
+        -ms-grid-rows: (1fr)[$rows];
         grid-template-rows: repeat($rows, 1fr);
     }
     align-items: center;
@@ -189,7 +189,7 @@
 }
 @mixin l--grid-col($columns: null) {
      @if $columns{
-        -ms-grid-columns: repeat($columns 1fr);
+        -ms-grid-columns: (1fr)[$columns];
         grid-template-columns: repeat($columns, 1fr);
     }
     @else {
@@ -199,7 +199,7 @@
 }
 @mixin l--grid-row($rows: null) {
      @if $rows{
-        -ms-grid-rows: repeat($rows, 1fr);
+        -ms-grid-rows: (1fr)[$rows];
         grid-template-rows: repeat($rows, 1fr);
     }
     @else {
