@@ -106,7 +106,9 @@ ul.error-list {
 }
 
 .a--line-padding-border-reset {
+    padding: inherit; // for IE
     padding: unset;
+    border: inherit; // for IE
     border: unset;
     margin-bottom: $default-margin-spacing;
 }
