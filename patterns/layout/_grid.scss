@@ -44,22 +44,26 @@
 .l--grid-auto {
     @include l--grid-col;
     @include l--grid-row;
+    display: -ms-grid;
     display: grid;
 }
 
 .l--grid-col2 {
     @include l--grid-row;
     @include l--grid-col($columns: 2);
+    display: -ms-grid;
     display: grid;
 }
 
 .l--grid-col4 {
     @include l--grid-col($columns: 4);
+    display: -ms-grid;
     display: grid;
 }
 
 
 .l--grid-row2 {
     @include l--grid-row($rows: 2);
+    display: -ms-grid;
     display: grid;
 }
