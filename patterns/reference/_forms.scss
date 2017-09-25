@@ -87,6 +87,7 @@ ul.error-list {
 
     &:last-child {
         margin-bottom: 0;
+        border: initial;
         border: unset;
     }
 
@@ -343,9 +344,11 @@ table.fixedHeader-floating {
     @include borders;
 
     > tfoot {
+        box-shadow: initial;
         box-shadow: unset;
 
         > tr {
+            box-shadow: initial;
             box-shadow: unset;
         }
     }
