@@ -17,9 +17,7 @@ a {
         text-shadow: none;
         box-shadow: none;
         outline: none;
-        border: none;
         text-decoration: none;
-        //padding:0; this may be problematic but can cause oddities for non inline links
         @include border-radius;
         @include box-shadow(0 0 0 1px $white, 0 0 0 2px currentColor);
     }
