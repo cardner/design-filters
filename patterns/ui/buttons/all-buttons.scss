@@ -40,6 +40,7 @@ input[type="src"]:not(.link) input[type="reset"] {
     &:focus {
         @include box-shadow;
         outline: none;
+        border: inherit;
         border-color: $button-border-hover-color;
     }
 
@@ -178,6 +179,7 @@ input[type="src"]:not(.link) input[type="reset"] {
         &.c--primary,
         &.a--dropdown-trigger {
             &:after {
+                content: '';
                 content: unset;
             }
         }

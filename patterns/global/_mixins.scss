@@ -145,13 +145,18 @@
 // Button reset
 @mixin button-to-link-reset {
     border: none;
+    padding: initial;
     padding: unset;
+    height: initial;
     height: unset;
+    min-height: initial;
     min-height: unset;
+    background-color: initial;
     background-color: unset;
 
     &:hover {
         color: inherit;
+        background-color: initial;
         background-color: unset;
         text-decoration: underline;
     }

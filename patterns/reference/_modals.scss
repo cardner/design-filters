@@ -53,6 +53,8 @@ $animation-duration: 250ms;
 
     // set a min width for modals because otherwise they can get pretty small
     min-width: 43.75rem; /* 700/16 */
+    // set a max width because of the same wonkiness
+    max-width: 50rem; /* 800/16 */
 
     // TODO-XXX: Z-index needed when using frameserv/.../v3/modal.js,
     // but not static/shared/js/modal.js

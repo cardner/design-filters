@@ -615,6 +615,7 @@ th.users .ss-user {
     .a--dropdown-trigger {
         @include topnav-profile-size;
         color: $default-text-color;
+        padding: 0 .313rem; // 5/16
 
         &:before {
             height: 2.375em;
@@ -628,6 +629,10 @@ th.users .ss-user {
                 text-decoration: none;
                 display: inline-block;
             }
+        }
+
+        &:focus {
+            border: initial;
         }
     }
 }
