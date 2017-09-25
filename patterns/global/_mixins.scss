@@ -145,6 +145,7 @@
 // Button reset
 @mixin button-to-link-reset {
     border: none;
+    // spec both initial and unset for IE fall back
     padding: initial;
     padding: unset;
     height: initial;
