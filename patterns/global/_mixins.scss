@@ -156,6 +156,7 @@
     @include unset($display-attr: height);
     @include unset($display-attr: min-height);
     @include unset($display-attr: background-color);
+    background-color: transparent;
 
     &:hover {
         color: inherit;
