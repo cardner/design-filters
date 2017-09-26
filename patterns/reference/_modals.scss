@@ -81,6 +81,15 @@ $animation-duration: 250ms;
     &.before-showing {
         opacity: 0;
     }
+    .c--primary,
+    .button,
+    button {
+        // Fix for IE11 and 10 (Edge works well):
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            padding-top: .35rem;
+        }
+
+    }
 }
 
 .ie9 .modal {

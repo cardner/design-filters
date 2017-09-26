@@ -29,6 +29,11 @@ input[type="src"]:not(.link) input[type="reset"] {
     background-color: transparent;
     letter-spacing: .04em;
 
+    // Fix for IE11 and 10 (Edge works well):
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        line-height: 1.25em;
+    }
+
     &:hover {
         text-decoration: none;
         background-color: $default-button-hover-color;
