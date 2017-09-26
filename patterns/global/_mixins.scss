@@ -23,6 +23,13 @@
     white-space: nowrap;
 }
 
+@mixin unset($display-attr) {
+    // for IE TODO remove with drop of IE 11
+    #{$display-attr}: initial;
+    // For all modern browsers
+    #{$display-attr}: unset;
+}
+
 // Vertically center an element in another with this mixin
 @mixin vertical-center {
     transform: translateY(-50%);
@@ -145,20 +152,14 @@
 // Button reset
 @mixin button-to-link-reset {
     border: none;
-    // spec both initial and unset for IE fall back
-    padding: initial;
-    padding: unset;
-    height: initial;
-    height: unset;
-    min-height: initial;
-    min-height: unset;
-    background-color: initial;
-    background-color: unset;
+    @include unset($display-attr: padding);
+    @include unset($display-attr: height);
+    @include unset($display-attr: min-height);
+    @include unset($display-attr: background-color);
 
     &:hover {
         color: inherit;
-        background-color: initial;
-        background-color: unset;
+        @include unset(background-color);
         text-decoration: underline;
     }
 }

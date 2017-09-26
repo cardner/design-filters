@@ -179,7 +179,7 @@ input[type="src"]:not(.link) input[type="reset"] {
         &.a--dropdown-trigger {
             &:after {
                 content: '';
-                content: unset;
+                @include unset($display-attr: content);
             }
         }
 

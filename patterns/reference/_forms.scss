@@ -87,8 +87,7 @@ ul.error-list {
 
     &:last-child {
         margin-bottom: 0;
-        border: initial;
-        border: unset;
+        @include unset(border);
     }
 
     .flexbox &:not(.vertical) {
@@ -107,10 +106,8 @@ ul.error-list {
 }
 
 .a--line-padding-border-reset {
-    padding: inherit; // for IE
-    padding: unset;
-    border: inherit; // for IE
-    border: unset;
+    @include unset(padding);
+    @include unset(border);
     margin-bottom: $default-margin-spacing;
 }
 
@@ -344,12 +341,10 @@ table.fixedHeader-floating {
     @include borders;
 
     > tfoot {
-        box-shadow: initial;
-        box-shadow: unset;
+        @include unset($display-attr: box-shadow);
 
         > tr {
-            box-shadow: initial;
-            box-shadow: unset;
+            @include unset($display-attr: box-shadow);
         }
     }
 }

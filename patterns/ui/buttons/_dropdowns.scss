@@ -25,10 +25,6 @@
         @include borders($border-color: $button-border-color);
     }
 
-    &[aria-expanded="false"] {
-        overflow: hidden;
-    }
-
     &[aria-expanded="true"] {
 
         &:after {
@@ -65,7 +61,7 @@
     .a--dropdown-trigger {
         &[aria-expanded="true"] {
             &:after {
-                bottom: -1.45em;
+                bottom: -1.25em;
             }
         }
     }
