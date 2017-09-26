@@ -87,7 +87,7 @@ ul.error-list {
 
     &:last-child {
         margin-bottom: 0;
-        @include unset(border);
+        border: none;
     }
 
     .flexbox &:not(.vertical) {
@@ -107,7 +107,7 @@ ul.error-list {
 
 .a--line-padding-border-reset {
     @include unset(padding);
-    @include unset(border);
+    border: none;
     margin-bottom: $default-margin-spacing;
 }
 
