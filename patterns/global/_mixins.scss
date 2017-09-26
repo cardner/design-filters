@@ -25,7 +25,7 @@
 
 @mixin unset($display-attr) {
     // for IE TODO remove with drop of IE 11
-    #{$display-attr}: initial;
+    #{$display-attr}: inherit;
     // For all modern browsers
     #{$display-attr}: unset;
 }
