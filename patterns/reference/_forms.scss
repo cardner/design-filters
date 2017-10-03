@@ -167,12 +167,12 @@ input {
 
 select[multiple] {
     height: inherit;
-    background-color: #ffffff;
+    background-color: $white;
 }
 
 select[disabled] {
     color: $grey;
-    border-color: $base-border-color;
+    border-color: $default-input-border-color;
     background-color: $disabled-input-color;
     cursor: not-allowed;
 }
