@@ -54,6 +54,7 @@
     thead {
         color: $default-text-color;
         font-size: $base-font-size;
+        background-color: $white;
     }
 
     thead tr {
@@ -167,6 +168,9 @@
 
     .loading {
         height: 59vh;
+        height: fill-available;
+        height: -moz-available;
+        height: -webkit-fill-available;
         width: 100%;
         left: 0;
         top: 0;
