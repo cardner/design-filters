@@ -64,7 +64,7 @@ ul.error-list {
     &:not(.vertical) > label:first-of-type {
         font-weight: $bold-font-weight;
         font-size: $smaller-font-size;
-        min-width: 12rem;
+        width: 12rem;
         padding-top: 2px;
         padding-left: $xlarge-margin-spacing;
         line-height: 18px;
@@ -167,12 +167,12 @@ input {
 
 select[multiple] {
     height: inherit;
-    background-color: #ffffff;
+    background-color: $white;
 }
 
 select[disabled] {
     color: $grey;
-    border-color: $base-border-color;
+    border-color: $default-input-border-color;
     background-color: $disabled-input-color;
     cursor: not-allowed;
 }
