@@ -888,17 +888,6 @@ th.users .ss-user {
     padding: 0 16px;
 }
 
-.info-tooltip .popover-close {
-    width: 11px;
-    height: 11px;
-    overflow: hidden;
-    text-indent: -2000em;
-    background-image: url('../images/tooltip-close.png');
-    @include retina {
-        background-image: url('../images/tooltip-close@2x.png');
-    }
-}
-
 // This evens out spacing with section labels so that child copy can be indented
 .section-label {
     display: inline-block;
