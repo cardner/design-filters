@@ -1,3 +1,4 @@
+@import 'variables';
 // Micro clearfix hack http://nicolasgallagher.com/micro-clearfix-hack/
 // This clearfix hack can be used on the container element that has floated
 // elements without adding new markup
@@ -94,13 +95,13 @@
     -moz-osx-font-smoothing: grayscale;
 }
 @mixin box-shadow($shadows...) {
-     @if length($shadows) == 0{
+    @if length($shadows) == 0{
         $shadows: 0 0 0 1px $white, 0 0 0 2px currentColor;
     }
     box-shadow: $shadows;
 }
 @mixin transitions($effects...) {
-     @if length($effects) == 0{
+    @if length($effects) == 0{
         $effects: all ease-in-out 150ms;
     }
     transition: $effects;
@@ -126,28 +127,57 @@
 }
 
 // Margin Mixins
-@mixin l--margin-reset($direction, $value: 0) {
-    margin-#{$direction}: $value;
+
+/**
+* Standardized margin module
+* Should use individual line for each attr of margin for readability instead of passing through a string
+* Should for distance pass through a variable, static val should be a last resort
+**/
+$margin-sizes: (
+    // Create a mapping of sizes to use for margins
+    default: $default-margin-spacing,
+    small: $small-margin-spacing,
+    mid: $mid-margin-spacing,
+    large: $large-margin-spacing,
+    xlarge: $xlarge-margin-spacing
+);
+/**
+ * [$direction - top, left, right, bottom, all - side you want to specify margin to]
+ * [$distance - default, small, mid, large, xlarge - predefined distance to set margin to. Distance can also be a specific unit spec of em,px,%]
+ * @type {margin-left: 1rem;}
+ */
+@mixin l--margin($direction: all, $distance: default) {
+    @if $direction == all {
+        @if type_of($distance) == number {
+            margin: $distance;
+        }
+        @else {
+            margin: map-get($margin-sizes, $distance);
+        }
+    }
+    @else {
+        @if type_of($distance) == number {
+            margin-#{$direction}: $distance;
+        }
+        @else {
+            margin-#{$direction}: map-get($margin-sizes, $distance);
+        }
+    }
 }
 
-// Margin tops
-@mixin l--margin-top-1-8 {
-    margin-top: 1.85em;
-}
-@mixin l--margin-top-default {
-    margin-top: $default-margin-spacing;
+/**
+* Reset a specific or all margins
+* [$direction - top, left, bottom, right, all - side of margin to reset]
+**/
+@mixin l--margin-reset($direction: all) {
+    @if $direction == all {
+        @include l--margin($distance: 0);
+    }
+    @else {
+        @include l--margin($direction, 0);
+    }
 }
 
-// Margin bottoms
-@mixin l--margin-bottom-small {
-    margin-bottom: $small-margin-spacing;
-}
-@mixin l--margin-bottom-default {
-    margin-bottom: .8em;
-}
-@mixin l--margin-bottom-large {
-    margin-bottom: $default-margin-spacing;
-}
 
 // Button reset
 @mixin button-to-link-reset {
@@ -175,16 +205,15 @@
     }
 
     else {
-        // -ms-grid-columns: (1fr)[$columns];
         grid-template-columns: repeat($columns, 1fr);
     }
+
     @if $rows == auto {
         -ms-grid-rows: auto;
         grid-template-rows: auto;
     }
 
-    else {
-        // -ms-grid-rows: (1fr)[#{$rows}];
+    @else {
         grid-template-rows: repeat($rows, 1fr);
     }
     align-items: center;
@@ -198,8 +227,7 @@
     grid-row: 1 / #{$row-stop};
 }
 @mixin l--grid-col($columns: null) {
-     @if $columns{
-        // -ms-grid-columns: (1fr)[#{$columns}];
+    @if $columns{
         grid-template-columns: repeat($columns, 1fr);
     }
     @else {
@@ -208,8 +236,7 @@
     }
 }
 @mixin l--grid-row($rows: null) {
-     @if $rows{
-        // -ms-grid-rows: (1fr)[#{$rows}];
+    @if $rows{
         grid-template-rows: repeat($rows, 1fr);
     }
     @else {
