@@ -492,7 +492,7 @@ select.medium {
     }
 
     &.l--margin-bottom-default {
-        @include l--margin-bottom-default;
+        @include l--margin(bottom);
     }
 }
 
