@@ -126,6 +126,14 @@
     transform: translateY($distance);
 }
 
+// Map of directions for the loops to iterate over and generate margin classes
+$directions: (
+    top,
+    right,
+    bottom,
+    left
+);
+
 // Margin Mixins
 
 /**
@@ -175,6 +183,57 @@ $margin-sizes: (
     }
     @else {
         @include l--margin($direction, 0);
+    }
+}
+
+// Padding Mixins
+
+/**
+* Standardized padding module
+* Should use individual line for each attr of padding for readability instead of passing through a string
+* Should for distance pass through a variable, static val should be a last resort
+**/
+$padding-sizes: (
+    // Create a mapping of sizes to use for padding
+    default: $default-padding-spacing,
+    small: $small-padding-spacing,
+    mid: $mid-padding-spacing,
+    large: $large-padding-spacing
+);
+/**
+ * [$direction - top, left, right, bottom, all - side you want to specify padding to]
+ * [$distance - default, small, mid, large, xlarge - predefined distance to set padding to. Distance can also be a specific unit spec of em,px,%]
+ * @type {padding-left: 1rem;}
+ */
+@mixin l--padding($direction: all, $distance: default) {
+    @if $direction == all {
+        @if type_of($distance) == number {
+            padding: $distance;
+        }
+        @else {
+            padding: map-get($padding-sizes, $distance);
+        }
+    }
+    @else {
+        @if type_of($distance) == number {
+            padding-#{$direction}: $distance;
+        }
+        @else {
+            padding-#{$direction}: map-get($padding-sizes, $distance);
+        }
+    }
+}
+
+/**
+* Reset a specific or all padding
+* [$direction - top, left, bottom, right, all - side of padding to reset]
+**/
+@mixin l--padding-reset($direction: all) {
+    @if $direction == all {
+        @include l--padding($distance: 0);
+    }
+    @else {
+        @include l--padding($direction, 0);
     }
 }
 

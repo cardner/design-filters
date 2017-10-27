@@ -1,0 +1,35 @@
+@import '../global/variables';
+@import '../global/mixins';
+
+/**
+ * Loop through the map of padding sizes in _mixins.scss
+ * generate a base padding class
+ * then loop through the directions map above and generate a padding class for each direction + size
+ */
+@each $size-name, $size-value in $padding-sizes {
+    .l--padding-#{$size-name} {
+        // sets padding size #{$size-name} of #{$size-value} globally for all directions
+        @include l--padding($distance: $size-name);
+    }
+
+    @each $direction in $directions {
+        .l--padding-#{$direction}-#{$size-name} {
+            // sets padding size #{$size-name} of #{$size-value} for the #{$direction} padding
+            @include l--padding($direction, $size-name);
+        }
+    }
+}
+
+/**
+ * Similar to padding class above but just generate a reset for each direction
+ */
+@each $direction in $directions {
+    .l--padding-reset-#{$direction} {
+        // resets padding for #{$direction} padding direction
+        @include l--padding-reset($direction);
+    }
+}
+
+.l--padding-reset {
+    @include l--padding-reset;
+}
