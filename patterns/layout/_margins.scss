@@ -1,13 +1,7 @@
 @import '../global/variables';
 @import '../global/mixins';
 
-// Map of directions for the loops to iterate over and generate margin classes
-$directions: (
-    top,
-    right,
-    bottom,
-    left
-);
+
 /**
  * Loop through the map of margin sizes in _mixins.scss
  * generate a base margin class

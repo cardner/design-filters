@@ -34,6 +34,14 @@ $large-header-margin-bottom-spacing: .688rem; /* 11/16 */
 $h1-header-margin-bottom-spacing: 1.438rem; /* 23/16 */
 $default-column-gap-margin: 1rem; /* 16/16 */
 
+// Padding
+$default-padding-spacing: .938rem; /* 15/16 */
+$xsmall-padding-spacing: .313rem; /* 5/16 */
+$small-padding-spacing: .625rem; /* 10/16 */
+$mid-padding-spacing: 1.25rem; /* 20/16 */
+$large-padding-spacing: 1.563rem; /* 25/16 */
+$xlarge-padding-spacing: 1.875rem;  /* 30/16 */
+
 // Heading fonts and colors
 $heading-color: map-get($gray, dark);
 $heading-font-family: 'NeueHaasGrotesk', 'Helvetica Neue', helvetica, arial, sans-serif;
