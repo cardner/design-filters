@@ -488,11 +488,11 @@ select.medium {
     font-size: $smaller-font-size;
 
     &.l--margin-top-reset-default {
-        @include l--margin-reset(top);
+        @include margin-reset(top);
     }
 
     &.l--margin-bottom-default {
-        @include l--margin(bottom);
+        @include margin(bottom);
     }
 }
 

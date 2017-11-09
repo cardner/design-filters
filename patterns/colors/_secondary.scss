@@ -6,7 +6,7 @@ $error-red: map-get($red, alert);
 $error-red-light: lighten($error-red, 29%);
 $error-red-lightest: lighten($error-red, 33%);
 $error-red-dark: map-get($red, darker);
-$info-blue: map-get($blue, info);
+$info-blue: map-get($blue, cta);
 $info-blue-light: #F5F7FA;
 $info-blue-border: #E8EDF3;
 $warning-orange: map-get($orange, warn);

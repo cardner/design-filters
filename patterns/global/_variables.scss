@@ -42,6 +42,11 @@ $mid-padding-spacing: 1.25rem; /* 20/16 */
 $large-padding-spacing: 1.563rem; /* 25/16 */
 $xlarge-padding-spacing: 1.875rem;  /* 30/16 */
 
+// Borders
+$default-border-width: 1px;
+$mid-border-width: 2px;
+$large-border-width: 4px;
+
 // Heading fonts and colors
 $heading-color: map-get($gray, dark);
 $heading-font-family: 'NeueHaasGrotesk', 'Helvetica Neue', helvetica, arial, sans-serif;

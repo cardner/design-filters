@@ -1,0 +1,34 @@
+@import '../global/variables';
+@import '../global/mixins';
+
+
+/**
+ * Loop through the map of border sizes in _mixins.scss
+ * generate a base border class
+ * then loop through the directions map above and generate a border class for each direction + size
+ */
+$border-sizes: map-get($sizes, border);
+
+@each $size-name, $size-value in $border-sizes {
+    .a--border-#{$size-name} {
+        // sets border size #{$size-name} of #{$size-value} globally for all directions
+        @include borders($border-width: $size-name);
+    }
+
+    @each $direction in $directions {
+        .a--border-#{$direction}-#{$size-name} {
+            // sets border size #{$size-name} of #{$size-value} for the #{$direction} margin
+            @include border($direction, $size-name);
+        }
+    }
+}
+
+/**
+ * Similar to border class above but just generate a reset for each direction
+ */
+@each $direction in $directions {
+    .a--border-#{$direction}-reset {
+        // resets margin for #{$direction} margin direction
+        @include border-reset($direction);
+    }
+}

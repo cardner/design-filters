@@ -7,45 +7,46 @@
  * generate a base margin class
  * then loop through the directions map above and generate a margin class for each direction + size
  */
+$margin-sizes: map-get($sizes, margin);
 @each $size-name, $size-value in $margin-sizes {
     .l--margin-#{$size-name} {
         // sets margin size #{$size-name} of #{$size-value} globally for all directions
-        @include l--margin($distance: $size-name);
+        @include margin($distance: $size-name);
     }
 
     @each $direction in $directions {
         .l--margin-#{$direction}-#{$size-name} {
             // sets margin size #{$size-name} of #{$size-value} for the #{$direction} margin
-            @include l--margin($direction, $size-name);
+            @include margin($direction, $size-name);
         }
     }
 }
 
 .l--margin-top-1-8 {
     // this helps equalize base font sized elements that sit inline with header elements
-    @include l--margin(top, 1.85em);
+    @include margin(top, 1.85em);
 }
 
 /**
  * Similar to margin class above but just generate a reset for each direction
  */
 @each $direction in $directions {
-    .l--margin-reset-#{$direction} {
+    .l--margin-#{$direction}-reset {
         // resets margin for #{$direction} margin direction
-        @include l--margin-reset($direction);
+        @include margin-reset($direction);
     }
 }
 
 .l--margin-top-reset-default {
     // this pulls the top up to reset a default space after
-    @include l--margin(top, -.8em);
+    @include margin(top, -.8em);
 }
 
 .l--margin-bottom-reset-default {
     // this pulls the bottom up to clear a space below of the default
-    @include l--margin(bottom, -$header-margin-spacing);
+    @include margin(bottom, -$header-margin-spacing);
 }
 
 .l--margin-reset {
-    @include l--margin-reset;
+    @include margin-reset;
 }

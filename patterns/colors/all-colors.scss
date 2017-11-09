@@ -1,5 +1,5 @@
 $app-version: '1.1.0';
-@import "../global/deprecate";
+@import '../global/deprecate';
 // Colors
 $white: #fff;
 
@@ -18,13 +18,13 @@ $gray: (
 
 $blue: (
     duo-light: #476376,
-    cta-light: #4993E1,
-    cta: #3E75AF,
+    cta-light: #4993e1,
+    cta: #3e75af,
     duo: #405665,
-    lightest: #E8EDF3,
+    lightest: #e8edf3,
     light: #6ca7e4,
     dark: #508ccb,
-    info: #6CA7E4
+    info: #6ca7e4
 );
 
 $red: (
@@ -57,6 +57,6 @@ $grey: map-get($gray, mid);
 $grey-light: map-get($gray, light);
 $grey-lighter: map-get($gray, lightest);
 
-@import "brand";
-@import "secondary";
-@import "translations";
+@import 'brand';
+@import 'secondary';
+@import 'translations';
