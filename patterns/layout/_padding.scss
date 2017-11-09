@@ -6,16 +6,17 @@
  * generate a base padding class
  * then loop through the directions map above and generate a padding class for each direction + size
  */
+$padding-sizes: map-get($sizes, padding);
 @each $size-name, $size-value in $padding-sizes {
     .l--padding-#{$size-name} {
         // sets padding size #{$size-name} of #{$size-value} globally for all directions
-        @include l--padding($distance: $size-name);
+        @include padding($distance: $size-name);
     }
 
     @each $direction in $directions {
         .l--padding-#{$direction}-#{$size-name} {
             // sets padding size #{$size-name} of #{$size-value} for the #{$direction} padding
-            @include l--padding($direction, $size-name);
+            @include padding($direction, $size-name);
         }
     }
 }
@@ -26,10 +27,10 @@
 @each $direction in $directions {
     .l--padding-reset-#{$direction} {
         // resets padding for #{$direction} padding direction
-        @include l--padding-reset($direction);
+        @include padding-reset($direction);
     }
 }
 
 .l--padding-reset {
-    @include l--padding-reset;
+    @include padding-reset;
 }

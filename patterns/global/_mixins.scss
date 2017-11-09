@@ -106,15 +106,7 @@
     }
     transition: $effects;
 }
-@mixin border-radius($radius: 4px) {
-    border-radius: $radius;
-}
-@mixin borders($border-width: 1px, $border-type: solid, $border-color: $default-border-color) {
-    border: $border-width $border-type $border-color;
-}
-@mixin border($direction, $border-width: 1px, $border-color: $default-border-color) {
-    border-#{$direction}: $border-width solid $border-color;
-}
+
 @mixin no-box-shadow {
     box-shadow: none;
 }
@@ -126,7 +118,11 @@
     transform: translateY($distance);
 }
 
-// Map of directions for the loops to iterate over and generate margin classes
+/**
+ * Atomic Mixins to preform basic stylings
+*/
+
+// Map of directions for the loops to iterate over and generate atomic classes
 $directions: (
     top,
     right,
@@ -134,55 +130,98 @@ $directions: (
     left
 );
 
+$sizes: (
+    margin: (
+        // Create a mapping of sizes to use for margins
+        default: $default-margin-spacing,
+        small: $small-margin-spacing,
+        medium: $mid-margin-spacing,
+        large: $large-margin-spacing,
+        xlarge: $xlarge-margin-spacing
+    ),
+    padding: (
+        // Create a mapping of sizes to use for padding
+        default: $default-padding-spacing,
+        xsmall: $xsmall-padding-spacing,
+        small: $small-padding-spacing,
+        medium: $mid-padding-spacing,
+        large: $large-padding-spacing,
+        xlarge: $xlarge-padding-spacing
+    ),
+    border: (
+        // Create mapping of border widths
+        default: $default-border-width,
+        medium: $mid-border-width,
+        thick: $large-border-width
+    )
+);
+
+@function get-attribute-value($attr-name, $distance: default) {
+    @return map-get(map-get($sizes, $attr-name), $distance);
+}
+
+@function check-for-integer($attr-name, $attr-value) {
+    @if type_of($attr-value) == number {
+        @return $attr-value;
+    }
+    @else {
+        @return get-attribute-value($attr-name, $attr-value);
+    }
+}
+
+@mixin attribute-builder($attr-name, $direction: all, $attr-val: default) {
+    @if $direction == all {
+        #{$attr-name}: check-for-integer($attr-name, $attr-val);
+    }
+    @else {
+        #{$attr-name}-#{$direction}: check-for-integer($attr-name, $attr-val);
+    }
+}
+
+// Border Mixins
+@mixin border-radius($radius: $border-radius) {
+    border-radius: $radius;
+}
+@mixin borders($border-width: $default-border-width, $border-type: solid, $border-color: $default-border-color) {
+    border: $border-width $border-type $border-color;
+}
+@mixin border($direction, $border-width: $default-border-width, $border-color: $default-border-color) {
+    border-#{$direction}: $border-width solid $border-color;
+}
+
+@mixin border-reset($direction: all) {
+    @if $direction == all {
+        @include unset(border);
+    }
+    @else {
+        @include unset(border-#{$direction});
+    }
+}
+
 // Margin Mixins
 
 /**
 * Standardized margin module
 * Should use individual line for each attr of margin for readability instead of passing through a string
 * Should for distance pass through a variable, static val should be a last resort
-**/
-$margin-sizes: (
-    // Create a mapping of sizes to use for margins
-    default: $default-margin-spacing,
-    small: $small-margin-spacing,
-    mid: $mid-margin-spacing,
-    large: $large-margin-spacing,
-    xlarge: $xlarge-margin-spacing
-);
-/**
- * [$direction - top, left, right, bottom, all - side you want to specify margin to]
- * [$distance - default, small, mid, large, xlarge - predefined distance to set margin to. Distance can also be a specific unit spec of em,px,%]
- * @type {margin-left: 1rem;}
- */
-@mixin l--margin($direction: all, $distance: default) {
-    @if $direction == all {
-        @if type_of($distance) == number {
-            margin: $distance;
-        }
-        @else {
-            margin: map-get($margin-sizes, $distance);
-        }
-    }
-    @else {
-        @if type_of($distance) == number {
-            margin-#{$direction}: $distance;
-        }
-        @else {
-            margin-#{$direction}: map-get($margin-sizes, $distance);
-        }
-    }
+* [$direction - top, left, right, bottom, all - side you want to specify margin to]
+* [$distance - default, small, mid, large, xlarge - predefined distance to set margin to. Distance can also be a specific unit spec of em,px,%]
+* @type {margin-left: 1rem;}
+*/
+@mixin margin($direction: all, $distance: default) {
+    @include attribute-builder($attr-name: margin, $direction: $direction, $attr-val: $distance);
 }
 
 /**
 * Reset a specific or all margins
 * [$direction - top, left, bottom, right, all - side of margin to reset]
 **/
-@mixin l--margin-reset($direction: all) {
+@mixin margin-reset($direction: all) {
     @if $direction == all {
-        @include l--margin($distance: 0);
+        @include margin($distance: 0);
     }
     @else {
-        @include l--margin($direction, 0);
+        @include margin($direction, 0);
     }
 }
 
@@ -192,48 +231,24 @@ $margin-sizes: (
 * Standardized padding module
 * Should use individual line for each attr of padding for readability instead of passing through a string
 * Should for distance pass through a variable, static val should be a last resort
-**/
-$padding-sizes: (
-    // Create a mapping of sizes to use for padding
-    default: $default-padding-spacing,
-    small: $small-padding-spacing,
-    mid: $mid-padding-spacing,
-    large: $large-padding-spacing
-);
-/**
- * [$direction - top, left, right, bottom, all - side you want to specify padding to]
- * [$distance - default, small, mid, large, xlarge - predefined distance to set padding to. Distance can also be a specific unit spec of em,px,%]
- * @type {padding-left: 1rem;}
- */
-@mixin l--padding($direction: all, $distance: default) {
-    @if $direction == all {
-        @if type_of($distance) == number {
-            padding: $distance;
-        }
-        @else {
-            padding: map-get($padding-sizes, $distance);
-        }
-    }
-    @else {
-        @if type_of($distance) == number {
-            padding-#{$direction}: $distance;
-        }
-        @else {
-            padding-#{$direction}: map-get($padding-sizes, $distance);
-        }
-    }
+* [$direction - top, left, right, bottom, all - side you want to specify padding to]
+* [$distance - default, small, mid, large, xlarge - predefined distance to set padding to. Distance can also be a specific unit spec of em,px,%]
+* @type {padding-left: 1rem;}
+*/
+@mixin padding($direction: all, $distance: default) {
+    @include attribute-builder($attr-name: padding, $direction: $direction, $attr-val: $distance);
 }
 
 /**
 * Reset a specific or all padding
 * [$direction - top, left, bottom, right, all - side of padding to reset]
 **/
-@mixin l--padding-reset($direction: all) {
+@mixin padding-reset($direction: all) {
     @if $direction == all {
-        @include l--padding($distance: 0);
+        @include padding($distance: 0);
     }
     @else {
-        @include l--padding($direction, 0);
+        @include padding($direction, 0);
     }
 }
 
