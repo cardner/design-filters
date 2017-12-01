@@ -1,15 +1,21 @@
-const cssnano = require('cssnano')
 const gulp = require('gulp')
 const sass = require('gulp-sass')
-const postcss = require('gulp-postcss')
 const rename = require('gulp-rename')
+const stylelint = require('gulp-stylelint')
 
 gulp.task('styles', () => (
     gulp.src('patterns/**/*.scss')
+        .pipe(stylelint({
+            reporters: [{
+                formatter: 'verbose',
+                console: true
+            }],
+            debug: true,
+            cache: true,
+            fix: true,
+            syntax: 'scss'
+        }))
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(postcss([
-            cssnano()
-        ]))
         .pipe(gulp.dest('dist/patterns'))
 ))
 
@@ -31,9 +37,6 @@ gulp.task('fonts', () => (
 gulp.task('font-styles', () => (
     gulp.src('fonts/**/*.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(postcss([
-            cssnano()
-        ]))
         .pipe(gulp.dest('dist/fonts'))
 ))
 

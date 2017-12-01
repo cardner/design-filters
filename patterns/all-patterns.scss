@@ -1,23 +1,23 @@
 // Normalize includes both SCSS and CSS files, so specify the extension to
 // avoid ambiguity.
-@import "reference/normalize/normalize.scss";
+@import 'reference/normalize/normalize.scss';
 
 //Import global sass functions and variables
-@import "global/variables";
-@import "global/mixins";
-@import "global/extends";
+@import 'global/variables';
+@import 'global/mixins';
+@import 'global/extends';
 
 // Pull in all fonts used
-@import "../fonts/all-fonts";
+@import '../fonts/all-fonts';
 
 // Pull in all atomic classes
-@import "atoms/all-atoms";
+@import 'atoms/all-atoms';
 
 // Pull in all global layout classes
-@import "layout/all-layout";
+@import 'layout/all-layout';
 
 // Pull in all component patterns
-@import "components/all-components";
+@import 'components/all-components';
 
 // Get all the various styles used to make up non modualized style patterns TODO: finish modualizing all these
-@import "reference/duo";
+@import 'reference/duo';
