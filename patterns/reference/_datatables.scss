@@ -28,10 +28,6 @@
     border-radius: $border-radius;
 }
 
-.has-helptext {
-    border-bottom: 1px dotted #999;
-}
-
 .dataTables_wrapper {
     @include border-radius;
     @include borders;
@@ -121,7 +117,7 @@
 
     /* Wrapper for controls (pagination, counts, search, etc.) */
     @mixin control-wrapper {
-        background-color: #fff;
+        background-color: $white;
         color: $default-text-color;
         padding: 24px 16px;
         position: relative;
@@ -130,6 +126,8 @@
     .top-control-wrapper {
         @include control-wrapper;
         @include clearfix;
+        border-radius: $border-radius $border-radius 0 0; // this attempts to fix the base container width breaking when browser is scaled
+        width: auto !important;
         color: inherit;
 
         .button-row {
@@ -167,10 +165,7 @@
     }
 
     .loading {
-        height: 59vh;
-        height: fill-available;
-        height: -moz-available;
-        height: -webkit-fill-available;
+        height: 100vh;
         width: 100%;
         left: 0;
         top: 0;
@@ -275,51 +270,10 @@
         margin-top: 3px;
         margin-left: 10px;
     }
-}
 
-// Loading spinner
-.dataTables_loading {
-    display: none;
-    float: left;
-    margin-top: 10px;
-    padding-left: 10px;
-}
-
-.selected-count {
-    display: inline-block;
-    line-height: 18px;
-}
-
-// Custom formatted cells
-.result-cell {
-    white-space: nowrap;
-    text-transform: capitalize;
-
-    &:before {
-        width: 16px;
-        height: 16px;
-        background-size: 16px;
-        vertical-align: -3px;
-        margin-right: 4px;
-        line-height: 12px;
-        content: ' ';
-        display: inline-block;
-    }
-    $types: (success, $success-green), (failure, $error-red), (fraud, $error-red), (error, $error-red);
-    @each $x in $types {
-        $type: nth($x, 1);
-        $color: nth($x, 2);
-
-        &.result-#{$type} {
-            color: $color;
-
-            &:before {
-                background-image: url('/static/images/markers/#{$type}.png');
-                @include retina {
-                    background-image: url('/static/images/markers/#{$type}@2x.png');
-                }
-            }
-        }
+    // make the icon smaller in the pdf download button
+    i {
+        font-size: $smallest-font-size;
     }
 }
 
@@ -327,51 +281,12 @@
     margin-top: 1rem;
 }
 
-.validation {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-.validation:before {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-// Device secure, show a grey check mark using ss-standard font
-.validation.valid:before {
-    content: '✓';
-    color: $grey-light;
-}
-
 .simple_table tr:last-child td {
     border-bottom: none;
 }
 
-.icon-column {
-    vertical-align: top;
-    display: inline-block;
-    height: 100%;
-    float: left;
-}
-
-.os-text-column {
-    display: inline-block;
-    max-width: calc(100% - 25px);
-    white-space: nowrap;
-}
-
-.browser-text-column {
-    display: inline-block;
-    width: calc(100% - 25px);
-}
-
-.plugin-text-column {
-    display: inline-block;
-    width: calc(100% - 25px);
-}
-
-.warning-text-column {
-    display: inline-block;
-    width: calc(100% - 25px);
+// remove border on floating table footer to let it fill the full width of the tables
+table.fixedHeader-floating {
+    border-left: none;
+    border-right: none;
 }

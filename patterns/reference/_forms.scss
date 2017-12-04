@@ -76,7 +76,7 @@ ul.error-list {
     }
 
     &.close {
-        margin-top: -0.75rem;
+        margin-top: -.75rem;
     }
 
     &.indent {
@@ -114,6 +114,11 @@ ul.error-list {
 .subline {
     display: block;
     margin-bottom: .25rem;
+
+    // fix over ride of subline displaying hidden elements
+    &.hidden {
+        display: none;
+    }
 }
 
 .indent {
@@ -126,7 +131,7 @@ ul.error-list {
 
 .has_error {
     color: $error-red;
-    font-weight: bold;
+    font-weight: $bold-font-weight;
 }
 
 .access-read-only {
@@ -249,10 +254,18 @@ input[type=radio] {
             left: 0;
             background-color: $default-link-color;
         }
+
+        &+label {
+            font-weight: $bold-font-weight;
+        }
+    }
+
+    // Set propery alignment and active state for radio + label combo
+    &+label {
+        vertical-align: text-bottom;
     }
 }
 
-input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
@@ -266,7 +279,7 @@ input[type=tel] {
     &:focus {
         color: $grey-darker;
         border: 2px solid $duo-green;
-        box-shadow: 0 0 5px 0 transparentize($duo-green, 0.5);
+        box-shadow: 0 0 5px 0 transparentize($duo-green, .5);
     }
 }
 

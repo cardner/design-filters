@@ -73,6 +73,10 @@ $default-message-background-color: map-get($gray, headernav);
 $default-message-border-color: map-get($blue, lightest);
 
 // Misc metrics
-$disabled-opacity: 0.5;
+$disabled-opacity: .5;
 $disabled-color: transparentize($base-color, $disabled-opacity);
 $disabled-input-color: rgb(235, 235, 228);
+
+// Toggle Colors
+$toggle-enabled: map-get($blue, cta);
+$toggle-disabled: map-get($gray, light);

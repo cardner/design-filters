@@ -1,3 +1,94 @@
 th {
     font-weight: $bold-font-weight;
+    text-align: left;
+}
+
+// Format cells inside a datatables
+.selected-count {
+    display: inline-block;
+    line-height: 18px;
+}
+
+// Custom formatted cells
+.result-cell {
+    white-space: nowrap;
+    text-transform: capitalize;
+    &:before {
+        width: 16px;
+        height: 16px;
+        background-size: 16px;
+        vertical-align: -3px;
+        margin-right: 4px;
+        line-height: 12px;
+        content: ' ';
+        display: inline-block;
+    }
+    $types: (
+        success: $success-green,
+        failure: $error-red,
+        fraud: $error-red,
+        error: $error-red
+    );
+
+    @each $type, $color in $types {
+        &.result-#{$type} {
+            color: $color;
+            &:before {
+                background-image: url('/static/images/markers/#{$type}.png');
+                @include retina {
+                    background-image: url('/static/images/markers/#{$type}@2x.png');
+                }
+            }
+        }
+    }
+}
+
+.has-helptext {
+    @include border(bottom);
+}
+
+// Specific Table Formatting
+.validation {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.validation:before {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// Device secure, show a grey check mark using ss-standard font
+.validation.valid:before {
+    content: '✓';
+    color: $grey-light;
+}
+
+.icon-column {
+    vertical-align: top;
+    display: inline-block;
+    height: 100%;
+    float: left;
+}
+
+.os-text-column {
+    display: inline-block;
+    max-width: calc(100% - 25px);
+    white-space: nowrap;
+}
+
+.browser-text-column {
+    display: inline-block;
+    width: calc(100% - 25px);
+}
+
+.plugin-text-column {
+    display: inline-block;
+    width: calc(100% - 25px);
+}
+
+.warning-text-column {
+    display: inline-block;
+    width: calc(100% - 25px);
 }
