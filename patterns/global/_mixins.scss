@@ -118,6 +118,16 @@
     transform: translateY($distance);
 }
 
+// Reports Mixins
+@mixin legend-key {
+    display: inline-block;
+    content: '';
+    margin-right: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+}
+
 /**
  * Atomic Mixins to preform basic stylings
 */

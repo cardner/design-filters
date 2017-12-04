@@ -94,7 +94,6 @@ select#billing_info_credit_card_month {
     font-family: $base-font-family;
     font-weight: 500;
     margin-left: 6px;
-
     &.soon {
         background-color: #f5ddb3;
     }
@@ -120,7 +119,7 @@ select#billing_info_credit_card_month {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 200px 1fr 1fr;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 200px minmax(min-content, 1fr);
 }
 
 .base-sidebar {
@@ -401,7 +400,7 @@ table#phone_entry input#phone {
 
 .read-only {
     font-weight: $bold-font-weight;
-    color: #6377fb;
+    color: #6377FB;
 }
 // LOGS
 #adminlog-table_wrapper,
@@ -470,7 +469,7 @@ select.medium {
 }
 
 .no-filereader .logo-file-name {
-    color: $duo-green;
+    color: $success-green;
 }
 
 .username.title {
@@ -481,9 +480,11 @@ select.medium {
 
 .help-block {
     display: block;
-    margin-top: 4px;
-    margin-bottom: 1.3em;
+    margin-bottom: $default-margin-spacing;
+    margin-top: $small-margin-spacing;
+    line-height: unset;
     font-size: $smaller-font-size;
+    color: $default-text-color;
 
     &.l--margin-top-reset-default {
         @include margin-reset(top);
@@ -620,6 +621,7 @@ th.users .ss-user {
             line-height: 2.45em;
             padding-top: 2px;
             text-decoration: none;
+            content: none;
         }
 
         &:hover {
@@ -631,6 +633,26 @@ th.users .ss-user {
 
         &:focus {
             border: initial;
+        }
+
+        svg {
+            width: 15px;
+        }
+
+        .icon-chevron-thick-down {
+            font-size: $smallest-font-size;
+            line-height: 2.45em;
+            display: inline-block;
+            vertical-align: bottom;
+            order: 2;
+            align-self: center;
+            padding: .188rem 0 0 .5rem;
+            height: 2.375em;
+            text-decoration: none;
+            &:before {
+                display: inline-block;
+                text-decoration: none;
+            }
         }
     }
 }
@@ -648,6 +670,9 @@ th.users .ss-user {
 
     .a--dropdown {
         &-trigger {
+            &:before {
+                content: none;
+            }
             svg,
             img {
                 @include topnav-profile-size;
@@ -711,9 +736,11 @@ th.users .ss-user {
     display: inline-block;
     position: relative;
     border-radius: $border-radius;
-    height: 40px;
-    padding: 0 8px;
+    height: 2.375em;
+    line-height: 2.75rem;
+    padding: 0 .313rem;
     @include no-box-shadow;
+    color: $default-text-color;
 
     &:hover {
         @include no-box-shadow;
@@ -729,6 +756,15 @@ th.users .ss-user {
 
     img {
         border-radius: $border-radius;
+    }
+
+    svg {
+        width: .938rem; // 15/16
+        height: 1rem;
+        line-height: 2.75rem;
+        display: inline-block;
+        vertical-align: middle;
+        margin: -.25rem .5em 0;
     }
 }
 // Balloon Tooltips
@@ -758,7 +794,7 @@ th.users .ss-user {
     p,
     ul {
         font-family: $base-font-family;
-        font-weight: $bold-font-weight;
+        font-weight: $base-font-weight;
         letter-spacing: normal;
         text-transform: none;
         font-size: $base-font-size;
@@ -812,6 +848,7 @@ th.users .ss-user {
 .info-tooltip.popover-below:before {
     top: auto;
     bottom: 100%;
+    border-bottom-color: $default-border-color;
 }
 
 .info-tooltip.popover-below:after {
@@ -847,8 +884,8 @@ th.users .ss-user {
 }
 
 .info-tooltip.popover-to-right:before {
-    border-right-color: $base-border-color;
-    margin-top: -13px;
+    margin-top: -11px;
+    border-right-color: $default-border-color;
 }
 
 /* Tooltips to left */

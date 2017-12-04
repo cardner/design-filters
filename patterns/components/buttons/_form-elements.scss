@@ -40,7 +40,7 @@ input {
     &[type="checkbox"] {
         &:focus {
             border-radius: 15%;
-            @include box-shadow(0 -1px 0 2px white, 0px -1px 0 4px currentColor);
+            @include box-shadow(0 -1px 0 2px white, 0 -1px 0 4px currentColor);
         }
     }
     &:not([disabled]):hover {
@@ -51,6 +51,7 @@ input {
         margin-right: .313rem; // 5/16
     }
 }
+
 //Specific sizes for setting field widths
 .select2-container,
 .select2-container-multi {
@@ -197,7 +198,7 @@ label.search {
     .select2-container,
     .select2-container-multi {
         .select2-choice {
-            padding: 0.23rem 0 0 0.5rem;
+            padding: .23rem 0 0 .5rem;
             height: 2.2em;
             color: $default-text-color;
             border-color: $default-border-color;
@@ -260,13 +261,15 @@ label.search {
 // this overrides the default styling of the large select 2 multi group boxes when focused or active
 .select2-container-multi.select2-container-active .select2-choices {
     box-shadow: none !important;
-    border-color: $dark-border-color !important;
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
     border-radius: $border-radius $border-radius 0 0;
 }
 
 .select2-drop-active {
     box-shadow: none !important;
-    border-color: $default-border-color !important;
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
     border-radius: 0 0 $border-radius $border-radius;
 }
 
@@ -279,6 +282,46 @@ label.search {
     }
 }
 
+// Quick fix for select2 coloring issues
+.select2-drop.select2-drop-above.select2-drop-active,
+.select2-container-multi.select2-container-active .select2-choices {
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
+}
+
+// Override select2 typeface choices
+.select2-container-multi .select2-choices .select2-search-field input {
+    font-family: $base-font-family !important;
+}
+
+// Lets just kill border radius in general for an active select too since it switches between above and below and shares classes
+.select2-drop-above,
+.select2-container-multi.select2-container-active .select2-choices {
+    border-radius: 0 !important;
+}
+
 .select2-results .select2-result.select2-highlighted {
     background-color: $select-hover-color !important;
+}
+
+// allow reset of box styles to be applied to another element, form specificity added to override :not selector on form
+form.c--box-reset {
+    @include unset($display-attr: border-radius);
+    @include unset($display-attr: padding);
+    @include unset($display-attr: margin-bottom);
+    @include unset($display-attr: border);
+    border: none;
+}
+
+// This styles paragraph copy before a form field to have the same spacing as form fields
+.legend-description {
+    // this adds spacing around a descriptor text in a form element
+    margin: $default-margin-spacing $xlarge-margin-spacing;
+    &.inline {
+        display: inline-block;
+        margin-right: $small-margin-spacing;
+    }
+    &.no-top-margin {
+        margin-top: 0;
+    }
 }
