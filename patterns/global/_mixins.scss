@@ -58,6 +58,29 @@
     }
 }
 
+/// Responsive Media Queries
+
+/// Large Sized Screens
+@mixin query-screen-large {
+    @media screen and (min-width: 1025px) {
+        @content;
+    }
+}
+
+/// Medium Sized Screens
+@mixin query-screen-medium {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+/// Small Sized Screens
+@mixin query-screen-small {
+    @media screen and (max-width: 800px) {
+        @content;
+    }
+}
+
 // Transition the given property using consistent duration and timing function.
 @mixin transition($properties...) {
     transition-property: $properties;
