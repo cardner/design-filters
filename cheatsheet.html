@@ -693,6 +693,169 @@
             </form>
         </section>
         <section>
+<form method="post" action="/applications/DIO9PPRE6RV5G30ZUSO5/modify" class="c--box-reset flexbox">
+  <input name="_xsrf" value="ab1ec55a86a342acb87967a9bcba610f" type="hidden">
+  <div class="form box l--padding-reset">
+    <div class="inner">
+      <fieldset>
+        <div class="line">
+          <label>Type</label>
+          <div class="field add-padding">
+            SAML - Service Provider
+          </div>
+        </div>
+        <div class="line">
+          <label for="iname">Name</label>
+
+          <div class="field">
+            <input class="text" name="iname" id="iname" value="SAML - Service Provider" maxlength="128" required="" type="text">
+            <span class="help-block no-margin-bottom">
+              Duo Push users will see this when approving transactions.
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="line">
+          <label>Self-service portal</label>
+          <div class="field add-padding">
+
+
+            <div>
+              <div class="subline">
+                <input id="self_service_allowed" name="self_service_allowed" value="True" type="checkbox">&nbsp;
+                <label for="self_service_allowed">
+                  Let users remove devices, add new devices, and reactivate Duo Mobile
+                </label>
+              </div>
+              <span class="help-block">
+                See
+                <a href="https://duo.com/docs/self-service-portal" target="_blank">
+                  Self-Service Portal documentation
+                  <i class="icon-new-window" aria-label="Opens new tab"></i>
+                </a>.
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="line">
+          <label>Username normalization</label>
+          <div class="field add-padding">
+
+
+
+            <div class="subline">
+              <input id="radio_None" name="username_normalization_policy" value="None" type="radio">&nbsp;
+              <label for="radio_None">
+                <b> None </b>
+
+              </label>
+            </div>
+
+
+
+            <div class="subline">
+              <input id="radio_Simple" name="username_normalization_policy" value="Simple" checked="" type="radio">&nbsp;
+              <label for="radio_Simple">
+                <b> Simple </b>
+
+                <span class="subline checkbox-indent">"DOMAIN\username", "username@example.com", and "username" are treated as the same user.</span>
+
+              </label>
+            </div>
+
+
+
+
+
+            <span class="help-block no-margin-bottom">
+              Controls if usernames should be altered before trying to match them to a user account.
+            </span>
+          </div>
+        </div>
+        <div class="line">
+          <label for="greeting">Voice greeting</label>
+
+          <div class="field">
+            <textarea class="text" name="greeting" id="greeting">Welcome to Duo. </textarea>
+            <span class="help-block no-margin-bottom">
+              Specify the message read to users who use phone callback, followed by authentication instructions.
+            </span>
+          </div>
+
+        </div>
+        <div class="line">
+          <label for="notes">Notes</label>
+          <div class="field">
+
+            <textarea class="text" name="notes" id="notes"></textarea>
+            <span class="help-block no-margin-bottom">
+              For internal use.
+            </span>
+
+          </div>
+        </div>
+
+
+        <div class="line">
+          <label>Permitted groups</label>
+
+          <div class="field add-padding ">
+
+            <div>
+              <div class="subline">
+                <input name="group-policy" id="group-policy" value="1" type="checkbox">&nbsp;
+                <label for="group-policy">Only allow authentication from users in certain groups</label>
+              </div>
+              <div class="subline">
+                <div class="select2-container select2-container-multi select2-container-disabled" id="s2id_integration-groups">
+                  <ul class="select2-choices">
+                    <li class="select2-search-field">
+                      <label for="s2id_autogen7" class="select2-offscreen"></label>
+                      <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-default"
+                        id="s2id_autogen7" style="width: 418px;" disabled="" placeholder="" type="text"> </li>
+                  </ul>
+                  <div class="select2-drop select2-drop-multi select2-display-none">
+                    <ul class="select2-results">
+                      <li class="select2-no-results">No matches found</li>
+                    </ul>
+                  </div>
+                </div>
+                <select disabled="" id="integration-groups" multiple="" name="integration-groups" tabindex="-1" class="select2-offscreen">
+                  <option value="DGCYHQRT9CFH5A58LXBI"> group_bar (1 user) </option>
+                  <option value="DGNFNMXI1LEUNNSK7YPE"> group_foo (3 users) </option>
+                  <option value="DGKYHW8M3PU1A55GPPW4"> phishing_test (1 user) </option>
+                </select>
+              </div>
+              <div class="subline">
+                <span class="help-block no-margin-bottom">
+                  When unchecked, all users can authenticate to this application.
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="actions">
+          <button type="submit" class="c--primary positive" id="save-changes"> Save Changes </button>
+        </div>
+
+      </fieldset>
+    </div>
+  </div>
+
+</form>
+        </section>
+        <hr />
+        <h2>Messaging</h2>
+        <section>
             <div class="page-message warning">
                 <p>
                 Duo Mobile integration is the default

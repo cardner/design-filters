@@ -1,5 +1,5 @@
-@import "../global/variables";
-@import "../global/mixins";
+@import '../global/variables';
+@import '../global/mixins';
 
 form:not(.inline) {
     @include box;
@@ -10,6 +10,10 @@ fieldset {
     border: none;
     margin: 1rem 0;
     padding: 0;
+
+    &.temp {
+        margin-top: 20px;
+    }
 }
 
 legend {
@@ -215,10 +219,12 @@ textarea {
 // override to visually hide the number spinner for mozilla browser
 input[type=number] {
     -moz-appearance: textfield;
+    appearance: textfield;
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
         -webkit-appearance: none;
+        appearance: none;
         margin: 0;
     }
 }
@@ -264,15 +270,6 @@ input[type=radio] {
     &+label {
         vertical-align: text-bottom;
     }
-}
-
-input[type=number]::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    appearance: textfield;
 }
 
 input[type=tel] {
@@ -337,6 +334,24 @@ select.wider {
             border-color: $hover-input-border-color;
         }
     }
+
+    &:before {
+        @include duo-icons;
+        content: $magnify;
+        position: absolute;
+        width: 1rem;
+        top: 0;
+        left: .5rem;
+        font-size: $smallest-font-size;
+        line-height: 1em;
+        padding: .25em;
+        vertical-align: middle;
+        color: $default-text-color;
+    }
+
+    label & {
+        position: relative;
+    }
 }
 
 .select2-link {
@@ -359,5 +374,306 @@ table.fixedHeader-floating {
         > tr {
             @include unset($display-attr: box-shadow);
         }
+    }
+}
+
+// Form Elements
+
+select,
+textarea,
+input {
+    @include borders($border-color: $default-input-border-color);
+    @include border-radius;
+    @include transitions;
+    display: inline-block;
+    font-family: inherit;
+    background: $white;
+    color: $default-text-color;
+    padding: .375rem .75rem .25rem; // 10/16, 12 /* 6/16, 4/16 */
+    outline: none;
+    max-width: 26.25rem; //Based on basic calculation of readable line length and a base font size of 14px in input fields /* 420/16 */
+
+    &:focus {
+        @include box-shadow;
+        outline: none;
+        border-color: $default-border-color;
+    }
+    &[type="radio"] {
+        &:focus {
+            @include border-radius($radius: 50%);
+        }
+        &:active,
+        &:hover {
+            @include no-box-shadow;
+        }
+    }
+    &[type="checkbox"] {
+        &:focus {
+            border-radius: 15%;
+            @include box-shadow(0 -1px 0 2px white, 0 -1px 0 4px currentColor);
+        }
+    }
+    &:not([disabled]):hover {
+        border-color: $hover-input-border-color;
+    }
+    #predelay,
+    #postdelay {
+        margin-right: .313rem; // 5/16
+    }
+}
+
+//Specific sizes for setting field widths
+.select2-container,
+.select2-container-multi {
+    max-width: 26.25rem; // 420/16
+    width: 100%;
+}
+
+///Form Help Classes
+//Naming notes: layout--object--modifier-state/specifier
+.l--field--width-default {
+    width: 26.25rem; // 420/16 default width of 420px
+}
+.l--field--width-xs {
+    width: 2.75rem; // 44/16 1-2 characters, specifically digits - should be used with inline fields
+}
+
+.l--field--width-3digits {
+    width: 3.25rem; // 52/16 3 digits, specifically for time based input fields- should be used for inline fields
+}
+
+.l--field--width-sm {
+    width: 5.063rem; // 81/16  | 1-7 characters
+}
+
+.l--field--width-m,
+.l--field--width-phone {
+    width: 13.563rem; // 217/16 | 8-26 characters mixed
+}
+
+.l--field--width-lg {
+    width: 33.5rem; // 536/16 | 27-72 characters mixed
+    max-width: 33.5rem;
+}
+
+.l--field--width-xl {
+    width: 45.063rem; // 721/16  | 36 characters max mixed @ 36px font size
+    max-width: 45.063rem;
+}
+
+.l--field--width-full {
+    width: 100%; // TODO remove this in the future when a better grid design is relased
+    max-width: 100%;
+}
+
+.l--field--spacing-left {
+    margin-left: .313rem; // 5/16 add some breathing room left
+}
+
+.l--field--spacing-right {
+    margin-right: .313rem; // 5/16 add some breathing room right
+}
+
+.l--field--spacing-both {
+    @extend .l--field--spacing-right;
+    @extend .l--field--spacing-left;
+}
+
+.c--field-inline {
+    padding: .688rem .75rem .5rem; /* 11/16 */
+    height: 2.375rem; /* 38/16 */
+}
+
+select {
+    // this is here to help position the text in a select field and keep it from cropping for browsers that don't use shadow dom or override the select with it's user agent stylesheet
+    line-height: 1;
+    padding-top: .4rem;
+    padding-bottom: .3rem;
+    height: 1.788rem; /* 27/16 */
+}
+
+// this fixes a really random bug due to how the shadow dom sets the align-items in a select field to center when an input field is inline with a select field
+input + select {
+    vertical-align: middle;
+}
+
+input:not([type="hidden"]) {
+    &[type="text"],
+    &[type="search"] {
+        @include border-radius;
+        @include borders($border-color: $default-input-border-color);
+        outline: none;
+        @include transitions;
+
+        &:focus {
+            @include box-shadow;
+        }
+
+        &:not([disabled]):hover {
+            border-color: $hover-input-border-color;
+        }
+        &.l--field--width-xl {
+            padding: .563rem .938rem .75rem .75rem;  // 9/16, 15/16, 12/16, 12/16 padding adjustment for larger type
+            line-height: 1em;
+            height: 4rem; // 67/16
+        }
+    }
+
+    &[type="search"] {
+        height: 2.4rem;
+        max-width: 25rem;
+        padding: 0 0 0 2.25em;
+    }
+}
+input:not([type="hidden"]),
+textarea:not([type="hidden"]) {
+
+    &[read-only],
+    &[readonly] {
+        background-color: $disabled-button-color;
+        color: $disabled-text-color;
+        &:hover {
+            border-color: $default-border-color !important;
+        }
+        &:focus,
+        &:active {
+            @include no-box-shadow;
+        }
+    }
+}
+
+
+// Overriding the select2 form elements
+.base-content,
+#modal-add-to-group,
+#modal-policy-builder {
+    .select2-container,
+    .select2-container-multi {
+        .select2-choice {
+            padding: .23rem 0 0 .5rem;
+            height: 2.2em;
+            color: $default-text-color;
+            border-color: $default-border-color;
+            @include border-radius;
+            background-color: $white;
+            background-image: none;
+            @include no-box-shadow;
+
+            .select2-arrow {
+                background-color: $white;
+                background-image: none;
+                padding-top: 0;
+                border-color: $default-border-color;
+                @include border-radius(0 3px 3px 0);
+            }
+        }
+        .select2-choices {
+            background-image: none;
+            .select2-search-choice {
+                background-image: none;
+                background-color: $white;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                &:hover {
+                    color: $primary-button-color;
+                    background: none;
+                    border-color: $primary-button-color;
+                    @include no-box-shadow;
+                }
+                .select2-search-choice-close {
+                    @include no-box-shadow;
+                    margin-top: 1px;
+                }
+            }
+        }
+        .select2-search-choice-close
+         {
+            @include no-box-shadow;
+        }
+    }
+
+    .select2-dropdown-open {
+        .select2-choice {
+            background-image: none;
+            background-color: $white;
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.select2-drop-active,
+.select2-container-active .select2-choice,
+.select2-container-multi .select2-choices {
+    @include border-radius;
+    border-color: $default-input-border-color !important;
+}
+
+// this overrides the default styling of the large select 2 multi group boxes when focused or active
+.select2-container-multi.select2-container-active .select2-choices {
+    box-shadow: none !important;
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
+    border-radius: $border-radius $border-radius 0 0;
+}
+
+.select2-drop-active {
+    box-shadow: none !important;
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
+    border-radius: 0 0 $border-radius $border-radius;
+}
+
+.select2-search {
+    input.select2-input {
+        background-image: url('../../../static/images/select2.png');
+        background-repeat: no-repeat;
+        background-position: 100% -22px;
+        background-color: $white;
+    }
+}
+
+// Quick fix for select2 coloring issues
+.select2-drop.select2-drop-above.select2-drop-active,
+.select2-container-multi.select2-container-active .select2-choices {
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
+}
+
+// Override select2 typeface choices
+.select2-container-multi .select2-choices .select2-search-field input {
+    font-family: $base-font-family !important;
+}
+
+// Lets just kill border radius in general for an active select too since it switches between above and below and shares classes
+.select2-drop-above,
+.select2-container-multi.select2-container-active .select2-choices {
+    border-radius: 0 !important;
+}
+
+.select2-results .select2-result.select2-highlighted {
+    background-color: $select-hover-color !important;
+}
+
+// allow reset of box styles to be applied to another element, form specificity added to override :not selector on form
+form.c--box-reset {
+    @include unset($display-attr: border-radius);
+    @include unset($display-attr: padding);
+    @include unset($display-attr: margin-bottom);
+    @include unset($display-attr: border);
+    border: none;
+}
+
+// This styles paragraph copy before a form field to have the same spacing as form fields
+.legend-description {
+    // this adds spacing around a descriptor text in a form element
+    margin: $default-margin-spacing $xlarge-margin-spacing;
+    &.inline {
+        display: inline-block;
+        margin-right: $small-margin-spacing;
+    }
+    &.no-top-margin {
+        margin-top: 0;
     }
 }
