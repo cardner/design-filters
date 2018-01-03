@@ -119,7 +119,8 @@ select#billing_info_credit_card_month {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 200px 1fr 1fr;
-    grid-template-columns: 200px minmax(min-content, 1fr);
+    // min col width 1024-(sidebar width) max 1400-(sidebar width)
+    grid-template-columns: 200px minmax(823px, 1200px);
 }
 
 .base-sidebar {
