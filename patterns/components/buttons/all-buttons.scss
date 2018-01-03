@@ -2,19 +2,8 @@
 @import "../../global/mixins";
 @import "../../global/extends";
 
-a,
-button {
-    cursor: pointer;
-    text-decoration: none;
-}
-/////////////// Buttons
-///////// Primary Button
-
-%button,
-.button,
-button:not(.link),
-input[type="button"],
-input[type="src"]:not(.link) input[type="reset"] {
+// Extend for button base styles
+%button {
     @include border-radius;
     @include transitions(color $fast-ease, background-color $fast-ease, border $slow-ease, box-shadow $slow-ease, max-height $slow-ease);
     display: inline-block;
@@ -24,10 +13,26 @@ input[type="src"]:not(.link) input[type="reset"] {
     line-height: 1.5em;
     min-height: 2.5rem;
     @include borders($border-color: $button-border-color);
-    padding: .65rem 1.25rem .4rem; // 10/16, 20/16
+    padding: .65rem $mid-padding-spacing .4rem; // 10/16, 20/16
     color: $button-text-color;
     background-color: transparent;
     letter-spacing: .04em;
+}
+
+a,
+button {
+    cursor: pointer;
+    text-decoration: none;
+}
+/////////////// Buttons
+///////// Primary Button
+
+
+.button,
+button:not(.link),
+input[type="button"],
+input[type="src"]:not(.link) input[type="reset"] {
+    @extend %button;
 
     // Fix for IE11 and 10 (Edge works well):
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -72,10 +77,6 @@ input[type="src"]:not(.link) input[type="reset"] {
         display: none;
     }
 
-    //Add all imports here for different button types
-    @import "primary";
-    @import "disabled";
-
     &.square {
         text-align: center;
         padding-left: 4px;
@@ -99,6 +100,11 @@ input[type="src"]:not(.link) input[type="reset"] {
     &.full-width {
         width: 100%;
     }
+
+    //Add all imports here for different button types
+    @import 'primary';
+    @import 'disabled';
+
 }
 
 /* this is to create the new buttons style of button links */
@@ -216,9 +222,9 @@ input[type="src"]:not(.link) input[type="reset"] {
     }
 }
 
-@import "destructive";
-@import "download";
-@import "dropdowns";
-@import "bulk-selector";
-@import "navigational";
-@import "pagination";
+@import 'destructive';
+@import 'download';
+@import 'dropdowns';
+@import 'bulk-selector';
+@import 'navigational';
+@import 'pagination';
