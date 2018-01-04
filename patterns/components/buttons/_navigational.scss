@@ -61,7 +61,7 @@
     vertical-align: text-bottom;
 }
 
-&.c--btn-next {
+.c--btn-next {
     &:after {
         @extend %icon;
         @include forward-arrow;
@@ -72,3 +72,4 @@
         position: relative;
     }
 }
+

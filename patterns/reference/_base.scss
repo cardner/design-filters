@@ -307,35 +307,6 @@ select#billing_info_credit_card_month {
         color: $white;
     }
 }
-// HELP
-a.helpicon {
-    vertical-align: top;
-    display: inline-block;
-    text-indent: -9999px;
-    margin: 5px 0 0 4px;
-    overflow: hidden;
-    width: 16px;
-    height: 16px;
-    background: url('../images/help-sprite.png') 0 0;
-    cursor: pointer;
-
-    &.intext {
-        margin-top: 0;
-    }
-
-    &:focus,
-    &:hover {
-        background-position: 0 16px;
-    }
-
-    &.phone-help {
-        margin: 4px;
-    }
-
-    &.tight-help {
-        margin: 0 0 0 4px;
-    }
-}
 
 .explanation-text {
     color: #777;
