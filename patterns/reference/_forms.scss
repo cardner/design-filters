@@ -314,6 +314,7 @@ select.wider {
 }
 
 .search {
+
     .select2-container {
         font-size: $smaller-font-size;
         color: $default-text-color;
@@ -349,9 +350,10 @@ select.wider {
         color: $default-text-color;
     }
 
-    label & {
-        position: relative;
-    }
+}
+
+label.search {
+    position: relative;
 }
 
 .select2-link {
