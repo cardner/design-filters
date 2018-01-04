@@ -247,90 +247,141 @@
         <hr />
         <section>
             <div id="user-table_wrapper" class="dataTables_wrapper">
-              <div class="top-control-wrapper" style="">
-                <div class="loading" style="display: none;">
-                </div>
-                <div class="selected-count">0 users selected:</div>
-                <div class="c--dropdown groups-dropdown">
-                  <div class="a--dropdown-trigger disabled" aria-expanded="false" tabindex="0" role="button">
-                    <span>Add to Group</span>
+              <div class="top-control-wrapper" style="width: 914px;">
+                <div class="loading" style="display: none;"></div>
+                <div class="bulk-selector-wrap">
+                  <div class="bulk-selector c--dropdown">
+                    <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">
+                      Select (
+                      <span class="num-selected">0</span>)
+                    </a>
+                    <ul class="a--dropdown-content select-quantity-list" aria-hidden="true">
+                      <li>
+                        <a href="#selectAll">Select All</a>
+                      </li>
+                      <li>
+                        <a href="#selectNone">Select None</a>
+                      </li>
+                    </ul>
                   </div>
-                  <ul class="a--dropdown-content" aria-hidden="true">
-                    <li data-gkey="">Group 1</li>
-                    <li data-gkey="">Group 2</li>
-                  </ul>
+                  <div class="bulk-actions c--dropdown">
+                    <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">…</a>
+                    <ul class="a--dropdown-content disabled action-list" aria-hidden="true">
+            
+                      <li>
+                        <a href="#add-to-group">Add to Group</a>
+                      </li>
+            
+                      <li>
+                        <a href="#change-user-status">Change User Status</a>
+                      </li>
+            
+                      <li>
+                        <a class="a--destruction" href="#delete">Send to Trash</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#restore">Restore</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#permanent-delete">Permanently Delete</a>
+                      </li>
+            
+                    </ul>
+                  </div>
                 </div>
                 <div class="button-row">
                   <div class="download-buttons">
-                    <div class="c--dropdown">
-                      <div class="a--dropdown-trigger button" aria-expanded="false" tabindex="0" role="button">
-                        <span>Reports</span>
-                      </div>
-                      <div class="a--dropdown-content" aria-hidden="true">
-                        <a href="/users/export/csv" class="dropdown-csv">CSV</a>
-                        <a href="/users/export/json" class="dropdown-json">JSON</a>
-                        <a href="#" class="dropdown-url">URL</a>
-                      </div>
-                    </div>
+                    <nav class="c--dropdown" role="navigation">
+                      <a class="a--dropdown-trigger button" role="button" aria-expanded="false" tabindex="0"> Reports </a>
+                      <ul class="a--dropdown-content" aria-hidden="true">
+                        <li>
+                          <a href="/users/export/csv" class="dropdown-csv">CSV</a>
+                        </li>
+                        <li>
+                          <a href="/users/export/json" class="dropdown-json">JSON</a>
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-url">URL</a>
+                        </li>
+                      </ul>
+                    </nav>
                   </div>
                   <div id="user-table_filter" class="dataTables_filter">
-                    <label>
-                      <input type="search" class="" placeholder="" aria-controls="user-table">
+                    <label class="icon search">
+                      <input class="" placeholder="" aria-controls="user-table" type="search">
                     </label>
                   </div>
                 </div>
               </div>
-              <table id="user-table" class="dataTable" data-permission-read="true" data-csv-link="/users/export/csv" data-json-link="/users/export/json" role="grid" aria-describedby="user-table_info" style="">
+              <table id="user-table" class="dataTable" data-permission-read="true" data-csv-link="/users/export/csv" data-json-link="/users/export/json"
+                role="grid" aria-describedby="user-table_info" style="width: 1105px;">
                 <thead>
                   <tr role="row">
-                    <th class="checkbox sorting_disabled" rowspan="1" colspan="1" style="width: 52px;" aria-label="">
-                      <input type="checkbox" name="select-all">
+                    <th class="checkbox sorting_disabled" rowspan="1" colspan="1" style="width: 49px;" aria-label="
+            
+            
+            
+            ">
+                      <label>
+                        <input name="select-all" type="checkbox">
+                      </label>
                     </th>
-                    <th class="username primary_column sorting_asc" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 72px;" aria-label="Username: activate to sort column ascending">Username</th>
-                    <th class="name sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 43px;" aria-label="Name: activate to sort column ascending">Name</th>
-                    <th class="email sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email: activate to sort column ascending">Email</th>
-                    <th class="phone_count number sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 40px;" aria-label=": activate to sort column descending">
+                    <th class="username primary_column sorting_asc" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 100px;"
+                      aria-label="Username: activate to sort column ascending">Username</th>
+                    <th class="name sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 280px;"
+                      aria-label="Name: activate to sort column ascending">Name</th>
+                    <th class="email sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 194px;"
+                      aria-label="Email: activate to sort column ascending">Email</th>
+                    <th class="phone_count number sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      style="width: 32px;" aria-label="
+            
+            : activate to sort column descending">
                       <i class="icon-smartphone column-heading" title="Number of phones attached to this user."></i>
                     </th>
-                    <th class="token_count number sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 40px;" aria-label=": activate to sort column descending">
+                    <th class="token_count number sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 32px;"
+                      aria-label="
+            
+            : activate to sort column descending">
                       <i class="icon-usb-alt column-heading" title="Number of hardware tokens attached to this user."></i>
                     </th>
-                    <th class="status sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 60px;" aria-label="Status: activate to sort column ascending">Status</th>
-                    <th class="last_login sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 192px;" aria-label="Last Login: activate to sort column descending">Last Login</th>
+                    <th class="status sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 56px;" aria-label="Status: activate to sort column ascending">Status</th>
+                    <th class="last_login sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 166px;"
+                      aria-label="Last Login: activate to sort column descending">Last Login</th>
                   </tr>
                 </thead>
+            
                 <tbody>
                   <tr role="row" class="odd">
                     <td class=" checkbox">
-                      <label class="">
-                        <input type="checkbox" name="ukey" value="">
+                      <label>
+                        <input name="ukey" value="DUH1BQJ8UHRJ5TCWLL28" type="checkbox">
                       </label>
                     </td>
                     <td class="primary_column sorting_1">
-                      <a href="">User Name 1</a>
-                    </td>Name 1<td>
+                      <a href="/users/DUH1BQJ8UHRJ5TCWLL28">administrator</a>
                     </td>
-                    <td>user1@gmail.com</td>
+                    <td>duo.local or other AD Admin (for RDP)</td>
+                    <td></td>
                     <td>1</td>
-                    <td>1</td>
+                    <td></td>
                     <td>
-                      <span class="user-status-active">Active</span>
+                      <span class="user-status-bypass">Bypass</span>
                     </td>
-                    <td>Mar 28, 2016 10:34 AM</td>
+                    <td>Never authenticated</td>
                   </tr>
                   <tr role="row" class="even">
                     <td class=" checkbox">
-                      <label class="">
-                        <input type="checkbox" name="ukey" value="">
+                      <label>
+                        <input name="ukey" value="DU9NZ25AL9IE15UF33CY" type="checkbox">
                       </label>
                     </td>
                     <td class="primary_column sorting_1">
-                      <a href="">User Name 2</a>
+                      <a href="/users/DU9NZ25AL9IE15UF33CY">alina</a>
                     </td>
-                    <td>Name 2</td>
-                    <td>user2@gmail.com</td>
-                    <td>2</td>
-                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td>3</td>
+                    <td></td>
                     <td>
                       <span class="user-status-bypass">Bypass</span>
                     </td>
@@ -338,17 +389,413 @@
                   </tr>
                   <tr role="row" class="odd">
                     <td class=" checkbox">
-                      <label class="">
-                        <input type="checkbox" name="ukey" value="">
+                      <label>
+                        <input name="ukey" value="DUEJVF0IPAEWD7TFZA67" type="checkbox">
                       </label>
                     </td>
                     <td class="primary_column sorting_1">
-                      <a href="">User Name 3</a>
+                      <a href="/users/DUEJVF0IPAEWD7TFZA67">anotheruser</a>
                     </td>
-                    <td>Name 3</td>
-                    <td>user3@gmail.com</td>
-                    <td>3</td>
-                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Nov 20, 2017 11:28 AM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU3E7XESCMVFZNIQFFMF" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU3E7XESCMVFZNIQFFMF">ben☃</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Dec 1, 2017 1:24 PM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUCSKNK2I7Y5YMQKG0U0" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUCSKNK2I7Y5YMQKG0U0">bo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUSO2JCWF2Q6X969W3IZ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUSO2JCWF2Q6X969W3IZ">booloo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUNOF9DPMTX1GF2LUQ4X" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUNOF9DPMTX1GF2LUQ4X">bozo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Oct 10, 2017 3:33 PM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU6OX0MGCI4Y8EJ20PL8" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU6OX0MGCI4Y8EJ20PL8">bvertkin</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Sep 25, 2017 1:25 PM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUR93V08MC0WO9WB0AMK" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUR93V08MC0WO9WB0AMK">bvertkin10</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Sep 25, 2017 12:04 PM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUX4IVUVRWKR6LBVIWOQ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUX4IVUVRWKR6LBVIWOQ">ciscouser</a>
+                    </td>
+                    <td>ciscouser for sprint acceptance tests</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Jan 3, 2018 11:19 AM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU1I6U19QL7LJIISYUJ3" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU1I6U19QL7LJIISYUJ3">contr.0009</a>
+                    </td>
+                    <td>Contr 0009</td>
+                    <td>contr.0009@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU3NFXIMT40UJSM21BWE" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU3NFXIMT40UJSM21BWE">contr.0019</a>
+                    </td>
+                    <td>Contr 0019</td>
+                    <td>contr.0019@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUDFSFGH8ILX6DVB80ZD" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUDFSFGH8ILX6DVB80ZD">contr.0029</a>
+                    </td>
+                    <td>Contr 0029</td>
+                    <td>contr.0029@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUO8RKITAEMT2WH829Z9" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUO8RKITAEMT2WH829Z9">contr.0039</a>
+                    </td>
+                    <td>Contr 0039</td>
+                    <td>contr.0039@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU1F6UR9MYQH53KBOMQ7" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU1F6UR9MYQH53KBOMQ7">contr.0049</a>
+                    </td>
+                    <td>Contr 0049</td>
+                    <td>contr.0049@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU83OF1CJEH0Z8KOYZ1B" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU83OF1CJEH0Z8KOYZ1B">contr.0059</a>
+                    </td>
+                    <td>Contr 0059</td>
+                    <td>contr.0059@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU7EY2RDF9QDRSH9WPFL" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU7EY2RDF9QDRSH9WPFL">contr.0069</a>
+                    </td>
+                    <td>Contr 0069</td>
+                    <td>contr.0069@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUGRR8L6PA2U8W6NSWVB" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUGRR8L6PA2U8W6NSWVB">contr.0079</a>
+                    </td>
+                    <td>Contr 0079</td>
+                    <td>contr.0079@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUQ5WV3XU5P9LVWEJD4S" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUQ5WV3XU5P9LVWEJD4S">contr.0089</a>
+                    </td>
+                    <td>Contr 0089</td>
+                    <td>contr.0089@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUI3HOWS8DVTFPAIPZHC" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUI3HOWS8DVTFPAIPZHC">contr.0090</a>
+                    </td>
+                    <td>Contr 0090</td>
+                    <td>contr.0090@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU2VWA2LREAQ83LPPOUY" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU2VWA2LREAQ83LPPOUY">contr.0091</a>
+                    </td>
+                    <td>Contr 0091</td>
+                    <td>contr.0091@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUC6XDKXSQRN8UECPEVB" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUC6XDKXSQRN8UECPEVB">contr.0092</a>
+                    </td>
+                    <td>Contr 0092</td>
+                    <td>contr.0092@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUZP2L2P8MNAJTRMQWQM" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUZP2L2P8MNAJTRMQWQM">contr.0093</a>
+                    </td>
+                    <td>Contr 0093</td>
+                    <td>contr.0093@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUNN32SXJFE567S8RK4A" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUNN32SXJFE567S8RK4A">contr.0094</a>
+                    </td>
+                    <td>Contr 0094</td>
+                    <td>contr.0094@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUXX594Q8RJBYTE8EWAQ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUXX594Q8RJBYTE8EWAQ">contr.0095</a>
+                    </td>
+                    <td>Contr 0095</td>
+                    <td>contr.0095@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
                     <td>
                       <span class="user-status-active">Active</span>
                     </td>
@@ -365,54 +812,240 @@
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
-                          </select>
-                          users</label>
-                        </div>
-                        <div class="dataTables_info" id="user-table_info" role="status" aria-live="polite">
-                          1&ndash;25 of 543 total
-                        </div>
-                        <div class="dataTables_paginate paging_full_numbers" id="user-table_paginate">
-                          <a class="paginate_button first disabled ss-icon" aria-controls="user-table" data-dt-idx="0" tabindex="0" id="user-table_first">
-                            &#9669;&#9669;
-                          </a>
-                          <a class="paginate_button previous disabled ss-icon" aria-controls="user-table" data-dt-idx="1" tabindex="0" id="user-table_previous">
-                            &#9669;
-                          </a>
-                          <span>
-                            <a class="paginate_button current" aria-controls="user-table" data-dt-idx="2" tabindex="0">
-                              1
-                            </a>
-                            <a class="paginate_button " aria-controls="user-table" data-dt-idx="3" tabindex="0">
-                              2
-                            </a>
-                            <a class="paginate_button " aria-controls="user-table" data-dt-idx="4" tabindex="0">
-                              3
-                            </a>
-                            <a class="paginate_button " aria-controls="user-table" data-dt-idx="5" tabindex="0">
-                              4
-                            </a>
-                            <a class="paginate_button " aria-controls="user-table" data-dt-idx="6" tabindex="0">
-                              5
-                            </a>
-                            <span class="ellipsis">
-                              &#8230;
-                            </span>
-                            <a class="paginate_button " aria-controls="user-table" data-dt-idx="7" tabindex="0">
-                              22
-                            </a>
-                          </span>
-                          <a class="paginate_button next ss-icon" aria-controls="user-table" data-dt-idx="8" tabindex="0" id="user-table_next">
-                            &#9659;
-                          </a>
-                          <a class="paginate_button last ss-icon" aria-controls="user-table" data-dt-idx="9" tabindex="0" id="user-table_last">
-                            &#9659;&#9659;
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                  </tfoot>
-                </table>
+                          </select> users</label>
+                      </div>
+                      <div class="dataTables_info" id="user-table_info" role="status" aria-live="polite">1–25 of 5,326 total</div>
+                      <div class="dataTables_paginate paging_full_numbers" id="user-table_paginate">
+                        <a class="paginate_button first disabled" aria-controls="user-table" data-dt-idx="0" tabindex="0" id="user-table_first">◅◅</a>
+                        <a class="paginate_button previous disabled" aria-controls="user-table" data-dt-idx="1" tabindex="0" id="user-table_previous">◅</a>
+                        <span>
+                          <a class="paginate_button current" aria-controls="user-table" data-dt-idx="2" tabindex="0">1</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="3" tabindex="0">2</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="4" tabindex="0">3</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="5" tabindex="0">4</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="6" tabindex="0">5</a>
+                          <span class="ellipsis">…</span>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="7" tabindex="0">214</a>
+                        </span>
+                        <a class="paginate_button next" aria-controls="user-table" data-dt-idx="8" tabindex="0" id="user-table_next">▻</a>
+                        <a class="paginate_button last" aria-controls="user-table" data-dt-idx="9" tabindex="0" id="user-table_last">▻▻</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
             </div>
+            <div id="bulk-selector-content" class="hidden">
+              <div class="bulk-selector c--dropdown">
+                <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">
+                  Select (
+                  <span class="num-selected">0</span>)
+                </a>
+                <ul class="a--dropdown-content select-quantity-list" aria-hidden="true">
+                  <li>
+                    <a href="#selectAll">Select All</a>
+                  </li>
+                  <li>
+                    <a href="#selectNone">Select None</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="bulk-actions c--dropdown">
+                <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">…</a>
+                <ul class="a--dropdown-content disabled action-list" aria-hidden="true">
+            
+                  <li>
+                    <a href="#add-to-group">Add to Group</a>
+                  </li>
+            
+                  <li>
+                    <a href="#change-user-status">Change User Status</a>
+                  </li>
+            
+                  <li>
+                    <a class="a--destruction" href="#delete">Send to Trash</a>
+                  </li>
+                  <li class="hidden">
+                    <a href="#restore">Restore</a>
+                  </li>
+                  <li class="hidden">
+                    <a href="#permanent-delete">Permanently Delete</a>
+                  </li>
+            
+                </ul>
+              </div>
+            </div>
+            <div id="modal-add-to-group" class="bulk-action-modal modal hidden">
+              <div class="modal-header">
+                <h1>Add to Group</h1>
+                <a href="#" class="modal-close">
+                  <i class="icon-delete"></i>
+                </a>
+              </div>
+            
+              <form action="/users/groups/" method="post" class="inline">
+                <div class="modal-content">
+                  <p class="form-error hidden">Select a group to add users to.</p>
+                  <p>Add
+                    <span class="selected-user-count"></span> to...</p>
+                  <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                  <div class="field">
+                    <div class="select2-container" id="s2id_autogen3">
+                      <a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">
+                        <span class="select2-chosen" id="select2-chosen-4">Select a Group</span>
+                        <abbr class="select2-search-choice-close"></abbr>
+                        <span class="select2-arrow" role="presentation">
+                          <b role="presentation"></b>
+                        </span>
+                      </a>
+                      <label for="s2id_autogen4" class="select2-offscreen"></label>
+                      <input class="select2-focusser select2-offscreen" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4"
+                        id="s2id_autogen4" type="text">
+                      <div class="select2-drop select2-display-none select2-with-searchbox">
+                        <div class="select2-search">
+                          <label for="s2id_autogen4_search" class="select2-offscreen"></label>
+                          <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input"
+                            role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-4" id="s2id_autogen4_search"
+                            placeholder="" type="text"> </div>
+                        <ul class="select2-results" role="listbox" id="select2-results-4"> </ul>
+                      </div>
+                    </div>
+                    <input name="group" tabindex="-1" title="" class="select2-offscreen" type="hidden">
+                  </div>
+            
+                  <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="c--primary">Add to Group</button>
+                </div>
+              </form>
+            
+            </div>
+            <div id="modal-change-user-status" class="bulk-action-modal modal hidden">
+              <div class="modal-header">
+                <h2>Change User Status</h2>
+                <a href="#" class="modal-close">
+                  <i class="icon-delete"></i>
+                </a>
+              </div>
+              <form action="/users/bulkchangeuserstatus" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-content">
+                  <p class="form-error hidden">Select a status.</p>
+                  <div class="field">
+                    <input name="change-user-status" value="" type="hidden">
+                  </div>
+                  <p>Change
+                    <span class="selected-user-count"></span> to...</p>
+            
+            
+                  <div class="subline">
+            
+                    <input id="status-0" name="status" value="Active" type="radio">
+                    <label for="Active">
+                      <span class="user-status-active">Active</span>
+                      <span class="subline checkbox-indent">Require two-factor authentication (default)</span>
+                    </label>
+                  </div>
+            
+            
+                  <div class="subline">
+            
+                    <input id="status-1" name="status" value="Bypass" type="radio">
+                    <label for="Bypass">
+                      <span class="user-status-bypass">Bypass</span>
+                      <span class="subline checkbox-indent">Skip two-factor authentication</span>
+                    </label>
+                  </div>
+            
+            
+                  <div class="subline">
+            
+                    <input id="status-2" name="status" value="Disabled" type="radio">
+                    <label for="Disabled">
+                      <span class="user-status-disabled">Disabled</span>
+                      <span class="subline checkbox-indent">Automatically deny access</span>
+                    </label>
+                  </div>
+            
+            
+                  <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="c--primary">Change User Status</button>
+                </div>
+              </form>
+            </div>
+            
+            <div id="modal-delete" class="modal modal-auto modal-confirm hidden">
+              <div class="modal-header confirm-header">
+                <h2>Send
+                  <span class="selected-user-count l--margin-top-reset"></span> to the Trash?</h2>
+              </div>
+              <div class="modal-content">
+                <div class="subline">
+                  <p> Users in the Trash won’t be able to authenticate. They can be restored before they are permanently deleted in 7 days.</p>
+                </div>
+            
+                <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+              </div>
+              <form action="/users/bulkdelete" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-footer">
+                  <button class="button-cancel confirm-button"> Cancel </button>
+                  <button class="c--destruction icon danger button-accept confirm-button"> Send to Trash </button>
+                </div>
+              </form>
+            </div>
+            <div id="modal-restore" class="modal modal-auto modal-confirm confirm-positive hidden">
+              <div class="modal-header confirm-header">
+                <h2>Restore
+                  <span class="selected-user-count"></span>?</h2>
+              </div>
+              <div class="modal-content">
+                <div class="subline">
+                  <p>Restored users will be set to the "Disabled" user status.</p>
+                </div>
+            
+                <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+              </div>
+              <form action="/users/bulkrestore" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-footer">
+                  <button class="secondary button-cancel confirm-button"> Cancel </button>
+                  <button class="c--primary primary button-accept confirm-button"> Restore </button>
+                </div>
+              </form>
+            </div>
+            <div id="modal-permanent-delete" class="modal modal-auto modal-confirm confirm-positive hidden">
+              <div class="modal-header confirm-header">
+                <h2>Permanently delete
+                  <span class="selected-user-count"></span>?</h2>
+              </div>
+              <div class="modal-content">
+                <div class="subline">
+                  <p>Permanently deleted can not be recovered.</p>
+                </div>
+            
+                <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+              </div>
+              <form action="/users/bulk-permanent-delete" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-footer">
+                  <button class="secondary button-cancel confirm-button"> Cancel </button>
+                  <button class="c--primary primary button-accept confirm-button"> Permanently Delete </button>
+                </div>
+              </form>
+            </div>
+            <script type="text/json" id="groups">
+            [{"id": "DGUOJYHV6T0KRNVFGQWX", "text": "All Users"}, {"id": "DGMP2P8DLYQ6RQIDX94K", "text": "Applications"}, {"id": "DGM25QZR2BD33931LL56", "text": "Engineering"}, {"id": "DG17P3Y4LRNXS0VZAMZ1", "text": "GroupWithLargeSubgroup"}]
+            </script>
+
         </section>
         <hr />
         <section>
