@@ -78,7 +78,7 @@ $browsers: unknown, safari, firefox, chrome, ie, opera, edge;
 }
 
 .browser-icon {
-    background-image: url('../../images/browsers.png');
+    background-image: url('../images/browsers.png');
     display: none;
     margin-right: 0;
 }
@@ -181,7 +181,7 @@ $browsers: unknown, safari, firefox, chrome, ie, opera, edge;
     overflow: hidden;
     width: 4vw !important;
     height: 3vw !important;
-    background-image: url('../../images/flags.png') !important;
+    background-image: url('../images/flags.png') !important;
     background-size: 5vw 907vw !important;
     background-repeat: no-repeat !important;
     background-position: -5px -6713px;
