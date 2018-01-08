@@ -1,7 +1,7 @@
 .c--dropdown {
     position: relative;
     // for IE and FF this fixes the vertical alignment with search field in tables
-    display: block;
+    display: inline-block;
 }
 
 .a--dropdown-trigger {
