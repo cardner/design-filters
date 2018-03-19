@@ -546,16 +546,9 @@ th.users .ss-user {
 }
 
 .user-status-disabled,
-.user-status-locked-out {
-    color: $error-red;
-}
-
+.user-status-locked-out,
 .user-status-bypass {
-    color: $info-blue;
-}
-
-.user-status-active {
-    color: $success-green;
+    color: $error-red;
 }
 
 .user-status-pending-deletion {

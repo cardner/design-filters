@@ -80,3 +80,17 @@ $disabled-input-color: rgb(235, 235, 228);
 // Toggle Colors
 $toggle-enabled: map-get($blue, cta);
 $toggle-disabled: map-get($gray, light);
+
+// Table Colors TODO: replace these once we figure out how to roll out whole new color scheme
+$dark-filter-border: #B3C1CD;
+$default-table-button: #8093A7;
+$gradient-table-button: #F4F6F8;
+$default-table-button-border: #CDD2D5;
+$hover-gradient-button-top: #4E89C7;
+$hover-gradient-button-bottom: #4081C6;
+$hover-gradient-select-top: #F7F7F7;
+$hover-gradient-select-bottom: #E2E5E7;
+$filter-panel-background: #FAFAFA;
+$dark-border: #B3C1CD;
+$default-border: #E4ECF1;
+$hover-pill-background: #F7F9FA;
