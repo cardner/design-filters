@@ -1,0 +1,417 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+$filter-container-width: 400px;
+
+@mixin button-tiny {
+    min-height: $size-32;
+    font-size: $smaller-font-size;
+    line-height: $size-16;
+    padding: $size-8 $size-16;
+}
+
+// Reset default styling of checkbox
+input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: $size-16;
+    height: $size-16;
+    vertical-align: text-bottom;
+    border-radius: 3px;
+    @include borders($border-color: $default-input-border-color);
+
+    &:checked {
+        background-color: $hover-input-border-color;
+        border-color: $hover-input-border-color;
+
+        &::after {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: $size-16;
+            height: $size-16;
+            font-family: $icon-font-family;
+            font-size: $smallest-font-size;
+            vertical-align: middle;
+            content: $confirm;
+            color: $white;
+        }
+    }
+}
+
+input[type="radio"] {
+    vertical-align: text-bottom;
+    @include margin(right, $size-8);
+    @include margin(left, -1px);
+
+}
+
+.filter {
+    transition: left $slow-ease;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: $filter-container-width;
+    background-color: $filter-panel-background;
+    padding: $size-40 $size-32;
+
+    &.--is-closed {
+        left: -$filter-container-width;
+    }
+
+    &.--is-open {
+        left: 0;
+    }
+}
+
+.filter--close {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include margin(left, $size-8);
+    @include margin(bottom, $size-40);
+
+    &:hover {
+        text-decoration: none;
+
+        i {
+            text-decoration: underline;
+        }
+    }
+}
+
+.filter--header,
+.filter--group--toggle-container {
+    @include margin-reset;
+}
+
+.filter--header {
+    @include margin(left, $size-8);
+    transition: padding $slow-ease;
+
+    &.--is-open {
+        @include padding(bottom, $size-16);
+    }
+}
+
+.filter--item {
+    display: block;
+    padding: $size-16 0 $size-16 $size-8;
+    @include border(bottom);
+
+    input[type="checkbox"] {
+        @include margin(right, $size-8);
+    }
+
+    &.--child {
+        margin-left: 0;
+        @include padding(left, $size-40);
+        border-color: $default-border-color;
+    }
+
+    &:not(.--child) {
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        &:first-child {
+            @include border(top);
+        }
+    }
+}
+
+.filter--group {
+    @include border(bottom, $border-color: $dark-filter-border);
+    @include margin-reset;
+    @include margin(top, $size-16);
+    margin-right: -$size-32;
+    @include padding(bottom, $size-16);
+}
+
+.filter--group--toggle-container {
+    overflow: hidden;
+    transition: max-height $slow-ease;
+
+    &.--is-closed {
+        max-height: 0;
+    }
+
+    &.--is-open {
+       max-height: 100vh;
+    }
+}
+
+.filter--group--toggle-trigger {
+    cursor: pointer;
+    width: calc(100% - #{$size-32});
+
+    &.--is-closed {
+        &::after {
+            content: '+';
+        }
+    }
+
+    &.--is-open {
+        &::after {
+            content: '—';
+        }
+    }
+
+    &::after {
+        display: inline-block;
+        float: right;
+        font-weight: $base-font-weight;
+    }
+
+    &.--trigger-sub {
+        &::after {
+            float: none;
+        }
+    }
+
+}
+
+// 
+// Table Styles
+// 
+.page-title {
+    @include margin(top, $size-40);
+    @include margin(bottom, $size-40);
+}
+
+.filter--table {
+    transition: left $fast-ease;
+    position: absolute;
+    width: 100%;
+
+    &.--is-closed {
+        left: 0;
+    }
+
+    &.--is-open {
+        left: calc(#{$filter-container-width} + #{$size-32});
+    }
+}
+
+table {
+    @include border(top, $border-color: $default-border);
+    table-layout: fixed;
+    width: 100%;
+    white-space: normal;
+}
+
+th {
+    font-weight: $base-font-weight;
+    font-size: $smaller-font-size;
+    color: $mid-text-color;
+}
+
+.table--th {
+
+    &--is-active {
+        color: $default-text-color;
+    }
+
+    %orderIndicator {
+        content: url('../../images/triangle-icon.svg');
+        position: relative;
+        display: inline-block;
+        top: -2px;
+        @include margin(left, $size-8);
+        transition: transform $slow-ease;
+
+    }
+    &.--ascending {
+        &::after {
+            @extend %orderIndicator;
+            transform: rotate(.5turn);
+            top: 2px;
+        }
+    }
+
+    &.--descending {
+        @extend %orderIndicator;
+    }
+}
+
+tr {
+    cursor: pointer;
+    transition: background-color $slow-ease;
+
+    &:hover,
+    &.--is-active {
+        background-color: $default-headernav-color;
+    }
+}
+
+td,
+th {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: $size-16 $size-8;
+    min-width: $size-16;
+    @include border(bottom);
+}
+
+.table--td-width {
+    // Set static width since UI doesn't ever change widths while scaling
+    &--checkbox {
+        width: 36px;
+    }
+
+    &--xsmall {
+        width: 5%;
+    }
+
+    &--small {
+        width: 10%;
+    }
+
+    &--medium {
+        width: 15%;
+    }
+
+    &--large {
+        width: 20%;
+    }
+
+    &--xlarge {
+        width: 40%;
+    }
+}
+
+.filter--table--actionrow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include border(top, $border-color: $dark-filter-border);
+    padding: $size-16 0 $size-16 $size-8;
+}
+
+.filter--table--actionrow-section {
+    display: flex;
+    > * {
+        flex: 1 1 auto;
+        @include margin(right, $size-16);
+
+        &:last-child {
+            @include margin-reset;
+        }
+    }
+}
+
+.filter--pill--container {
+    display: flex;
+    padding-top: $size-8;
+}
+
+.filter--pill--item {
+    display: flex;
+    align-items: center;
+    color: $default-text-color;
+    padding: $size-8;
+    font-size: $smaller-font-size;
+    margin-right: $size-8;
+    @include borders($border-color: transparent);
+    @include border-radius;
+
+    &::after {
+        content: '\e0fc';
+        @include duo-icons;
+        font-size: $smallest-font-size;
+        display: inline;
+        margin-left: $size-8;
+    }
+
+    &:hover {
+        transition: all $fast-ease;
+        text-decoration: none;
+        @include borders($border-color: $dark-filter-border);
+        background: $hover-pill-background;
+
+    }
+}
+
+.a--flex-full-width {
+    flex-basis: 100%;
+}
+
+// Override default styling of select element
+.filter--table--select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    @include border-radius;
+    background: linear-gradient($white, $gradient-table-button);
+    border-color: $default-table-button-border;
+    min-height: $size-32;
+    height: $size-32;
+    padding: $size-8 $size-16;
+    line-height: $size-16;
+    font-size: $small-font-size;
+
+    &::after {
+        content: url('../../images/triangle-icon.svg');
+        position: absolute;
+        display: block;
+    }
+
+    &:hover {
+        background: linear-gradient($hover-gradient-select-top, $hover-gradient-select-bottom);
+        border-color: $default-table-button-border;
+    }
+}
+
+.search--tiny {
+    position: relative;
+
+    input[type="search"] {
+        box-sizing: border-box;
+        @include button-tiny;
+        font-size: $small-font-size;
+        height: $size-32;
+        @include padding(left, $size-40);
+    }
+
+    &:before {
+        content: url('../../images/search-icon.svg');
+        position: absolute;
+        display: block;
+        top: $size-8;
+        left: $size-16;
+        width: $size-16;
+        height: $size-16;
+    }
+}
+
+// Button Overrides TODO: Talk to Nako about if these will be more widely available outside of the tables
+
+.button--tiny {
+    @include button-tiny;
+    height: $size-32;
+}
+
+.filter--table--actionrow-section {
+    button {
+        border-color: $default-table-button-border;
+        color: $default-table-button;
+        background: linear-gradient($white, $gradient-table-button);
+
+        &:hover {
+            background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+
+            svg {
+                fill: $white;
+            }
+        }
+
+        svg {
+            fill: $default-table-button;
+        }
+    }
+}

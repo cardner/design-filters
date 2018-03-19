@@ -1,5 +1,16 @@
 @import '../colors/all-colors';
 
+// Size
+$size-8: .5rem; /* 8/16 */
+$size-12: .75rem; /* 12/16 These should only be used for font sizing */
+$size-14: .875rem; /* 14/16 These should only be used for font sizing */
+$size-16: 1rem; /* 16/16 */
+$size-20: 1.25rem; /* 20/16 These should only be used for font sizing */
+$size-24: 1.5rem; /* 24/16 */
+$size-32: 2rem; /* 32/16 */
+$size-40: 2.5rem; /* 40/16 */
+$size-48: 3rem; /* 48/16 */
+
 // Base colors, fonts and sizes
 $base-color: $grey-darker;
 $base-link-color: $info-blue;
@@ -11,16 +22,17 @@ $medium-font-weight: 600;
 $bold-font-weight: 900;
 $base-border-color: $hover-input-border-color;
 //font sizes & line heights
-$base-font-size: .875rem;
-$base-line-height: 1.45;
-$small-line-height: 1.25;
-$medium-line-height: 1.25rem; /* 20/16 */
+$base-font-size: $size-14;
+$base-line-height: $size-24;
+$small-line-height: $size-16;
+$medium-line-height: $size-32;
+$large-line-height: $size-40;
 $smallest-font-size: .625rem; /* 10/16 */
-$smaller-font-size: .75rem; /* 12/16 */
-$small-font-size: .875rem; /* 14/16 */
-$medium-font-size: 1.125rem; /* 18/16 */
-$large-font-size: 1.5rem; /* 24/16 */
-$largest-font-size: 2.75rem; /* 44/16 */
+$smaller-font-size: $size-12;
+$small-font-size: $size-14;
+$medium-font-size: $size-16;
+$large-font-size: $size-20;
+$largest-font-size: $size-32; /* 44/16 */
 
 // Margins
 $small-margin-spacing: .563rem; /* 9/16 */
