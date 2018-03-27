@@ -81,6 +81,13 @@
     }
 }
 
+/// XSmall Sized Screens
+@mixin query-screen-xsmall {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
+
 // Transition the given property using consistent duration and timing function.
 @mixin transition($properties...) {
     transition-property: $properties;

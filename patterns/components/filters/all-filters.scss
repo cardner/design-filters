@@ -1,7 +1,7 @@
 @import '../../global/variables';
 @import '../../global/mixins';
 
-$filter-container-width: 400px;
+$filter-container-width: 384px;
 
 @mixin button-tiny {
     min-height: $size-32;
@@ -49,7 +49,8 @@ input[type="radio"] {
 }
 
 .filter {
-    transition: left $slow-ease;
+    will-change: transform;
+    transition: transform ease-in-out 225ms 10ms;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -58,11 +59,11 @@ input[type="radio"] {
     padding: $size-40 $size-32;
 
     &.--is-closed {
-        left: -$filter-container-width;
+        transform: translateX(-$filter-container-width);
     }
 
     &.--is-open {
-        left: 0;
+        transform: translateX(0);
     }
 }
 
@@ -184,16 +185,17 @@ input[type="radio"] {
 }
 
 .filter--table {
-    transition: left $fast-ease;
+    will-change: transform;
+    transition: transform ease-in-out 225ms 0ms;
     position: absolute;
     width: 100%;
 
     &.--is-closed {
-        left: 0;
+        transform: translateX(0);
     }
 
     &.--is-open {
-        left: calc(#{$filter-container-width} + #{$size-32});
+        transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
     }
 }
 
@@ -204,27 +206,28 @@ table {
     white-space: normal;
 }
 
-th {
+%orderIndicator {
+    content: url('../../images/triangle-icon.svg');
+    position: relative;
+    display: inline-block;
+    top: -2px;
+    @include margin(left, $size-8);
+    transition: transform $slow-ease;
+}
+
+@mixin tableHeaderFormat {
     font-weight: $base-font-weight;
     font-size: $smaller-font-size;
     color: $mid-text-color;
 }
 
-.table--th {
+th {
+    @include tableHeaderFormat;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 999;
 
-    &--is-active {
-        color: $default-text-color;
-    }
-
-    %orderIndicator {
-        content: url('../../images/triangle-icon.svg');
-        position: relative;
-        display: inline-block;
-        top: -2px;
-        @include margin(left, $size-8);
-        transition: transform $slow-ease;
-
-    }
     &.--ascending {
         &::after {
             @extend %orderIndicator;
@@ -234,8 +237,18 @@ th {
     }
 
     &.--descending {
-        @extend %orderIndicator;
+        &::after {
+            @extend %orderIndicator;
+        }
     }
+}
+
+.table--th {
+
+    &--is-active {
+        color: $default-text-color;
+    }
+
 }
 
 tr {
@@ -389,11 +402,105 @@ th {
     }
 }
 
+.filter--row--load-more {
+    text-align: center;
+}
+
+@include query-screen-xsmall {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        position: relative;
+        padding-left: 30%;
+        border: none;
+
+        &::before {
+            /* Now like a table header */
+            content: attr(data-th);
+            @include tableHeaderFormat;
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: $size-16;
+            left: $size-8;
+            width: 25%;
+            @include padding(right, $size-8);
+            white-space: nowrap;
+        }
+
+        &:last-child {
+            @include border(bottom);
+        }
+    }
+
+};
+
 // Button Overrides TODO: Talk to Nako about if these will be more widely available outside of the tables
 
 .button--tiny {
     @include button-tiny;
     height: $size-32;
+}
+
+.button--filter-toggle {
+    svg {
+        width: $size-16;
+        height: auto;
+
+        circle {
+            transition: transform ease-in-out 500ms 250ms;
+        }
+
+        .filter--icon {            
+            &--circle-1 {
+                transform: translateX(55%);
+            }
+            &--circle-2 {
+                transform: translateX(20%);
+            }
+            &--circle-3 {
+                transform: translateX(65%);
+            }
+        }
+    }
+
+    &.--is-active {
+        svg {
+            .filter--icon {
+                &--circle-1 {
+                    transform: translateX(20%);
+                }
+                &--circle-2 {
+                    transform: translateX(75%);
+                }
+                &--circle-3 {
+                    transform: translateX(35%);
+                }
+            }
+        }
+    }
+}
+
+.button--download {
+    svg {
+        width: $size-12;
+        height: auto;
+    }
 }
 
 .filter--table--actionrow-section {
@@ -402,8 +509,10 @@ th {
         color: $default-table-button;
         background: linear-gradient($white, $gradient-table-button);
 
-        &:hover {
+        &:hover,
+        &.--is-active {
             background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+            border-color: $button-border-hover-color;
 
             svg {
                 fill: $white;
@@ -413,5 +522,9 @@ th {
         svg {
             fill: $default-table-button;
         }
+    }
+
+    @include query-screen-xsmall {
+        @include padding(top, $size-16);
     }
 }

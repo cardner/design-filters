@@ -21,30 +21,17 @@
               <h2>### of results displayed</h2>
               <div class="filter--table--actionrow">
                   <span class="filter--table--actionrow-section">
-                    <button class="button--tiny" onclick="toggleFilters()">
+                    <button class="button--tiny button--filter-toggle" onclick="toggleFilters()">
                       <?xml version="1.0" encoding="UTF-8"?>
-                      <svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g id="USERS---FILTERS-ON" stroke="none" stroke-width="1"  fill-rule="evenodd" transform="translate(-776.000000, -473.000000)">
-                          <g id="PAGE-CONTENT" transform="translate(728.000000, 176.000000)">
-                            <g transform="translate(32.000000, 40.000000)" id="DATA-TABLE">
-                              <g transform="translate(0.000000, 192.000000)">
-                                <g id="TABLE-CONTROLS" transform="translate(0.000000, 56.000000)">
-                                  <g id="SETTINGS-BUTTON">
-                                    <g id="Settings-Icon" transform="translate(16.000000, 9.000000)">
-                                      <circle id="Oval" cx="7.5" cy="1.5" r="1.5"></circle>
-                                      <circle id="Oval" cx="3.5" cy="7.5" r="1.5"></circle>
-                                      <circle id="Oval" cx="9.5" cy="13.5" r="1.5"></circle>
-                                      <rect id="Rectangle" x="0" y="1" width="16" height="1"></rect>
-                                      <rect id="Rectangle" x="0" y="7" width="16" height="1"></rect>
-                                      <rect id="Rectangle" x="0" y="13" width="16" height="1"></rect>
-                                    </g>
-                                  </g>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
+                      <svg class="" version="1.1" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="filter--icon--circle-1" cy="1.5" r="1.5" />
+                        <circle class="filter--icon--circle-2" cy="7.5" r="1.5" />
+                        <circle class="filter--icon--circle-3" cy="13.5" r="1.5" />
+                        <rect y="1" width="16" height="1" />
+                        <rect y="7" width="16" height="1" />
+                        <rect y="13" width="16" height="1" />
                       </svg>
+
                     </button>
                     <button class="button--tiny"></button>
                     <select name="" id="" class="filter--table--select">
@@ -58,15 +45,15 @@
                   <span class="filter--table--actionrow-section">
                     <button class="button--download button--icon button--tiny">
                       <?xml version="1.0" encoding="UTF-8"?>
-                      <svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g id="Symbols" stroke="none" stroke-width="1" fill-rule="evenodd">
-                          <g id="DL-BUTTON" transform="translate(-18.000000, -8.000000)">
-                            <g id="DOWNLOAD-ICON">
-                              <path d="M30,12 L28.5,12 L28.5,13 L29.5,13 C29.776,13 30,13.224 30,13.5 L30,22.5 C30,22.776 29.776,23 29.5,23 L19.5,23 C19.225,23 19,22.776 19,22.5 L19,13.5 C19,13.224 19.225,13 19.5,13 L20.5,13 L20.5,12 L19,12 C18.448,12 18,12.447 18,13 L18,23 C18,23.552 18.448,24 19,24 L30,24 C30.553,24 31,23.552 31,23 L31,13 C31,12.447 30.553,12 30,12 Z M24.097,19.787 C24.113,19.811 24.123,19.837 24.144,19.857 C24.24,19.954 24.368,20.001 24.495,19.999 C24.497,19.999 24.498,20 24.5,20 C24.502,20 24.504,19.999 24.506,19.999 C24.633,20.001 24.761,19.954 24.857,19.857 C24.878,19.837 24.887,19.812 24.902,19.789 L27.357,17.333 C27.549,17.143 27.549,16.833 27.357,16.644 C27.167,16.452 26.858,16.452 26.667,16.644 L25,18.311 L25,8.5 C25,8.224 24.776,8 24.5,8 C24.225,8 24,8.224 24,8.5 L24,18.31 L22.334,16.644 C22.143,16.452 21.834,16.452 21.644,16.644 C21.452,16.833 21.452,17.143 21.644,17.333 L24.097,19.787 Z"></path>
-                            </g>
+                      <svg version="1.1" viewBox="0 0 13 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill-rule="evenodd">
+                          <g transform="translate(-18 -8)">
+                            <path d="m30 12h-1.5v1h1c0.276 0 0.5 0.224 0.5 0.5v9c0 0.276-0.224 0.5-0.5 0.5h-10c-0.275 0-0.5-0.224-0.5-0.5v-9c0-0.276 0.225-0.5 0.5-0.5h1v-1h-1.5c-0.552 0-1 0.447-1 1v10c0 0.552 0.448 1 1 1h11c0.553 0 1-0.448 1-1v-10c0-0.553-0.447-1-1-1zm-5.903 7.787c0.016 0.024 0.026 0.05 0.047 0.07 0.096 0.097 0.224 0.144 0.351 0.142 2e-3 0 3e-3 1e-3 5e-3 1e-3s4e-3 -1e-3 6e-3 -1e-3c0.127 2e-3 0.255-0.045 0.351-0.142 0.021-0.02 0.03-0.045 0.045-0.068l2.455-2.456c0.192-0.19 0.192-0.5 0-0.689-0.19-0.192-0.499-0.192-0.69 0l-1.667 1.667v-9.811c0-0.276-0.224-0.5-0.5-0.5-0.275 0-0.5 0.224-0.5 0.5v9.81l-1.666-1.666c-0.191-0.192-0.5-0.192-0.69 0-0.192 0.189-0.192 0.499 0 0.689l2.453 2.454z"
+                            />
                           </g>
                         </g>
                       </svg>
+
                     </button>
                     <label class="search--tiny">
                       <input placeholder="Search" class="" aria-controls="user-table" type="search">
@@ -118,22 +105,22 @@
             
                 <tbody class="">
                   <tr role="row" class="odd">
-                    <td class=" checkbox">
+                    <td class="checkbox">
                       <label>
                         <input name="ukey" value="DUH1BQJ8UHRJ5TCWLL28" type="checkbox">
                       </label>
                     </td>
-                    <td class="primary_column sorting_1">
+                    <td class="primary_column sorting_1" data-th="Username">
                       <a href="/users/DUH1BQJ8UHRJ5TCWLL28">administrator</a>
                     </td>
-                    <td>duo.local or other AD Admin (for RDP)</td>
-                    <td></td>
-                    <td>1</td>
-                    <td></td>
-                    <td>
+                    <td data-th="Name">duo.local or other AD Admin (for RDP)</td>
+                    <td data-th="Email"></td>
+                    <td data-th="Phones">1</td>
+                    <td data-th="Tokens"></td>
+                    <td data-th="Status">
                       <span class="user-status-bypass">Bypass</span>
                     </td>
-                    <td>Never authenticated</td>
+                    <td data-th="Last Login">Never authenticated</td>
                   </tr>
                   <tr role="row" class="even">
                     <td class=" checkbox">
@@ -141,17 +128,17 @@
                         <input name="ukey" value="DU9NZ25AL9IE15UF33CY" type="checkbox">
                       </label>
                     </td>
-                    <td class="primary_column sorting_1">
+                    <td data-th="UserName" class="primary_column sorting_1">
                       <a href="/users/DU9NZ25AL9IE15UF33CY">alina</a>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td>3</td>
-                    <td></td>
-                    <td>
+                    <td data-th="Name"></td>
+                    <td data-th="Email"></td>
+                    <td data-th="Phones">3</td>
+                    <td data-th="Tokens"></td>
+                    <td data-th="Status">
                       <span class="user-status-bypass">Bypass</span>
                     </td>
-                    <td>Never authenticated</td>
+                    <td data-th="Last Login">Never authenticated</td>
                   </tr>
                   <tr role="row" class="odd">
                     <td class=" checkbox">
@@ -567,6 +554,9 @@
                     </td>
                     <td>Never authenticated</td>
                   </tr>
+                  <tr class="filter--row--load-more">
+                    <td colspan="8"><a>Load More +</a></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -683,9 +673,11 @@
           </nav>
         </section>
         <script>
-            
+
           let filterContainer = document.getElementsByClassName('filter')[0];
           let tableContainer = document.getElementsByClassName('filter--table')[0];
+
+          let filterButton = document.getElementsByClassName('button--filter-toggle')[0];
 
           let filterGroupToggle = document.getElementsByClassName('filter--group--toggle-trigger');
 
@@ -726,6 +718,7 @@
               filterContainer.classList.toggle('--is-closed');
               tableContainer.classList.toggle('--is-open');
               filterContainer.classList.toggle('--is-open');
+              filterButton.classList.toggle('--is-active');
           }
             
         </script>
