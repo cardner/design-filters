@@ -1,7 +1,7 @@
 @import '../../global/variables';
 @import '../../global/mixins';
 
-$filter-container-width: 384px;
+$filter-container-width: 24rem;
 
 @mixin button-tiny {
     min-height: $size-32;
@@ -51,7 +51,8 @@ input[type="radio"] {
 .filter {
     will-change: transform;
     transition: transform ease-in-out 225ms 10ms;
-    position: absolute;
+    position: static;
+    // overflow-y: auto;
     top: 0;
     bottom: 0;
     width: $filter-container-width;
@@ -142,7 +143,7 @@ input[type="radio"] {
     }
 
     &.--is-open {
-       max-height: 100vh;
+        max-height: 100vh;
     }
 }
 
@@ -179,9 +180,14 @@ input[type="radio"] {
 // 
 // Table Styles
 // 
-.page-title {
+.header--title {
     @include margin(top, $size-40);
-    @include margin(bottom, $size-40);
+    @include margin(bottom, $size-48);
+}
+
+.header--results {
+    @include margin(top, 0);
+    @include margin(bottom, $size-8);
 }
 
 .filter--table {
@@ -316,6 +322,30 @@ th {
             @include margin-reset;
         }
     }
+
+    button {
+        border-color: $default-table-button-border;
+        color: $default-table-button;
+        background: linear-gradient($white, $gradient-table-button);
+
+        &:hover,
+        &.--is-active {
+            background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+            border-color: $button-border-hover-color;
+
+            svg {
+                fill: $white;
+            }
+        }
+
+        svg {
+            fill: $default-table-button;
+        }
+    }
+
+    @include query-screen-xsmall {
+        @include padding(top, $size-16);
+    }
 }
 
 .filter--pill--container {
@@ -404,6 +434,20 @@ th {
 
 .filter--row--load-more {
     text-align: center;
+
+    &:hover {
+        background-color: unset;
+    }
+
+    td {
+        padding: $size-24 $size-8;
+    }
+}
+
+// Take pagination out of the flow and align to the left while letting the button center
+.filter--pagination {
+    float: left;
+    padding-top: $size-8;
 }
 
 @include query-screen-xsmall {
@@ -503,28 +547,3 @@ th {
     }
 }
 
-.filter--table--actionrow-section {
-    button {
-        border-color: $default-table-button-border;
-        color: $default-table-button;
-        background: linear-gradient($white, $gradient-table-button);
-
-        &:hover,
-        &.--is-active {
-            background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
-            border-color: $button-border-hover-color;
-
-            svg {
-                fill: $white;
-            }
-        }
-
-        svg {
-            fill: $default-table-button;
-        }
-    }
-
-    @include query-screen-xsmall {
-        @include padding(top, $size-16);
-    }
-}
