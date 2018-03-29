@@ -17,8 +17,8 @@
         
         <section class="filter--container">
             <div id="user-table" class="filter--table --is-closed">
-              <h1 class="page-title">Page Title Goes here</h1>
-              <h2>### of results displayed</h2>
+              <h1 class="header--title">Page Title Goes here</h1>
+              <h2 class="header--results"><span class="header--results-total">###</span> of results displayed</h2>
               <div class="filter--table--actionrow">
                   <span class="filter--table--actionrow-section">
                     <button class="button--tiny button--filter-toggle" onclick="toggleFilters()">
@@ -70,16 +70,12 @@
                 role="grid" aria-describedby="user-table_info">
                 <thead class="">
                   <tr role="row">
-                    <th class="checkbox table--td-width--checkbox sorting_disabled" rowspan="1" colspan="1" aria-label="
-            
-            
-            
-            ">
+                    <th class="checkbox table--td-width--checkbox sorting_disabled" rowspan="1" colspan="1" aria-label="">
                       <label>
                         <input name="select-all" type="checkbox">
                       </label>
                     </th>
-                    <th class="username table--td-width--medium table--th--is-active --ascending" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                    <th class="username table--td-width--medium table--th--is-active --descending" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
                       aria-label="Username: activate to sort column ascending">Username</th>
                     <th class="name sorting table--td-width--medium" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
                       aria-label="Name: activate to sort column ascending">Name</th>
@@ -554,10 +550,16 @@
                     </td>
                     <td>Never authenticated</td>
                   </tr>
-                  <tr class="filter--row--load-more">
-                    <td colspan="8"><a>Load More +</a></td>
-                  </tr>
+
                 </tbody>
+                <tfoot>
+                  <tr class="filter--row--load-more">
+                    <td colspan="8">
+                      <p class="filter--pagination"><span class="filter--pagination-start">1</span>&ndash;<span class="filter--pagination-end">50</span> of <strong class="filter--pagination-total">212</strong> total</p>
+                      <button>Load More</button>
+                    </td>
+                  </tr>
+                </tfoot>
               </table>
             </div>
 
@@ -719,8 +721,7 @@
               tableContainer.classList.toggle('--is-open');
               filterContainer.classList.toggle('--is-open');
               filterButton.classList.toggle('--is-active');
-          }
-            
+          } 
         </script>
     </body>
 </html>
