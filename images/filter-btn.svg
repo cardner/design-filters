@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Settings Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="USERS---FILTERS-ON" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-776.000000, -473.000000)">
+        <g id="PAGE-CONTENT" transform="translate(728.000000, 176.000000)">
+            <g transform="translate(32.000000, 40.000000)" id="DATA-TABLE">
+                <g transform="translate(0.000000, 192.000000)">
+                    <g id="TABLE-CONTROLS" transform="translate(0.000000, 56.000000)">
+                        <g id="SETTINGS-BUTTON">
+                            <g id="Settings-Icon" transform="translate(16.000000, 9.000000)">
+                                <circle id="Oval" cx="7.5" cy="1.5" r="1.5"></circle>
+                                <circle id="Oval" cx="3.5" cy="7.5" r="1.5"></circle>
+                                <circle id="Oval" cx="9.5" cy="13.5" r="1.5"></circle>
+                                <rect id="Rectangle" x="0" y="1" width="16" height="1"></rect>
+                                <rect id="Rectangle" x="0" y="7" width="16" height="1"></rect>
+                                <rect id="Rectangle" x="0" y="13" width="16" height="1"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

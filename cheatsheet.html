@@ -1533,5 +1533,64 @@
             <div class="flash" style="display: block;"><div class="info"><p role="alert">Hey this is probably some information that you want to read.</p></div></div>
             <div class="flash" style="display: block;"><div class="success"><p role="alert">Success. Hurray! Great Jorb</p></div></div>
         </section>
+        <hr />
+        <h2>New Filters</h2>
+        <section>
+          <nav class="c--filter m--filter-container users-filter">
+            <button class="m--filter-close c--button-link">Close Filters</button>
+
+            <fieldset class="m--filter-group">
+              <legend class="m--filter-header a--h3-style">Filter Header Goes Here</legend>
+              <label class="m--filter-item">
+                <input type="checkbox" name="filter item checkbox" id="">
+                Filter Item Checkbox
+              </label>
+              <label class="m--filter-item">
+                <input type="radio" name="filter item radio" id=""> Filter Item Radio
+              </label>
+            </fieldset>
+
+            <fieldset class="m--filter-group a--filter-group-toggle">
+              <legend class="m--filter-header a--h3-style">Nested Checkboxes Toggle</legend>
+              <dl>
+                <dt>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="parentcheckbox1" id="">
+                    Parent Checkbox 1
+                  </label>
+                </dt>
+                <dd>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="childcheckbox1" id=""> Child Checkbox 1
+                  </label>
+                </dd>
+                <dd>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="childcheckbox2" id=""> Child Checkbox 2
+                  </label>
+                </dd>
+                <dd>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="childcheckbox3" id=""> Child Checkbox 3
+                  </label>
+                </dd>
+                <dt>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="parentcheckbox2" id="">
+                    Parent Checkbox 2
+                  </label>
+                </dt>
+                <dt>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="parentcheckbox3" id="">
+                    Parent Checkbox 3
+                  </label>
+                </dt>
+              </dl>
+              
+              
+            </fieldset>
+          </nav>
+        </section>
     </body>
 </html>

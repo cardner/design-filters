@@ -41,6 +41,10 @@
 }
 
 // These styles are for use with new css grid spec
+.l--grid {
+    display: grid;
+}
+
 .l--grid-auto {
     @include l--grid-col;
     @include l--grid-row;

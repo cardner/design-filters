@@ -1,0 +1,549 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+$filter-container-width: 24rem;
+
+@mixin button-tiny {
+    min-height: $size-32;
+    font-size: $smaller-font-size;
+    line-height: $size-16;
+    padding: $size-8 $size-16;
+}
+
+// Reset default styling of checkbox
+input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: $size-16;
+    height: $size-16;
+    vertical-align: text-bottom;
+    border-radius: 3px;
+    @include borders($border-color: $default-input-border-color);
+
+    &:checked {
+        background-color: $hover-input-border-color;
+        border-color: $hover-input-border-color;
+
+        &::after {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: $size-16;
+            height: $size-16;
+            font-family: $icon-font-family;
+            font-size: $smallest-font-size;
+            vertical-align: middle;
+            content: $confirm;
+            color: $white;
+        }
+    }
+}
+
+input[type="radio"] {
+    vertical-align: text-bottom;
+    @include margin(right, $size-8);
+    @include margin(left, -1px);
+
+}
+
+.filter {
+    will-change: transform;
+    transition: transform ease-in-out 225ms 10ms;
+    position: static;
+    // overflow-y: auto;
+    top: 0;
+    bottom: 0;
+    width: $filter-container-width;
+    background-color: $filter-panel-background;
+    padding: $size-40 $size-32;
+
+    &.--is-closed {
+        transform: translateX(-$filter-container-width);
+    }
+
+    &.--is-open {
+        transform: translateX(0);
+    }
+}
+
+.filter--close {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include margin(left, $size-8);
+    @include margin(bottom, $size-40);
+
+    &:hover {
+        text-decoration: none;
+
+        i {
+            text-decoration: underline;
+        }
+    }
+}
+
+.filter--header,
+.filter--group--toggle-container {
+    @include margin-reset;
+}
+
+.filter--header {
+    @include margin(left, $size-8);
+    transition: padding $slow-ease;
+
+    &.--is-open {
+        @include padding(bottom, $size-16);
+    }
+}
+
+.filter--item {
+    display: block;
+    padding: $size-16 0 $size-16 $size-8;
+    @include border(bottom);
+
+    input[type="checkbox"] {
+        @include margin(right, $size-8);
+    }
+
+    &.--child {
+        margin-left: 0;
+        @include padding(left, $size-40);
+        border-color: $default-border-color;
+    }
+
+    &:not(.--child) {
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        &:first-child {
+            @include border(top);
+        }
+    }
+}
+
+.filter--group {
+    @include border(bottom, $border-color: $dark-filter-border);
+    @include margin-reset;
+    @include margin(top, $size-16);
+    margin-right: -$size-32;
+    @include padding(bottom, $size-16);
+}
+
+.filter--group--toggle-container {
+    overflow: hidden;
+    transition: max-height $slow-ease;
+
+    &.--is-closed {
+        max-height: 0;
+    }
+
+    &.--is-open {
+        max-height: 100vh;
+    }
+}
+
+.filter--group--toggle-trigger {
+    cursor: pointer;
+    width: calc(100% - #{$size-32});
+
+    &.--is-closed {
+        &::after {
+            content: '+';
+        }
+    }
+
+    &.--is-open {
+        &::after {
+            content: '—';
+        }
+    }
+
+    &::after {
+        display: inline-block;
+        float: right;
+        font-weight: $base-font-weight;
+    }
+
+    &.--trigger-sub {
+        &::after {
+            float: none;
+        }
+    }
+
+}
+
+// 
+// Table Styles
+// 
+.header--title {
+    @include margin(top, $size-40);
+    @include margin(bottom, $size-48);
+}
+
+.header--results {
+    @include margin(top, 0);
+    @include margin(bottom, $size-8);
+}
+
+.filter--table {
+    will-change: transform;
+    transition: transform ease-in-out 225ms 0ms;
+    position: absolute;
+    width: 100%;
+
+    &.--is-closed {
+        transform: translateX(0);
+    }
+
+    &.--is-open {
+        transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
+    }
+}
+
+table {
+    @include border(top, $border-color: $default-border);
+    table-layout: fixed;
+    width: 100%;
+    white-space: normal;
+}
+
+%orderIndicator {
+    content: url('../../images/triangle-icon.svg');
+    position: relative;
+    display: inline-block;
+    top: -2px;
+    @include margin(left, $size-8);
+    transition: transform $slow-ease;
+}
+
+@mixin tableHeaderFormat {
+    font-weight: $base-font-weight;
+    font-size: $smaller-font-size;
+    color: $mid-text-color;
+}
+
+th {
+    @include tableHeaderFormat;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 999;
+
+    &.--ascending {
+        &::after {
+            @extend %orderIndicator;
+            transform: rotate(.5turn);
+            top: 2px;
+        }
+    }
+
+    &.--descending {
+        &::after {
+            @extend %orderIndicator;
+        }
+    }
+}
+
+.table--th {
+
+    &--is-active {
+        color: $default-text-color;
+    }
+
+}
+
+tr {
+    cursor: pointer;
+    transition: background-color $slow-ease;
+
+    &:hover,
+    &.--is-active {
+        background-color: $default-headernav-color;
+    }
+}
+
+td,
+th {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: $size-16 $size-8;
+    min-width: $size-16;
+    @include border(bottom);
+}
+
+.table--td-width {
+    // Set static width since UI doesn't ever change widths while scaling
+    &--checkbox {
+        width: 36px;
+    }
+
+    &--xsmall {
+        width: 5%;
+    }
+
+    &--small {
+        width: 10%;
+    }
+
+    &--medium {
+        width: 15%;
+    }
+
+    &--large {
+        width: 20%;
+    }
+
+    &--xlarge {
+        width: 40%;
+    }
+}
+
+.filter--table--actionrow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include border(top, $border-color: $dark-filter-border);
+    padding: $size-16 0 $size-16 $size-8;
+}
+
+.filter--table--actionrow-section {
+    display: flex;
+    > * {
+        flex: 1 1 auto;
+        @include margin(right, $size-16);
+
+        &:last-child {
+            @include margin-reset;
+        }
+    }
+
+    button {
+        border-color: $default-table-button-border;
+        color: $default-table-button;
+        background: linear-gradient($white, $gradient-table-button);
+
+        &:hover,
+        &.--is-active {
+            background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+            border-color: $button-border-hover-color;
+
+            svg {
+                fill: $white;
+            }
+        }
+
+        svg {
+            fill: $default-table-button;
+        }
+    }
+
+    @include query-screen-xsmall {
+        @include padding(top, $size-16);
+    }
+}
+
+.filter--pill--container {
+    display: flex;
+    padding-top: $size-8;
+}
+
+.filter--pill--item {
+    display: flex;
+    align-items: center;
+    color: $default-text-color;
+    padding: $size-8;
+    font-size: $smaller-font-size;
+    margin-right: $size-8;
+    @include borders($border-color: transparent);
+    @include border-radius;
+
+    &::after {
+        content: '\e0fc';
+        @include duo-icons;
+        font-size: $smallest-font-size;
+        display: inline;
+        margin-left: $size-8;
+    }
+
+    &:hover {
+        transition: all $fast-ease;
+        text-decoration: none;
+        @include borders($border-color: $dark-filter-border);
+        background: $hover-pill-background;
+
+    }
+}
+
+.a--flex-full-width {
+    flex-basis: 100%;
+}
+
+// Override default styling of select element
+.filter--table--select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    @include border-radius;
+    background: linear-gradient($white, $gradient-table-button);
+    border-color: $default-table-button-border;
+    min-height: $size-32;
+    height: $size-32;
+    padding: $size-8 $size-16;
+    line-height: $size-16;
+    font-size: $small-font-size;
+
+    &::after {
+        content: url('../../images/triangle-icon.svg');
+        position: absolute;
+        display: block;
+    }
+
+    &:hover {
+        background: linear-gradient($hover-gradient-select-top, $hover-gradient-select-bottom);
+        border-color: $default-table-button-border;
+    }
+}
+
+.search--tiny {
+    position: relative;
+
+    input[type="search"] {
+        box-sizing: border-box;
+        @include button-tiny;
+        font-size: $small-font-size;
+        height: $size-32;
+        @include padding(left, $size-40);
+    }
+
+    &:before {
+        content: url('../../images/search-icon.svg');
+        position: absolute;
+        display: block;
+        top: $size-8;
+        left: $size-16;
+        width: $size-16;
+        height: $size-16;
+    }
+}
+
+.filter--row--load-more {
+    text-align: center;
+
+    &:hover {
+        background-color: unset;
+    }
+
+    td {
+        padding: $size-24 $size-8;
+    }
+}
+
+// Take pagination out of the flow and align to the left while letting the button center
+.filter--pagination {
+    float: left;
+    padding-top: $size-8;
+}
+
+@include query-screen-xsmall {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        position: relative;
+        padding-left: 30%;
+        border: none;
+
+        &::before {
+            /* Now like a table header */
+            content: attr(data-th);
+            @include tableHeaderFormat;
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: $size-16;
+            left: $size-8;
+            width: 25%;
+            @include padding(right, $size-8);
+            white-space: nowrap;
+        }
+
+        &:last-child {
+            @include border(bottom);
+        }
+    }
+
+};
+
+// Button Overrides TODO: Talk to Nako about if these will be more widely available outside of the tables
+
+.button--tiny {
+    @include button-tiny;
+    height: $size-32;
+}
+
+.button--filter-toggle {
+    svg {
+        width: $size-16;
+        height: auto;
+
+        circle {
+            transition: transform ease-in-out 500ms 250ms;
+        }
+
+        .filter--icon {            
+            &--circle-1 {
+                transform: translateX(55%);
+            }
+            &--circle-2 {
+                transform: translateX(20%);
+            }
+            &--circle-3 {
+                transform: translateX(65%);
+            }
+        }
+    }
+
+    &.--is-active {
+        svg {
+            .filter--icon {
+                &--circle-1 {
+                    transform: translateX(20%);
+                }
+                &--circle-2 {
+                    transform: translateX(75%);
+                }
+                &--circle-3 {
+                    transform: translateX(35%);
+                }
+            }
+        }
+    }
+}
+
+.button--download {
+    svg {
+        width: $size-12;
+        height: auto;
+    }
+}
+

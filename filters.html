@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Design Pattern Library Cheat Sheet</title>
+        <link rel="stylesheet" href="patterns/all-patterns.css">
+        <style media="screen">
+            body {
+              background-color: white;
+            }
+            section {
+              display: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <section class="filter--container">
+            <div id="user-table" class="filter--table --is-closed">
+              <h1 class="header--title">Page Title Goes here</h1>
+              <h2 class="header--results"><span class="header--results-total">###</span> of results displayed</h2>
+              <div class="filter--table--actionrow">
+                  <span class="filter--table--actionrow-section">
+                    <button class="button--tiny button--filter-toggle" onclick="toggleFilters()">
+                      <?xml version="1.0" encoding="UTF-8"?>
+                      <svg class="" version="1.1" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="filter--icon--circle-1" cy="1.5" r="1.5" />
+                        <circle class="filter--icon--circle-2" cy="7.5" r="1.5" />
+                        <circle class="filter--icon--circle-3" cy="13.5" r="1.5" />
+                        <rect y="1" width="16" height="1" />
+                        <rect y="7" width="16" height="1" />
+                        <rect y="13" width="16" height="1" />
+                      </svg>
+
+                    </button>
+                    <button class="button--tiny"></button>
+                    <select name="" id="" class="filter--table--select">
+                      <option value="day 1">Last 24 Hours</option>
+                      <option value="day 2">Last 48 Hours</option>
+                      <option value="">This Week</option>
+                      <option value="">Custom Time Range</option>
+                    </select>
+                  </span>
+                  
+                  <span class="filter--table--actionrow-section">
+                    <button class="button--download button--icon button--tiny">
+                      <?xml version="1.0" encoding="UTF-8"?>
+                      <svg version="1.1" viewBox="0 0 13 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill-rule="evenodd">
+                          <g transform="translate(-18 -8)">
+                            <path d="m30 12h-1.5v1h1c0.276 0 0.5 0.224 0.5 0.5v9c0 0.276-0.224 0.5-0.5 0.5h-10c-0.275 0-0.5-0.224-0.5-0.5v-9c0-0.276 0.225-0.5 0.5-0.5h1v-1h-1.5c-0.552 0-1 0.447-1 1v10c0 0.552 0.448 1 1 1h11c0.553 0 1-0.448 1-1v-10c0-0.553-0.447-1-1-1zm-5.903 7.787c0.016 0.024 0.026 0.05 0.047 0.07 0.096 0.097 0.224 0.144 0.351 0.142 2e-3 0 3e-3 1e-3 5e-3 1e-3s4e-3 -1e-3 6e-3 -1e-3c0.127 2e-3 0.255-0.045 0.351-0.142 0.021-0.02 0.03-0.045 0.045-0.068l2.455-2.456c0.192-0.19 0.192-0.5 0-0.689-0.19-0.192-0.499-0.192-0.69 0l-1.667 1.667v-9.811c0-0.276-0.224-0.5-0.5-0.5-0.275 0-0.5 0.224-0.5 0.5v9.81l-1.666-1.666c-0.191-0.192-0.5-0.192-0.69 0-0.192 0.189-0.192 0.499 0 0.689l2.453 2.454z"
+                            />
+                          </g>
+                        </g>
+                      </svg>
+
+                    </button>
+                    <label class="search--tiny">
+                      <input placeholder="Search" class="" aria-controls="user-table" type="search">
+                    </label>
+                  </span>
+                  <span class="filter--table--actionrow-section a--flex-full-width">
+                    <nav class="filter--pill--container">
+                      <a class="filter--pill--item">Filter Pill 1</a>
+                      <a class="filter--pill--item">Filter Pill 2</a>
+                    </nav>
+                  </span>
+              </div>
+              <table id="user-table" class="" data-permission-read="true" data-csv-link="/users/export/csv" data-json-link="/users/export/json"
+                role="grid" aria-describedby="user-table_info">
+                <thead class="">
+                  <tr role="row">
+                    <th class="checkbox table--td-width--checkbox sorting_disabled" rowspan="1" colspan="1" aria-label="">
+                      <label>
+                        <input name="select-all" type="checkbox">
+                      </label>
+                    </th>
+                    <th class="username table--td-width--medium table--th--is-active --descending" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      aria-label="Username: activate to sort column ascending">Username</th>
+                    <th class="name sorting table--td-width--medium" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      aria-label="Name: activate to sort column ascending">Name</th>
+                    <th class="email sorting table--td-width--large" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      aria-label="Email: activate to sort column ascending">Email</th>
+                    <th class="phone_count number table--td-width--small sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      aria-label="
+            
+            : activate to sort column descending">
+                      Phones
+                    </th>
+                    <th class="token_count table--td-width--small number sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      aria-label="
+            
+            : activate to sort column descending">
+                      Tokens
+                    </th>
+                    <th class="status table--td-width--small sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th>
+                    <th class="last_login table--td-width--large sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      aria-label="Last Login: activate to sort column descending">Last Login</th>
+                  </tr>
+                </thead>
+            
+                <tbody class="">
+                  <tr role="row" class="odd">
+                    <td class="checkbox">
+                      <label>
+                        <input name="ukey" value="DUH1BQJ8UHRJ5TCWLL28" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1" data-th="Username">
+                      <a href="/users/DUH1BQJ8UHRJ5TCWLL28">administrator</a>
+                    </td>
+                    <td data-th="Name">duo.local or other AD Admin (for RDP)</td>
+                    <td data-th="Email"></td>
+                    <td data-th="Phones">1</td>
+                    <td data-th="Tokens"></td>
+                    <td data-th="Status">
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td data-th="Last Login">Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU9NZ25AL9IE15UF33CY" type="checkbox">
+                      </label>
+                    </td>
+                    <td data-th="UserName" class="primary_column sorting_1">
+                      <a href="/users/DU9NZ25AL9IE15UF33CY">alina</a>
+                    </td>
+                    <td data-th="Name"></td>
+                    <td data-th="Email"></td>
+                    <td data-th="Phones">3</td>
+                    <td data-th="Tokens"></td>
+                    <td data-th="Status">
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td data-th="Last Login">Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUEJVF0IPAEWD7TFZA67" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUEJVF0IPAEWD7TFZA67">anotheruser</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Nov 20, 2017 11:28 AM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU3E7XESCMVFZNIQFFMF" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU3E7XESCMVFZNIQFFMF">ben☃</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Dec 1, 2017 1:24 PM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUCSKNK2I7Y5YMQKG0U0" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUCSKNK2I7Y5YMQKG0U0">bo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUSO2JCWF2Q6X969W3IZ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUSO2JCWF2Q6X969W3IZ">booloo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUNOF9DPMTX1GF2LUQ4X" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUNOF9DPMTX1GF2LUQ4X">bozo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Oct 10, 2017 3:33 PM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU6OX0MGCI4Y8EJ20PL8" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU6OX0MGCI4Y8EJ20PL8">bvertkin</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Sep 25, 2017 1:25 PM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUR93V08MC0WO9WB0AMK" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUR93V08MC0WO9WB0AMK">bvertkin10</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Sep 25, 2017 12:04 PM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUX4IVUVRWKR6LBVIWOQ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUX4IVUVRWKR6LBVIWOQ">ciscouser</a>
+                    </td>
+                    <td>ciscouser for sprint acceptance tests</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Jan 3, 2018 11:19 AM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU1I6U19QL7LJIISYUJ3" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU1I6U19QL7LJIISYUJ3">contr.0009</a>
+                    </td>
+                    <td>Contr 0009</td>
+                    <td>contr.0009@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU3NFXIMT40UJSM21BWE" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU3NFXIMT40UJSM21BWE">contr.0019</a>
+                    </td>
+                    <td>Contr 0019</td>
+                    <td>contr.0019@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUDFSFGH8ILX6DVB80ZD" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUDFSFGH8ILX6DVB80ZD">contr.0029</a>
+                    </td>
+                    <td>Contr 0029</td>
+                    <td>contr.0029@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUO8RKITAEMT2WH829Z9" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUO8RKITAEMT2WH829Z9">contr.0039</a>
+                    </td>
+                    <td>Contr 0039</td>
+                    <td>contr.0039@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU1F6UR9MYQH53KBOMQ7" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU1F6UR9MYQH53KBOMQ7">contr.0049</a>
+                    </td>
+                    <td>Contr 0049</td>
+                    <td>contr.0049@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU83OF1CJEH0Z8KOYZ1B" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU83OF1CJEH0Z8KOYZ1B">contr.0059</a>
+                    </td>
+                    <td>Contr 0059</td>
+                    <td>contr.0059@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU7EY2RDF9QDRSH9WPFL" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU7EY2RDF9QDRSH9WPFL">contr.0069</a>
+                    </td>
+                    <td>Contr 0069</td>
+                    <td>contr.0069@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUGRR8L6PA2U8W6NSWVB" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUGRR8L6PA2U8W6NSWVB">contr.0079</a>
+                    </td>
+                    <td>Contr 0079</td>
+                    <td>contr.0079@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUQ5WV3XU5P9LVWEJD4S" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUQ5WV3XU5P9LVWEJD4S">contr.0089</a>
+                    </td>
+                    <td>Contr 0089</td>
+                    <td>contr.0089@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUI3HOWS8DVTFPAIPZHC" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUI3HOWS8DVTFPAIPZHC">contr.0090</a>
+                    </td>
+                    <td>Contr 0090</td>
+                    <td>contr.0090@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU2VWA2LREAQ83LPPOUY" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU2VWA2LREAQ83LPPOUY">contr.0091</a>
+                    </td>
+                    <td>Contr 0091</td>
+                    <td>contr.0091@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUC6XDKXSQRN8UECPEVB" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUC6XDKXSQRN8UECPEVB">contr.0092</a>
+                    </td>
+                    <td>Contr 0092</td>
+                    <td>contr.0092@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUZP2L2P8MNAJTRMQWQM" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUZP2L2P8MNAJTRMQWQM">contr.0093</a>
+                    </td>
+                    <td>Contr 0093</td>
+                    <td>contr.0093@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUNN32SXJFE567S8RK4A" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUNN32SXJFE567S8RK4A">contr.0094</a>
+                    </td>
+                    <td>Contr 0094</td>
+                    <td>contr.0094@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUXX594Q8RJBYTE8EWAQ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUXX594Q8RJBYTE8EWAQ">contr.0095</a>
+                    </td>
+                    <td>Contr 0095</td>
+                    <td>contr.0095@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+
+                </tbody>
+                <tfoot>
+                  <tr class="filter--row--load-more">
+                    <td colspan="8">
+                      <p class="filter--pagination"><span class="filter--pagination-start">1</span>&ndash;<span class="filter--pagination-end">50</span> of <strong class="filter--pagination-total">212</strong> total</p>
+                      <button>Load More</button>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+          <nav class="filter users-filter --is-closed">
+            <button class="filter--close c--button-link link a--link-color-dark a--h1-style" onclick="toggleFilters()">Filters <i class="icon-delete-thin a--font-size-smaller"></i></button>
+
+            <fieldset class="filter--group">
+              <legend class="filter--header a--h3-style">Filter Header Goes Here</legend>
+              <label class="filter--item">
+                <input type="checkbox" name="filter item checkbox" id="">
+                Filter Item Checkbox
+              </label>
+              <label class="filter--item">
+                <input type="radio" name="filter item radio" id=""> Filter Item Radio
+              </label>
+            </fieldset>
+
+            <fieldset class="filter--group filter--group--toggle">
+              <legend class="filter--header a--h3-style filter--group--toggle-trigger --is-closed">Nested Checkboxes Toggle</legend>
+              <dl class="filter--group--toggle-container filter--group--toggle --is-closed">
+                <dt class="filter--item">
+                  <label class="filter--group--toggle-trigger --trigger-sub --is-closed">
+                    <input type="checkbox" name="parentcheckbox1" id="">
+                    Parent Checkbox 1 w/ Child Elements
+                  </label>
+                </dt>
+                <dd class="filter--group--toggle-container --is-closed">
+                  <ul class="l--padding-reset">
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox1" id=""> Child Checkbox 1
+                      </label>
+                    </li>
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox2" id=""> Child Checkbox 2
+                      </label>
+                    </li>
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox3" id=""> Child Checkbox 3
+                      </label>
+                    </li>
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox4" id=""> Child Checkbox 4
+                      </label>
+                    </li>
+                  </ul>
+                </dd>
+                
+                <dt class="filter--item">
+                  <label>
+                    <input type="checkbox" name="parentcheckbox2" id="">
+                    Parent Checkbox 2
+                  </label>
+                </dt>
+                <dt class="filter--item">
+                  <label>
+                    <input type="checkbox" name="parentcheckbox3" id="">
+                    Parent Checkbox 3
+                  </label>
+                </dt>
+              </dl>
+            </fieldset>
+
+            <fieldset class="filter--group filter--group--toggle">
+              <legend class="filter--header a--h3-style filter--group--toggle-trigger --is-closed">Nested Checkboxes Toggle</legend>
+              <dl class="filter--group--toggle-container filter--group--toggle --is-closed">
+                <dt class="filter--item">
+                  <label class="filter--group--toggle-trigger --trigger-sub --is-closed">
+                    <input type="checkbox" name="parentcheckbox1" id=""> Parent Checkbox 1 w/ Child Elements
+                  </label>
+                </dt>
+                <dd class="filter--group--toggle-container --is-closed">
+                  <ul class="l--padding-reset">
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox1" id=""> Child Checkbox 1
+                      </label>
+                    </li>
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox2" id=""> Child Checkbox 2
+                      </label>
+                    </li>
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox3" id=""> Child Checkbox 3
+                      </label>
+                    </li>
+                    <li class="filter--item --child">
+                      <label>
+                        <input type="checkbox" name="childcheckbox4" id=""> Child Checkbox 4
+                      </label>
+                    </li>
+                  </ul>
+                  </dd>
+                <dt class="filter--item">
+                  <label>
+                    <input type="checkbox" name="parentcheckbox2" id=""> Parent Checkbox 2
+                  </label>
+                </dt>
+                <dt class="filter--item">
+                  <label>
+                    <input type="checkbox" name="parentcheckbox3" id=""> Parent Checkbox 3
+                  </label>
+                </dt>
+              </dl>
+
+
+            </fieldset>
+          </nav>
+        </section>
+        <script>
+
+          let filterContainer = document.getElementsByClassName('filter')[0];
+          let tableContainer = document.getElementsByClassName('filter--table')[0];
+
+          let filterButton = document.getElementsByClassName('button--filter-toggle')[0];
+
+          let filterGroupToggle = document.getElementsByClassName('filter--group--toggle-trigger');
+
+          let filterTableRow = document.getElementsByTagName('tr');
+
+          for (var i = 0; i < filterGroupToggle.length; i++) {
+            filterGroupToggle[i].onclick = function() {
+              toggleFilterGroup(this)
+            }
+          }
+
+          for (var i = 0; i < filterTableRow.length; i++) {
+            filterTableRow[i].onclick = function() {
+              highlightTableRow(this)
+            }
+          }
+
+          function highlightTableRow(e) {
+            e.classList.toggle('--is-active');
+          }
+
+          function toggleFilterGroup(e) {
+
+            let filterGroup = e.closest('.filter--group--toggle');
+            let filterGroupContainer = filterGroup.querySelector('.filter--group--toggle-container');            
+
+            filterGroupContainer.classList.toggle('--is-closed');
+            filterGroupContainer.classList.toggle('--is-open');
+
+            e.classList.toggle('--is-closed');
+            e.classList.toggle('--is-open');
+
+          }
+
+          function toggleFilters() {
+
+              tableContainer.classList.toggle('--is-closed');
+              filterContainer.classList.toggle('--is-closed');
+              tableContainer.classList.toggle('--is-open');
+              filterContainer.classList.toggle('--is-open');
+              filterButton.classList.toggle('--is-active');
+          } 
+        </script>
+    </body>
+</html>

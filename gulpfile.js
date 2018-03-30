@@ -42,9 +42,10 @@ gulp.task('font-styles', () => (
 
 gulp.task('build', ['html', 'styles','images', 'fonts', 'font-styles'])
 
-gulp.task('refresh', ['styles'])
+gulp.task('refresh', ['styles', 'html'])
 
 
 gulp.task('watch', ['refresh'], () => {
     gulp.watch('patterns/**/**/*.scss', ['styles'])
+    gulp.watch('*.html', ['html'])
 })
