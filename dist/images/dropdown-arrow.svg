@@ -1,0 +1,6 @@
+<svg width="25px" height="14px" viewBox="-1 -1 25 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc>dropdown box arrow</desc>
+    <defs></defs>
+    <polygon id="Triangle" stroke="none" fill="#FFFFFF" fill-rule="evenodd" points="11.5 1 22 12 1 12"></polygon>
+    <polyline id="Outside-Border" stroke="#CCCCCC" stroke-width="1" fill="none" points="0.305664 11.59668 11.4786113 0.425685 22.7756633 11.720763"></polyline>
+</svg>

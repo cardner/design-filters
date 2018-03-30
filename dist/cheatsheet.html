@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Design Pattern Library Cheat Sheet</title>
+        <link rel="stylesheet" href="patterns/all-patterns.css">
+        <style media="screen">
+            section {
+                width: 75%;
+                display: block;
+                position: relative;
+                margin: 0 auto 1.45rem;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <h1>Main Heading</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare justo eu velit finibus scelerisque. Vivamus vehicula mauris vitae ex tempor laoreet. Maecenas egestas at diam eu egestas. Suspendisse varius lectus tortor, dapibus semper ante efficitur eget. Nulla facilisi. Aliquam tempus semper enim, vel pellentesque nunc commodo ac. Nulla facilisi. Aliquam gravida viverra ligula in blandit.</p>
+            <p>Morbi vitae accumsan tellus. Nunc sit amet rutrum nisi. Maecenas at varius magna. Etiam nec sapien tortor. Quisque quis leo massa. Vivamus venenatis eu sapien vel commodo. Donec non lacus eu quam imperdiet placerat ut eget sem.</p>
+            <h2>Subtitle</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare justo eu velit finibus scelerisque. Vivamus vehicula mauris vitae ex tempor laoreet. Maecenas egestas at diam eu egestas. Suspendisse varius lectus tortor, dapibus semper ante efficitur eget. Nulla facilisi. Aliquam tempus semper enim, vel pellentesque nunc commodo ac. Nulla facilisi. Aliquam gravida viverra ligula in blandit.</p>
+            <p>Morbi vitae accumsan tellus. Nunc sit amet rutrum nisi. Maecenas at varius magna. Etiam nec sapien tortor. Quisque quis leo massa. Vivamus venenatis eu sapien vel commodo. Donec non lacus eu quam imperdiet placerat ut eget sem.</p>
+            <h2 class="c--header-stacked"> <span class="header-type">Global Policy</span> <span class="header-description"> This policy always applies to all applications. </span> </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare justo eu velit finibus scelerisque. Vivamus vehicula mauris vitae ex tempor laoreet. Maecenas egestas at diam eu egestas. Suspendisse varius lectus tortor, dapibus semper ante efficitur eget. Nulla facilisi. Aliquam tempus semper enim, vel pellentesque nunc commodo ac. Nulla facilisi. Aliquam gravida viverra ligula in blandit.</p>
+            <p>Morbi vitae accumsan tellus. Nunc sit amet rutrum nisi. Maecenas at varius magna. Etiam nec sapien tortor. Quisque quis leo massa. Vivamus venenatis eu sapien vel commodo. Donec non lacus eu quam imperdiet placerat ut eget sem.</p>
+            <h3>Section Header</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare justo eu velit finibus scelerisque. Vivamus vehicula mauris vitae ex tempor laoreet. Maecenas egestas at diam eu egestas. Suspendisse varius lectus tortor, dapibus semper ante efficitur eget. Nulla facilisi. Aliquam tempus semper enim, vel pellentesque nunc commodo ac. Nulla facilisi. Aliquam gravida viverra ligula in blandit.</p>
+            <p>Morbi vitae accumsan tellus. Nunc sit amet rutrum nisi. Maecenas at varius magna. Etiam nec sapien tortor. Quisque quis leo massa. Vivamus venenatis eu sapien vel commodo. Donec non lacus eu quam imperdiet placerat ut eget sem.</p>
+            <p class="box-header-info">Instructional text</p>
+            <label class="subline">Button Label</label>
+        </section>
+        <hr />
+        <section>
+            <button class="c--primary">Positive Action</button>
+            <button class="">Secondary Action Button</button>
+            <button class="c--destruction icon">Destructive Button</button>
+            <button class="c--destruction icon icon-only" aria-label="Destructive Icon Only Button"></button>
+            <a class="c--btn-download" role="button" download="name you want the file to be on download">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-189 188 21 25" xml:space="preserve"> <title>download file icon</title> <path d="M-168.6,212.9h-19.8c-0.2,0-0.4-0.2-0.4-0.4v-24c0-0.2,0.2-0.4,0.4-0.4h13.5c0.1,0,0.2,0,0.3,0.1l6.2,6.2 c0.1,0.1,0.1,0.2,0.1,0.3v17.7C-168.2,212.7-168.4,212.9-168.6,212.9z M-188,212.1h19v-17.1l-6-6h-13V212.1z"></path> <path d="M-168.6,195.2h-6.2c-0.2,0-0.4-0.2-0.4-0.4v-6.2c0-0.2,0.2-0.4,0.4-0.4s0.4,0.2,0.4,0.4v5.9h5.8c0.2,0,0.4,0.2,0.4,0.4 S-168.4,195.2-168.6,195.2z"></path> <path id="Shape_2_" d="M-178.8,204.5c0.1,0.1,0.2,0.1,0.3,0.1s0.2,0,0.3-0.1l1.8-1.8c0.2-0.2,0.2-0.4,0-0.5c-0.2-0.2-0.3-0.2-0.5,0 l-1.2,1.2v-7c0-0.1,0-0.2-0.1-0.3s-0.2-0.1-0.3-0.1s-0.2,0-0.3,0.1s-0.1,0.2-0.1,0.3v7l-1.2-1.2c-0.2-0.2-0.4-0.2-0.5,0 c-0.2,0.2-0.2,0.3,0,0.5L-178.8,204.5z M-174.3,206h-8.4c-0.1,0-0.2,0-0.2,0.1s-0.1,0.2-0.1,0.3s0,0.2,0.1,0.3s0.1,0.1,0.2,0.1h8.4 c0.1,0,0.2,0,0.2-0.1s0.1-0.2,0.1-0.3s0-0.2-0.1-0.3S-174.2,206-174.3,206z"></path></svg>
+
+                Download Button.extension
+                <i>25.3 KB</i>
+            </a>
+            <nav class="c--dropdown" role="navigation">
+                <a class="a--dropdown-trigger button" aria-expanded="false" tabindex="0" role="button">
+                    Dropdown Button
+                </a>
+                <ul class="a--dropdown-content" aria-hidden="true">
+                    <li> <a href="#"> Sub Item 1 </a> </li>
+                    <li> <a href="#"> Sub Item 2 </a> </li>
+                    <li> <a href="#"> Sub Item 3 </a> </li>
+                    <li> <a class="a--destruction" href="#"> Destructive Sub Item </a> </li>
+                </ul>
+            </nav>
+            <nav class="c--dropdown" role="navigation">
+                <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0" role="button">
+                    Dropdown Button
+                </a>
+                <ul class="a--dropdown-content" aria-hidden="true">
+                    <li> <a href="#"> Sub Item 1 </a> </li>
+                    <li> <a href="#"> Sub Item 2 </a> </li>
+                    <li> <a href="#"> Sub Item 3 </a> </li>
+                    <li> <a class="a--destruction" href="#"> Destructive Sub Item </a> </li>
+                </ul>
+            </nav>
+        </section>
+        <hr />
+        <section>
+            <div class="button-row right">
+                <div class="bulk-selector-wrap">
+                    <div class="bulk-selector c--dropdown">
+                        <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">
+                        Select (<span class="num-selected">0</span>)
+                        </a>
+                        <ul class="a--dropdown-content select-quantity-list" aria-hidden="true">
+                            <li><a href="#selectAll">Select All</a></li>
+                            <li><a href="#selectNone">Select None</a></li>
+                        </ul>
+                    </div>
+                    <div class="bulk-actions c--dropdown">
+                        <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">…</a>
+                        <ul class="a--dropdown-content disabled action-list" aria-hidden="true">
+                            <li><a href="#add-to-group">Add to Group</a></li>
+                            <li><a href="#change-user-status">Change User Status</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" title="perform a directory sync">Directory Sync</a>
+                <a href="#" title="import your users">Import Users</a>
+                <a href="#" class="a--piping-none" title="bulk enroll your users">Bulk Enroll Users</a>
+                <a href="#" class="button c--primary primary" role="button"> Add User </a>
+            </div>
+            <div class="button-row left">
+                <a href="#" title="perform a directory sync">Directory Sync</a>
+                <a href="#" title="import your users">Import Users</a>
+                <a href="#" title="bulk enroll your users">Bulk Enroll Users</a>
+                <form class="button-row inline" method="post" action="/users/DU6V0FI06LOG84ZHGE58/schedule-delete">
+                    <input type="hidden" name="_xsrf" value="8324bb4cf4d146eabe77fd53add854b8">
+                    <button type="submit" class="link c--button-link c--destruction icon danger" id="schedule-delete-submit"> Delete User </button>
+                </form>
+            </div>
+        </section>
+        <hr />
+        <section>
+            <a href="" title="" rel="">Default Link</a>
+            <a href="" title="" rel="" target="_blank">Open in a new window <i class="icon-new-window "></i></a>
+            <a href="" title="" rel="" class="policy-link">Small Link</a>
+        </section>
+        <hr />
+        <section>
+            <p class="breadcrumbs">
+                <a href="#">Base Directory</a>
+                <i class="icon-chevron-thick-right"></i>
+                <a href="#">Previous Directory</a>
+                <i class="icon-chevron-thick-right"></i>
+                Current Directory
+            </p>
+        </section>
+        <hr />
+        <section>
+            <div class="at-a-glance can-filter allUsers">
+                <input type="hidden" id="user-table_filter_param" value="allUsers">
+                <div class="metric-card selected">
+                  <div class="number">
+                    <a href="#" class="filter-table" data-filter-by="allUsers|0" data-mixpanel-event-type="filter-all-users">
+                                15
+                                </a>
+                  </div>
+                  <div class="what">Total Users</div>
+
+                </div>
+                <div class="metric-card">
+                  <div class="number">
+                    <a href="#" class="filter-table" data-filter-by="no2faDevices|1" data-mixpanel-event-type="filter-no-2fa-devices">
+                                0
+                                </a>
+                  </div>
+                  <div class="what">Has No 2FA Devices</div>
+
+                  <div class="meta-text">
+                    <a href="/users/enroll-codes">
+                                0 Pending
+
+                                Enrollments
+
+                                </a>
+                  </div>
+
+                </div>
+                <div class="metric-card">
+                  <div class="number">
+                    <a href="#" class="filter-table" data-filter-by="inactive|2" data-mixpanel-event-type="filter-inactive">
+                                13
+                                </a>
+                  </div>
+                  <div class="what">Inactive Users</div>
+                  <div class="meta-text">last 30 days</div>
+                </div>
+                <div class="metric-card">
+                  <div class="multiple-values">
+                    <div class="one-half-col">
+                      <div class="number  warning ">
+                        <a href="#" class="filter-table" data-filter-by="bypass|3" data-mixpanel-event-type="filter-bypass">
+                                1
+                                </a>
+                      </div>
+                      <div class="what">User Bypass</div>
+                    </div>
+                    <div class="one-half-col">
+                      <div class="number  warning ">
+                        <a href="#" class="filter-table" data-filter-by="lockedOut|3" data-mixpanel-event-type="filter-lockedout">
+                                1
+                                </a>
+                      </div>
+                      <div class="what">Locked Out</div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+        </section>
+        <hr />
+        <section class="line">
+            <label for="pname">Field Label</label>
+            <input class="" type="text" name="pname" id="pname" value="" placeholder="text describing what to do">
+            <span class="help-block no-margin-bottom">Additional instructional text goes here.</span>
+        </section>
+        <section>
+            <span class="key key_holder">
+                <input type="text" readonly="readonly" class="key click_to_select_all" value="#KEYVALUEHERE#">
+            </span>
+            <div class="field line">
+              <select id="type" name="type">
+                <option value="Option 1" selected=""> Option 1 </option>
+                <option value="Option 2"> Option 2 </option>
+                <option value="Option 3"> Option 3 </option>
+              </select>
+            </div>
+            <form class="inline wonka-bar">
+              <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
+                <input type="search" placeholder="Search for users, groups, applications, or devices" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top;">
+                <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+                </span>
+                <i class="icon-magnifier"></i>
+            </form>
+        </section>
+        <section>
+            <div class="line">
+              <label>Radio and Textarea input list</label>
+              <div class="field add-padding">
+                <div class="subline">
+                  <input type="radio" id="radio_None" name="radio_1" value="">&nbsp;
+                  <label for="radio_1">
+                    Radio Label 1
+                  </label>
+                </div>
+              <textarea class="text" name="" id="">
+                Textarea instructional text would go here.
+              </textarea>
+              <span class="help-block">
+                Additional informative text goes here.
+              </span>
+              <div class="subline">
+                <input type="radio" id="radio_Simple" name="radio_2" value="">&nbsp;
+                <label for="radio_2">
+                  Radio Label 2
+                </label>
+              </div>
+              <div class="subline">
+                <input type="radio" id="radio_Simple" name="radio_3" value="">&nbsp;
+                <label for="radio_3">
+                  Radio Label 3
+                </label>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section>
+            <div class="line"> <label>Radio and Textarea input list</label>
+              <div class="field add-padding">
+                <div class="subline"> <input type="checkbox" name="checkbox_1" id="" value="1">&nbsp; <label for="checkbox_1">Only allow authentication from users in certain groups</label> </div>
+                <div class="subline"> <input type="checkbox" name="checkbox_2" id="" value="1">&nbsp; <label for="checkbox_2">Only allow authentication from users in certain groups</label> </div>
+                <div class="subline"> <input type="checkbox" name="checkbox_3" id="" value="1">&nbsp; <label for="checkbox_3">Only allow authentication from users in certain groups</label> </div>
+              </div>
+            </div>
+        </section>
+        <hr />
+        <section>
+            <div id="user-table_wrapper" class="dataTables_wrapper">
+              <div class="top-control-wrapper" style="width: 914px;">
+                <div class="loading" style="display: none;"></div>
+                <div class="bulk-selector-wrap">
+                  <div class="bulk-selector c--dropdown">
+                    <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">
+                      Select (
+                      <span class="num-selected">0</span>)
+                    </a>
+                    <ul class="a--dropdown-content select-quantity-list" aria-hidden="true">
+                      <li>
+                        <a href="#selectAll">Select All</a>
+                      </li>
+                      <li>
+                        <a href="#selectNone">Select None</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="bulk-actions c--dropdown">
+                    <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">…</a>
+                    <ul class="a--dropdown-content disabled action-list" aria-hidden="true">
+            
+                      <li>
+                        <a href="#add-to-group">Add to Group</a>
+                      </li>
+            
+                      <li>
+                        <a href="#change-user-status">Change User Status</a>
+                      </li>
+            
+                      <li>
+                        <a class="a--destruction" href="#delete">Send to Trash</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#restore">Restore</a>
+                      </li>
+                      <li class="hidden">
+                        <a href="#permanent-delete">Permanently Delete</a>
+                      </li>
+            
+                    </ul>
+                  </div>
+                </div>
+                <div class="button-row">
+                  <div class="download-buttons">
+                    <nav class="c--dropdown" role="navigation">
+                      <a class="a--dropdown-trigger button" role="button" aria-expanded="false" tabindex="0"> Reports </a>
+                      <ul class="a--dropdown-content" aria-hidden="true">
+                        <li>
+                          <a href="/users/export/csv" class="dropdown-csv">CSV</a>
+                        </li>
+                        <li>
+                          <a href="/users/export/json" class="dropdown-json">JSON</a>
+                        </li>
+                        <li>
+                          <a href="#" class="dropdown-url">URL</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div id="user-table_filter" class="dataTables_filter">
+                    <label class="icon search">
+                      <input class="" placeholder="" aria-controls="user-table" type="search">
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <table id="user-table" class="dataTable" data-permission-read="true" data-csv-link="/users/export/csv" data-json-link="/users/export/json"
+                role="grid" aria-describedby="user-table_info" style="width: 1105px;">
+                <thead>
+                  <tr role="row">
+                    <th class="checkbox sorting_disabled" rowspan="1" colspan="1" style="width: 49px;" aria-label="
+            
+            
+            
+            ">
+                      <label>
+                        <input name="select-all" type="checkbox">
+                      </label>
+                    </th>
+                    <th class="username primary_column sorting_asc" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 100px;"
+                      aria-label="Username: activate to sort column ascending">Username</th>
+                    <th class="name sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 280px;"
+                      aria-label="Name: activate to sort column ascending">Name</th>
+                    <th class="email sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 194px;"
+                      aria-label="Email: activate to sort column ascending">Email</th>
+                    <th class="phone_count number sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
+                      style="width: 32px;" aria-label="
+            
+            : activate to sort column descending">
+                      <i class="icon-smartphone column-heading" title="Number of phones attached to this user."></i>
+                    </th>
+                    <th class="token_count number sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 32px;"
+                      aria-label="
+            
+            : activate to sort column descending">
+                      <i class="icon-usb-alt column-heading" title="Number of hardware tokens attached to this user."></i>
+                    </th>
+                    <th class="status sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 56px;" aria-label="Status: activate to sort column ascending">Status</th>
+                    <th class="last_login sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1" style="width: 166px;"
+                      aria-label="Last Login: activate to sort column descending">Last Login</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUH1BQJ8UHRJ5TCWLL28" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUH1BQJ8UHRJ5TCWLL28">administrator</a>
+                    </td>
+                    <td>duo.local or other AD Admin (for RDP)</td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU9NZ25AL9IE15UF33CY" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU9NZ25AL9IE15UF33CY">alina</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>3</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUEJVF0IPAEWD7TFZA67" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUEJVF0IPAEWD7TFZA67">anotheruser</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Nov 20, 2017 11:28 AM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU3E7XESCMVFZNIQFFMF" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU3E7XESCMVFZNIQFFMF">ben☃</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Dec 1, 2017 1:24 PM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUCSKNK2I7Y5YMQKG0U0" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUCSKNK2I7Y5YMQKG0U0">bo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUSO2JCWF2Q6X969W3IZ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUSO2JCWF2Q6X969W3IZ">booloo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-bypass">Bypass</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUNOF9DPMTX1GF2LUQ4X" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUNOF9DPMTX1GF2LUQ4X">bozo</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Oct 10, 2017 3:33 PM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU6OX0MGCI4Y8EJ20PL8" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU6OX0MGCI4Y8EJ20PL8">bvertkin</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Sep 25, 2017 1:25 PM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUR93V08MC0WO9WB0AMK" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUR93V08MC0WO9WB0AMK">bvertkin10</a>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Sep 25, 2017 12:04 PM</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUX4IVUVRWKR6LBVIWOQ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUX4IVUVRWKR6LBVIWOQ">ciscouser</a>
+                    </td>
+                    <td>ciscouser for sprint acceptance tests</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Jan 3, 2018 11:19 AM</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU1I6U19QL7LJIISYUJ3" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU1I6U19QL7LJIISYUJ3">contr.0009</a>
+                    </td>
+                    <td>Contr 0009</td>
+                    <td>contr.0009@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU3NFXIMT40UJSM21BWE" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU3NFXIMT40UJSM21BWE">contr.0019</a>
+                    </td>
+                    <td>Contr 0019</td>
+                    <td>contr.0019@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUDFSFGH8ILX6DVB80ZD" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUDFSFGH8ILX6DVB80ZD">contr.0029</a>
+                    </td>
+                    <td>Contr 0029</td>
+                    <td>contr.0029@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUO8RKITAEMT2WH829Z9" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUO8RKITAEMT2WH829Z9">contr.0039</a>
+                    </td>
+                    <td>Contr 0039</td>
+                    <td>contr.0039@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU1F6UR9MYQH53KBOMQ7" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU1F6UR9MYQH53KBOMQ7">contr.0049</a>
+                    </td>
+                    <td>Contr 0049</td>
+                    <td>contr.0049@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU83OF1CJEH0Z8KOYZ1B" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU83OF1CJEH0Z8KOYZ1B">contr.0059</a>
+                    </td>
+                    <td>Contr 0059</td>
+                    <td>contr.0059@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU7EY2RDF9QDRSH9WPFL" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU7EY2RDF9QDRSH9WPFL">contr.0069</a>
+                    </td>
+                    <td>Contr 0069</td>
+                    <td>contr.0069@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUGRR8L6PA2U8W6NSWVB" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUGRR8L6PA2U8W6NSWVB">contr.0079</a>
+                    </td>
+                    <td>Contr 0079</td>
+                    <td>contr.0079@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUQ5WV3XU5P9LVWEJD4S" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUQ5WV3XU5P9LVWEJD4S">contr.0089</a>
+                    </td>
+                    <td>Contr 0089</td>
+                    <td>contr.0089@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUI3HOWS8DVTFPAIPZHC" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUI3HOWS8DVTFPAIPZHC">contr.0090</a>
+                    </td>
+                    <td>Contr 0090</td>
+                    <td>contr.0090@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DU2VWA2LREAQ83LPPOUY" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DU2VWA2LREAQ83LPPOUY">contr.0091</a>
+                    </td>
+                    <td>Contr 0091</td>
+                    <td>contr.0091@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUC6XDKXSQRN8UECPEVB" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUC6XDKXSQRN8UECPEVB">contr.0092</a>
+                    </td>
+                    <td>Contr 0092</td>
+                    <td>contr.0092@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUZP2L2P8MNAJTRMQWQM" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUZP2L2P8MNAJTRMQWQM">contr.0093</a>
+                    </td>
+                    <td>Contr 0093</td>
+                    <td>contr.0093@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="even">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUNN32SXJFE567S8RK4A" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUNN32SXJFE567S8RK4A">contr.0094</a>
+                    </td>
+                    <td>Contr 0094</td>
+                    <td>contr.0094@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                  <tr role="row" class="odd">
+                    <td class=" checkbox">
+                      <label>
+                        <input name="ukey" value="DUXX594Q8RJBYTE8EWAQ" type="checkbox">
+                      </label>
+                    </td>
+                    <td class="primary_column sorting_1">
+                      <a href="/users/DUXX594Q8RJBYTE8EWAQ">contr.0095</a>
+                    </td>
+                    <td>Contr 0095</td>
+                    <td>contr.0095@duoslapo.net</td>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                      <span class="user-status-active">Active</span>
+                    </td>
+                    <td>Never authenticated</td>
+                  </tr>
+                </tbody>
+                <tfoot class="bottom-control-wrapper">
+                  <tr>
+                    <td class="footer-controls checkbox primary_column" colspan="8" rowspan="1">
+                      <div class="dataTables_length" id="user-table_length">
+                        <label>Show
+                          <select name="user-table_length" aria-controls="user-table" class="">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select> users</label>
+                      </div>
+                      <div class="dataTables_info" id="user-table_info" role="status" aria-live="polite">1–25 of 5,326 total</div>
+                      <div class="dataTables_paginate paging_full_numbers" id="user-table_paginate">
+                        <a class="paginate_button first disabled" aria-controls="user-table" data-dt-idx="0" tabindex="0" id="user-table_first">◅◅</a>
+                        <a class="paginate_button previous disabled" aria-controls="user-table" data-dt-idx="1" tabindex="0" id="user-table_previous">◅</a>
+                        <span>
+                          <a class="paginate_button current" aria-controls="user-table" data-dt-idx="2" tabindex="0">1</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="3" tabindex="0">2</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="4" tabindex="0">3</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="5" tabindex="0">4</a>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="6" tabindex="0">5</a>
+                          <span class="ellipsis">…</span>
+                          <a class="paginate_button " aria-controls="user-table" data-dt-idx="7" tabindex="0">214</a>
+                        </span>
+                        <a class="paginate_button next" aria-controls="user-table" data-dt-idx="8" tabindex="0" id="user-table_next">▻</a>
+                        <a class="paginate_button last" aria-controls="user-table" data-dt-idx="9" tabindex="0" id="user-table_last">▻▻</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <div id="bulk-selector-content" class="hidden">
+              <div class="bulk-selector c--dropdown">
+                <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">
+                  Select (
+                  <span class="num-selected">0</span>)
+                </a>
+                <ul class="a--dropdown-content select-quantity-list" aria-hidden="true">
+                  <li>
+                    <a href="#selectAll">Select All</a>
+                  </li>
+                  <li>
+                    <a href="#selectNone">Select None</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="bulk-actions c--dropdown">
+                <a class="a--dropdown-trigger" aria-expanded="false" tabindex="0">…</a>
+                <ul class="a--dropdown-content disabled action-list" aria-hidden="true">
+            
+                  <li>
+                    <a href="#add-to-group">Add to Group</a>
+                  </li>
+            
+                  <li>
+                    <a href="#change-user-status">Change User Status</a>
+                  </li>
+            
+                  <li>
+                    <a class="a--destruction" href="#delete">Send to Trash</a>
+                  </li>
+                  <li class="hidden">
+                    <a href="#restore">Restore</a>
+                  </li>
+                  <li class="hidden">
+                    <a href="#permanent-delete">Permanently Delete</a>
+                  </li>
+            
+                </ul>
+              </div>
+            </div>
+            <div id="modal-add-to-group" class="bulk-action-modal modal hidden">
+              <div class="modal-header">
+                <h1>Add to Group</h1>
+                <a href="#" class="modal-close">
+                  <i class="icon-delete"></i>
+                </a>
+              </div>
+            
+              <form action="/users/groups/" method="post" class="inline">
+                <div class="modal-content">
+                  <p class="form-error hidden">Select a group to add users to.</p>
+                  <p>Add
+                    <span class="selected-user-count"></span> to...</p>
+                  <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                  <div class="field">
+                    <div class="select2-container" id="s2id_autogen3">
+                      <a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">
+                        <span class="select2-chosen" id="select2-chosen-4">Select a Group</span>
+                        <abbr class="select2-search-choice-close"></abbr>
+                        <span class="select2-arrow" role="presentation">
+                          <b role="presentation"></b>
+                        </span>
+                      </a>
+                      <label for="s2id_autogen4" class="select2-offscreen"></label>
+                      <input class="select2-focusser select2-offscreen" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4"
+                        id="s2id_autogen4" type="text">
+                      <div class="select2-drop select2-display-none select2-with-searchbox">
+                        <div class="select2-search">
+                          <label for="s2id_autogen4_search" class="select2-offscreen"></label>
+                          <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input"
+                            role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-4" id="s2id_autogen4_search"
+                            placeholder="" type="text"> </div>
+                        <ul class="select2-results" role="listbox" id="select2-results-4"> </ul>
+                      </div>
+                    </div>
+                    <input name="group" tabindex="-1" title="" class="select2-offscreen" type="hidden">
+                  </div>
+            
+                  <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="c--primary">Add to Group</button>
+                </div>
+              </form>
+            
+            </div>
+            <div id="modal-change-user-status" class="bulk-action-modal modal hidden">
+              <div class="modal-header">
+                <h2>Change User Status</h2>
+                <a href="#" class="modal-close">
+                  <i class="icon-delete"></i>
+                </a>
+              </div>
+              <form action="/users/bulkchangeuserstatus" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-content">
+                  <p class="form-error hidden">Select a status.</p>
+                  <div class="field">
+                    <input name="change-user-status" value="" type="hidden">
+                  </div>
+                  <p>Change
+                    <span class="selected-user-count"></span> to...</p>
+            
+            
+                  <div class="subline">
+            
+                    <input id="status-0" name="status" value="Active" type="radio">
+                    <label for="Active">
+                      <span class="user-status-active">Active</span>
+                      <span class="subline checkbox-indent">Require two-factor authentication (default)</span>
+                    </label>
+                  </div>
+            
+            
+                  <div class="subline">
+            
+                    <input id="status-1" name="status" value="Bypass" type="radio">
+                    <label for="Bypass">
+                      <span class="user-status-bypass">Bypass</span>
+                      <span class="subline checkbox-indent">Skip two-factor authentication</span>
+                    </label>
+                  </div>
+            
+            
+                  <div class="subline">
+            
+                    <input id="status-2" name="status" value="Disabled" type="radio">
+                    <label for="Disabled">
+                      <span class="user-status-disabled">Disabled</span>
+                      <span class="subline checkbox-indent">Automatically deny access</span>
+                    </label>
+                  </div>
+            
+            
+                  <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="c--primary">Change User Status</button>
+                </div>
+              </form>
+            </div>
+            
+            <div id="modal-delete" class="modal modal-auto modal-confirm hidden">
+              <div class="modal-header confirm-header">
+                <h2>Send
+                  <span class="selected-user-count l--margin-top-reset"></span> to the Trash?</h2>
+              </div>
+              <div class="modal-content">
+                <div class="subline">
+                  <p> Users in the Trash won’t be able to authenticate. They can be restored before they are permanently deleted in 7 days.</p>
+                </div>
+            
+                <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+              </div>
+              <form action="/users/bulkdelete" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-footer">
+                  <button class="button-cancel confirm-button"> Cancel </button>
+                  <button class="c--destruction icon danger button-accept confirm-button"> Send to Trash </button>
+                </div>
+              </form>
+            </div>
+            <div id="modal-restore" class="modal modal-auto modal-confirm confirm-positive hidden">
+              <div class="modal-header confirm-header">
+                <h2>Restore
+                  <span class="selected-user-count"></span>?</h2>
+              </div>
+              <div class="modal-content">
+                <div class="subline">
+                  <p>Restored users will be set to the "Disabled" user status.</p>
+                </div>
+            
+                <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+              </div>
+              <form action="/users/bulkrestore" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-footer">
+                  <button class="secondary button-cancel confirm-button"> Cancel </button>
+                  <button class="c--primary primary button-accept confirm-button"> Restore </button>
+                </div>
+              </form>
+            </div>
+            <div id="modal-permanent-delete" class="modal modal-auto modal-confirm confirm-positive hidden">
+              <div class="modal-header confirm-header">
+                <h2>Permanently delete
+                  <span class="selected-user-count"></span>?</h2>
+              </div>
+              <div class="modal-content">
+                <div class="subline">
+                  <p>Permanently deleted can not be recovered.</p>
+                </div>
+            
+                <p class="yellow-help-text">Directory Sync users will be skipped because they cannot be modified.</p>
+            
+              </div>
+              <form action="/users/bulk-permanent-delete" method="post" class="inline">
+                <input name="_xsrf" value="b1efe693b86144ef9c29fb7a83458a08" type="hidden">
+                <div class="modal-footer">
+                  <button class="secondary button-cancel confirm-button"> Cancel </button>
+                  <button class="c--primary primary button-accept confirm-button"> Permanently Delete </button>
+                </div>
+              </form>
+            </div>
+            <script type="text/json" id="groups">
+            [{"id": "DGUOJYHV6T0KRNVFGQWX", "text": "All Users"}, {"id": "DGMP2P8DLYQ6RQIDX94K", "text": "Applications"}, {"id": "DGM25QZR2BD33931LL56", "text": "Engineering"}, {"id": "DG17P3Y4LRNXS0VZAMZ1", "text": "GroupWithLargeSubgroup"}]
+            </script>
+
+        </section>
+        <hr />
+        <section>
+            <div class="filter-table">
+              <div id="endpoints-table_wrapper" class="dataTables_wrapper">
+                <div class="top-control-wrapper" style="width: 100%">
+                    <div class="loading" style="display: none;"></div>
+                  <div class="button-row">
+                    <div class="download-buttons">
+                      <div class="c--dropdown">
+                        <div class="a--dropdown-trigger button" aria-expanded="false" tabindex="0" role="button">
+                          <span>Reports</span>
+                        </div>
+                        <div class="a--dropdown-content" aria-hidden="true">
+                          <a href="/endpoints/export/csv" class="dropdown-csv">CSV</a>
+                          <a href="/endpoints/export/json" class="dropdown-json">JSON</a>
+                          <a href="#" class="dropdown-url">URL</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="endpoints-table_filter" class="dataTables_filter">
+                      <label>
+                        <input type="search" class="" placeholder="" aria-controls="endpoints-table">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <table id="endpoints-table" class="dataTable" data-permission-read="true" data-csv-link="/endpoints/export/csv" data-json-link="/endpoints/export/json" role="grid" aria-describedby="endpoints-table_info">
+                  <thead>
+                    <tr role="row">
+                      <th class="os sorting_asc" tabindex="0" aria-controls="endpoints-table" rowspan="1" colspan="1" style="width: 10%;" aria-label="OS: activate to sort column descending" aria-sort="ascending">
+                        OS
+                      </th>
+                      <th class="browsers sorting_disabled" rowspan="1" colspan="1" style="width: 10%;" aria-label="Browsers">
+                        Browsers
+                      </th>
+                      <th class="securityWarnings sorting_disabled" rowspan="1" colspan="1" style="width: 15%;" aria-label="Security Warnings">
+                        Security Warnings
+                      </th>
+                      <th class="user sorting" tabindex="0" aria-controls="endpoints-table" rowspan="1" colspan="1" style="width: 1%;" aria-label="User: activate to sort column ascending">
+                        User
+                      </th>
+                      <th class="lastUpdated sorting" tabindex="0" aria-controls="endpoints-table" rowspan="1" colspan="1" style="width: 12%;" aria-label="Last Used: activate to sort column ascending">
+                        Last Used
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="odd">
+                      <td class="sorting_1">
+                        <span class="icon-column">
+                          <i class="access-icon icon-linux"></i>
+                        </span>
+                        <a class="os-text-column" href="/endpoints/EPSMV4QF2EZEG5UM739F">Linux </a>
+                      </td>
+                      <td>
+                        <div class="subcell">
+                          <span class="icon-column">
+                            <i class="access-icon browser-icon browser-icon-chrome"></i>
+                          </span>
+                          <span class="browser-text-column">Chrome 51.0.2704.106</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="grey-text">
+                          <span class="validation valid ss-standard"></span>
+                          <span>No warnings</span>
+                        </div>
+                      </td>
+                      <td>
+                        <a href="/users/DUXLNMB87IX8SIYCG2A7">ben</a>
+                      </td>
+                      <td>Jul 1, 2016 7:56&nbsp;PM</td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td class="sorting_1">
+                        <span class="icon-column">
+                          <i class="access-icon icon-linux"></i>
+                        </span>
+                        <a class="os-text-column" href="/endpoints/EPCHVDQRJ7IR10P59FWQ">Linux </a>
+                      </td>
+                      <td>
+                        <div class="subcell">
+                          <span class="icon-column">
+                            <i class="access-icon browser-icon browser-icon-chrome"></i>
+                          </span>
+                          <span class="browser-text-column">Chrome 51.0.2704.106</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="grey-text">
+                          <span class="validation valid ss-standard"></span>
+                          <span>No warnings</span>
+                        </div>
+                      </td>
+                      <td>
+                        <a href="/users/DU8T5TK5ZB46R79Q6YA0">test</a>
+                      </td>
+                      <td>Jul 2, 2016 12:35&nbsp;AM</td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td class="sorting_1">
+                        <span class="icon-column">
+                          <i class="access-icon icon-apple-filled"></i>
+                        </span>
+                        <a class="os-text-column" href="/endpoints/EP08AVFLNQY99DPHE09Z">Mac OS X 10.11</a>
+                      </td>
+                      <td>
+                        <div class="subcell">
+                          <span class="icon-column">
+                            <i class="access-icon browser-icon browser-icon-firefox"></i>
+                          </span>
+                          <span class="browser-text-column">Firefox 47.0</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="grey-text">
+                          <span class="validation valid ss-standard"></span>
+                          <span>No warnings</span>
+                        </div>
+                      </td>
+                      <td>
+                        <a href="/users/DU518F3PCG36BQVP4I14">user_active</a>
+                      </td>
+                      <td>Jul 11, 2016 11:13&nbsp;AM</td>
+                    </tr>
+                    <tr role="row" class="odd">
+                      <td class="sorting_1">
+                        <span class="icon-column">
+                          <i class="access-icon icon-apple-filled"></i>
+                        </span>
+                        <a class="os-text-column" href="/endpoints/EPMSW95F4P4RBOD9IDCI">Mac OS X 10.11.5</a>
+                      </td>
+                      <td>
+                        <div class="subcell">
+                          <span class="icon-column">
+                            <i class="access-icon browser-icon browser-icon-chrome"></i>
+                          </span>
+                          <span class="browser-text-column">Chrome 51.0.2704.106</span>
+                        </div>
+                        <p class="indented plugin-version">Flash 22.0.0.192</p>
+                        <div class="subcell">
+                          <span class="icon-column">
+                            <i class="access-icon browser-icon browser-icon-firefox"></i>
+                          </span>
+                          <span class="browser-text-column">Firefox 47.0</span>
+                        </div>
+                        <p class="indented plugin-version">Flash 22.0.0.209</p>
+                        <p class="indented plugin-version">Java 1.8.0.91</p>
+                      </td>
+                      <td>
+                        <div class="darker-red-text">
+                          <div class="subcell">
+                            <span class="icon-column">
+                              <i class="icon-java security-icon"></i>
+                            </span>
+                            <span class="warning-text-column">Java out of date</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <a href="/users/DU6QQJK900COJCL0T73K">juniperuser</a>
+                      </td>
+                      <td>Jul 25, 2016 9:57&nbsp;AM</td>
+                    </tr>
+                  </tbody>
+                  <tfoot class="bottom-control-wrapper">
+                    <tr>
+                      <td class="footer-controls" colspan="5" rowspan="1">
+                        <div class="dataTables_length" id="endpoints-table_length">
+                          <label>Show
+                            <select name="endpoints-table_length" aria-controls="endpoints-table" class="">
+                              <option value="10">10</option>
+                              <option value="25">25</option>
+                              <option value="50">50</option>
+                              <option value="100">100</option>
+                            </select>
+                          items</label>
+                        </div>
+                        <div class="dataTables_info" id="endpoints-table_info" role="status" aria-live="polite">
+                          1&ndash;25 of 36 total
+                        </div>
+                        <div class="dataTables_paginate paging_full_numbers" id="endpoints-table_paginate">
+                          <a class="paginate_button first disabled ss-icon" aria-controls="endpoints-table" data-dt-idx="0" tabindex="0" id="endpoints-table_first">
+                            &#9669;&#9669;
+                          </a>
+                          <a class="paginate_button previous disabled ss-icon" aria-controls="endpoints-table" data-dt-idx="1" tabindex="0" id="endpoints-table_previous">
+                            &#9669;
+                          </a>
+                          <span>
+                            <a class="paginate_button current" aria-controls="endpoints-table" data-dt-idx="2" tabindex="0">
+                              1
+                            </a>
+                          </span>
+                          <a class="paginate_button next disabled ss-icon" aria-controls="endpoints-table" data-dt-idx="4" tabindex="0" id="endpoints-table_next">
+                            &#9659;
+                          </a>
+                          <a class="paginate_button last ss-icon" aria-controls="endpoints-table" data-dt-idx="5" tabindex="0" id="endpoints-table_last">
+                            &#9659;&#9659;
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+        </section>
+        <section>
+            <div id="modal-confirm-1505058807281" class="modal modal-auto modal-confirm">
+            <div class="modal-header confirm-header">
+                <h2 class="confirm-title l--margin-top-reset l--margin-bottom-reset">Removing this application will disable Duo Restore.</h2>
+                <a href="#" class="modal-close button-cancel">
+                <i class="icon-delete-thin icon-exclamation-mark-circle"></i>
+                </a>
+                </div>
+                <div class="modal-content confirm-content">
+                <p class="confirm-message"><strong>This action is permanent.</strong><br>This application is currently being used to verify users' identities when reactivating Duo accounts on new devices.<br>Learn about Duo Restore in Settings.</p>
+                </div>
+                <div class="modal-footer">
+                <span class="button-group buttons-alert hidden">
+                <button class="confirm-button button-alert button-accept">Remove Application</button>
+                </span>
+                <span class="button-group buttons-confirm">
+                <button class="confirm-button button-accept c--primary primary">Remove Application</button>
+                <button class="confirm-button button-cancel"> Cancel </button>
+                </span>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="modal-confirm-1505063139879" class="modal modal-auto modal-confirm">
+            <div class="modal-header confirm-header">
+            <h2 class="confirm-title l--margin-top-reset">Deleting this user cannot be undone.</h2>
+            <a href="#" class="modal-close button-cancel">
+            <i class="icon-delete-thin icon-exclamation-mark-circle"></i>
+            </a>
+            </div>
+            <div class="modal-content confirm-content hidden">
+            <p class="confirm-message"></p>
+            </div>
+            <div class="modal-footer">
+            <span class="button-group buttons-alert hidden">
+            <button class="confirm-button button-alert button-accept">Delete</button>
+            </span>
+            <span class="button-group buttons-confirm">
+            <button class="confirm-button button-accept c--primary primary">Delete</button>
+            <button class="confirm-button button-cancel"> Cancel </button>
+            </span>
+            </div>
+            </div>
+        </section>
+        <section>
+            <form class="modal modal-fixed" id="modal-advanced-group-search" method="post" action="{{ enc_attr(search_group_url) }}">
+
+              <div class="advanced-group-search-attributes">
+
+                  <div class="modal-header modal-header">
+                    <h2 class="modal-title l--margin-top-reset">
+                        Enter an exact group name.
+                    </h2>
+                    <a href="#" class="modal-close">
+                      <i class="icon-delete-thin"></i>
+                    </a>
+                  </div>
+
+                  <div class="modal-content">
+                    <input class="query-input">
+                    <button class="submit-query">Search</button>
+                    <div class="query-results"></div>
+                  </div>
+
+                <div class="modal-footer modal-footer">
+                  <button class='select-group' disabled='true'> Select group(s) </button>
+                </div>
+
+              </div>
+            </form>
+        </section>
+        <section>
+<form method="post" action="/applications/DIO9PPRE6RV5G30ZUSO5/modify" class="c--box-reset flexbox">
+  <input name="_xsrf" value="ab1ec55a86a342acb87967a9bcba610f" type="hidden">
+  <div class="form box l--padding-reset">
+    <div class="inner">
+      <fieldset>
+        <div class="line">
+          <label>Type</label>
+          <div class="field add-padding">
+            SAML - Service Provider
+          </div>
+        </div>
+        <div class="line">
+          <label for="iname">Name</label>
+
+          <div class="field">
+            <input class="text" name="iname" id="iname" value="SAML - Service Provider" maxlength="128" required="" type="text">
+            <span class="help-block no-margin-bottom">
+              Duo Push users will see this when approving transactions.
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="line">
+          <label>Self-service portal</label>
+          <div class="field add-padding">
+
+
+            <div>
+              <div class="subline">
+                <input id="self_service_allowed" name="self_service_allowed" value="True" type="checkbox">&nbsp;
+                <label for="self_service_allowed">
+                  Let users remove devices, add new devices, and reactivate Duo Mobile
+                </label>
+              </div>
+              <span class="help-block">
+                See
+                <a href="https://duo.com/docs/self-service-portal" target="_blank">
+                  Self-Service Portal documentation
+                  <i class="icon-new-window" aria-label="Opens new tab"></i>
+                </a>.
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div class="line">
+          <label>Username normalization</label>
+          <div class="field add-padding">
+
+
+
+            <div class="subline">
+              <input id="radio_None" name="username_normalization_policy" value="None" type="radio">&nbsp;
+              <label for="radio_None">
+                <b> None </b>
+
+              </label>
+            </div>
+
+
+
+            <div class="subline">
+              <input id="radio_Simple" name="username_normalization_policy" value="Simple" checked="" type="radio">&nbsp;
+              <label for="radio_Simple">
+                <b> Simple </b>
+
+                <span class="subline checkbox-indent">"DOMAIN\username", "username@example.com", and "username" are treated as the same user.</span>
+
+              </label>
+            </div>
+
+
+
+
+
+            <span class="help-block no-margin-bottom">
+              Controls if usernames should be altered before trying to match them to a user account.
+            </span>
+          </div>
+        </div>
+        <div class="line">
+          <label for="greeting">Voice greeting</label>
+
+          <div class="field">
+            <textarea class="text" name="greeting" id="greeting">Welcome to Duo. </textarea>
+            <span class="help-block no-margin-bottom">
+              Specify the message read to users who use phone callback, followed by authentication instructions.
+            </span>
+          </div>
+
+        </div>
+        <div class="line">
+          <label for="notes">Notes</label>
+          <div class="field">
+
+            <textarea class="text" name="notes" id="notes"></textarea>
+            <span class="help-block no-margin-bottom">
+              For internal use.
+            </span>
+
+          </div>
+        </div>
+
+
+        <div class="line">
+          <label>Permitted groups</label>
+
+          <div class="field add-padding ">
+
+            <div>
+              <div class="subline">
+                <input name="group-policy" id="group-policy" value="1" type="checkbox">&nbsp;
+                <label for="group-policy">Only allow authentication from users in certain groups</label>
+              </div>
+              <div class="subline">
+                <div class="select2-container select2-container-multi select2-container-disabled" id="s2id_integration-groups">
+                  <ul class="select2-choices">
+                    <li class="select2-search-field">
+                      <label for="s2id_autogen7" class="select2-offscreen"></label>
+                      <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-default"
+                        id="s2id_autogen7" style="width: 418px;" disabled="" placeholder="" type="text"> </li>
+                  </ul>
+                  <div class="select2-drop select2-drop-multi select2-display-none">
+                    <ul class="select2-results">
+                      <li class="select2-no-results">No matches found</li>
+                    </ul>
+                  </div>
+                </div>
+                <select disabled="" id="integration-groups" multiple="" name="integration-groups" tabindex="-1" class="select2-offscreen">
+                  <option value="DGCYHQRT9CFH5A58LXBI"> group_bar (1 user) </option>
+                  <option value="DGNFNMXI1LEUNNSK7YPE"> group_foo (3 users) </option>
+                  <option value="DGKYHW8M3PU1A55GPPW4"> phishing_test (1 user) </option>
+                </select>
+              </div>
+              <div class="subline">
+                <span class="help-block no-margin-bottom">
+                  When unchecked, all users can authenticate to this application.
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="actions">
+          <button type="submit" class="c--primary positive" id="save-changes"> Save Changes </button>
+        </div>
+
+      </fieldset>
+    </div>
+  </div>
+
+</form>
+        </section>
+        <hr />
+        <h2>Messaging</h2>
+        <section>
+            <div class="page-message warning">
+                <p>
+                Duo Mobile integration is the default
+                integration for identifying mobile Trusted Endpoints. Your
+                AirWatch
+                integration
+                will not be used.
+                </p>
+            </div>
+            <div class="page-message info">
+                <p class="info-box-title">Some header title thing</p>
+                <p>
+                Duo Mobile integration is the default
+                integration for identifying mobile Trusted Endpoints. Your
+                AirWatch
+                integration
+                will not be used.
+                </p>
+            </div>
+            <div class="page-message success">
+                <p>
+                Duo Mobile integration is the default
+                integration for identifying mobile Trusted Endpoints. Your
+                AirWatch
+                integration
+                will not be used.
+                </p>
+            </div>
+            <div class="page-message error">
+                <p>
+                Duo Mobile integration is the default
+                integration for identifying mobile Trusted Endpoints. Your
+                AirWatch
+                integration
+                will not be used.
+                </p>
+            </div>
+        </section>
+        <section>
+            <div class="flash" style="display: block;"><div class="error"><p role="alert">Error! Hey you probably filled something out wrong... most likely by mistake I'm sure.</p></div></div>
+            <div class="flash" style="display: block;"><div class="warning"><p role="alert">Warning! This may not be your fault but just so you know.</p></div></div>
+            <div class="flash" style="display: block;"><div class="info"><p role="alert">Hey this is probably some information that you want to read.</p></div></div>
+            <div class="flash" style="display: block;"><div class="success"><p role="alert">Success. Hurray! Great Jorb</p></div></div>
+        </section>
+        <hr />
+        <h2>New Filters</h2>
+        <section>
+          <nav class="c--filter m--filter-container users-filter">
+            <button class="m--filter-close c--button-link">Close Filters</button>
+
+            <fieldset class="m--filter-group">
+              <legend class="m--filter-header a--h3-style">Filter Header Goes Here</legend>
+              <label class="m--filter-item">
+                <input type="checkbox" name="filter item checkbox" id="">
+                Filter Item Checkbox
+              </label>
+              <label class="m--filter-item">
+                <input type="radio" name="filter item radio" id=""> Filter Item Radio
+              </label>
+            </fieldset>
+
+            <fieldset class="m--filter-group a--filter-group-toggle">
+              <legend class="m--filter-header a--h3-style">Nested Checkboxes Toggle</legend>
+              <dl>
+                <dt>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="parentcheckbox1" id="">
+                    Parent Checkbox 1
+                  </label>
+                </dt>
+                <dd>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="childcheckbox1" id=""> Child Checkbox 1
+                  </label>
+                </dd>
+                <dd>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="childcheckbox2" id=""> Child Checkbox 2
+                  </label>
+                </dd>
+                <dd>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="childcheckbox3" id=""> Child Checkbox 3
+                  </label>
+                </dd>
+                <dt>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="parentcheckbox2" id="">
+                    Parent Checkbox 2
+                  </label>
+                </dt>
+                <dt>
+                  <label class="m--filter-item">
+                    <input type="checkbox" name="parentcheckbox3" id="">
+                    Parent Checkbox 3
+                  </label>
+                </dt>
+              </dl>
+              
+              
+            </fieldset>
+          </nav>
+        </section>
+    </body>
+</html>
