@@ -1,0 +1,81 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3310319, 2016-11-17T21:34:24-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed ../fonts/neuehaasdisplay(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: NHaasGroteskDSStd-25Th by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/neue-haas-grotesk/std-display-25-thin/
+ * Copyright: Copyright &#x00A9; 2011 - 2012 Linotype Corp., www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype Corp. Neue Haas Grotesk is a trademark of L
+ * Licensed pageviews: 1,000,000
+ *
+ * Webfont: NHaasGroteskDSStd-26ThIt by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/neue-haas-grotesk/std-display-26-thin-italic/
+ * Copyright: Copyright &#x00A9; 2011 - 2012 Linotype Corp., www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype Corp. Neue Haas Grotesk is a trademark of L
+ * Licensed pageviews: 1,000,000
+ *
+ * Webfont: NHaasGroteskDSStd-75Bd by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/neue-haas-grotesk/std-display-75-bold/
+ * Copyright: Copyright &#x00A9; 2013 Monotype Imaging Inc. All rights reserved.
+ * Licensed pageviews: 250,000
+ *
+ * Webfont: NHaasGroteskDSStd-76BdIt by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/neue-haas-grotesk/std-display-76-bold-italic/
+ * Copyright: Copyright &#x00A9; 2013 Monotype Imaging Inc. All rights reserved.
+ * Licensed pageviews: 250,000
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3310319
+ *
+ * © 2016 MyFonts Inc
+*/
+
+$font-family-name: 'NeueHaasGrotesk';
+$font-name: 'neuehaas';
+$font-path: '../static/fonts/neuehaasgrotesk';
+@font-face {
+    font-family: $font-family-name;
+    font-weight: 300;
+    font-style: normal;
+    src: url('#{$font-path}/#{$font-name}-regular.eot');
+    src: url('#{$font-path}/#{$font-name}-regular.eot?#iefix') format('embedded-opentype'), url('#{$font-path}/#{$font-name}-regular.woff2') format('woff2'), url('#{$font-path}/#{$font-name}-regular.woff') format('woff'), url('#{$font-path}/#{$font-name}-regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: $font-family-name;
+    font-weight: 300;
+    font-style: italic;
+    src: url('#{$font-path}/#{$font-name}-regular-italic.eot');
+    src: url('#{$font-path}/#{$font-name}-regular-italic.eot?#iefix') format('embedded-opentype'), url('#{$font-path}/#{$font-name}-regular-italic.woff2') format('woff2'), url('#{$font-path}/#{$font-name}-regular-italic.woff') format('woff'), url('#{$font-path}/#{$font-name}-regular-italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: $font-family-name;
+    font-weight: 600;
+    font-style: normal;
+    src: url('#{$font-path}/#{$font-name}-medium.eot');
+    src: url('#{$font-path}/#{$font-name}-medium.eot?#iefix') format('embedded-opentype'), url('#{$font-path}/#{$font-name}-medium.woff2') format('woff2'), url('#{$font-path}/#{$font-name}-medium.woff') format('woff'), url('#{$font-path}/#{$font-name}-medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: $font-family-name;
+    font-weight: 600;
+    font-style: italic;
+    src: url('#{$font-path}/#{$font-name}-medium-italic.eot');
+    src: url('#{$font-path}/#{$font-name}-medium-italic.eot?#iefix') format('embedded-opentype'), url('#{$font-path}/#{$font-name}-medium-italic.woff2') format('woff2'), url('#{$font-path}/#{$font-name}-medium-italic.woff') format('woff'), url('#{$font-path}/#{$font-name}-medium-italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: $font-family-name;
+    font-weight: 900;
+    font-style: normal;
+    src: url('#{$font-path}/#{$font-name}-bold.eot');
+    src: url('#{$font-path}/#{$font-name}-bold.eot?#iefix') format('embedded-opentype'), url('#{$font-path}/#{$font-name}-bold.woff2') format('woff2'), url('#{$font-path}/#{$font-name}-bold.woff') format('woff'), url('#{$font-path}/#{$font-name}-bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: $font-family-name;
+    font-weight: 900;
+    font-style: italic;
+    src: url('#{$font-path}/#{$font-name}-bold-italic.eot');
+    src: url('#{$font-path}/#{$font-name}-bold-italic.eot?#iefix') format('embedded-opentype'), url('#{$font-path}/#{$font-name}-bold-italic.woff2') format('woff2'), url('#{$font-path}/#{$font-name}-bold-italic.woff') format('woff'), url('#{$font-path}/#{$font-name}-bold-italic.ttf') format('truetype');
+}
