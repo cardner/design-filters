@@ -380,6 +380,13 @@ th {
     }
 }
 
+.filter--clear {
+    // ugh this is happening to combat the size of the pills padding + a border
+    padding: 9px;
+    font-size: $smaller-font-size;
+}
+
+
 .a--flex-full-width {
     flex-basis: 100%;
 }
@@ -408,6 +415,10 @@ th {
         background: linear-gradient($hover-gradient-select-top, $hover-gradient-select-bottom);
         border-color: $default-table-button-border;
     }
+}
+
+.table--select--all {
+    @include margin(left, $size-8);
 }
 
 .search--tiny {
