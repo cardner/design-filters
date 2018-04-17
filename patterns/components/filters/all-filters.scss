@@ -10,6 +10,10 @@ $filter-container-width: 24rem;
     padding: $size-8 $size-16;
 }
 
+@mixin filter-item-hover {
+    background-color: $filter-item-background-hover;
+}
+
 // Reset default styling of checkbox
 input[type="checkbox"] {
     position: relative;
@@ -23,8 +27,8 @@ input[type="checkbox"] {
     @include borders($border-color: $default-input-border-color);
 
     &:checked {
-        background-color: $hover-input-border-color;
-        border-color: $hover-input-border-color;
+        background-color: $primary-button-color;
+        border-color: transparent;
 
         &::after {
             position: absolute;
@@ -48,14 +52,21 @@ input[type="radio"] {
 
 }
 
+// Set container to grid and over lap elements so that container inherits correct height
+.filter--container {
+    display: grid;
+    // grid-template-rows: 1fr;
+    grid-template-columns: $filter-container-width 1fr;
+}
+
+// Set filter to be both off screen when off and underneath grid of the table container
 .filter {
+    // keep filter in track one of grid for width
+    grid-column: 1/1;
+    // set grid row stop to -1 to stretch full height of screen
+    grid-row: 1;
     will-change: transform;
     transition: transform ease-in-out 225ms 10ms;
-    position: static;
-    // overflow-y: auto;
-    top: 0;
-    bottom: 0;
-    width: $filter-container-width;
     background-color: $filter-panel-background;
     padding: $size-40 $size-32;
 
@@ -76,6 +87,7 @@ input[type="radio"] {
     align-items: center;
     @include margin(left, $size-8);
     @include margin(bottom, $size-40);
+    padding-right: 10px;
 
     &:hover {
         text-decoration: none;
@@ -92,18 +104,18 @@ input[type="radio"] {
 }
 
 .filter--header {
-    @include margin(left, $size-8);
-    transition: padding $slow-ease;
+    padding: $size-16 0 $size-16 $size-8;
 
-    &.--is-open {
-        @include padding(bottom, $size-16);
-    }
 }
 
 .filter--item {
     display: block;
     padding: $size-16 0 $size-16 $size-8;
     @include border(bottom);
+
+    &:hover {
+        @include filter-item-hover;
+    }
 
     input[type="checkbox"] {
         @include margin(right, $size-8);
@@ -118,7 +130,6 @@ input[type="radio"] {
     &:not(.--child) {
         &:last-child {
             border-bottom: none;
-            padding-bottom: 0;
         }
         &:first-child {
             @include border(top);
@@ -129,9 +140,7 @@ input[type="radio"] {
 .filter--group {
     @include border(bottom, $border-color: $dark-filter-border);
     @include margin-reset;
-    @include margin(top, $size-16);
     margin-right: -$size-32;
-    @include padding(bottom, $size-16);
 }
 
 .filter--group--toggle-container {
@@ -149,7 +158,11 @@ input[type="radio"] {
 
 .filter--group--toggle-trigger {
     cursor: pointer;
-    width: calc(100% - #{$size-32});
+    width: 98%;
+
+    &:hover {
+        @include filter-item-hover;
+    }
 
     &.--is-closed {
         &::after {
@@ -167,6 +180,7 @@ input[type="radio"] {
         display: inline-block;
         float: right;
         font-weight: $base-font-weight;
+        margin-right: $size-32;
     }
 
     &.--trigger-sub {
@@ -191,10 +205,12 @@ input[type="radio"] {
 }
 
 .filter--table {
+    // set to same row as filter nav
+    grid-row: 1;
+    // set to over lap columns with filter nav and extend to end of page
+    grid-column: 1/end;
     will-change: transform;
     transition: transform ease-in-out 225ms 0ms;
-    position: absolute;
-    width: 100%;
 
     &.--is-closed {
         transform: translateX(0);
@@ -263,7 +279,7 @@ tr {
 
     &:hover,
     &.--is-active {
-        background-color: $default-headernav-color;
+        background-color: $filter-item-background-hover;
     }
 }
 
