@@ -16,9 +16,8 @@
 // Get all the various styles used to make up non modualized style patterns TODO: finish modualizing all these
 @import 'reference/duo';
 
-// Pull in all global layout classes
-@import 'layout/all-layout';
-
 // Pull in all component patterns
 @import 'components/all-components';
 
+// Pull in all global layout classes
+@import 'layout/all-layout';

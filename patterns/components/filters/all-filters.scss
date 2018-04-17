@@ -240,7 +240,6 @@ table {
 @mixin tableHeaderFormat {
     font-weight: $base-font-weight;
     font-size: $smaller-font-size;
-    color: $mid-text-color;
 }
 
 th {
@@ -265,21 +264,13 @@ th {
     }
 }
 
-.table--th {
-
-    &--is-active {
-        color: $default-text-color;
-    }
-
-}
-
 tr {
     cursor: pointer;
     transition: background-color $slow-ease;
 
     &:hover,
     &.--is-active {
-        background-color: $filter-item-background-hover;
+        background-color: $table-item-background-hover;
     }
 }
 
@@ -375,6 +366,7 @@ th {
     color: $default-text-color;
     padding: $size-8;
     font-size: $smaller-font-size;
+    line-height: 1.165;
     margin-right: $size-8;
     @include borders($border-color: transparent);
     @include border-radius;
@@ -399,6 +391,7 @@ th {
 .filter--clear {
     // ugh this is happening to combat the size of the pills padding + a border
     padding: 9px;
+    line-height: 1.165;
     font-size: $smaller-font-size;
 }
 
