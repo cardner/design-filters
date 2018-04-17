@@ -12,13 +12,15 @@ $pagination-text-color: map-get($gray, mid);
 $button-text-color: map-get($blue, cta);
 
 // Link names
-$default-link-color: map-get($blue, cta);
+$default-link-color: map-get($blue, link);
 $dropdown-link-hover-color: map-get($blue, cta-light);
 
 // Button names
 $default-button-color: map-get($blue, cta);
 $default-button-hover-color: map-get($blue, cta-light);
 $primary-button-color: map-get($blue, cta);
+$primary-button-gradient-start: map-get($blue, cta-light);
+$primary-button-gradient-end: map-get($blue, cta);
 $primary-button-hover-color: map-get($blue, cta-light);
 $destructive-button-color: map-get($red, alert);
 $destructive-button-hover-color: map-get($red, darker);
@@ -83,7 +85,7 @@ $toggle-disabled: map-get($gray, light);
 
 // Table Colors TODO: replace these once we figure out how to roll out whole new color scheme
 $dark-filter-border: #B3C1CD;
-$default-table-button: #8093A7;
+$default-table-button: #455C63;
 $gradient-table-button: #F4F6F8;
 $default-table-button-border: #CDD2D5;
 $hover-gradient-button-top: #4E89C7;
@@ -91,6 +93,7 @@ $hover-gradient-button-bottom: #4081C6;
 $hover-gradient-select-top: #F7F7F7;
 $hover-gradient-select-bottom: #E2E5E7;
 $filter-panel-background: #FAFAFA;
+$filter-item-background-hover: #F7F9FA;
 $dark-border: #B3C1CD;
 $default-border: #E4ECF1;
-$hover-pill-background: #F7F9FA;
+$hover-pill-background: #EDF6FF;
