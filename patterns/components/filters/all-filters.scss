@@ -158,37 +158,65 @@ input[type="radio"] {
 
 .filter--group--toggle-trigger {
     cursor: pointer;
-    width: 98%;
+    width: 100%;
 
     &:hover {
         @include filter-item-hover;
     }
 
-    &.--is-closed {
-        &::after {
-            content: '+';
-        }
-    }
+    // &.--is-closed {
+    //     &::after {
+    //         content: '+';
+    //     }
+    // }
 
-    &.--is-open {
-        &::after {
-            content: '—';
-        }
-    }
+    // &.--is-open {
+    //     &::after {
+    //         content: '—';
+    //     }
+    // }
 
-    &::after {
-        display: inline-block;
-        float: right;
-        font-weight: $base-font-weight;
-        margin-right: $size-32;
-    }
+    // &::after {
+    //     display: inline-block;
+    //     float: right;
+    //     font-weight: $base-font-weight;
+    //     margin-right: $size-32;
+    // }
 
     &.--trigger-sub {
         &::after {
             float: none;
         }
     }
+}
 
+.filter--toggle-icon {
+    display: inline-block;
+    float: right;
+    margin-right: $size-32;
+    margin-top: $size-4;
+    width: 13px;
+    height: 13px;
+    fill: $default-text-color;
+
+    .--trigger-sub > & {
+        width: $size-8;
+        height: $size-8;
+        float: none;
+        margin: 0;
+    }
+
+    .--is-open > & {
+        .icon--plus-vert {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.icon--plus-vert {
+    will-change: transform;
+    transition: transform ease-in-out 100ms 50ms;
+    transform-origin: 50% 50%;
 }
 
 // 
@@ -240,7 +268,6 @@ table {
 @mixin tableHeaderFormat {
     font-weight: $base-font-weight;
     font-size: $smaller-font-size;
-    color: $mid-text-color;
 }
 
 th {
@@ -265,21 +292,13 @@ th {
     }
 }
 
-.table--th {
-
-    &--is-active {
-        color: $default-text-color;
-    }
-
-}
-
 tr {
     cursor: pointer;
     transition: background-color $slow-ease;
 
     &:hover,
     &.--is-active {
-        background-color: $filter-item-background-hover;
+        background-color: $table-item-background-hover;
     }
 }
 
@@ -375,6 +394,7 @@ th {
     color: $default-text-color;
     padding: $size-8;
     font-size: $smaller-font-size;
+    line-height: 1.165;
     margin-right: $size-8;
     @include borders($border-color: transparent);
     @include border-radius;
@@ -399,6 +419,7 @@ th {
 .filter--clear {
     // ugh this is happening to combat the size of the pills padding + a border
     padding: 9px;
+    line-height: 1.165;
     font-size: $smaller-font-size;
 }
 
