@@ -164,25 +164,6 @@ input[type="radio"] {
         @include filter-item-hover;
     }
 
-    // &.--is-closed {
-    //     &::after {
-    //         content: '+';
-    //     }
-    // }
-
-    // &.--is-open {
-    //     &::after {
-    //         content: '—';
-    //     }
-    // }
-
-    // &::after {
-    //     display: inline-block;
-    //     float: right;
-    //     font-weight: $base-font-weight;
-    //     margin-right: $size-32;
-    // }
-
     &.--trigger-sub {
         &::after {
             float: none;
