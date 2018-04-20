@@ -87,6 +87,7 @@ input[type="radio"] {
     align-items: center;
     @include margin(left, $size-8);
     @include margin(bottom, $size-40);
+    padding-right: 10px;
 
     &:hover {
         text-decoration: none;
@@ -173,7 +174,7 @@ input[type="radio"] {
 .filter--toggle-icon {
     display: inline-block;
     float: right;
-    margin-right: $size-16;
+    margin-right: $size-32;
     margin-top: $size-4;
     width: 10px;
     height: 10px;
