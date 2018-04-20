@@ -196,7 +196,7 @@ input[type="radio"] {
 
 .icon--plus-vert {
     will-change: transform;
-    transition: transform ease-in-out 120ms 180ms;
+    transition: transform ease-in-out 120ms 60ms;
     transform-origin: 50% 50%;
 }
 
@@ -552,7 +552,7 @@ th {
         }
     }
 
-    &:hover {
+    &.--is-active {
         svg {
             .filter--icon {
                 &--circle-1 {
