@@ -418,6 +418,10 @@ th {
 // Override styles of select react component
     // Select input style overrides
 .Select-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
     border-color: $default-table-button-border;
     background: linear-gradient($white, $gradient-table-button);
     @include border-radius;
