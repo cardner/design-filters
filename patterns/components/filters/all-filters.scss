@@ -26,6 +26,10 @@ input[type="checkbox"] {
     border-radius: 3px;
     @include borders($border-color: $default-input-border-color);
 
+    &:focus {
+        box-shadow: 0 0 0 2px $focus-radio-border;
+    }
+
     &:checked {
         background-color: $primary-button-color;
         border-color: transparent;
@@ -342,9 +346,16 @@ th {
         color: $default-table-button;
         background: linear-gradient($white, $gradient-table-button);
 
-        &:hover,
-        &.--is-active {
+        &:hover {
             background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+            border-color: $button-border-hover-color;
+            svg {
+                fill: $white;
+            }
+        }
+
+        &.--is-active {
+            background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
             border-color: $button-border-hover-color;
 
             svg {
@@ -497,6 +508,12 @@ th {
         font-size: $small-font-size;
         height: $size-32;
         @include padding(left, $size-40);
+
+        &:focus,
+        &:hover {
+            @include button-focus;
+            border-color: $focus-button-border;
+        }
     }
 
     &:before {
@@ -625,3 +642,78 @@ th {
     }
 }
 
+// Proposed new modal structure/style
+@mixin modal--base {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 800;
+    // this actually sets the top of the content modal positioning
+    padding-top: 30vh;
+    overflow-y: scroll;
+    will-change: opacity;
+    transition: opacity $slow-ease;
+
+    &.--is-hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.--is-visible {
+        opacity: 1;
+    }
+
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .2);
+        z-index: 700;
+    }
+}
+@mixin modal--content {
+    background: $white;
+    width: 60%;
+    min-width: 720px;
+    padding: $size-40;
+    margin: 0 auto;
+    position: relative;
+    z-index: 900;
+}
+.modal {
+    &--content {
+        @include modal--content;
+        
+        &-2col {
+            display: -ms-grid;
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+    }
+    &--date-picker {
+        @include modal--base;
+    }
+    &--header {
+        // set the header to span the whole modal
+        grid-column: 1/end;
+        // display flex to position copy and close button
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: $size-8;
+        @include border(bottom, $border-color:$dark-filter-border);
+    }
+}
+
+// Custom Time Range override
+.DayPicker {
+    &-Day {
+        @include borders;
+        padding: $size-8 $size-12;
+    }
+}

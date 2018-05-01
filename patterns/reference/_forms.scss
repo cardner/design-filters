@@ -403,6 +403,7 @@ input {
     &[type="radio"] {
         &:focus {
             @include border-radius($radius: 50%);
+            box-shadow: 0 0 0 2px $focus-radio-border, inset 0 0 0 1px $primary-button-color;
         }
         &:active,
         &:hover {
@@ -511,9 +512,6 @@ input:not([type="hidden"]) {
             @include box-shadow;
         }
 
-        &:not([disabled]):hover {
-            border-color: $hover-input-border-color;
-        }
         &.l--field--width-xl {
             padding: .563rem .938rem .75rem .75rem;  // 9/16, 15/16, 12/16, 12/16 padding adjustment for larger type
             line-height: 1em;

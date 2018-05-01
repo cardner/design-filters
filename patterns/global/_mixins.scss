@@ -124,9 +124,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+@mixin button-focus($border-color: $focus-button-border) {
+    box-shadow: 0 0 0 1px $focus-button-border;
+    outline: none;
+    border-color: $focus-button-border;
+}
+
 @mixin box-shadow($shadows...) {
     @if length($shadows) == 0{
-        $shadows: 0 0 0 1px $white, 0 0 0 2px currentColor;
+        $shadows: 0 0 0 1px currentColor;
     }
     box-shadow: $shadows;
 }
