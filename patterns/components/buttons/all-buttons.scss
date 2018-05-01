@@ -55,7 +55,7 @@ input[type="src"]:not(.link) input[type="reset"] {
     }
 
     &:focus {
-        @include button-focus;
+        @include button-focus($border-color: $focus-secondarybutton-border);
     }
 
     &:active {
