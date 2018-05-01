@@ -651,7 +651,7 @@ th {
     height: 100%;
     z-index: 800;
     // this actually sets the top of the content modal positioning
-    padding-top: 20%;
+    padding-top: 20vh;
     overflow-y: scroll;
     will-change: opacity;
     transition: opacity $slow-ease;
@@ -729,6 +729,14 @@ th {
         padding: $size-8 $size-12;
     }
     &-Month {
-
+        margin-left: 0;
+        margin-right: 0;
+    }
+    &-Caption {
+        > div {
+            font-size: $base-font-size;
+            font-weight: $bold-font-weight;
+            text-align: center;
+        }
     }
 }
