@@ -1,15 +1,15 @@
 &.c--primary {
     color: $white;
-    background-color: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
+    background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
     border-color: transparent;
 
     &:hover {
-        background-color: $primary-button-hover-color;
+        background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
         border-color: $primary-border-hover-color;
     }
 
     &:focus {
-        @include box-shadow(0 0 0 1px $white, 0 0 0 2px $default-button-color);
+        @include box-shadow(0 0 0 2px $default-button-color);
     }
 
     &:active {

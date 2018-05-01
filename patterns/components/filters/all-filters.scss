@@ -651,7 +651,7 @@ th {
     height: 100%;
     z-index: 800;
     // this actually sets the top of the content modal positioning
-    padding-top: 30vh;
+    padding-top: 20%;
     overflow-y: scroll;
     will-change: opacity;
     transition: opacity $slow-ease;
@@ -706,7 +706,19 @@ th {
         justify-content: space-between;
         align-items: center;
         padding-bottom: $size-8;
+        margin-bottom: $size-32;
         @include border(bottom, $border-color:$dark-filter-border);
+    }
+    &--footer {
+        // set the header to span the whole modal
+        grid-column: 1/end;
+        @include margin(top, $size-40); 
+        @include padding(top, $size-24);
+        @include border(top, $border-color:$dark-filter-border);
+
+        button + button {
+            margin-left: $size-16;
+        }
     }
 }
 
@@ -715,5 +727,8 @@ th {
     &-Day {
         @include borders;
         padding: $size-8 $size-12;
+    }
+    &-Month {
+
     }
 }
