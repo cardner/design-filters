@@ -126,9 +126,9 @@
 }
 
 @mixin button-focus($border-color: $focus-button-border) {
-    box-shadow: 0 0 0 1px $focus-button-border;
+    box-shadow: 0 0 0 1px $border-color;
     outline: none;
-    border-color: $focus-button-border;
+    border-color: $border-color;
 }
 
 @mixin box-shadow($shadows...) {
