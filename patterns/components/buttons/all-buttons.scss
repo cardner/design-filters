@@ -5,7 +5,7 @@
 // Extend for button base styles
 %button {
     @include border-radius;
-    @include transitions(color $fast-ease, background-color $fast-ease, border $slow-ease, box-shadow $slow-ease, max-height $slow-ease);
+    @include transitions(color $fast-ease, background-color $fast-ease, border $slow-ease, box-shadow $slow-ease);
     display: inline-block;
     font-size: $base-font-size;
     font-weight: $base-font-weight;
@@ -49,20 +49,18 @@ input[type="src"]:not(.link) input[type="reset"] {
     &:hover {
         text-decoration: none;
         background-color: $default-button-hover-color;
-        border-color: $default-button-hover-color;
+        border-color: $hover-button-border;
         color: $white;
         cursor: pointer;
     }
 
     &:focus {
-        @include box-shadow;
-        outline: none;
-        border-color: $button-border-hover-color;
+        @include button-focus;
     }
 
     &:active {
-        @include box-shadow(inset 0 0 6px 0px $default-dropshadow-color);
-        border-color: $default-button-hover-color;
+        box-shadow: inset 0 0 1px 2px $active-button-shadow-1, inset 0 0 1px 2px $active-button-shadow-2;
+        border-color: $active-button-shadow-2;
     }
 
     &.icon:after,
