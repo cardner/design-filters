@@ -595,7 +595,7 @@
               <section class="modal--content modal--content-2col">
                 <span class="modal--header">
                   <h2>Custom Time Frame</h2>
-                  <a class="modal--close">
+                  <a class="modal--close js--modal-close">
                     <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 5.5l4.4 4.4a.35.35 0 1 0 .5-.5L5.5 5 9.9.6a.35.35 0 1 0-.5-.5L5 4.5.6.1a.35.35 0 1 0-.5.5L4.5 5 .1 9.4a.35.35 0 1 0 .5.5L5 5.5z"
                         fill="#4A4A4A" fill-rule="evenodd" />
@@ -806,7 +806,7 @@
                 </div>
                 <section class="modal--footer">
                   <button class="c--primary">Apply</button>
-                  <button>Cancel</button>
+                  <button class="js--modal-close">Cancel</button>
                 </section>
               </section>
             </section>
@@ -967,8 +967,10 @@
           let selectTrigger = document.getElementsByClassName('Select-control')[0];
 
           // Modal Close
-          let modalCloseBTN = document.getElementsByClassName('modal--close')[0];
- let modalOpenBTN = document.getElementById('react-select-2--option-7');
+          let modalCloseBTN = document.getElementsByClassName('js--modal-close');
+          
+          let modalOpenBTN = document.getElementById('react-select-2--option-7');
+          
 
           for (var i = 0; i < filterGroupToggle.length; i++) {
             filterGroupToggle[i].onclick = function() {
@@ -986,12 +988,14 @@
             toggleSelectDropdown(this)
           }
 
-          modalCloseBTN.onclick = function() {
-            toggleModal(this)
+          for (var i = 0; i < modalCloseBTN.length; i++) {
+            modalCloseBTN[i].onclick = function() {
+              toggleModal(this)
+            }
           }
 
           modalOpenBTN.onclick = function() {
-            toggleModal(modalCloseBTN)
+            toggleModal(modalCloseBTN[0])
           }
 
           function highlightTableRow(e) {
