@@ -5,15 +5,15 @@
 // Extend for button base styles
 %button {
     @include border-radius;
-    @include transitions(color $fast-ease, background-color $fast-ease, border $slow-ease, box-shadow $slow-ease);
+    @include transitions(color $fast-ease, background-color $fast-ease, border $fast-ease, box-shadow $slow-ease);
     display: inline-block;
     font-size: $base-font-size;
     font-weight: $base-font-weight;
     text-decoration: none;
-    line-height: 1.5em;
-    min-height: 2.5rem;
+    line-height: $size-24;
+    min-height: $size-40;
     @include borders($border-color: $button-border-color);
-    padding: .65rem $mid-padding-spacing .4rem; // 10/16, 20/16
+    padding: $size-8 $size-16; // 10/16, 20/16
     color: $button-text-color;
     background-color: transparent;
     letter-spacing: .04em;
