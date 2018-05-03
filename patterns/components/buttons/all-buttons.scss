@@ -17,6 +17,7 @@
     color: $button-text-color;
     background-color: transparent;
     letter-spacing: .04em;
+    outline: none;
 }
 
 @mixin button-tiny {
