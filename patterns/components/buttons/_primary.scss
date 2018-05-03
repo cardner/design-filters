@@ -1,10 +1,13 @@
 &.c--primary {
     color: $white;
-    background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
+    background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end, $hover-gradient-button-top, $hover-gradient-button-bottom);
     border-color: transparent;
+    transition: background-position $fast-ease;
+    background-position: 0% 50%;
 
     &:hover {
-        background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+        // background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+        background-position: 100% 50%;
         border-color: $primary-border-hover-color;
     }
 

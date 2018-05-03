@@ -11,7 +11,7 @@ $filter-container-width: 24rem;
 }
 
 @mixin filter-item-hover {
-    background-color: $filter-item-background-hover;
+    background-color: $table-item-background-hover;
 }
 
 // Reset default styling of checkbox
@@ -27,7 +27,9 @@ input[type="checkbox"] {
     @include borders($border-color: $default-input-border-color);
 
     &:focus {
-        box-shadow: 0 0 0 2px $focus-radio-border;
+        // box-shadow: 0 0 0 2px $focus-radio-border;
+        box-shadow: none;
+        @include button-focus;
     }
 
     &:checked {
@@ -53,6 +55,11 @@ input[type="radio"] {
     vertical-align: text-bottom;
     @include margin(right, $size-8);
     @include margin(left, -1px);
+
+    &:focus {
+        box-shadow: none;
+        @include button-focus;
+    }
 
 }
 
