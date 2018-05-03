@@ -232,10 +232,6 @@ input[type=number] {
 input[type=checkbox] {
     width: auto;
     margin-right: .25rem;
-
-    &:focus {
-        @include box-shadow;
-    }
 }
 
 input[type=radio] {
@@ -396,14 +392,13 @@ input {
     max-width: 26.25rem; //Based on basic calculation of readable line length and a base font size of 14px in input fields /* 420/16 */
 
     &:focus {
-        @include box-shadow;
         outline: none;
         border-color: $default-border-color;
+        @include button-focus;
     }
     &[type="radio"] {
         &:focus {
-            @include border-radius($radius: 50%);
-            box-shadow: 0 0 0 2px $focus-radio-border, inset 0 0 0 1px $primary-button-color;
+            @include button-focus;
         }
         &:active,
         &:hover {
@@ -413,7 +408,7 @@ input {
     &[type="checkbox"] {
         &:focus {
             border-radius: 15%;
-            @include box-shadow(0 -1px 0 2px white, 0 -1px 0 4px currentColor);
+            @include button-focus;
         }
     }
     &:not([disabled]):hover {
@@ -509,7 +504,7 @@ input:not([type="hidden"]) {
         @include transitions;
 
         &:focus {
-            @include box-shadow;
+            @include button-focus;
         }
 
         &.l--field--width-xl {

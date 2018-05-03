@@ -26,12 +26,6 @@ input[type="checkbox"] {
     border-radius: 3px;
     @include borders($border-color: $default-input-border-color);
 
-    &:focus {
-        // box-shadow: 0 0 0 2px $focus-radio-border;
-        box-shadow: none;
-        @include button-focus;
-    }
-
     &:checked {
         background-color: $primary-button-color;
         border-color: transparent;
@@ -48,6 +42,16 @@ input[type="checkbox"] {
             content: $confirm;
             color: $white;
         }
+
+        &:focus {
+            // inverse the border color to white because the background color is dark
+            border-color: $white;
+        }
+    }
+
+    &:focus {
+        box-shadow: none;
+        @include button-focus;
     }
 }
 
@@ -116,7 +120,6 @@ input[type="radio"] {
 
 .filter--header {
     padding: $size-16 0 $size-16 $size-8;
-
 }
 
 .filter--item {
@@ -174,6 +177,10 @@ input[type="radio"] {
 
     &:hover {
         @include filter-item-hover;
+    }
+
+    &:focus {
+        border-bottom: 1px dotted currentColor;
     }
 
     &.--trigger-sub {
@@ -372,6 +379,14 @@ th {
             svg {
                 fill: $white;
             }
+
+            &:hover {
+                background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+            }
+
+            &:focus {
+                @include button-focus($border-color: $white);
+            }
         }
 
         svg {
@@ -523,9 +538,7 @@ th {
         height: $size-32;
         @include padding(left, $size-40);
 
-        &:focus,
         &:hover {
-            @include button-focus;
             border-color: $focus-button-border;
         }
     }
@@ -741,16 +754,57 @@ th {
     &-Day {
         @include borders;
         padding: $size-8 $size-12;
+
+        &--today {
+            font-weight: $bold-font-weight;
+        }
+
+        // TODO please for the love of god remove these important tags when we can include this in the react theme
+        &--selected {
+            background-color: $date-range-selected !important;
+            border-radius: unset !important;
+            color: $default-text-color !important;
+        }
+
+        &--end,
+        &--start {
+            background-color: $date-range-startend !important;
+            color: $white !important;
+            font-weight: $bold-font-weight;
+            border-radius: unset !important;
+        }
+    }
+    &-Weekday {
+        color: $default-text-color;
     }
     &-Month {
         margin-left: 0;
         margin-right: 0;
+        margin-top: 0;
     }
     &-Caption {
         > div {
             font-size: $base-font-size;
             font-weight: $bold-font-weight;
             text-align: center;
+        }
+    }
+    &-NavButton {
+        width: 6px;
+        height: 10px;
+        top: .25rem;
+        right: 1rem;
+        fill: $default-text-color;
+
+        &--next {
+            background-image: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path d="M5 4.5L.6.1a.35.35 0 1 0-.5.5L4.5 5 .1 9.4a.35.35 0 1 0 .5.5L5 5.5l.48-.5L5 4.5z"/></svg>');
+        }
+        &--prev {
+            background-image: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path d="M.48 4.5L4.88.1a.35.35 0 1 1 .5.5L.97 5l4.4 4.4a.35.35 0 1 1-.5.5L.48 5.5 0 5l.48-.5z"/></svg>');
+            left: 1rem;
+            right: unset;
         }
     }
 }
