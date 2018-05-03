@@ -280,6 +280,10 @@ th {
             @extend %orderIndicator;
         }
     }
+
+    &:hover {
+        color: $default-link-color;
+    }
 }
 
 tr {
@@ -492,6 +496,9 @@ th {
     &.is-focused,
     &:hover {
         background-color: $table-item-background-hover;
+    }
+    
+    &.is-focused {
         font-weight: $bold-font-weight;
     }
     
