@@ -18,8 +18,7 @@ a {
         box-shadow: none;
         outline: none;
         text-decoration: none;
-        @include border-radius;
-        @include box-shadow(0 0 0 1px $white, 0 0 0 2px currentColor);
+        border-bottom: 1px dotted currentColor;
     }
 
     // import other link types here
