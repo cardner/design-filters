@@ -53,6 +53,10 @@ input[type="src"]:not(.link) input[type="reset"] {
         border-color: $hover-button-border;
         color: $white;
         cursor: pointer;
+
+        &:focus {
+            @include button-focus($border-color: $white);
+        }
     }
 
     &:focus {

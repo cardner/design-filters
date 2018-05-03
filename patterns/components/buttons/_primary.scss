@@ -1,19 +1,20 @@
 &.c--primary {
     color: $white;
-    background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end, $hover-gradient-button-top, $hover-gradient-button-bottom);
+    background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
     border-color: transparent;
     transition: background-position $fast-ease;
-    background-position: 0% 0%;
-    background-size: 200% 200%;
+    // background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
+    // background-position: 0% 0%;
+    // background-size: 200% 200%;
 
     &:hover {
-        // background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
-        background-position: 100% 100%;
+        background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+        // background-position: 100% 100%;
         border-color: $primary-border-hover-color;
     }
 
     &:focus {
-        @include box-shadow(0 0 0 2px $default-button-color);
+        @include button-focus($border-color: $white);
     }
 
     &:active {

@@ -3,7 +3,7 @@ h3 {
     @include header;
     font-size: $medium-font-size;
     line-height: $base-line-height;
-    margin-top: $large-margin-spacing;
-    margin-bottom: $header-margin-bottom-spacing;
     letter-spacing: normal;
+    margin-top: 0;
+    margin-bottom: 0;
 }
