@@ -130,6 +130,14 @@
     border: 1px dotted $border-color;
 }
 
+@mixin button-tiny {
+    min-height: $size-32;
+    height: $size-32;
+    font-size: $smaller-font-size;
+    line-height: $size-16;
+    padding: $size-8 $size-16;
+}
+
 @mixin box-shadow($shadows...) {
     @if length($shadows) == 0{
         $shadows: 0 0 0 1px currentColor;
