@@ -27,7 +27,7 @@ input[type="checkbox"] {
     @include borders($border-color: $default-input-border-color);
 
     &:checked {
-        background-color: $primary-button-color;
+        background: $primary-button-color;
         border-color: transparent;
 
         &::after {
@@ -513,10 +513,6 @@ th {
         background-color: $table-item-background-hover;
     }
     
-    &.is-focused {
-        font-weight: $bold-font-weight;
-    }
-    
     &:last-child {
         @include unset(border);
     }
@@ -537,10 +533,6 @@ th {
         font-size: $small-font-size;
         height: $size-32;
         @include padding(left, $size-40);
-
-        &:hover {
-            border-color: $focus-button-border;
-        }
     }
 
     &:before {
@@ -682,6 +674,9 @@ th {
     overflow-y: scroll;
     will-change: opacity;
     transition: opacity $slow-ease;
+    @include query-screen-small {
+        padding-top: 0;
+    }
 
     &.--is-hidden {
         opacity: 0;
@@ -707,10 +702,14 @@ th {
     background: $white;
     width: 60%;
     min-width: 720px;
+    max-width: 1000px;
     padding: $size-40;
     margin: 0 auto;
     position: relative;
     z-index: 900;
+    @include query-screen-small {
+        min-width: 100%;
+    }
 }
 .modal {
     &--content {
@@ -720,6 +719,9 @@ th {
             display: -ms-grid;
             display: grid;
             grid-template-columns: 50% 50%;
+            @include query-screen-small {
+                display: block;
+            }
         }
     }
     &--date-picker {
@@ -789,11 +791,17 @@ th {
             text-align: center;
         }
     }
+    &-NavBar {
+        // keeps prev/next arrows aligned as modal flex's
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+    }
     &-NavButton {
         width: 6px;
         height: 10px;
         top: .25rem;
-        right: 1rem;
+        right: 6%;
         fill: $default-text-color;
 
         &--next {
@@ -803,7 +811,7 @@ th {
         &--prev {
             background-image: none;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path d="M.48 4.5L4.88.1a.35.35 0 1 1 .5.5L.97 5l4.4 4.4a.35.35 0 1 1-.5.5L.48 5.5 0 5l.48-.5z"/></svg>');
-            left: 1rem;
+            left: 6%;
             right: unset;
         }
     }
