@@ -3,13 +3,6 @@
 
 $filter-container-width: 24rem;
 
-@mixin button-tiny {
-    min-height: $size-32;
-    font-size: $smaller-font-size;
-    line-height: $size-16;
-    padding: $size-8 $size-16;
-}
-
 @mixin filter-item-hover {
     background-color: $table-item-background-hover;
 }
@@ -352,7 +345,7 @@ th {
     display: flex;
     > * {
         flex: 1 1 auto;
-        @include margin(right, $size-16);
+        @include margin(right, $size-24);
 
         &:last-child {
             @include margin-reset;
@@ -398,7 +391,12 @@ th {
         @include padding(top, $size-16);
     }
 }
+// set the margin right properly for the clustering of dynamic buttons in the table control panel
+.filter--table--button-dynamic {
+    margin-right: $size-8;
+}
 
+// Pill component styles
 .filter--pill--container {
     display: flex;
     padding-top: $size-8;
@@ -430,6 +428,10 @@ th {
         background: $hover-pill-background;
 
     }
+}
+// this puts a space between the category and object if a category is being searched on in the filters
+.filter--pill--category {
+    padding-right: $size-4;
 }
 
 .filter--clear {
@@ -608,14 +610,10 @@ th {
 
 };
 
-// Button Overrides TODO: Talk to Nako about if these will be more widely available outside of the tables
-
-.button--tiny {
-    @include button-tiny;
-    height: $size-32;
-}
 
 .button--filter-toggle {
+    margin-right: $size-8;
+
     svg {
         width: $size-16;
         height: auto;
@@ -700,7 +698,6 @@ th {
 }
 @mixin modal--content {
     background: $white;
-    width: 60%;
     min-width: 720px;
     max-width: 1000px;
     padding: $size-40;
@@ -718,7 +715,8 @@ th {
         &-2col {
             display: -ms-grid;
             display: grid;
-            grid-template-columns: 50% 50%;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
             @include query-screen-small {
                 display: block;
             }
@@ -783,6 +781,8 @@ th {
         margin-left: 0;
         margin-right: 0;
         margin-top: 0;
+        width: 100%;
+
     }
     &-Caption {
         > div {
@@ -794,14 +794,14 @@ th {
     &-NavBar {
         // keeps prev/next arrows aligned as modal flex's
         position: relative;
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
     }
     &-NavButton {
         width: 6px;
         height: 10px;
         top: .25rem;
-        right: 6%;
+        right: 0;
         fill: $default-text-color;
 
         &--next {
@@ -811,8 +811,48 @@ th {
         &--prev {
             background-image: none;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path d="M.48 4.5L4.88.1a.35.35 0 1 1 .5.5L.97 5l4.4 4.4a.35.35 0 1 1-.5.5L.48 5.5 0 5l.48-.5z"/></svg>');
-            left: 6%;
+            left: 0;
             right: unset;
         }
+    }
+    &-wrapper {
+        padding-bottom: 0;
+        padding-right: 28px;
+
+        &:nth-of-type(even) {
+            padding-right: 0;
+            padding-left: 28px;
+
+            @include query-screen-small {
+                padding: 0;
+            }
+        }
+
+        @include query-screen-small {
+            padding-bottom: $size-32;
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+//Style Input date/time selectors
+.date-time-inputs {
+    display: grid;
+    grid-template-columns: 38% 38%;
+    grid-column-gap: $size-16;
+    grid-template-rows: $size-24 1fr;
+    margin-bottom: $size-24;
+}
+
+// place input fields below labels
+.DayPickerInput,
+.time-input {
+    grid-row: 2/end;
+    
+    input {
+        font-weight: $bold-font-weight;
+        line-height: $size-24;
+        padding: $size-8 $size-16;
     }
 }
