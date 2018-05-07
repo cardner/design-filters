@@ -420,6 +420,7 @@ input {
     }
     &:not([disabled]):hover {
         border-color: $hover-input-border-color;
+        background-color: $white;
     }
     #predelay,
     #postdelay {
