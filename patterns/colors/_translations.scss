@@ -37,6 +37,7 @@ $primary-border-color: map-get($blue, cta);
 $primary-border-hover-color: map-get($blue, cta-light);
 $default-input-border-color: map-get($gray, light);
 $hover-input-border-color: map-get($gray, dark);
+$focus-input-border-color: map-get($blue, focus);
 
 // Box Shadows
 $default-boxshadow-color: map-get($gray, dark);
@@ -88,9 +89,9 @@ $dark-filter-border: #B3C1CD;
 $default-table-button: #455C63;
 $gradient-table-button: #F4F6F8;
 $default-table-button-border: #CDD2D5;
-$focus-button-border: #BEBEBE;
+$focus-button-border: #ADD1FF;
 $focus-secondarybutton-border: #396B9F;
-$hover-button-border: #3D8ADA;
+$hover-button-border: #4187FF;
 $hover-gradient-button-top: #53A1F4;
 $hover-gradient-button-bottom: #3792F2;
 $hover-gradient-select-top: #F7F7F7;
