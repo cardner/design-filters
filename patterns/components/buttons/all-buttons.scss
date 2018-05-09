@@ -12,10 +12,10 @@
     text-decoration: none;
     line-height: $size-24;
     min-height: $size-40;
-    @include borders($border-color: $button-border-color);
+    @include borders($border-color: $default-table-button-border);
     padding: $size-8 $size-16; // 10/16, 20/16
-    color: $button-text-color;
-    background-color: transparent;
+    color: $default-table-button;
+    background: linear-gradient($white, $gradient-table-button);
     letter-spacing: .04em;
     outline: none;
 }
@@ -48,12 +48,12 @@ input[type="src"]:not(.link) input[type="reset"] {
         cursor: pointer;
 
         &:focus {
-            @include button-focus($border-color: $white);
+            @include button-focus($focus-button-border);
         }
     }
 
     &:focus {
-        @include button-focus($border-color: $focus-secondarybutton-border);
+        @include button-focus($border-color: $focus-button-border);
     }
 
     &:active {
