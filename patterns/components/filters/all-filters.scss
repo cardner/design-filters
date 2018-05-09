@@ -44,7 +44,7 @@ input[type="checkbox"] {
 
     &:focus {
         box-shadow: none;
-        @include button-focus;
+        @include button-focus($focus-button-border);
     }
 }
 
@@ -55,7 +55,7 @@ input[type="radio"] {
 
     &:focus {
         box-shadow: none;
-        @include button-focus;
+        @include button-focus($focus-button-border);
     }
 
 }
@@ -354,11 +354,8 @@ th {
 
     button {
         border-color: $default-table-button-border;
-        color: $default-table-button;
-        background: linear-gradient($white, $gradient-table-button);
 
         &:hover {
-            background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
             border-color: $button-border-hover-color;
             svg {
                 fill: $white;
@@ -378,7 +375,7 @@ th {
             }
 
             &:focus {
-                @include button-focus($border-color: $white);
+                @include button-focus($focus-button-border);
             }
         }
 
@@ -699,8 +696,8 @@ th {
 }
 @mixin modal--content {
     background: $white;
-    min-width: 720px;
-    max-width: 1000px;
+    min-width: 650px;
+    max-width: 900px;
     padding: $size-40;
     margin: 0 auto;
     position: relative;

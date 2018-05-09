@@ -394,7 +394,7 @@ input {
     &:focus {
         outline: none;
         border-color: $default-border-color;
-        @include button-focus;
+        @include button-focus($focus-input-border-color);
     }
 
     :active {
@@ -404,7 +404,7 @@ input {
     &[type="radio"] {
         background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
         &:focus {
-            @include button-focus;
+            @include button-focus($focus-input-border-color);
         }
         &:active,
         &:hover {
@@ -415,7 +415,7 @@ input {
         background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
         &:focus {
             border-radius: 15%;
-            @include button-focus;
+            @include button-focus($focus-input-border-color);
         }
     }
     &:not([disabled]):hover {
@@ -512,7 +512,7 @@ input:not([type="hidden"]) {
         @include transitions;
 
         &:focus {
-            @include button-focus;
+            @include button-focus($focus-input-border-color);
             background-color: $white;
         }
 
