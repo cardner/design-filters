@@ -421,7 +421,7 @@ th {
     &:hover {
         transition: all $fast-ease;
         text-decoration: none;
-        @include borders($border-color: $dark-filter-border);
+        @include borders($border-color: $hover-pill-border);
         background: $hover-pill-background;
 
     }
