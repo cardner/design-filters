@@ -100,7 +100,7 @@
                 <thead class="">
                   <tr role="row">
                     <th class="checkbox table--td-width--checkbox sorting_disabled" rowspan="1" colspan="1" aria-label="">
-                      <label>
+                      <label class="table--select-all">
                         <input name="select-all" type="checkbox">
                       </label>
                     </th>
@@ -126,15 +126,15 @@
                     <th class="last_login table--td-width--large sorting" tabindex="0" aria-controls="user-table" rowspan="1" colspan="1"
                       aria-label="Last Login: activate to sort column descending">Last Login</th>
                   </tr>
-                </thead>
-            
-                <tbody class="">
-                  <tr role="row">
-                    <td colspan="8" class="a--font-size-smaller">
+                  <tr role="row" class="table--select-count--container">
+                    <td colspan="8">
                       <span class="table--select--count">100</span> users from this page have been selected.
-                      <a href="" class="table--select--all">Select all <strong class="table--select--count-total">324</strong> users</a>
-                    </td>
+                      <a href="" class="table--select--all">Select all
+                        <strong class="table--select--count-total">324</strong> users</a>
+                      </td>
                   </tr>
+                </thead>
+                <tbody class="">
                   <tr role="row">
                     <td class="checkbox">
                       <label>
@@ -1111,7 +1111,17 @@
           let modalCloseBTN = document.getElementsByClassName('js--modal-close');
           
           let modalOpenBTN = document.getElementById('react-select-2--option-7');
-          
+
+          let tableSelectAll = document.getElementsByClassName('table--select-all')[0];
+
+          //this is going to be super hacky to fake a loading screen
+          let tableFilterLoad = filterContainer.getElementsByTagName('input');
+
+          for (var i = 0; i < tableFilterLoad.length; i++) {
+            tableFilterLoad[i].onclick = function() {
+              fakeLoadTable()
+            }
+          }
 
           for (var i = 0; i < filterGroupToggle.length; i++) {
             filterGroupToggle[i].onclick = function() {
@@ -1139,9 +1149,14 @@
             toggleModal(modalCloseBTN[0])
           }
 
+          tableSelectAll.onclick = function() {
+            selectAllTr(this);
+          }
+
           function highlightTableRow(e) {
             e.classList.toggle('--is-active');
           }
+          
 
           function toggleFilterGroup(e) {
 
@@ -1177,7 +1192,31 @@
             modalContainer.classList.toggle('--is-hidden');
             modalContainer.classList.toggle('--is-visible');
           }
+
+          function selectAllTr(e) {
+            let currentTable = e.closest('table');
+            let allTr = currentTable.getElementsByTagName('tr');
+            let currentCount = currentTable.getElementsByClassName('table--select-count--container');
+
+            for (var i = 0; i < allTr.length; i++) {
+              if(allTr[i].classList.contains('table--select-count-container')) {
+                allTr[i].classList.toggle('--is-active');
+
+              }
+            console.log(allTr[i].classList.contains('table--select-count-container'));
+              
+              allTr[i].classList.toggle('--is-active');
+            }
+          }
+
+          function fakeLoadTable() {
+            tableContainer.classList.add('--is-loading');
+          setTimeout(function() {
+            tableContainer.classList.remove('--is-loading');
+          }, 1800)
+            
+          }
         </script>
-        
+
     </body>
 </html>
