@@ -5,7 +5,7 @@
 // Extend for button base styles
 %button {
     @include border-radius;
-    @include transitions(color $fast-ease, background-color $fast-ease, border $fast-ease, box-shadow $slow-ease);
+    @include transitions(background-color $fast-ease, border $fast-ease, box-shadow $slow-ease);
     display: inline-block;
     font-size: $base-font-size;
     font-weight: $base-font-weight;
@@ -46,10 +46,6 @@ input[type="src"]:not(.link) input[type="reset"] {
         border-color: $hover-button-border;
         color: $white;
         cursor: pointer;
-
-        &:focus {
-            @include button-focus($focus-button-border);
-        }
     }
 
     &:focus {
