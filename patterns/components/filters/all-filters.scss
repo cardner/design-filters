@@ -326,8 +326,7 @@ tr {
 
     &:hover,
     &.--is-active {
-        animation: cascade $fast-ease;
-        animation-fill-mode: both;
+        background-color: $table-item-background-hover;
     }
 }
 
@@ -342,7 +341,6 @@ th {
 }
 
 .table--select-count--container {
-    animation: none;
     transition: opacity 200ms ease-in-out 300ms;
     opacity: 0;
     max-height: 0;
@@ -351,7 +349,7 @@ th {
     visibility: collapse;
 
     &.--is-active {
-        animation: unset;
+        background-color: unset;
         max-height: 10vh;
         opacity: 1;
         visibility: visible;
