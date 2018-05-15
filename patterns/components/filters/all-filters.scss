@@ -393,13 +393,12 @@ th {
             opacity: 0;
             transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease, font-size $fast-ease;
         }
-        &:nth-child(2):after,
-        &:nth-child(3):after {
+        &:nth-child(2):after {
             content: '';
             @include border-radius;
-            background-color: $placeholder-loading-background;
+            background-color: darken($placeholder-loading-background, 2%);
             position: absolute;
-            width: 60%;
+            width: 90%;
             height: $size-16;
             top: $size-16;
             left: $size-8;
