@@ -345,28 +345,6 @@ th {
     }
 }
 
-@keyframes cascade {
-    0% {
-        background-color: $white;
-    }
-    20% {
-        background-color: $placeholder-loading-background;
-    }
-    80% {
-        background-color: $white;
-    }
-}
-$current-count: 50;
-
-// Save this for potential loader use
-// // loop through all the counted table rows to animate them
-// @for $i from 1 through $current-count {
-//     &:nth-child(#{$i}) {
-//         // Delay the animation. Delay increases as items loop.
-//         animation-delay: $i * (600ms / 18);
-//     }
-// }
-
 tr {
     cursor: pointer;
     transition: background-color $fast-ease;
@@ -409,34 +387,27 @@ th {
     td {
         position: relative;
         font-size: 0;
-        * {
+        height: $size-48;
+        *:not(input[type="checkbox"]) {
             visibility: hidden;
             opacity: 0;
-            transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease;
+            transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease, font-size $fast-ease;
         }
-        &:after {
+        &:nth-child(2):after,
+        &:nth-child(3):after,
+        &:nth-child(4):after {
             content: '';
             @include border-radius;
             background-color: $placeholder-loading-background;
             position: absolute;
             width: 60%;
             height: $size-16;
-            top: $size-24;
+            top: $size-16;
             left: $size-8;
-            z-index: 9000;
+            z-index: 900;
             animation: cascade 2s ease-in-out 0s;
         }
     }
-    // tr {
-    //     @for $i from 1 through $current-count {
-    //         &:nth-child(#{$i}) {
-    //             td:after {
-    //                 // Delay the animation. Delay increases as items loop.
-    //                 animation-delay: $i * (2s / 50);
-    //             }
-    //         }
-    //     }
-    // }
 
 }
 
@@ -496,7 +467,7 @@ th {
 
         &.--is-active {
             background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
-            border-color: $primary-button-gradient-end;
+            border-color: transparent;
 
             svg {
                 fill: $white;
@@ -504,6 +475,7 @@ th {
 
             &:hover {
                 background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+                border-color: $hover-gradient-button-top;
             }
 
             &:focus {
