@@ -43,7 +43,7 @@ input[type="src"]:not(.link) input[type="reset"] {
     &:hover {
         text-decoration: none;
         background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
-        border-color: $hover-button-border;
+        border-color: $hover-gradient-button-top;
         color: $white;
         cursor: pointer;
     }
