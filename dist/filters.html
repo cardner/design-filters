@@ -15,7 +15,10 @@
 
     </head>
     <body>
-        
+        <section class="loading--container">
+          <span class="loading--progress"></span>
+        </section>
+
         <section class="filter--container">
             <div id="user-table" class="filter--table --is-closed">
               <h1 class="header--title">Page Title Goes here</h1>
@@ -1095,8 +1098,9 @@
         </section>
         <script>
 
-          let filterContainer = document.getElementsByClassName('filter')[0];
-          let tableContainer = document.getElementsByClassName('filter--table')[0];
+          const filterContainer = document.getElementsByClassName('filter')[0];
+          const tableContainer = document.getElementsByClassName('filter--table')[0];
+          const loadingBar = document.getElementsByClassName('loading--container')[0];
 
           let filterButton = document.getElementsByClassName('button--filter-toggle')[0];
 
@@ -1211,8 +1215,11 @@
 
           function fakeLoadTable() {
             tableContainer.classList.add('--is-loading');
+            loadingBar.classList.add('--is-active');
+
           setTimeout(function() {
             tableContainer.classList.remove('--is-loading');
+            loadingBar.classList.remove('--is-active');
           }, 1800)
             
           }

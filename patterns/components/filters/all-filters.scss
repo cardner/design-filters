@@ -67,6 +67,53 @@ input[type="radio"] {
     grid-template-columns: $filter-container-width 1fr;
 }
 
+// Style the progress loading bar TODO this should get elevated out of these styles and be globally accessable when ready
+@keyframes loading-bar {
+    0% {
+        transform: scaleX(0);
+    }
+    20% {
+        transform: scaleX(.2);
+    }
+    40% {
+        transform: scaleX(.6);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.loading--container {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transition: opacity $fast-ease, visibility $fast-ease;
+    z-index: 9000;
+
+    // make visible if currently loading
+    &.--is-active {
+        opacity: 1;
+        visibility: visible;
+
+        .loading--progress {
+            animation: loading-bar 3s ease-in-out 0s forwards;
+        }
+    }
+}
+
+.loading--progress {
+    display: block;
+    height: 5px;
+    background: linear-gradient(90deg, $hover-gradient-button-top, $hover-gradient-button-bottom);
+    transform-origin: left;
+    will-change: transform;
+}
+
 // Set filter to be both off screen when off and underneath grid of the table container
 .filter {
     // keep filter in track one of grid for width
@@ -376,6 +423,7 @@ th {
             height: $size-16;
             top: $size-24;
             left: $size-8;
+            z-index: 9000;
             animation: cascade 2s ease-in-out 0s;
         }
     }
@@ -441,7 +489,6 @@ th {
     button {
 
         &:hover {
-            border-color: $button-border-hover-color;
             svg {
                 fill: $white;
             }
@@ -449,7 +496,7 @@ th {
 
         &.--is-active {
             background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
-            border-color: $button-border-hover-color;
+            border-color: $primary-button-gradient-end;
 
             svg {
                 fill: $white;
