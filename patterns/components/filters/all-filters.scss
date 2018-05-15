@@ -300,13 +300,13 @@ th {
 
 @keyframes cascade {
     0% {
+        background-color: $white;
+    }
+    20% {
         background-color: $placeholder-loading-background;
     }
-    50% {
-        background-color: darken($color: $placeholder-loading-background, $amount: 5%)
-    }
-    100% {
-        background-color: $placeholder-loading-background;
+    80% {
+        background-color: $white;
     }
 }
 $current-count: 50;
@@ -364,6 +364,8 @@ th {
         font-size: 0;
         * {
             visibility: hidden;
+            opacity: 0;
+            transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease;
         }
         &:after {
             content: '';
@@ -374,21 +376,19 @@ th {
             height: $size-16;
             top: $size-24;
             left: $size-8;
-            animation: cascade 2s ease-in-out 0s infinite;
-            
-
+            animation: cascade 2s ease-in-out 0s;
         }
     }
-    tr {
-        @for $i from 1 through $current-count {
-            &:nth-child(#{$i}) {
-                td:after {
-                    // Delay the animation. Delay increases as items loop.
-                    animation-delay: $i * (2s / 50);
-                }
-            }
-        }
-    }
+    // tr {
+    //     @for $i from 1 through $current-count {
+    //         &:nth-child(#{$i}) {
+    //             td:after {
+    //                 // Delay the animation. Delay increases as items loop.
+    //                 animation-delay: $i * (2s / 50);
+    //             }
+    //         }
+    //     }
+    // }
 
 }
 
