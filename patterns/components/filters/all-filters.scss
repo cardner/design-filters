@@ -388,18 +388,20 @@ th {
         position: relative;
         font-size: 0;
         height: $size-48;
-        *:not(input[type="checkbox"]) {
+        * {
             visibility: hidden;
             opacity: 0;
             transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease, font-size $fast-ease;
+        
         }
+        &:nth-child(1):after,
         &:nth-child(2):after {
             content: '';
             @include border-radius;
             background-color: darken($placeholder-loading-background, 2%);
             position: absolute;
-            width: 90%;
-            height: $size-16;
+            width: 80%;
+            height: $size-24;
             top: $size-16;
             left: $size-8;
             z-index: 900;
