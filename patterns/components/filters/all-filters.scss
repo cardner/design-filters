@@ -19,10 +19,19 @@ input[type="checkbox"] {
     border-radius: 3px;
     @include borders($border-color: $default-input-border-color);
 
+    &:hover {
+        background: linear-gradient($hover-gradient-select-top, $hover-gradient-select-bottom);
+        border-color: $default-table-button-border;
+    }
+
+    &:focus {
+        box-shadow: none;
+        @include button-focus($focus-button-border);
+    }
+
     &:checked {
         background: $primary-button-color;
         border-color: transparent;
-
         &::after {
             position: absolute;
             top: 2px;
@@ -35,16 +44,10 @@ input[type="checkbox"] {
             content: $confirm;
             color: $white;
         }
-
         &:focus {
             // inverse the border color to white because the background color is dark
             border-color: $white;
         }
-    }
-
-    &:focus {
-        box-shadow: none;
-        @include button-focus($focus-button-border);
     }
 }
 
