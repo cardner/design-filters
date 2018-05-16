@@ -40,6 +40,7 @@
         @include border(top);
         width: 100% !important;
         border-collapse: separate;
+        table-layout: auto;
     }
 
     tr {
@@ -74,7 +75,6 @@
 
     td {
         background-color: $white;
-        @include border(top);
         padding: 1rem .5rem 1rem 1.25rem;
         /* 16/16, 8/16, 16/16, 20/16 */
 
