@@ -1,6 +1,6 @@
 &.c--primary {
     color: $white;
-    background: $primary-button-color;
+    background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
     border-color: transparent;
 
     &:hover {
