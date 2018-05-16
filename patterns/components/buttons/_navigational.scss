@@ -39,8 +39,8 @@
     margin-left: 1.1em;
 
     &:before {
-        left: -1.1em;
-        margin-right: -1.03em;
+        font-size: $smallest-font-size;
+        left: -.25em;
     }
 }
 
@@ -63,10 +63,12 @@
 
 .c--btn-next {
     &:after {
-        @extend %icon;
+        @include duo-icons;
         @include forward-arrow;
+        font-size: $smallest-font-size;
         vertical-align: middle;
         margin-right: -.25em;
+        margin-left: $size-8;
         line-height: 0;
         top: -.075em;
         position: relative;

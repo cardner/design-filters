@@ -261,19 +261,6 @@ input[type=radio] {
             font-weight: $bold-font-weight;
         }
     }
-
-    // Set propery alignment and active state for radio + label combo
-    &+label {
-        vertical-align: text-bottom;
-    }
-}
-
-input[type=tel] {
-    &:focus {
-        color: $grey-darker;
-        border: 2px solid $duo-green;
-        box-shadow: 0 0 5px 0 transparentize($duo-green, .5);
-    }
 }
 
 textarea {
@@ -395,10 +382,6 @@ input {
         outline: none;
         border-color: $default-border-color;
         @include button-focus($focus-input-border-color);
-    }
-
-    :active {
-        border-style: solid;
     }
 
     &[type="radio"] {

@@ -20,10 +20,10 @@
         order: 2;
         align-self: center;
         padding: .125rem 0 0 .5rem; /* 2/16 */
-    }
 
-    &:focus {
-        @include borders($border-color: $button-border-color);
+        :hover & {
+            text-decoration: none;
+        }
     }
 
     &[aria-expanded="true"] {
@@ -33,7 +33,7 @@
             position: absolute;
             display: block;
             line-height: 1em;
-            bottom: -1.28em;
+            bottom: -1.3em;
             height: .8em;
             right: -4px;
             z-index: 5000;

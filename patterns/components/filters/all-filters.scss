@@ -20,8 +20,7 @@ input[type="checkbox"] {
     @include borders($border-color: $default-input-border-color);
 
     &:hover {
-        background: linear-gradient($hover-gradient-select-top, $hover-gradient-select-bottom);
-        border-color: $default-table-button-border;
+        cursor: pointer;
     }
 
     &:focus {
@@ -661,7 +660,8 @@ th {
 .filter--row--load-more {
     text-align: center;
 
-    &:hover {
+    &:hover,
+    &.--is-active {
         background-color: unset;
     }
 

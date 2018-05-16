@@ -23,30 +23,18 @@
 
     .bulk-selector {
 
-        &:hover + .bulk-actions .a--dropdown-trigger {
-            border-left-color: $default-button-hover-color;
-        }
-
-        &:hover .a--dropdown-trigger {
-            border-color: $default-button-hover-color;
-        }
-
         .a--dropdown-trigger {
             display: flex;
-            padding: .65rem 1.25rem .4rem;
-            @include borders($border-color: $button-border-color);
+            padding: .5rem 1.25rem .3rem;
             border-right: 0;
             border-radius: $border-radius 0 0 $border-radius;
             margin-right: 0;
+            line-height: $size-24;
+            min-height: $size-40;
 
             &:before {
                 padding: 0 0 2px 2px;
             }
-
-            &:hover {
-                border-color: $default-button-hover-color;
-            }
-
         }
 
         .a--dropdown-content[aria-hidden="false"] {
@@ -59,11 +47,10 @@
 
         .a--dropdown-trigger {
             padding: .65rem 1.25rem .4rem;
-            @include borders($border-color: $button-border-color);
             border-radius: 0 $border-radius $border-radius 0;
-            height: 40px; // Necessary to match height of bulk-selector since there is no icon via content
-            font-size: 1.6em;
             line-height: 5px;
+            min-height: $size-40;
+            font-size: 1.6em;
             margin-left: 0;
 
             &:before {
@@ -76,28 +63,14 @@
                 bottom: -0.67em;
             }
 
-            &:hover {
-                border-color: $default-button-hover-color;
-            }
-
             &.active {
-                background: $primary-button-hover-color;
-                border-color: $primary-button-hover-color;
+                background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
+                border-color: transparent;
                 color: $white;
 
                 & + .action-list a {
                     cursor: pointer;
                 }
-            }
-
-            &.active:focus {
-                @include box-shadow(0 0 0 1px $white, 0 0 0 2px $primary-border-color);
-                @include borders($border-color: $button-border-color);
-            }
-
-            &:focus {
-                @include box-shadow(0 0 0 1px $white, 0 0 0 2px $primary-border-color);
-                @include borders($border-color: $button-border-color);
             }
 
             /* margins for spacer up next, see nth-last-child(2) */
