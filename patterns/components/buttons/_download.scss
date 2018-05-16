@@ -5,19 +5,20 @@
         display: inline-block;;
         height: auto;
         border: none;
-        padding: 12px 20px 12px 0;
+        background: transparent;
+        padding-left: 0;
         color: $default-button-color;
-        font-size: 0.8125rem;
+        font-size: $smaller-font-size;
         line-height: 1em;
         transition: color .2s ease;
 
         svg {
             display: inline-block;
-            width: 1.72em;
+            width: 1.8em;
             float: left;
             height: auto;
             fill: $default-button-color;
-            margin-right: 0.86em;
+            margin-right: $size-8;
         }
 
         i {
@@ -25,8 +26,8 @@
             clear: both;
             color: $mid-text-color;
             font-style: normal;
-            margin-top: 0.25em;
-            font-size: 0.6875rem;
+            margin-top: 0.2em;
+            font-size: $smallest-font-size;
             line-height: 1rem;
             min-width: 75px;
         }

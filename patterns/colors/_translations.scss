@@ -36,7 +36,7 @@ $button-border-hover-color: map-get($blue, cta-light);
 $primary-border-color: map-get($blue, cta);
 $primary-border-hover-color: map-get($blue, cta-light);
 $default-input-border-color: map-get($gray, light);
-$hover-input-border-color: map-get($gray, dark);
+$hover-input-border-color: #8A8A8A;
 $focus-input-border-color: map-get($blue, focus);
 
 // Box Shadows
@@ -103,7 +103,7 @@ $active-button-gradient-bottom: #328BFE;
 $focus-radio-border: #A2CFFF;
 $filter-panel-background: #FAFAFA;
 $filter-item-background-hover: #F7F9FA;
-$hover-filter-panel-close: #D8D8D8;
+$hover-filter-panel-close: #E4ECF1;
 $table-item-background-hover : #EDF6FF;
 $dark-border: #B3C1CD;
 $default-border: #E4ECF1;
