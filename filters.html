@@ -600,361 +600,6 @@
                 </tfoot>
               </table>
             </div>
-            <section class="modal--container modal--date-picker --is-hidden">
-              <section class="modal--content modal--content-2col">
-                <span class="modal--header">
-                  <h2>Custom Time Frame</h2>
-                  <a class="modal--close js--modal-close">
-                    <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 5.5l4.4 4.4a.35.35 0 1 0 .5-.5L5.5 5 9.9.6a.35.35 0 1 0-.5-.5L5 4.5.6.1a.35.35 0 1 0-.5.5L4.5 5 .1 9.4a.35.35 0 1 0 .5.5L5 5.5z"
-                        fill="#4A4A4A" fill-rule="evenodd" />
-                    </svg>
-                  </a>
-                </span>
-                <div class="DayPicker-wrapper" tabindex="-1">
-                  <div class="date-time-inputs">
-                    <label for="date--start" class="a--font-size-smaller">Start Date</label>
-                    <div class="DayPickerInput">
-                      <input name="date--start" placeholder="MM/DD/YYYY" value="05/06/2018">
-                    </div>
-                    <label for="time--start" class="a--font-size-smaller">Start Time</label>
-                    <div class="time-input">
-                      <div class="time-picker-widget">
-                        <div>
-                          <input name="time--start" placeholder="HH:MM am|pm" value="10:18 am">
-                          <div class="time-selection-container hidden">
-                            <ul>
-                              <li class="">12:00 am</li>
-                              <li class="">12:30 am</li>
-                              <li class="">1:00 am</li>
-                              <li class="">1:30 am</li>
-                              <li class="">2:00 am</li>
-                              <li class="">2:30 am</li>
-                              <li class="">3:00 am</li>
-                              <li class="">3:30 am</li>
-                              <li class="">4:00 am</li>
-                              <li class="">4:30 am</li>
-                              <li class="">5:00 am</li>
-                              <li class="">5:30 am</li>
-                              <li class="">6:00 am</li>
-                              <li class="">6:30 am</li>
-                              <li class="">7:00 am</li>
-                              <li class="">7:30 am</li>
-                              <li class="">8:00 am</li>
-                              <li class="">8:30 am</li>
-                              <li class="">9:00 am</li>
-                              <li class="">9:30 am</li>
-                              <li class="">10:00 am</li>
-                              <li class="">10:30 am</li>
-                              <li class="">11:00 am</li>
-                              <li class="">11:30 am</li>
-                              <li class="">12:00 pm</li>
-                              <li class="">12:30 pm</li>
-                              <li class="">1:00 pm</li>
-                              <li class="">1:30 pm</li>
-                              <li class="">2:00 pm</li>
-                              <li class="">2:30 pm</li>
-                              <li class="">3:00 pm</li>
-                              <li class="">3:30 pm</li>
-                              <li class="">4:00 pm</li>
-                              <li class="">4:30 pm</li>
-                              <li class="">5:00 pm</li>
-                              <li class="">5:30 pm</li>
-                              <li class="">6:00 pm</li>
-                              <li class="">6:30 pm</li>
-                              <li class="">7:00 pm</li>
-                              <li class="">7:30 pm</li>
-                              <li class="">8:00 pm</li>
-                              <li class="">8:30 pm</li>
-                              <li class="">9:00 pm</li>
-                              <li class="">9:30 pm</li>
-                              <li class="">10:00 pm</li>
-                              <li class="">10:30 pm</li>
-                              <li class="">11:00 pm</li>
-                              <li class="">11:30 pm</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="DayPicker-NavBar">
-                    <span tabindex="0" role="button" aria-label="Previous Month" class="DayPicker-NavButton DayPicker-NavButton--prev"></span>
-                    <span tabindex="0" role="button" aria-label="Next Month" class="DayPicker-NavButton DayPicker-NavButton--next"></span>
-                  </div>
-                  <div class="DayPicker-Months">
-                    <div class="DayPicker-Month" role="grid">
-                      <div class="DayPicker-Caption" role="heading">
-                        <div>October 2018</div>
-                      </div>
-                      <div class="DayPicker-Weekdays" role="rowgroup">
-                        <div class="DayPicker-WeekdaysRow" role="row">
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Sunday">Su</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Monday">Mo</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Tuesday">Tu</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Wednesday">We</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Thursday">Th</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Friday">Fr</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Saturday">Sa</abbr>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="DayPicker-Body" role="rowgroup">
-                        <div class="DayPicker-Week" role="row">
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside" ></div>
-                          <div class="DayPicker-Day" tabindex="0" role="gridcell" aria-label="Mon Oct 01 2018" aria-disabled="false"
-                            aria-selected="false">1</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 02 2018" aria-disabled="false"
-                            aria-selected="false">2</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 03 2018" aria-disabled="false"
-                            aria-selected="false">3</div>
-                          <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" 
-                            role="gridcell" aria-label="Thu Oct 04 2018" aria-disabled="false" aria-selected="false">4</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 05 2018" aria-disabled="false"
-                            aria-selected="false">5</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 06 2018" aria-disabled="false"
-                            aria-selected="false">6</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 07 2018" aria-disabled="false" aria-selected="false">7</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 08 2018" aria-disabled="false"
-                            aria-selected="false">8</div>
-                          <div class="DayPicker-Day DayPicker-Day--start DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Tue Oct 09 2018" aria-disabled="false"
-                            aria-selected="false">9</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Wed Oct 10 2018" aria-disabled="false"
-                            aria-selected="false">10</div>
-<div class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--selected" tabindex="-1"
-                            role="gridcell" aria-label="Thu Oct 11 2018" aria-disabled="false" aria-selected="false">11</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Fri Oct 12 2018" aria-disabled="false"
-                            aria-selected="false">12</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sat Oct 13 2018" aria-disabled="false"
-                            aria-selected="false">13</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sun Oct 14 2018" aria-disabled="false"
-  aria-selected="false">14</div>
-<div class="DayPicker-Day DayPicker-Day--selected DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Mon Oct 15 2018"
-  aria-disabled="false"
-                            aria-selected="false">15</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Tue Oct 16 2018" aria-disabled="false"
-                            aria-selected="false">16</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Wed Oct 17 2018" aria-disabled="false"
-                            aria-selected="false">17</div>
-<div class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--selected" tabindex="-1"
-                            role="gridcell" aria-label="Thu Oct 18 2018" aria-disabled="false" aria-selected="false">18</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Fri Oct 19 2018" aria-disabled="false"
-                            aria-selected="false">19</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sat Oct 20 2018" aria-disabled="false"
-                            aria-selected="false">20</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sun Oct 21 2018" aria-disabled="false"
-  aria-selected="false">21</div>
-<div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Mon Oct 22 2018" aria-disabled="false"
-                            aria-selected="false">22</div>
-<div class="DayPicker-Day DayPicker-Day--selected DayPicker-Day--end" tabindex="-1" role="gridcell" aria-label="Tue Oct 23 2018" aria-disabled="false"
-                            aria-selected="false">23</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 24 2018" aria-disabled="false"
-                            aria-selected="false">24</div>
-                          <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" 
-                            role="gridcell" aria-label="Thu Oct 25 2018" aria-disabled="false" aria-selected="false">25</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 26 2018" aria-disabled="false"
-                            aria-selected="false">26</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 27 2018" aria-disabled="false"
-                            aria-selected="false">27</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 28 2018" aria-disabled="false" aria-selected="false">28</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 29 2018" aria-disabled="false"
-                            aria-selected="false">29</div>
-                          <div class="DayPicker-Day DayPicker-Day--birthday" tabindex="-1"
-                            role="gridcell" aria-label="Tue Oct 30 2018" aria-disabled="false" aria-selected="false">30</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 31 2018" aria-disabled="false"
-                            aria-selected="false">31</div>
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--outside" ></div>
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside" ></div>
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside" ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="DayPicker-wrapper" tabindex="-1">
-                  <div class="date-time-inputs">
-                    <label for="date--end" class="a--font-size-smaller">End Date</label>
-                    <div class="DayPickerInput">
-                      <input name="date--end" placeholder="MM/DD/YYYY" value="05/06/2018">
-                    </div>
-                    <label for="time--end" class="a--font-size-smaller">End Time</label>
-                    <div class="time-input">
-                      <div class="time-picker-widget">
-                        <div>
-                          <input name="time--end" placeholder="HH:MM am|pm" value="10:18 am">
-                          <div class="time-selection-container hidden">
-                            <ul>
-                              <li class="">12:00 am</li>
-                              <li class="">12:30 am</li>
-                              <li class="">1:00 am</li>
-                              <li class="">1:30 am</li>
-                              <li class="">2:00 am</li>
-                              <li class="">2:30 am</li>
-                              <li class="">3:00 am</li>
-                              <li class="">3:30 am</li>
-                              <li class="">4:00 am</li>
-                              <li class="">4:30 am</li>
-                              <li class="">5:00 am</li>
-                              <li class="">5:30 am</li>
-                              <li class="">6:00 am</li>
-                              <li class="">6:30 am</li>
-                              <li class="">7:00 am</li>
-                              <li class="">7:30 am</li>
-                              <li class="">8:00 am</li>
-                              <li class="">8:30 am</li>
-                              <li class="">9:00 am</li>
-                              <li class="">9:30 am</li>
-                              <li class="">10:00 am</li>
-                              <li class="">10:30 am</li>
-                              <li class="">11:00 am</li>
-                              <li class="">11:30 am</li>
-                              <li class="">12:00 pm</li>
-                              <li class="">12:30 pm</li>
-                              <li class="">1:00 pm</li>
-                              <li class="">1:30 pm</li>
-                              <li class="">2:00 pm</li>
-                              <li class="">2:30 pm</li>
-                              <li class="">3:00 pm</li>
-                              <li class="">3:30 pm</li>
-                              <li class="">4:00 pm</li>
-                              <li class="">4:30 pm</li>
-                              <li class="">5:00 pm</li>
-                              <li class="">5:30 pm</li>
-                              <li class="">6:00 pm</li>
-                              <li class="">6:30 pm</li>
-                              <li class="">7:00 pm</li>
-                              <li class="">7:30 pm</li>
-                              <li class="">8:00 pm</li>
-                              <li class="">8:30 pm</li>
-                              <li class="">9:00 pm</li>
-                              <li class="">9:30 pm</li>
-                              <li class="">10:00 pm</li>
-                              <li class="">10:30 pm</li>
-                              <li class="">11:00 pm</li>
-                              <li class="">11:30 pm</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="DayPicker-NavBar">
-                    <span tabindex="0" role="button" aria-label="Previous Month" class="DayPicker-NavButton DayPicker-NavButton--prev"></span>
-                    <span tabindex="0" role="button" aria-label="Next Month" class="DayPicker-NavButton DayPicker-NavButton--next"></span>
-                  </div>
-                  <div class="DayPicker-Months">
-                    <div class="DayPicker-Month" role="grid">
-                      <div class="DayPicker-Caption" role="heading">
-                        <div>November 2018</div>
-                      </div>
-                      <div class="DayPicker-Weekdays" role="rowgroup">
-                        <div class="DayPicker-WeekdaysRow" role="row">
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Sunday">Su</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Monday">Mo</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Tuesday">Tu</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Wednesday">We</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Thursday">Th</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Friday">Fr</abbr>
-                          </div>
-                          <div class="DayPicker-Weekday" role="columnheader">
-                            <abbr title="Saturday">Sa</abbr>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="DayPicker-Body" role="rowgroup">
-                        <div class="DayPicker-Week" role="row">
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside" ></div>
-                          <div class="DayPicker-Day" tabindex="0" role="gridcell" aria-label="Mon Oct 01 2018" aria-disabled="false" aria-selected="false">1</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 02 2018" aria-disabled="false" aria-selected="false">2</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 03 2018" aria-disabled="false" aria-selected="false">3</div>
-                          <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell"
-                            aria-label="Thu Oct 04 2018" aria-disabled="false" aria-selected="false">4</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 05 2018" aria-disabled="false" aria-selected="false">5</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 06 2018" aria-disabled="false" aria-selected="false">6</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 07 2018" aria-disabled="false" aria-selected="false">7</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 08 2018" aria-disabled="false" aria-selected="false">8</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 09 2018" aria-disabled="false" aria-selected="false">9</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 10 2018" aria-disabled="false" aria-selected="false">10</div>
-                          <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell"
-                            aria-label="Thu Oct 11 2018" aria-disabled="false" aria-selected="false">11</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 12 2018" aria-disabled="false" aria-selected="false">12</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 13 2018" aria-disabled="false" aria-selected="false">13</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 14 2018" aria-disabled="false" aria-selected="false">14</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 15 2018" aria-disabled="false" aria-selected="false">15</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 16 2018" aria-disabled="false" aria-selected="false">16</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 17 2018" aria-disabled="false" aria-selected="false">17</div>
-                          <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell"
-                            aria-label="Thu Oct 18 2018" aria-disabled="false" aria-selected="false">18</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 19 2018" aria-disabled="false" aria-selected="false">19</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 20 2018" aria-disabled="false" aria-selected="false">20</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 21 2018" aria-disabled="false" aria-selected="false">21</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 22 2018" aria-disabled="false" aria-selected="false">22</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 23 2018" aria-disabled="false" aria-selected="false">23</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 24 2018" aria-disabled="false" aria-selected="false">24</div>
-                          <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1"  role="gridcell"
-                            aria-label="Thu Oct 25 2018" aria-disabled="false" aria-selected="false">25</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 26 2018" aria-disabled="false" aria-selected="false">26</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 27 2018" aria-disabled="false" aria-selected="false">27</div>
-                        </div>
-                        <div class="DayPicker-Week" role="row">
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 28 2018" aria-disabled="false" aria-selected="false">28</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 29 2018" aria-disabled="false" aria-selected="false">29</div>
-                          <div class="DayPicker-Day DayPicker-Day--birthday" tabindex="-1" role="gridcell"
-                            aria-label="Tue Oct 30 2018" aria-disabled="false" aria-selected="false">30</div>
-                          <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 31 2018" aria-disabled="false" aria-selected="false">31</div>
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--outside" ></div>
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside" ></div>
-                          <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside" ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <section class="modal--footer">
-                  <button class="c--primary">Apply</button>
-                  <button class="js--modal-close">Cancel</button>
-                </section>
-              </section>
-            </section>
-
           <nav class="filter users-filter --is-closed">
             <button class="filter--close c--button-link link a--link-color-dark a--h3-style" onclick="toggleFilters()">
               Filters
@@ -1096,6 +741,349 @@
             </fieldset>
           </nav>
         </section>
+<section class="modal--container modal--date-picker --is-hidden">
+  <section class="modal--content modal--content-2col">
+    <span class="modal--header">
+      <h2>Custom Time Frame</h2>
+      <a class="modal--close js--modal-close">
+        <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 5.5l4.4 4.4a.35.35 0 1 0 .5-.5L5.5 5 9.9.6a.35.35 0 1 0-.5-.5L5 4.5.6.1a.35.35 0 1 0-.5.5L4.5 5 .1 9.4a.35.35 0 1 0 .5.5L5 5.5z"
+            fill="#4A4A4A" fill-rule="evenodd" />
+        </svg>
+      </a>
+    </span>
+    <div class="DayPicker-wrapper" tabindex="-1">
+      <div class="date-time-inputs">
+        <label for="date--start" class="a--font-size-smaller">Start Date</label>
+        <div class="DayPickerInput">
+          <input name="date--start" placeholder="MM/DD/YYYY" value="05/06/2018">
+        </div>
+        <label for="time--start" class="a--font-size-smaller">Start Time</label>
+        <div class="time-input">
+          <div class="time-picker-widget">
+            <div>
+              <input name="time--start" placeholder="HH:MM am|pm" value="10:18 am">
+              <div class="time-selection-container hidden">
+                <ul>
+                  <li class="">12:00 am</li>
+                  <li class="">12:30 am</li>
+                  <li class="">1:00 am</li>
+                  <li class="">1:30 am</li>
+                  <li class="">2:00 am</li>
+                  <li class="">2:30 am</li>
+                  <li class="">3:00 am</li>
+                  <li class="">3:30 am</li>
+                  <li class="">4:00 am</li>
+                  <li class="">4:30 am</li>
+                  <li class="">5:00 am</li>
+                  <li class="">5:30 am</li>
+                  <li class="">6:00 am</li>
+                  <li class="">6:30 am</li>
+                  <li class="">7:00 am</li>
+                  <li class="">7:30 am</li>
+                  <li class="">8:00 am</li>
+                  <li class="">8:30 am</li>
+                  <li class="">9:00 am</li>
+                  <li class="">9:30 am</li>
+                  <li class="">10:00 am</li>
+                  <li class="">10:30 am</li>
+                  <li class="">11:00 am</li>
+                  <li class="">11:30 am</li>
+                  <li class="">12:00 pm</li>
+                  <li class="">12:30 pm</li>
+                  <li class="">1:00 pm</li>
+                  <li class="">1:30 pm</li>
+                  <li class="">2:00 pm</li>
+                  <li class="">2:30 pm</li>
+                  <li class="">3:00 pm</li>
+                  <li class="">3:30 pm</li>
+                  <li class="">4:00 pm</li>
+                  <li class="">4:30 pm</li>
+                  <li class="">5:00 pm</li>
+                  <li class="">5:30 pm</li>
+                  <li class="">6:00 pm</li>
+                  <li class="">6:30 pm</li>
+                  <li class="">7:00 pm</li>
+                  <li class="">7:30 pm</li>
+                  <li class="">8:00 pm</li>
+                  <li class="">8:30 pm</li>
+                  <li class="">9:00 pm</li>
+                  <li class="">9:30 pm</li>
+                  <li class="">10:00 pm</li>
+                  <li class="">10:30 pm</li>
+                  <li class="">11:00 pm</li>
+                  <li class="">11:30 pm</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="DayPicker-NavBar">
+        <span tabindex="0" role="button" aria-label="Previous Month" class="DayPicker-NavButton DayPicker-NavButton--prev"></span>
+        <span tabindex="0" role="button" aria-label="Next Month" class="DayPicker-NavButton DayPicker-NavButton--next"></span>
+      </div>
+      <div class="DayPicker-Months">
+        <div class="DayPicker-Month" role="grid">
+          <div class="DayPicker-Caption" role="heading">
+            <div>October 2018</div>
+          </div>
+          <div class="DayPicker-Weekdays" role="rowgroup">
+            <div class="DayPicker-WeekdaysRow" role="row">
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Sunday">Su</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Monday">Mo</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Tuesday">Tu</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Wednesday">We</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Thursday">Th</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Friday">Fr</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Saturday">Sa</abbr>
+              </div>
+            </div>
+          </div>
+          <div class="DayPicker-Body" role="rowgroup">
+            <div class="DayPicker-Week" role="row">
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside"></div>
+              <div class="DayPicker-Day" tabindex="0" role="gridcell" aria-label="Mon Oct 01 2018" aria-disabled="false" aria-selected="false">1</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 02 2018" aria-disabled="false" aria-selected="false">2</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 03 2018" aria-disabled="false" aria-selected="false">3</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell" aria-label="Thu Oct 04 2018" aria-disabled="false"
+                aria-selected="false">4</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 05 2018" aria-disabled="false" aria-selected="false">5</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 06 2018" aria-disabled="false" aria-selected="false">6</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 07 2018" aria-disabled="false" aria-selected="false">7</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 08 2018" aria-disabled="false" aria-selected="false">8</div>
+              <div class="DayPicker-Day DayPicker-Day--start DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Tue Oct 09 2018"
+                aria-disabled="false" aria-selected="false">9</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Wed Oct 10 2018" aria-disabled="false"
+                aria-selected="false">10</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Thu Oct 11 2018"
+                aria-disabled="false" aria-selected="false">11</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Fri Oct 12 2018" aria-disabled="false"
+                aria-selected="false">12</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sat Oct 13 2018" aria-disabled="false"
+                aria-selected="false">13</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sun Oct 14 2018" aria-disabled="false"
+                aria-selected="false">14</div>
+              <div class="DayPicker-Day DayPicker-Day--selected DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Mon Oct 15 2018"
+                aria-disabled="false" aria-selected="false">15</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Tue Oct 16 2018" aria-disabled="false"
+                aria-selected="false">16</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Wed Oct 17 2018" aria-disabled="false"
+                aria-selected="false">17</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Thu Oct 18 2018"
+                aria-disabled="false" aria-selected="false">18</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Fri Oct 19 2018" aria-disabled="false"
+                aria-selected="false">19</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sat Oct 20 2018" aria-disabled="false"
+                aria-selected="false">20</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Sun Oct 21 2018" aria-disabled="false"
+                aria-selected="false">21</div>
+              <div class="DayPicker-Day DayPicker-Day--selected" tabindex="-1" role="gridcell" aria-label="Mon Oct 22 2018" aria-disabled="false"
+                aria-selected="false">22</div>
+              <div class="DayPicker-Day DayPicker-Day--selected DayPicker-Day--end" tabindex="-1" role="gridcell" aria-label="Tue Oct 23 2018"
+                aria-disabled="false" aria-selected="false">23</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 24 2018" aria-disabled="false" aria-selected="false">24</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell" aria-label="Thu Oct 25 2018" aria-disabled="false"
+                aria-selected="false">25</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 26 2018" aria-disabled="false" aria-selected="false">26</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 27 2018" aria-disabled="false" aria-selected="false">27</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 28 2018" aria-disabled="false" aria-selected="false">28</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 29 2018" aria-disabled="false" aria-selected="false">29</div>
+              <div class="DayPicker-Day DayPicker-Day--birthday" tabindex="-1" role="gridcell" aria-label="Tue Oct 30 2018" aria-disabled="false"
+                aria-selected="false">30</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 31 2018" aria-disabled="false" aria-selected="false">31</div>
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--outside"></div>
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside"></div>
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="DayPicker-wrapper" tabindex="-1">
+      <div class="date-time-inputs">
+        <label for="date--end" class="a--font-size-smaller">End Date</label>
+        <div class="DayPickerInput">
+          <input name="date--end" placeholder="MM/DD/YYYY" value="05/06/2018">
+        </div>
+        <label for="time--end" class="a--font-size-smaller">End Time</label>
+        <div class="time-input">
+          <div class="time-picker-widget">
+            <div>
+              <input name="time--end" placeholder="HH:MM am|pm" value="10:18 am">
+              <div class="time-selection-container hidden">
+                <ul>
+                  <li class="">12:00 am</li>
+                  <li class="">12:30 am</li>
+                  <li class="">1:00 am</li>
+                  <li class="">1:30 am</li>
+                  <li class="">2:00 am</li>
+                  <li class="">2:30 am</li>
+                  <li class="">3:00 am</li>
+                  <li class="">3:30 am</li>
+                  <li class="">4:00 am</li>
+                  <li class="">4:30 am</li>
+                  <li class="">5:00 am</li>
+                  <li class="">5:30 am</li>
+                  <li class="">6:00 am</li>
+                  <li class="">6:30 am</li>
+                  <li class="">7:00 am</li>
+                  <li class="">7:30 am</li>
+                  <li class="">8:00 am</li>
+                  <li class="">8:30 am</li>
+                  <li class="">9:00 am</li>
+                  <li class="">9:30 am</li>
+                  <li class="">10:00 am</li>
+                  <li class="">10:30 am</li>
+                  <li class="">11:00 am</li>
+                  <li class="">11:30 am</li>
+                  <li class="">12:00 pm</li>
+                  <li class="">12:30 pm</li>
+                  <li class="">1:00 pm</li>
+                  <li class="">1:30 pm</li>
+                  <li class="">2:00 pm</li>
+                  <li class="">2:30 pm</li>
+                  <li class="">3:00 pm</li>
+                  <li class="">3:30 pm</li>
+                  <li class="">4:00 pm</li>
+                  <li class="">4:30 pm</li>
+                  <li class="">5:00 pm</li>
+                  <li class="">5:30 pm</li>
+                  <li class="">6:00 pm</li>
+                  <li class="">6:30 pm</li>
+                  <li class="">7:00 pm</li>
+                  <li class="">7:30 pm</li>
+                  <li class="">8:00 pm</li>
+                  <li class="">8:30 pm</li>
+                  <li class="">9:00 pm</li>
+                  <li class="">9:30 pm</li>
+                  <li class="">10:00 pm</li>
+                  <li class="">10:30 pm</li>
+                  <li class="">11:00 pm</li>
+                  <li class="">11:30 pm</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="DayPicker-NavBar">
+        <span tabindex="0" role="button" aria-label="Previous Month" class="DayPicker-NavButton DayPicker-NavButton--prev"></span>
+        <span tabindex="0" role="button" aria-label="Next Month" class="DayPicker-NavButton DayPicker-NavButton--next"></span>
+      </div>
+      <div class="DayPicker-Months">
+        <div class="DayPicker-Month" role="grid">
+          <div class="DayPicker-Caption" role="heading">
+            <div>November 2018</div>
+          </div>
+          <div class="DayPicker-Weekdays" role="rowgroup">
+            <div class="DayPicker-WeekdaysRow" role="row">
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Sunday">Su</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Monday">Mo</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Tuesday">Tu</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Wednesday">We</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Thursday">Th</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Friday">Fr</abbr>
+              </div>
+              <div class="DayPicker-Weekday" role="columnheader">
+                <abbr title="Saturday">Sa</abbr>
+              </div>
+            </div>
+          </div>
+          <div class="DayPicker-Body" role="rowgroup">
+            <div class="DayPicker-Week" role="row">
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside"></div>
+              <div class="DayPicker-Day" tabindex="0" role="gridcell" aria-label="Mon Oct 01 2018" aria-disabled="false" aria-selected="false">1</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 02 2018" aria-disabled="false" aria-selected="false">2</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 03 2018" aria-disabled="false" aria-selected="false">3</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell" aria-label="Thu Oct 04 2018" aria-disabled="false"
+                aria-selected="false">4</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 05 2018" aria-disabled="false" aria-selected="false">5</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 06 2018" aria-disabled="false" aria-selected="false">6</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 07 2018" aria-disabled="false" aria-selected="false">7</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 08 2018" aria-disabled="false" aria-selected="false">8</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 09 2018" aria-disabled="false" aria-selected="false">9</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 10 2018" aria-disabled="false" aria-selected="false">10</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell" aria-label="Thu Oct 11 2018" aria-disabled="false"
+                aria-selected="false">11</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 12 2018" aria-disabled="false" aria-selected="false">12</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 13 2018" aria-disabled="false" aria-selected="false">13</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 14 2018" aria-disabled="false" aria-selected="false">14</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 15 2018" aria-disabled="false" aria-selected="false">15</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 16 2018" aria-disabled="false" aria-selected="false">16</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 17 2018" aria-disabled="false" aria-selected="false">17</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell" aria-label="Thu Oct 18 2018" aria-disabled="false"
+                aria-selected="false">18</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 19 2018" aria-disabled="false" aria-selected="false">19</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 20 2018" aria-disabled="false" aria-selected="false">20</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 21 2018" aria-disabled="false" aria-selected="false">21</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 22 2018" aria-disabled="false" aria-selected="false">22</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Tue Oct 23 2018" aria-disabled="false" aria-selected="false">23</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 24 2018" aria-disabled="false" aria-selected="false">24</div>
+              <div class="DayPicker-Day DayPicker-Day--thursdays" tabindex="-1" role="gridcell" aria-label="Thu Oct 25 2018" aria-disabled="false"
+                aria-selected="false">25</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Fri Oct 26 2018" aria-disabled="false" aria-selected="false">26</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sat Oct 27 2018" aria-disabled="false" aria-selected="false">27</div>
+            </div>
+            <div class="DayPicker-Week" role="row">
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Sun Oct 28 2018" aria-disabled="false" aria-selected="false">28</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Mon Oct 29 2018" aria-disabled="false" aria-selected="false">29</div>
+              <div class="DayPicker-Day DayPicker-Day--birthday" tabindex="-1" role="gridcell" aria-label="Tue Oct 30 2018" aria-disabled="false"
+                aria-selected="false">30</div>
+              <div class="DayPicker-Day" tabindex="-1" role="gridcell" aria-label="Wed Oct 31 2018" aria-disabled="false" aria-selected="false">31</div>
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--thursdays DayPicker-Day--outside"></div>
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside"></div>
+              <div aria-disabled="true" class="DayPicker-Day DayPicker-Day--outside"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="modal--footer">
+      <button class="c--primary">Apply</button>
+      <button class="js--modal-close">Cancel</button>
+    </section>
+  </section>
+</section>
+
         <script>
 
           const filterContainer = document.getElementsByClassName('filter')[0];
