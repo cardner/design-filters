@@ -402,7 +402,6 @@ input {
         }
     }
     &:not([disabled]):hover {
-        border-color: $hover-input-border-color;
         background-color: $white;
     }
     #predelay,
@@ -500,14 +499,11 @@ input:not([type="hidden"]) {
         }
 
         &:hover {
-            background-color: $white;
-            border-color: $default-text-color;
+            border-color: $hover-input-border-color;
         }
 
         &:active {
             background-color: $white;
-            border-color: $default-text-color;
-            border-style: solid;
         }
 
         &.l--field--width-xl {
