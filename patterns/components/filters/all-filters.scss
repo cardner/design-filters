@@ -303,6 +303,8 @@ input[type="radio"] {
     }
 
     &.\--is-open {
+        transform: translateX($filter-container-width);
+        // repeat it for browsers that support calc
         transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
     }
 }
