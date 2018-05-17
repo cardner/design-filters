@@ -368,12 +368,19 @@ tr {
 
 td,
 th {
-    white-space: normal;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: $size-16 $size-8;
     min-width: $size-16;
     @include border(bottom);
+
+    &:hover {
+        white-space: normal;
+        overflow: visible;
+        overflow-wrap: break-word;
+        text-overflow: initial;
+    }
 }
 
 .table--select-count--container {
@@ -893,7 +900,7 @@ th {
 .DayPicker {
     // this is an override for non grid browsers
     &-wrapper {
-        flex-basis: 50%;
+        flex-basis: 46%;
     }
     &-Day {
         @include borders;
