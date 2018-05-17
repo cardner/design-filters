@@ -900,6 +900,7 @@ th {
 .DayPicker {
     // this is an override for non grid browsers
     &-wrapper {
+        // this has to be silly small because IE11 is weird at measuring box model
         flex-basis: 46%;
     }
     &-Day {
