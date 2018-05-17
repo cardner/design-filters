@@ -914,7 +914,7 @@ th {
         // TODO please for the love of god remove these important tags when we can include this in the react theme
         &--selected {
             background-color: $date-range-selected !important;
-            border-radius: unset !important;
+            border-radius: 0 !important;
             color: $default-text-color !important;
         }
 
@@ -923,7 +923,7 @@ th {
             background-color: $date-range-startend !important;
             color: $white !important;
             font-weight: $bold-font-weight;
-            border-radius: unset !important;
+            border-radius: 0 !important;
         }
     }
     &-Weekday {
