@@ -98,7 +98,7 @@ input[type="radio"] {
     z-index: 9000;
 
     // make visible if currently loading
-    &.--is-active {
+    &.\--is-active {
         opacity: 1;
         visibility: visible;
 
@@ -134,11 +134,11 @@ input[type="radio"] {
     background-color: $filter-panel-background;
     padding: $size-40 $size-32;
 
-    &.--is-closed {
+    &.\--is-closed {
         transform: translateX(-$filter-container-width);
     }
 
-    &.--is-open {
+    &.\--is-open {
         transform: translateX(0);
     }
 }
@@ -223,11 +223,11 @@ input[type="radio"] {
     transition: max-height $slow-ease;
     will-change: auto;
 
-    &.--is-closed {
+    &.\--is-closed {
         max-height: 0;
     }
 
-    &.--is-open {
+    &.\--is-open {
         max-height: 200vh;
     }
 }
@@ -260,11 +260,11 @@ input[type="radio"] {
     height: 10px;
     fill: $default-text-color;
 
-    .--trigger-sub > & {
+    .\--trigger-sub > & {
         margin-top: 7px;
     }
 
-    .--is-open > & {
+    .\--is-open > & {
         .icon--plus-vert {
             transform: rotate(90deg);
         }
@@ -298,11 +298,11 @@ input[type="radio"] {
     will-change: transform;
     transition: transform ease-in-out 225ms 0ms;
 
-    &.--is-closed {
+    &.\--is-closed {
         transform: translateX(0);
     }
 
-    &.--is-open {
+    &.\--is-open {
         transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
     }
 }
@@ -359,7 +359,7 @@ tr {
     transition: background-color $fast-ease;
 
     &:hover,
-    &.--is-active {
+    &.\--is-active {
         background-color: $table-item-background-hover;
     }
 }
@@ -382,7 +382,7 @@ th {
     padding: $size-16 $size-8;
     visibility: collapse;
 
-    &.--is-active {
+    &.\--is-active {
         background-color: unset;
         max-height: 10vh;
         opacity: 1;
@@ -392,7 +392,7 @@ th {
 
 // styles to make a default loading state for first page load and between filter switches
 // // this may get a bit hairy in inheritance
-.--is-loading {
+.\--is-loading {
     td {
         position: relative;
         font-size: 0;
@@ -474,7 +474,7 @@ th {
             }
         }
 
-        &.--is-active {
+        &.\--is-active {
             background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
             border-color: transparent;
 
@@ -668,7 +668,7 @@ th {
     text-align: center;
 
     &:hover,
-    &.--is-active {
+    &.\--is-active {
         background-color: unset;
     }
 
@@ -752,7 +752,7 @@ th {
         }
     }
 
-    &.--is-active {
+    &.\--is-active {
         svg {
             .filter--icon {
                 &--circle-1 {
@@ -793,14 +793,14 @@ th {
         padding-top: 0;
     }
 
-    &.--is-hidden {
+    &.\--is-hidden {
         opacity: 0;
         visibility: hidden;
         height: 0;
         width: 0;
     }
 
-    &.--is-visible {
+    &.\--is-visible {
         opacity: 1;
         visibility: visible;
     }
@@ -891,7 +891,6 @@ th {
 .DayPicker {
     // this is an override for non grid browsers
     &-wrapper {
-        flex: 1;
         flex-basis: 50%;
     }
     &-Day {
