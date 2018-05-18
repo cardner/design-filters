@@ -21,6 +21,7 @@ input[type="checkbox"] {
 
     &:hover {
         cursor: pointer;
+        border-color: $hover-input-border-color;
     }
 
     &:focus {
@@ -507,9 +508,21 @@ th {
 }
 
 .table--load-more--trigger {
-    &.\--is-active::after {
-        content: '';
-        animation: ellipsis 1.2s ease-in-out 0s infinite;
+    position: relative;
+
+    &.\--is-active {
+        padding-right: $size-24;
+
+        &::after {
+            content: '';
+            animation: ellipsis 1.2s 0s infinite;
+            width: 10px;
+            height: $size-4;
+            display: inline-block;
+            text-align: left;
+            position: absolute;
+            right: 14px;
+        }
     }
 }
 // set the margin right properly for the clustering of dynamic buttons in the table control panel
