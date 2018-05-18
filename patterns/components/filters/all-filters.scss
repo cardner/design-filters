@@ -407,18 +407,21 @@ th {
             transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease, font-size $fast-ease;
         
         }
-        &:nth-child(1):after,
-        &:nth-child(2):after {
+        &:nth-child(1)::after,
+        &:nth-child(2)::after {
             content: '';
             @include border-radius;
             background-color: darken($placeholder-loading-background, 2%);
             position: absolute;
             width: 80%;
-            height: $size-24;
+            height: 20px;
             top: $size-16;
             left: $size-8;
             z-index: 900;
             animation: cascade 2s ease-in-out 0s;
+        }
+        &.checkbox::after {
+            width: 20px;
         }
     }
 
