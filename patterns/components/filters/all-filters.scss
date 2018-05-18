@@ -499,10 +499,10 @@ th {
     0% {
         content: '.';
     }
-    50% {
+    40% {
         content: '..';
     }
-    100% {
+    80% {
         content: '...';
     }
 }
@@ -516,12 +516,12 @@ th {
         &::after {
             content: '';
             animation: ellipsis 1.2s 0s infinite;
-            width: 10px;
+            width: 14px;
             height: $size-4;
             display: inline-block;
             text-align: left;
             position: absolute;
-            right: 14px;
+            right: 10px;
         }
     }
 }
