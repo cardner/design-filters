@@ -369,12 +369,24 @@ th {
     padding: $size-16 $size-8;
     min-width: $size-16;
     @include border(bottom);
+    outline: none;
+
+    &:focus {
+        @include button-focus($border-color: $focus-button-border);
+    }
+
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
 
     &:hover {
         white-space: normal;
         overflow: visible;
         overflow-wrap: break-word;
         text-overflow: initial;
+        outline: none;
+        box-shadow: none;
     }
 }
 
@@ -391,6 +403,11 @@ th {
         max-height: 10vh;
         opacity: 1;
         visibility: visible;
+    }
+
+    td {
+        // indents text away from checkbox
+        padding-left: $size-40;
     }
 }
 
@@ -642,6 +659,9 @@ th {
 .Select-menu {
     // increase max height to stop scroll bar
     max-height: 90vh;
+    // fix dotted outline during focus
+    border: none;
+    outline: none;
 }
 .Select-option {
     @include border(bottom);
