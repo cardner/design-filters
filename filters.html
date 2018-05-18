@@ -592,7 +592,7 @@
                   <tr class="filter--row--load-more">
                     <td colspan="8">
                       <p class="filter--pagination"><span class="filter--pagination-start">1</span>&ndash;<span class="filter--pagination-end">50</span> of <strong class="filter--pagination-total">212</strong> total</p>
-                      <button>Load More</button>
+                      <button class="table--load-more--trigger">Load More</button>
                     </td>
                   </tr>
                 </tfoot>
@@ -1104,6 +1104,9 @@
 
           let tableSelectAll = document.getElementsByClassName('table--select-all')[0];
 
+          // toggle state of the load more button
+          const loadMoreButton = document.getElementsByClassName('table--load-more--trigger')[0];
+
           //this is going to be super hacky to fake a loading screen
           let tableFilterLoad = filterContainer.getElementsByTagName('input');
 
@@ -1141,6 +1144,22 @@
 
           tableSelectAll.onclick = function() {
             selectAllTr(this);
+          }
+
+          loadMoreButton.onclick = function() {
+            loadMore(this);
+          }
+
+          function loadMore(e) {
+            e.innerHTML = 'Loading';
+            e.classList.add('--is-active');
+            loadingBar.classList.add('--is-active');
+
+            setTimeout(function () {
+              e.innerHTML = 'Load More';
+              e.classList.remove('--is-active');
+              loadingBar.classList.remove('--is-active');
+            }, 1800);
           }
 
           function highlightTableRow(e) {
@@ -1206,8 +1225,8 @@
           setTimeout(function() {
             tableContainer.classList.remove('--is-loading');
             loadingBar.classList.remove('--is-active');
-          }, 1800)
-            
+          }, 1800);
+
           }
         </script>
 
