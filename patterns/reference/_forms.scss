@@ -387,7 +387,7 @@ input {
     &[type="radio"] {
         background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
         &:focus {
-            @include button-focus($focus-input-border-color);
+            @include button-focus($border-color: $focus-input-border-color, $border-width: 2px);
         }
         &:active,
         &:hover {
