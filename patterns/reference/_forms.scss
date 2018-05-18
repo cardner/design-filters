@@ -229,11 +229,6 @@ input[type=number] {
     }
 }
 
-input[type=checkbox] {
-    width: auto;
-    margin-right: .25rem;
-}
-
 input[type=radio] {
     -webkit-appearance: unset;
     -moz-appearance: unset;
@@ -384,6 +379,10 @@ input {
         @include button-focus($focus-input-border-color);
     }
 
+    &:hover {
+        border-color: $hover-input-border-color;
+    }
+
     &[type="radio"] {
         background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
         &:focus {
@@ -391,6 +390,7 @@ input {
         }
         &:active,
         &:hover {
+            cursor: pointer;
             @include no-box-shadow;
         }
     }

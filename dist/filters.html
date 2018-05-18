@@ -1156,8 +1156,8 @@
             loadingBar.classList.add('--is-active');
 
             setTimeout(function () {
-              e.innerHTML = 'Load More';
               e.classList.remove('--is-active');
+              e.innerHTML = 'Load More';
               loadingBar.classList.remove('--is-active');
             }, 1800);
           }
