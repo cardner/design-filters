@@ -54,12 +54,6 @@ input[type="radio"] {
     vertical-align: text-bottom;
     @include margin(right, $size-8);
     @include margin(left, -1px);
-
-    &:focus {
-        box-shadow: none;
-        @include button-focus($focus-button-border);
-    }
-
 }
 
 // Set container to grid and over lap elements so that container inherits correct height

@@ -125,10 +125,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin button-focus($border-color: currentColor) {
+@mixin button-focus($border-color: currentColor, $border-width: 3px) {
     outline: none;
     border-color: $border-color;
-    box-shadow: 0px 0px 0px 3px $border-color;
+    box-shadow: 0px 0px 0px $border-width $border-color;
 }
 
 @mixin button-tiny {
