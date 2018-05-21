@@ -157,6 +157,7 @@ input[type="radio"] {
 
     &:hover {
         text-decoration: none;
+        box-shadow: none;
 
         span {
             padding: $size-8;
@@ -166,6 +167,10 @@ input[type="radio"] {
             margin-bottom: -$size-8;
             background-color: $hover-filter-panel-close;
         }
+    }
+
+    &:active {
+        box-shadow: none;
     }
 }
 
@@ -682,6 +687,27 @@ th {
 
 .table--select--all {
     @include margin(left, $size-8);
+}
+
+.multi-select {
+// this makes the — dash mark in the checkbox when multi select is set
+    input[type="checkbox"],
+    input[type="checkbox"]:checked {
+        background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
+        @include borders($border-color: $default-input-border-color);
+        &::after {
+            content: '—';
+            position: absolute;
+            top: 0;
+            left: 2px;
+            width: $size-16;
+            height: $size-16;
+            font-size: $smallest-font-size;
+            font-weight: $bold-font-weight;
+            vertical-align: middle;
+            color: $primary-button-color;
+        }
+    }
 }
 
 .search--tiny {
