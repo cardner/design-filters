@@ -1,0 +1,22 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+.search--tiny {
+    position: relative;
+    input[type="search"] {
+        box-sizing: border-box;
+        @include button-tiny;
+        font-size: $small-font-size;
+        height: $size-32;
+        @include padding(left, $size-40);
+    }
+    &:before {
+        content: url('../../images/search-icon.svg');
+        position: absolute;
+        display: block;
+        top: $size-8;
+        left: $size-16;
+        width: $size-16;
+        height: $size-16;
+    }
+}

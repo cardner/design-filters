@@ -1,10 +1,16 @@
 // This file imports all the modualized UI pattern styles into one consumable file
 
-@import "buttons/all-buttons";
-@import "icons/all-icons";
-@import "graphs/all-graphs";
-@import "links/all-links";
-@import "metric-card/base";
-@import "navigation/all-navs";
-@import "typography/all-typography";
-@import "filters/all-filters";
+@import 'buttons/all-buttons';
+@import 'icons/all-icons';
+@import 'graphs/all-graphs';
+@import 'links/all-links';
+@import 'metric-card/base';
+@import 'navigation/all-navs';
+@import 'forms/all-forms';
+@import 'modal/all-modals';
+@import 'filters/all-filters';
+@import 'tables/all-tables';
+@import 'loaders/all-loaders';
+
+@import 'typography/all-typography';
+
