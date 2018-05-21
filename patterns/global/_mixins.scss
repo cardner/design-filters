@@ -173,6 +173,11 @@
     border-radius: 5px;
 }
 
+@mixin tableHeaderFormat {
+    font-weight: $base-font-weight;
+    font-size: $smaller-font-size;
+}
+
 /**
  * Atomic Mixins to preform basic stylings
 */

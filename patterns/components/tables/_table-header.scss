@@ -1,0 +1,50 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+// set the margin right properly for the clustering of dynamic buttons in the table control panel
+.filter--table--button-dynamic {
+    margin-right: $size-8;
+}
+
+// Pill component styles
+.filter--pill--container {
+    display: flex;
+    padding-top: $size-8;
+}
+
+.filter--pill--item {
+    display: flex;
+    align-items: center;
+    color: $default-text-color;
+    padding: $size-8;
+    font-size: $smaller-font-size;
+    line-height: 1.165;
+    margin-right: $size-8;
+    @include borders($border-color: transparent);
+    @include border-radius;
+    &::after {
+        content: '\e0fc';
+        @include duo-icons;
+        font-size: $smallest-font-size;
+        display: inline;
+        margin-left: $size-8;
+    }
+    &:hover {
+        transition: all $fast-ease;
+        text-decoration: none;
+        @include borders($border-color: $hover-pill-border);
+        background: $hover-pill-background;
+    }
+}
+
+// this puts a space between the category and object if a category is being searched on in the filters
+.filter--pill--category {
+    padding-right: $size-4;
+}
+
+.filter--clear {
+    // ugh this is happening to combat the size of the pills padding + a border
+    padding: 9px;
+    line-height: 1.165;
+    font-size: $smaller-font-size;
+}

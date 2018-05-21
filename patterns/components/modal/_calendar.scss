@@ -1,0 +1,108 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+// Custom Time Range override
+.DayPicker {
+    // this is an override for non grid browsers
+    &-wrapper {
+        // this has to be silly small because IE11 is weird at measuring box model
+        flex-basis: 46%;
+    }
+    &-Day {
+        @include borders;
+        padding: $size-8 $size-12;
+        &--today {
+            font-weight: $bold-font-weight;
+        } // TODO please for the love of god remove these important tags when we can include this in the react theme
+        &--selected {
+            background-color: $date-range-selected !important;
+            border-radius: 0 !important;
+            color: $default-text-color !important;
+        }
+        &--end,
+        &--start {
+            background-color: $date-range-startend !important;
+            color: $white !important;
+            font-weight: $bold-font-weight;
+            border-radius: 0 !important;
+        }
+    }
+    &-Weekday {
+        color: $default-text-color;
+    }
+    &-Month {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        width: 100%;
+    }
+    &-Caption {
+        >div {
+            font-size: $base-font-size;
+            font-weight: $bold-font-weight;
+            text-align: center;
+        }
+    }
+    &-NavBar {
+        // keeps prev/next arrows aligned as modal flex's
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+    }
+    &-NavButton {
+        background-size: 6px 14px;
+        top: .25rem;
+        right: 0;
+        fill: $default-text-color;
+        &--next {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 4.5L.6.1a.35.35 0 1 0-.5.5L4.5 5 .1 9.4a.35.35 0 1 0 .5.5L5 5.5l.48-.5L5 4.5z'/%3E%3C/svg%3E");
+        }
+        &--prev {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.48 4.5L4.88.1a.35.35 0 1 1 .5.5L.97 5l4.4 4.4a.35.35 0 1 1-.5.5L.48 5.5 0 5l.48-.5z'/%3E%3C/svg%3E");
+            left: 0;
+            right: unset;
+        }
+    }
+    &-wrapper {
+        padding-bottom: 0;
+        padding-right: 28px;
+        &:nth-of-type(even) {
+            padding-right: 0;
+            padding-left: 28px;
+            @include query-screen-small {
+                padding: 0;
+            }
+        }
+        @include query-screen-small {
+            padding-bottom: $size-32;
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+//Style Input date/time selectors
+.date-time-inputs {
+    // lets tell the header to span the full width when grid isn't supported
+    column-count: 2;
+    @supports (display: grid) {
+        //disable multi-column when grid is supported
+        column-count: unset;
+        display: grid;
+        grid-template-columns: 38% 38%;
+        grid-column-gap: $size-16;
+        grid-template-rows: $size-24 1fr;
+    }
+    margin-bottom: $size-24;
+}
+
+// place input fields below labels
+.DayPickerInput,
+.time-input {
+    grid-row: 2/end;
+    input {
+        font-weight: $bold-font-weight;
+        line-height: $size-24;
+        padding: $size-8 $size-16;
+    }
+}
