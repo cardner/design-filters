@@ -384,6 +384,9 @@ input {
     }
 
     &[type="radio"] {
+        vertical-align: text-bottom;
+        @include margin(right, $size-8);
+        @include margin(left, -1px);
         background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
         &:focus {
             @include button-focus($border-color: $focus-input-border-color, $border-width: 2px);
@@ -394,15 +397,47 @@ input {
             @include no-box-shadow;
         }
     }
+    // Reset default styling of checkbox
     &[type="checkbox"] {
+        position: relative;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: $size-16;
+        height: $size-16;
+        vertical-align: text-bottom;
+        border-radius: 3px;
         background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
+        @include borders($border-color: $default-input-border-color);
+        &:hover {
+            cursor: pointer;
+            border-color: $hover-input-border-color;
+        }
         &:focus {
             border-radius: 15%;
-            @include button-focus($focus-input-border-color);
+            box-shadow: none;
+            @include button-focus($focus-button-border);
         }
-    }
-    &:not([disabled]):hover {
-        background-color: $white;
+        &:checked {
+            background: $primary-button-color;
+            border-color: transparent;
+            &::after {
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: $size-16;
+                height: $size-16;
+                font-family: $icon-font-family;
+                font-size: $smallest-font-size;
+                vertical-align: middle;
+                content: $confirm;
+                color: $white;
+            }
+            &:focus {
+                // inverse the border color to white because the background color is dark
+                border-color: $white;
+            }
+        }
     }
     #predelay,
     #postdelay {

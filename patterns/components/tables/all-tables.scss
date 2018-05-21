@@ -1,0 +1,331 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+// 
+// Table Styles
+// 
+.header--title {
+    @include margin(top, $size-40);
+    @include margin(bottom, $size-48);
+}
+
+.header--results {
+    @include margin(top, 0);
+    @include margin(bottom, $size-8);
+}
+
+.filter--table {
+    // set to same row as filter nav
+    grid-row: 1; // set to over lap columns with filter nav and extend to end of page
+    grid-column: 1/end;
+    will-change: transform;
+    transition: transform ease-in-out 225ms 0ms;
+    &.\--is-closed {
+        transform: translateX(0);
+    }
+    &.\--is-open {
+        transform: translateX($filter-container-width); // repeat it for browsers that support calc
+        transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
+    }
+}
+
+table {
+    @include border(top, $border-color: $default-border);
+    table-layout: fixed;
+    width: 100%;
+    white-space: normal;
+}
+
+%orderIndicator {
+    content: url('../../images/triangle-icon.svg');
+    position: relative;
+    display: inline-block;
+    top: -2px;
+    @include margin(left,
+    $size-8);
+    transition: transform $slow-ease;
+}
+
+th {
+    @include tableHeaderFormat;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 999;
+    &.--ascending {
+        &::after {
+            @extend %orderIndicator;
+            transform: rotate(.5turn);
+            top: 2px;
+        }
+    }
+    &.--descending {
+        &::after {
+            @extend %orderIndicator;
+        }
+    }
+    &:hover {
+        color: $default-link-color;
+    }
+}
+
+tr {
+    cursor: pointer;
+    transition: background-color $fast-ease;
+    &:hover,
+    &.\--is-active {
+        background-color: $table-item-background-hover;
+    }
+}
+
+td,
+th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: $size-16 $size-8;
+    min-width: $size-16;
+    @include border(bottom);
+    outline: none;
+    &:focus {
+        @include button-focus($border-color: $focus-button-border);
+    }
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
+    &:hover {
+        white-space: normal;
+        overflow: visible;
+        overflow-wrap: break-word;
+        text-overflow: initial;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.table--select-count--container {
+    transition: opacity 200ms ease-in-out 300ms;
+    opacity: 0;
+    max-height: 0;
+    font-size: $smaller-font-size;
+    padding: $size-16 $size-8;
+    visibility: collapse;
+    &.\--is-active {
+        background-color: unset;
+        max-height: 10vh;
+        opacity: 1;
+        visibility: visible;
+    }
+    td {
+        // indents text away from checkbox
+        padding-left: $size-40;
+    }
+}
+
+// styles to make a default loading state for first page load and between filter switches
+// // this may get a bit hairy in inheritance
+.\--is-loading {
+    td {
+        position: relative;
+        font-size: 0;
+        height: $size-48;
+        * {
+            visibility: hidden;
+            opacity: 0;
+            transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease, font-size $fast-ease;
+        }
+        &:nth-child(1)::after,
+        &:nth-child(2)::after {
+            content: '';
+            @include border-radius;
+            background-color: darken($placeholder-loading-background, 2%);
+            position: absolute;
+            width: 80%;
+            height: 20px;
+            top: $size-16;
+            left: $size-8;
+            z-index: 900;
+            animation: cascade 2s ease-in-out 0s;
+        }
+        &.checkbox::after {
+            width: 20px;
+        }
+    }
+}
+
+.table--td-width {
+    // Set static width since UI doesn't ever change widths while scaling
+    &--checkbox {
+        width: 36px;
+    }
+    &--xsmall {
+        width: 5%;
+    }
+    &--small {
+        width: 10%;
+    }
+    &--medium {
+        width: 15%;
+    }
+    &--large {
+        width: 20%;
+    }
+    &--xlarge {
+        width: 40%;
+    }
+}
+
+.filter--table--actionrow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include border(top,
+    $border-color: $dark-filter-border);
+    padding: $size-16 0 $size-16 $size-8;
+}
+
+.filter--table--actionrow-section {
+    display: flex;
+    >* {
+        flex: 1 1 auto;
+        @include margin(right,
+        $size-24);
+        &:last-child {
+            @include margin-reset;
+        }
+    }
+    button {
+        &:hover {
+            svg {
+                fill: $white;
+            }
+        }
+        &.\--is-active {
+            svg {
+                fill: $white;
+            }
+        }
+        svg {
+            fill: $default-table-button;
+        }
+    }
+    @include query-screen-xsmall {
+        @include padding(top,
+        $size-16);
+    }
+}
+
+@keyframes ellipsis {
+    0% {
+        content: '.';
+    }
+    40% {
+        content: '..';
+    }
+    80% {
+        content: '...';
+    }
+}
+
+.table--load-more--trigger {
+    position: relative;
+    &.\--is-active {
+        padding-right: $size-24;
+        &::after {
+            content: '';
+            animation: ellipsis 1.2s 0s infinite;
+            width: 14px;
+            height: $size-4;
+            display: inline-block;
+            text-align: left;
+            position: absolute;
+            right: 10px;
+        }
+    }
+}
+
+// Custom Time Range Modal
+.table--select--all {
+    @include margin(left, $size-8);
+}
+
+.multi-select {
+    // this makes the — dash mark in the checkbox when multi select is set
+    input[type="checkbox"],
+    input[type="checkbox"]:checked {
+        background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
+        @include borders($border-color: $default-input-border-color);
+        &::after {
+            content: '—';
+            position: absolute;
+            top: 0;
+            left: 2px;
+            width: $size-16;
+            height: $size-16;
+            font-size: $smallest-font-size;
+            font-weight: $bold-font-weight;
+            vertical-align: middle;
+            color: $primary-button-color;
+        }
+    }
+}
+
+.filter--row--load-more {
+    text-align: center;
+    &:hover,
+    &.\--is-active {
+        background-color: unset;
+    }
+    td {
+        padding: $size-24 $size-8;
+        border-bottom: none;
+    }
+}
+
+// Take pagination out of the flow and align to the left while letting the button center
+.filter--pagination {
+    float: left;
+    padding-top: $size-8;
+}
+
+@include query-screen-xsmall {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    td {
+        /* Behave  like a "row" */
+        position: relative;
+        padding-left: 30%;
+        border: none;
+        &::before {
+            /* Now like a table header */
+            content: attr(data-th);
+            @include tableHeaderFormat;
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: $size-16;
+            left: $size-8;
+            width: 25%;
+            @include padding(right, $size-8);
+            white-space: nowrap;
+        }
+        &:last-child {
+            @include border(bottom);
+        }
+    }
+}
+
+@import 'table-header';

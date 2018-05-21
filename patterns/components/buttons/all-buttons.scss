@@ -245,6 +245,13 @@ input[type="src"]:not(.link) input[type="reset"] {
     }
 }
 
+.button--download {
+    svg {
+        width: $size-12;
+        height: auto;
+    }
+}
+
 @import 'destructive';
 @import 'download';
 @import 'dropdowns';
