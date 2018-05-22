@@ -320,6 +320,7 @@ $sizes: (
     @include unset($display-attr: height);
     @include unset($display-attr: min-height);
     @include unset($display-attr: background-color);
+    background: none;
     background-color: transparent;
 
     &:hover {

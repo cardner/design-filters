@@ -1,7 +1,7 @@
 &[disabled] {
     @include no-box-shadow;
-    background-color: $disabled-button-color;
-    border-color: $disabled-button-color;
+    background: $disabled-button-color;
+    border-color: $disabled-border-color;
     color: $disabled-text-color;
     cursor: not-allowed;
     position: relative;
@@ -46,8 +46,8 @@
         color: $disabled-text-color;
         overflow: visible;
         transform: none;
-        background-color: $disabled-button-color;
-        border-color: $disabled-button-color;
+        background: $disabled-button-color;
+        border-color: $disabled-border-color;
 
         i[role="tooltip"] {
             width: 250%;

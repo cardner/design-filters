@@ -27,13 +27,24 @@
         transform: translateX($filter-container-width); // repeat it for browsers that support calc
         transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
     }
+
+    table {
+        @include border(top, $border-color: $default-border);
+    }
 }
 
 table {
-    @include border(top, $border-color: $default-border);
-    table-layout: fixed;
     width: 100%;
     white-space: normal;
+}
+
+.table--layout {
+    &-auto {
+        table-layout: auto;
+    }
+    &-fixed {
+        table-layout: fixed;
+    }
 }
 
 %orderIndicator {
@@ -48,18 +59,15 @@ table {
 
 th {
     @include tableHeaderFormat;
-    position: sticky;
-    top: 0;
-    background-color: white;
-    z-index: 999;
-    &.--ascending {
+
+    &.\--is-ascending {
         &::after {
             @extend %orderIndicator;
             transform: rotate(.5turn);
             top: 2px;
         }
     }
-    &.--descending {
+    &.\--is-descending {
         &::after {
             @extend %orderIndicator;
         }
@@ -67,6 +75,13 @@ th {
     &:hover {
         color: $default-link-color;
     }
+}
+
+.th--layout-sticky {
+    position: sticky;
+    top: 0;
+    background-color: $white;
+    z-index: 999;
 }
 
 tr {
