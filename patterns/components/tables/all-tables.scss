@@ -29,12 +29,46 @@
     }
 
     table {
+        width: 100%;
         @include border(top, $border-color: $default-border);
+    }
+
+    td,
+    th {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: $size-16 $size-8;
+        min-width: $size-16;
+        &:hover {
+            white-space: normal;
+            overflow: visible;
+            overflow-wrap: break-word;
+            text-overflow: initial;
+        }
+    }
+}
+
+td,
+th {
+    @include border(bottom);
+    outline: none;
+
+    &:focus {
+        @include button-focus($border-color: $focus-button-border);
+    }
+
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
+    &:hover {
+        outline: none;
+        box-shadow: none;
     }
 }
 
 table {
-    width: 100%;
     white-space: normal;
 }
 
@@ -90,32 +124,6 @@ tr {
     &:hover,
     &.\--is-active {
         background-color: $table-item-background-hover;
-    }
-}
-
-td,
-th {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: $size-16 $size-8;
-    min-width: $size-16;
-    @include border(bottom);
-    outline: none;
-    &:focus {
-        @include button-focus($border-color: $focus-button-border);
-    }
-    &:active {
-        outline: none;
-        box-shadow: none;
-    }
-    &:hover {
-        white-space: normal;
-        overflow: visible;
-        overflow-wrap: break-word;
-        text-overflow: initial;
-        outline: none;
-        box-shadow: none;
     }
 }
 

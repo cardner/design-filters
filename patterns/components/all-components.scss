@@ -1,5 +1,6 @@
 // This file imports all the modualized UI pattern styles into one consumable file
 
+@import 'typography/all-typography';
 @import 'buttons/all-buttons';
 @import 'icons/all-icons';
 @import 'graphs/all-graphs';
@@ -11,6 +12,4 @@
 @import 'filters/all-filters';
 @import 'tables/all-tables';
 @import 'loaders/all-loaders';
-
-@import 'typography/all-typography';
 

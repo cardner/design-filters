@@ -8,7 +8,7 @@ form:not(.inline) {
 
 fieldset {
     border: none;
-    margin: 1rem 0;
+    margin: $size-8 0 $size-32;
     padding: 0;
 
     &.temp {
@@ -395,6 +395,7 @@ input {
         &:hover {
             cursor: pointer;
             @include no-box-shadow;
+            border-color: $radio-check-hover-border;
         }
     }
     // Reset default styling of checkbox
@@ -408,10 +409,10 @@ input {
         vertical-align: text-bottom;
         border-radius: 3px;
         background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
-        @include borders($border-color: $default-input-border-color);
+        @include borders($border-color: $radio-check-border);
         &:hover {
             cursor: pointer;
-            border-color: $hover-input-border-color;
+            border-color: $radio-check-hover-border;
         }
         &:focus {
             border-radius: 15%;
@@ -552,6 +553,13 @@ input:not([type="hidden"]) {
         height: 2.4rem;
         max-width: 25rem;
         padding: 0 0 0 2.25em;
+        background: $input-search-background;
+        border-color: $radio-check-border;
+
+        &:hover {
+            background: $white;
+            border-color: $radio-check-hover-border;
+        }
     }
 }
 input:not([type="hidden"]),
