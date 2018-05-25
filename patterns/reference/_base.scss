@@ -1,5 +1,5 @@
 body {
-    background: $body-background-color;
+    background: $white;
 }
 
 .offscreen {
@@ -118,9 +118,9 @@ select#billing_info_credit_card_month {
     position: relative;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 200px 1fr 1fr;
+    -ms-grid-columns: 216px 1fr 1fr;
     // min col width 1024-(sidebar width) max 1400-(sidebar width)
-    grid-template-columns: 200px minmax(823px, 1200px);
+    grid-template-columns: 216px minmax(823px, 1200px);
 }
 
 .base-sidebar {
@@ -144,7 +144,7 @@ select#billing_info_credit_card_month {
     a {
         @include no-box-shadow;
         display: block;
-        padding: 1.438rem 0; /* 23/16 */
+        padding: $size-16 0;
 
         &:active,
         &:focus,
@@ -187,7 +187,7 @@ select#billing_info_credit_card_month {
 .base-actions {
     @include clearfix;
     background-color: $default-headernav-color;
-    padding: 1.188rem 2.938rem 1.25rem; /* 19/16, 20/16, 47/16 */
+    padding: $size-16 $size-24 $size-16 $size-24;
     position: relative;
     z-index: 100;
 
@@ -237,7 +237,7 @@ select#billing_info_credit_card_month {
 }
 
 .base-content {
-    padding: .938rem 3rem; /* 15/16, 48/16 */
+    padding: $size-16 $size-24 $size-16 $size-32;
 }
 
 .base-footer {

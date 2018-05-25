@@ -15,18 +15,6 @@
 }
 
 .filter--table {
-    // set to same row as filter nav
-    grid-row: 1; // set to over lap columns with filter nav and extend to end of page
-    grid-column: 1/end;
-    will-change: transform;
-    transition: transform ease-in-out 225ms 0ms;
-    &.\--is-closed {
-        transform: translateX(0);
-    }
-    &.\--is-open {
-        transform: translateX($filter-container-width); // repeat it for browsers that support calc
-        transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
-    }
 
     table {
         width: 100%;
@@ -195,6 +183,9 @@ tr {
         width: 20%;
     }
     &--xlarge {
+        width: 30%;
+    }
+    &--xxlarge {
         width: 40%;
     }
 }
@@ -313,40 +304,42 @@ tr {
 }
 
 @include query-screen-xsmall {
-    /* Force table to not be like tables anymore */
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    td {
-        /* Behave  like a "row" */
-        position: relative;
-        padding-left: 30%;
-        border: none;
-        &::before {
-            /* Now like a table header */
-            content: attr(data-th);
-            @include tableHeaderFormat;
-            position: absolute;
-            /* Top/left values mimic padding */
-            top: $size-16;
-            left: $size-8;
-            width: 25%;
-            @include padding(right, $size-8);
-            white-space: nowrap;
+    .filter--table {
+        /* Force table to not be like tables anymore */
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
         }
-        &:last-child {
-            @include border(bottom);
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        td {
+            /* Behave  like a "row" */
+            position: relative;
+            padding-left: 30%;
+            border: none;
+            &::before {
+                /* Now like a table header */
+                content: attr(data-th);
+                @include tableHeaderFormat;
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: $size-16;
+                left: $size-8;
+                width: 25%;
+                @include padding(right, $size-8);
+                white-space: nowrap;
+            }
+            &:last-child {
+                @include border(bottom);
+            }
         }
     }
 }

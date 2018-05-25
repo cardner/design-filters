@@ -1,0 +1,18 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+.filter--content {
+    // set to same row as filter nav
+    grid-row: 1; // set to over lap columns with filter nav and extend to end of page
+    grid-column: 1/end;
+    will-change: transform;
+    transition: transform ease-in-out 225ms 0ms;
+    &.\--is-closed {
+        transform: translateX(0);
+    }
+
+    &.\--is-open {
+        transform: translateX($filter-container-width); // repeat it for browsers that support calc
+        transform: translateX(calc(#{$filter-container-width} + #{$size-32}));
+    }
+}
