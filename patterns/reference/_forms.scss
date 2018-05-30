@@ -590,7 +590,7 @@ textarea:not([type="hidden"]) {
             padding: .23rem 0 0 .5rem;
             height: 2.2em;
             color: $default-text-color;
-            border-color: $default-border-color;
+            border-color: $default-input-border-color;
             @include border-radius;
             background-color: $white;
             background-image: none;
@@ -600,7 +600,7 @@ textarea:not([type="hidden"]) {
                 background-color: $white;
                 background-image: none;
                 padding-top: 0;
-                border-color: $default-border-color;
+                border-color: $default-input-border-color;
                 @include border-radius(0 3px 3px 0);
             }
         }

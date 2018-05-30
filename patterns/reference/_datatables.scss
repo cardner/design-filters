@@ -29,8 +29,6 @@
 }
 
 .dataTables_wrapper {
-    @include border-radius;
-    @include borders;
 
     form {
         margin-bottom: 0;
