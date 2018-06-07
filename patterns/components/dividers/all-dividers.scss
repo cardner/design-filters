@@ -1,0 +1,14 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+.rule--horizontal {
+
+    &--thick {
+        margin-left: -$size-32;
+        margin-right: -$size-24;
+        height: $size-8;
+        box-shadow: inset 0 1px 0 #DCDCDC;
+        background-color: #F6F6F6;
+        border: none;
+    }
+}
