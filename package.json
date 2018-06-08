@@ -17,9 +17,12 @@
   "homepage": "https://github.com/duosecurity/design#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.2.3",
     "gulp-sass": "^2.3.2",
     "gulp-stylelint": "^5.0.0",
     "postcss-sass": "^0.2.0"
+  },
+  "dependencies": {
+    "npm": "^6.1.0"
   }
 }
