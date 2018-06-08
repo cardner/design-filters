@@ -463,6 +463,11 @@ input {
     }
 }
 
+input[type="checkbox"] + span,
+input[type="checkbox"] + label {
+    margin-left: $size-8;
+}
+
 //Specific sizes for setting field widths
 .select2-container,
 .select2-container-multi {
