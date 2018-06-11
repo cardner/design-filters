@@ -18,10 +18,9 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.3",
-    "gulp-sass": "^4.0.1",
-    "gulp-stylelint": "^7.0.0",
-    "postcss-sass": "^0.3.2",
-    "stylelint": "^9.2.1"
+    "gulp-sass": "^2.3.2",
+    "gulp-stylelint": "^5.0.0",
+    "postcss-sass": "^0.2.0"
   },
   "dependencies": {
     "npm": "^6.1.0"
