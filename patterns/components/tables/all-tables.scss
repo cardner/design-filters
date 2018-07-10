@@ -15,11 +15,8 @@
 }
 
 .dpl-filter--table {
-
-    table {
-        width: 100%;
-        @include border(top, $border-color: $default-border);
-    }
+    width: 100%;
+    @include border(top, $border-color: $default-border);
 
     td,
     th {
