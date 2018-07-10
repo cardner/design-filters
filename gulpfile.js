@@ -25,12 +25,12 @@ gulp.task('html', () => (
 ))
 
 gulp.task('images', () => (
-    gulp.src('images/*')
-        .pipe(gulp.dest('dist/images'))
+    gulp.src('patterns/images/*')
+        .pipe(gulp.dest('dist/patterns/images'))
 ))
 
 gulp.task('fonts', () => (
-    gulp.src('fonts/**/*')
+    gulp.src('patterns/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'))
 ))
 
