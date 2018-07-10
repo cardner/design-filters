@@ -17,7 +17,7 @@
     }
 }
 
-.loading--container {
+.dpl-loading--container {
     visibility: hidden;
     opacity: 0;
     position: fixed;
@@ -31,13 +31,13 @@
     &.\--is-active {
         opacity: 1;
         visibility: visible;
-        .loading--progress {
+        .dpl-loading--progress {
             animation: loading-bar 3s ease-in-out 0s forwards;
         }
     }
 }
 
-.loading--progress {
+.dpl-loading--progress {
     display: block;
     height: $size-4;
     background: linear-gradient(90deg, $hover-gradient-button-top, $hover-gradient-button-bottom);

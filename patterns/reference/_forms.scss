@@ -441,8 +441,7 @@ input {
         }
     }
     // this is to set the disabled state of a radio button and it's label
-    &[type='radio'],
-    &[type='checkbox']
+    &[type='radio']
     {
         &[disabled] {
             &::after {
@@ -451,6 +450,21 @@ input {
             }
             + p,
             + label {
+                font-weight: $base-font-weight;
+                color: $disabled-text-color;
+            }
+        }
+    }
+    // this is to set the disabled state of a checkbox and it's label
+    &[type='checkbox'] {
+        &[disabled] {
+            background-color: $disabled-button-color;
+
+            &::after {
+                color: $disabled-text-color;
+            }
+            +p,
+            +label {
                 font-weight: $base-font-weight;
                 color: $disabled-text-color;
             }

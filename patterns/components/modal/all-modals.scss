@@ -21,6 +21,7 @@
         visibility: hidden;
         height: 0;
         width: 0;
+        padding: 0;
     }
     &.\--is-visible {
         opacity: 1;
@@ -51,7 +52,7 @@
     }
 }
 
-.modal {
+.dpl-modal {
     &--content {
         @include modal--content;
         &-2col {

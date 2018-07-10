@@ -2,7 +2,7 @@
 @import '../../global/mixins';
 
 // Set container to grid and over lap elements so that container inherits correct height
-.filter--container {
+.dpl-filter--container {
     display: grid;
     grid-template-columns: $filter-container-width 1fr;
     // this blocks off the left side so it doesn't overlap with the main nav

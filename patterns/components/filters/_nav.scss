@@ -6,7 +6,7 @@
 }
 
 // Set filter to be both off screen when off and underneath grid of the table container
-.filter {
+.dpl-filter {
     position: absolute;
     top: 0;
     @supports (display: grid) {
@@ -28,7 +28,7 @@
     }
 }
 
-.filter--close {
+.dpl-filter--close {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -59,16 +59,16 @@
     }
 }
 
-.filter--header,
-.filter--group--toggle-container {
+.dpl-filter--header,
+.dpl-filter--group--toggle-container {
     @include margin-reset;
 }
 
-.filter--header {
+.dpl-filter--header {
     padding: $size-16 0 $size-16 $size-8;
 }
 
-.filter--item {
+.dpl-filter--item {
     display: block;
     padding: $size-16 0 $size-16 $size-8;
     @include border(bottom);
@@ -93,13 +93,13 @@
     }
 }
 
-.filter--group {
+.dpl-filter--group {
     @include border(bottom, $border-color: $dark-filter-border);
     @include margin-reset;
     margin-right: -$size-32;
 }
 
-.filter--group--toggle-container {
+.dpl-filter--group--toggle-container {
     overflow: hidden;
     transition: max-height $slow-ease;
     will-change: auto;
@@ -111,7 +111,7 @@
     }
 }
 
-.filter--group--toggle-trigger {
+.dpl-filter--group--toggle-trigger {
     cursor: pointer;
     width: 100%;
     &:hover {
@@ -127,7 +127,7 @@
     }
 }
 
-.filter--toggle-icon {
+.dpl-filter--toggle-icon {
     display: inline-block;
     float: right;
     margin-right: $size-32;
@@ -155,7 +155,7 @@
     flex-basis: 100%;
 }
 
-.button--filter-toggle {
+.dpl-button--filter-toggle {
     margin-right: $size-8;
     svg {
         width: $size-16;

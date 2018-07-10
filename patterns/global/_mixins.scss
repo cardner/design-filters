@@ -58,6 +58,13 @@
     }
 }
 
+/// Query for just IE 11 and 10 browsers
+@mixin target-ie {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content
+    }
+}
+
 /// Responsive Media Queries
 
 /// Large Sized Screens

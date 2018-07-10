@@ -4,17 +4,17 @@
 // 
 // Table Styles
 // 
-.header--title {
+.dpl-header--title {
     @include margin(top, $size-40);
     @include margin(bottom, $size-48);
 }
 
-.header--results {
+.dpl-header--results {
     @include margin(top, 0);
     @include margin(bottom, $size-8);
 }
 
-.filter--table {
+.dpl-filter--table {
 
     table {
         width: 100%;
@@ -60,7 +60,7 @@ table {
     white-space: normal;
 }
 
-.table--layout {
+.dpl-table--layout {
     &-auto {
         table-layout: auto;
     }
@@ -70,7 +70,7 @@ table {
 }
 
 %orderIndicator {
-    content: url('../../images/triangle-icon.svg');
+    content: url('/third-party/pattern-library/images/triangle-icon.svg');
     position: relative;
     display: inline-block;
     top: -2px;
@@ -118,7 +118,7 @@ tr {
     cursor: pointer;
 }
 
-.table--select-count--container {
+.dpl-table--select-count--container {
     transition: opacity 200ms ease-in-out 300ms;
     opacity: 0;
     max-height: 0;
@@ -193,7 +193,7 @@ tr {
     }
 }
 
-.filter--table--actionrow {
+.dpl-filter--table--actionrow {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -202,7 +202,7 @@ tr {
     padding: $size-16 0 $size-16 $size-8;
 }
 
-.filter--table--actionrow-section {
+.dpl-filter--table--actionrow-section {
     display: flex;
     >* {
         flex: 1 1 auto;
@@ -245,7 +245,7 @@ tr {
     }
 }
 
-.table--load-more--trigger {
+.dpl-table--load-more--trigger {
     position: relative;
     &.\--is-active {
         padding-right: $size-24;
@@ -263,11 +263,11 @@ tr {
 }
 
 // Custom Time Range Modal
-.table--select--all {
+.dpl-table--select--all {
     @include margin(left, $size-8);
 }
 
-.multi-select {
+.dpl-multi-select {
     // this makes the — dash mark in the checkbox when multi select is set
     input[type="checkbox"],
     input[type="checkbox"]:checked {
@@ -288,7 +288,7 @@ tr {
     }
 }
 
-.filter--row--load-more {
+.dpl-filter--row--load-more {
     text-align: center;
     &:hover,
     &.\--is-active {
@@ -301,13 +301,13 @@ tr {
 }
 
 // Take pagination out of the flow and align to the left while letting the button center
-.filter--pagination {
+.dpl-filter--pagination {
     float: left;
     padding-top: $size-8;
 }
 
 @include query-screen-xsmall {
-    .filter--table {
+    .dpl-filter--table {
         /* Force table to not be like tables anymore */
         table,
         thead,

@@ -7,7 +7,8 @@ $light-header-color: map-get($gray, light);
 // Text names
 $default-text-color: map-get($gray, dark);
 $mid-text-color: map-get($gray, mid);
-$disabled-text-color: map-get($gray, disabled);
+// this is temporary and we should come up with a better color for disabled text in general
+$disabled-text-color: map-get($gray, nav-border);
 $pagination-text-color: map-get($gray, mid);
 $button-text-color: map-get($blue, cta);
 

@@ -11,7 +11,7 @@
         @include padding(left, $size-40);
     }
     &:before {
-        content: url('../../images/search-icon.svg');
+        content: url('../../patterns/images/search-icon.svg');
         position: absolute;
         display: block;
         top: $size-8;

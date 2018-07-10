@@ -34,7 +34,8 @@ p, li {
         color: $disabled-color;
     }
 
-    a {
+    a,
+    .a--destruction {
         color: darken($disabled-color, 10%);
     }
 }
