@@ -1,6 +1,5 @@
 @import '../../global/variables';
 @import '../../global/mixins';
-
 .search--tiny {
     position: relative;
     input[type="search"] {
@@ -11,7 +10,7 @@
         @include padding(left, $size-40);
     }
     &:before {
-        content: url('../../patterns/images/search-icon.svg');
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%23858585'%3E%3Ccircle cx='6.5' cy='6.5' r='6'/%3E%3Cpath stroke-linecap='square' d='M11 11l4.243 4.243'/%3E%3C/g%3E%3C/svg%3E");
         position: absolute;
         display: block;
         top: $size-8;
