@@ -8,7 +8,7 @@ $light-header-color: map-get($gray, light);
 $default-text-color: map-get($gray, dark);
 $mid-text-color: map-get($gray, mid);
 // this is temporary and we should come up with a better color for disabled text in general
-$disabled-text-color: map-get($gray, nav-border);
+$disabled-text-color: map-get($gray, disabled);
 $pagination-text-color: map-get($gray, mid);
 $button-text-color: map-get($blue, cta);
 
@@ -25,7 +25,7 @@ $primary-button-gradient-end: map-get($blue, cta);
 $primary-button-hover-color: map-get($blue, cta-light);
 $destructive-button-color: map-get($red, alert);
 $destructive-button-hover-color: map-get($red, darker);
-$disabled-button-color: #F9FAFB;
+$disabled-button-color: map-get($map: $blue, $key: disabled);
 $disabled-pagination-color: map-get($gray, light);
 $download-button-hover-color: map-get($blue, cta);
 
@@ -39,7 +39,7 @@ $primary-border-hover-color: map-get($blue, cta-light);
 $default-input-border-color: #8A8A8A;
 $hover-input-border-color: map-get($blue, link);
 $focus-input-border-color: map-get($blue, focus);
-$disabled-border-color: #D8D8D8;
+$disabled-border-color: map-get($map: $blue, $key: disabled-border);
 
 // Box Shadows
 $default-boxshadow-color: map-get($gray, dark);
@@ -80,7 +80,8 @@ $default-message-border-color: map-get($blue, lightest);
 // Misc metrics
 $disabled-opacity: .5;
 $disabled-color: transparentize($base-color, $disabled-opacity);
-$disabled-input-color: rgb(235, 235, 228);
+$disabled-input-color: map-get($map: $blue, $key: disabled);
+$disabled-input-border: map-get($map: $blue, $key: disabled-border);
 
 // Toggle Colors
 $toggle-enabled: map-get($blue, cta);

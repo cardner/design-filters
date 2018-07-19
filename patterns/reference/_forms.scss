@@ -155,6 +155,126 @@ ul.error-list {
     }
 }
 
+// Overriding the select2 form elements
+.base-content,
+#modal-add-to-group,
+#modal-policy-builder {
+    .select2-container,
+    .select2-container-multi {
+        .select2-choice {
+            padding: .23rem 0 0 .5rem;
+            height: 2.2em;
+            color: $default-text-color;
+            border-color: $default-input-border-color;
+            @include border-radius;
+            background-color: $white;
+            background-image: none;
+            @include no-box-shadow;
+            .select2-arrow {
+                background-color: $white;
+                background-image: none;
+                padding-top: 0;
+                border-color: $default-input-border-color;
+                @include border-radius(0 3px 3px 0);
+            }
+        }
+        .select2-choices {
+            background-image: none;
+            .select2-search-choice {
+                background-image: none;
+                background-color: $white;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                &:hover {
+                    color: $primary-button-color;
+                    background: none;
+                    border-color: $primary-button-color;
+                    @include no-box-shadow;
+                }
+                .select2-search-choice-close {
+                    @include no-box-shadow;
+                    margin-top: 1px;
+                }
+            }
+        }
+        .select2-search-choice-close {
+            @include no-box-shadow;
+        }
+    }
+    .select2-dropdown-open {
+        .select2-choice {
+            background-image: none;
+            background-color: $white;
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.select2-drop-active,
+.select2-container-active .select2-choice,
+.select2-container-multi .select2-choices {
+    @include border-radius;
+    border-color: $default-input-border-color !important;
+}
+
+// this overrides the default styling of the large select 2 multi group boxes when focused or active
+.select2-container-multi.select2-container-active .select2-choices {
+    box-shadow: none !important;
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
+    border-radius: $border-radius $border-radius 0 0;
+}
+
+.select2-drop-active {
+    box-shadow: none !important;
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
+    border-radius: 0 0 $border-radius $border-radius;
+}
+
+.select2-search {
+    input.select2-input {
+        background-image: url('../images/select2.png');
+        background-repeat: no-repeat;
+        background-position: 100% -22px;
+        background-color: $white;
+    }
+}
+
+// Quick fix for select2 coloring issues
+.select2-drop.select2-drop-above.select2-drop-active,
+.select2-container-multi.select2-container-active .select2-choices {
+    border-color: $default-input-border-color !important;
+    background-image: none !important;
+}
+
+// Override select2 typeface choices
+.select2-container-multi .select2-choices .select2-search-field input {
+    font-family: $base-font-family !important;
+}
+
+// Lets just kill border radius in general for an active select too since it switches between above and below and shares classes
+.select2-drop-above,
+.select2-container-multi.select2-container-active .select2-choices {
+    border-radius: 0 !important;
+}
+
+.select2-results .select2-result.select2-highlighted {
+    background-color: $select-hover-color !important;
+}
+
+// Fix for select2 disabled states
+.base-container {
+    .select2-container.select2-container-disabled,
+    .select2-container-multi.select2-container-disabled {
+        .select2-choices {
+            @include disabled-input;
+        }
+    }
+}
+
 // FORM ELEMENTS
 button,
 input,
@@ -180,23 +300,12 @@ select[multiple] {
 }
 
 select[disabled] {
-    color: $grey;
-    border-color: $default-input-border-color;
-    background-color: $disabled-input-color;
-    cursor: not-allowed;
+    @include disabled-input;
 }
 
+//Input inline feedback handling
 input,
 textarea {
-    @include transition(color, border-color, box-shadow);
-
-    font-family: $base-font-family;
-    padding: .5rem;
-    width: 100%;
-
-    &.half-width {
-        width: 50%;
-    }
 
     &.valid,
     .line.valid & {
@@ -205,14 +314,13 @@ textarea {
 
     &.invalid,
     .line.invalid & {
-        border-color: $error-red-light;
+        border-color: $error-red-dark;
+        background-color: $error-red-lightest;
     }
 
     // normalize prefixes the selector with html for... some reason
     html &[disabled] {
-        color: $grey;
-        background-color: $disabled-input-color;
-        cursor: not-allowed;
+        @include disabled-input;
     }
 }
 
@@ -371,6 +479,7 @@ input {
     color: $default-text-color;
     padding: .375rem .75rem .25rem; // 10/16, 12 /* 6/16, 4/16 */
     outline: none;
+    width: 100%;
     max-width: 26.25rem; //Based on basic calculation of readable line length and a base font size of 14px in input fields /* 420/16 */
 
     &:focus {
@@ -459,6 +568,8 @@ input {
     &[type='checkbox'] {
         &[disabled] {
             background-color: $disabled-button-color;
+            border-color: $disabled-input-border;
+            font-style: normal;
 
             &::after {
                 color: $disabled-text-color;
@@ -469,6 +580,11 @@ input {
                 color: $disabled-text-color;
             }
         }
+    }
+
+    // Keep for legacy TODO clean up after auditing site
+    &.half-width {
+        width: 50%;
     }
 
     #predelay,
@@ -558,32 +674,6 @@ input + select {
 }
 
 input:not([type="hidden"]) {
-    &[type="text"],
-    &[type="search"] {
-        @include border-radius;
-        @include borders($border-color: $default-input-border-color);
-        outline: none;
-        @include transitions;
-
-        &:focus {
-            @include button-focus($focus-input-border-color);
-            background-color: $white;
-        }
-
-        &:hover {
-            border-color: $hover-input-border-color;
-        }
-
-        &:active {
-            background-color: $white;
-        }
-
-        &.l--field--width-xl {
-            padding: .563rem .938rem .75rem .75rem;  // 9/16, 15/16, 12/16, 12/16 padding adjustment for larger type
-            line-height: 1em;
-            height: 4rem; // 67/16
-        }
-    }
 
     &[type="search"] {
         height: 2.4rem;
@@ -603,130 +693,14 @@ textarea:not([type="hidden"]) {
 
     &[read-only],
     &[readonly] {
-        background-color: $disabled-button-color;
-        color: $disabled-text-color;
-        &:hover {
-            border-color: $default-border-color !important;
-        }
-        &:focus,
-        &:active {
-            @include no-box-shadow;
-        }
-    }
-}
-
-
-// Overriding the select2 form elements
-.base-content,
-#modal-add-to-group,
-#modal-policy-builder {
-    .select2-container,
-    .select2-container-multi {
-        .select2-choice {
-            padding: .23rem 0 0 .5rem;
-            height: 2.2em;
-            color: $default-text-color;
-            border-color: $default-input-border-color;
-            @include border-radius;
-            background-color: $white;
-            background-image: none;
-            @include no-box-shadow;
-
-            .select2-arrow {
-                background-color: $white;
-                background-image: none;
-                padding-top: 0;
-                border-color: $default-input-border-color;
-                @include border-radius(0 3px 3px 0);
-            }
-        }
-        .select2-choices {
-            background-image: none;
-            .select2-search-choice {
-                background-image: none;
-                background-color: $white;
-                padding-top: 5px;
-                padding-bottom: 5px;
-                &:hover {
-                    color: $primary-button-color;
-                    background: none;
-                    border-color: $primary-button-color;
-                    @include no-box-shadow;
-                }
-                .select2-search-choice-close {
-                    @include no-box-shadow;
-                    margin-top: 1px;
-                }
-            }
-        }
-        .select2-search-choice-close
-         {
-            @include no-box-shadow;
-        }
-    }
-
-    .select2-dropdown-open {
-        .select2-choice {
-            background-image: none;
-            background-color: $white;
-            &:hover {
-                color: $white;
-            }
-        }
-    }
-}
-
-.select2-drop-active,
-.select2-container-active .select2-choice,
-.select2-container-multi .select2-choices {
-    @include border-radius;
-    border-color: $default-input-border-color !important;
-}
-
-// this overrides the default styling of the large select 2 multi group boxes when focused or active
-.select2-container-multi.select2-container-active .select2-choices {
-    box-shadow: none !important;
-    border-color: $default-input-border-color !important;
-    background-image: none !important;
-    border-radius: $border-radius $border-radius 0 0;
-}
-
-.select2-drop-active {
-    box-shadow: none !important;
-    border-color: $default-input-border-color !important;
-    background-image: none !important;
-    border-radius: 0 0 $border-radius $border-radius;
-}
-
-.select2-search {
-    input.select2-input {
-        background-image: url('../images/select2.png');
-        background-repeat: no-repeat;
-        background-position: 100% -22px;
         background-color: $white;
+        border-color: transparent;
+        color: $default-text-color;
+        &:hover {
+            border-color:  $white !important;
+            background-color: $white;
+        }
     }
-}
-
-// Quick fix for select2 coloring issues
-.select2-drop.select2-drop-above.select2-drop-active,
-.select2-container-multi.select2-container-active .select2-choices {
-    border-color: $default-input-border-color !important;
-    background-image: none !important;
-}
-
-// Override select2 typeface choices
-.select2-container-multi .select2-choices .select2-search-field input {
-    font-family: $base-font-family !important;
-}
-
-// Lets just kill border radius in general for an active select too since it switches between above and below and shares classes
-.select2-drop-above,
-.select2-container-multi.select2-container-active .select2-choices {
-    border-radius: 0 !important;
-}
-
-.select2-results .select2-result.select2-highlighted {
-    background-color: $select-hover-color !important;
 }
 
 // allow reset of box styles to be applied to another element, form specificity added to override :not selector on form

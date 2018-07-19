@@ -1,11 +1,10 @@
 @import "../global/variables";
 @import "../global/mixins";
-
 @mixin message($color: $default-text-color, $background-color: $default-message-background-color) {
     background-color: $background-color;
     border-radius: $border-radius;
     color: $color;
-    padding: 1rem;
+    padding: $default-padding-spacing;
     position: relative;
     margin-top: 0;
     margin-bottom: $large-margin-spacing;
@@ -15,7 +14,6 @@
     from {
         background-position: 0 0;
     }
-
     to {
         background-position: 2rem 0;
     }
@@ -26,102 +24,82 @@
     .message {
         @include message;
     }
-
     .error {
         @include message($background-color: $error-red-light);
     }
-
     .success {
         @include message($background-color: $success-green-light);
     }
-
     .warning {
         @include message($background-color: $warning-orange-light);
     }
-
     .progress {
         @include message($background-color: $grey-light);
         background-size: 2rem 2rem;
-        background-image: linear-gradient( 45deg, transparentize($grey-darker, .95) 25%, transparent 25%, transparent 50%, transparentize($grey-darker, .95) 50%, transparentize($grey-darker, .95) 75%, transparent 75%, transparent );
+        background-image: linear-gradient( 45deg, transparentize($grey-darker, .95) 25%, transparent 25%, transparent 50%, transparentize($grey-darker, .95) 50%, transparentize($grey-darker, .95) 75%, transparent 75%, transparent);
         animation: barberpole .5s linear infinite;
     }
-
     p:last-child {
         margin-bottom: 0;
     }
 }
+
 @mixin message-content($background-color, $border-color) {
     background-color: $background-color;
     @include borders($border-color: $border-color);
-
 }
 
 .page-message {
     @include clearfix;
     @include message;
-
-    & + & {
-        margin-top: 1rem;
+    &+& {
+        margin-top: $mid-margin-spacing;
     }
-
     img {
         float: right;
     }
-
     ol,
     ul {
-        margin: 4px 30px 10px 20px;
+        margin: $small-margin-spacing $large-margin-spacing $small-margin-spacing $default-margin-spacing;
     }
-
     li {
         list-style-type: disc;
         list-style-position: inside;
         line-height: 18px;
     }
-
     p:last-child {
         margin-bottom: 0;
     }
-
     &.info {
         @include message-content($background-color: $default-message-background-color, $border-color: $default-message-border-color);
-
         .info-box-title {
             font-weight: $bold-font-weight;
             margin-bottom: 0;
         }
     }
-
     &.warning {
         @include message-content($background-color: $warning-orange-lightest, $border-color: $warning-orange-light);
     }
-
     &.secure {
         &:before {
             content: '\e01a';
         }
     }
-
     &.limit {
-        margin-bottom: 2.5em;
+        margin-bottom: $large-margin-spacing;
     }
-
     &.top-aligned:before {
-        top: 2rem;
+        top: $size-32;
     }
-
     &.no-top-margin {
         margin-top: 0;
     }
-
     &.success {
         @include message-content($background-color: $success-green-lightest, $border-color: $success-green-light);
-
         &.limit {
-            padding: 15px 20px;
+            padding: $mid-padding-spacing $large-padding-spacing;
         }
     }
-
     &.error {
         @include message-content($background-color: $error-red-lightest, $border-color: $error-red-light);
     }
@@ -131,7 +109,6 @@
     .labs-icon {
         vertical-align: inherit;
     }
-
     p {
         display: inline-block;
         margin-bottom: 0 !important;

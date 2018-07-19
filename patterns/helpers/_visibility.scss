@@ -1,0 +1,43 @@
+@import '../global/variables';
+@import '../global/mixins';
+
+// ACCESSIBILITY: Use this to hide content visually, while letting 
+//                screen readers read it as if it was visible.
+// WARNING: Avoid using this whenever possible. Some users use
+//          technologies like even though they can see the screen 
+//          (such as some people with dyslexia). Having text read
+//          that they can't see can be confusing.
+
+.\--is-visually-hidden {
+    // Read more here on this concept 
+    // https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
+    // !important tags necessary to prevent screen reader bugs... i know..
+    position: absolute !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    clip: rect(1px 1px 1px 1px) !important;
+    // IE6, IE7
+    clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+// Use this to hide content from BOTH the visual user and a screen reader
+.\--is-hidden {
+    // Remember this method is not animatable without excessive js work
+    display: hidden;
+}
+
+// Use this to animate hiding content from both users and screen readers
+.\--is-animated-hidden {
+    @include transition($propoerties: visibility opacity);
+    visibility: hidden;
+    opacity: 0;
+}
+
+// Use this in conbination with .--is-animated-hidden to animate revealing content to the user and screen reader
+.\--is-animated-visible {
+    @include transition($propoerties: visibility opacity);
+    visibility: visible;
+    opacity: 1;
+}

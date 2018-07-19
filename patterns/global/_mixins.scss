@@ -97,9 +97,7 @@
 
 // Transition the given property using consistent duration and timing function.
 @mixin transition($properties...) {
-    transition-property: $properties;
-    transition-duration: .2s;
-    transition-timing-function: ease;
+    transition: $properties $fast-ease;
 }
 @mixin box {
     border-radius: $border-radius;
@@ -144,6 +142,15 @@
     font-size: $smaller-font-size;
     line-height: $size-16;
     padding: $size-8 $size-16;
+}
+
+//Disabled styling for inputs
+@mixin disabled-input {
+    color: $disabled-text-color;
+    border-color: $disabled-input-border;
+    background-color: $disabled-input-color;
+    cursor: not-allowed;
+    font-style: italic;
 }
 
 @mixin box-shadow($shadows...) {

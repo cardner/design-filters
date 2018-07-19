@@ -102,4 +102,66 @@
     }
 }
 
+// Contains transition classes used by CSSTransitionGroup
+
+.dynamic-modal-wrapper {
+    // This element functions as the overlay and also
+    // as the flex parent for centering the modal content
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+}
+
+.dynamic-modal {
+    flex: 1;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+    max-height: 95%;
+    display: flex;
+    flex-direction: column;
+
+    .modal-footer {
+        /* Add margin between all adjacent buttons */
+        button + button {
+            margin-left: $small-margin-spacing;
+        }
+    }
+
+    .modal-fixed {
+        max-height: 525px;
+
+        .modal-content {
+            bottom: 100px;
+        }
+
+        .modal-footer {
+            height: 100px;
+        }
+    }
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    @include transition(opacity);
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.modal-fade-active {
+    opacity: 0.01;
+    @include transition(opacity);
+}
+
 @import 'calendar';

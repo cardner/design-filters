@@ -5,7 +5,7 @@ $white: #fff;
 
 $gray: (
     dropshadow: rgba(68, 68, 68, .59),
-    disabled: #BABABA,
+    disabled: #737373,
     background: #FCFDFF,
     lightest: #efefef,
     light: #ccc,
@@ -26,25 +26,31 @@ $blue: (
     light: #6ca7e4,
     dark: #508ccb,
     info: #6ca7e4,
-    focus: #B1D3FF
+    focus: #B1D3FF,
+    disabled: #F9FAFB,
+    disabled-border: #F0F0F0
 );
 
 $red: (
-    alert: #D5413B,
-    darker: #DE6A6C
+    alert: #D66866,
+    text: #D5413B,
+    darker: #D5413B,
+    error-light: #FFF6F6,
+    error-dark: #D66866
 );
 
 $yellow: (
-    warn: #F0C473
+    warn: #ECCC83
 );
 
 $orange: (
     orange: #EE7450,
-    warn: #F0C473
+    warn: #EC9D65
+    
 );
 
 $green: (
-    success: #6dbe50,
+    success: #63C57F,
     duo: #6dbe50,
     dark: #569E44,
     nav-tab: #6dbe50,

@@ -1,11 +1,12 @@
 // States for alerts, buttons, etc
 $success-green: map-get($green, success);
-$success-green-light: lighten($success-green, 38%);
-$success-green-lightest: lighten($success-green, 43%);
+$success-green-light: lighten($success-green, 33%);
+$success-green-lightest: lighten($success-green, 40%);
 $error-red: map-get($red, alert);
+$error-text: map-get($map: $red, $key: text);
 $error-red-light: lighten($error-red, 29%);
-$error-red-lightest: lighten($error-red, 33%);
-$error-red-dark: map-get($red, darker);
+$error-red-lightest: map-get($map: $red, $key: error-light);
+$error-red-dark: map-get($red, error-dark);
 $info-blue: map-get($blue, cta);
 $info-blue-light: #F5F7FA;
 $info-blue-border: #E8EDF3;
