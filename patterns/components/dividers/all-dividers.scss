@@ -4,11 +4,11 @@
 .dpl-rule--horizontal {
 
     &--thick {
-        margin-left: -$size-32;
-        margin-right: -$size-24;
+        margin-left: -$large-margin-spacing;
+        margin-right: -$default-margin-spacing;
         height: $size-8;
-        box-shadow: inset 0 1px 0 #DCDCDC;
-        background-color: #F6F6F6;
+        box-shadow: inset 0 1px 0 $rule-box-shadow-color;
+        background-color: $rule-background-color;
         border: none;
     }
 }

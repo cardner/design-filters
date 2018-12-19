@@ -1,58 +1,58 @@
-.c--btn {
-    &-download {
-        @extend %button;
-        @include no-box-shadow;
-        display: inline-block;;
+.c--btn-download,
+.button--download {
+    @extend %button;
+    @include no-box-shadow;
+    display: inline-block;;
+    height: auto;
+    border: none;
+    background: transparent;
+    padding-left: 0;
+    color: $default-button-color;
+    font-size: $smaller-font-size;
+    line-height: 1em;
+    transition: color .2s ease;
+
+    svg {
+        display: inline-block;
+        width: 1.8em;
+        float: left;
         height: auto;
-        border: none;
-        background: transparent;
-        padding-left: 0;
-        color: $default-button-color;
-        font-size: $smaller-font-size;
-        line-height: 1em;
-        transition: color .2s ease;
+        fill: $default-button-color;
+        margin-right: $size-8;
+    }
+
+    i {
+        display: table-caption;
+        clear: both;
+        color: $mid-text-color;
+        font-style: normal;
+        margin-top: 0.2em;
+        font-size: $smallest-font-size;
+        line-height: 1rem;
+        min-width: 75px;
+    }
+
+    &:hover {
+        background-color: transparent;
+        text-decoration: underline;
+        color: $default-button-hover-color;
 
         svg {
-            display: inline-block;
-            width: 1.8em;
-            float: left;
-            height: auto;
-            fill: $default-button-color;
-            margin-right: $size-8;
+            fill: $default-button-hover-color;
         }
 
         i {
-            display: table-caption;
-            clear: both;
-            color: $mid-text-color;
-            font-style: normal;
-            margin-top: 0.2em;
-            font-size: $smallest-font-size;
-            line-height: 1rem;
-            min-width: 75px;
-        }
-
-        &:hover {
-            background-color: transparent;
-            text-decoration: underline;
             color: $default-button-hover-color;
-
-            svg {
-                fill: $default-button-hover-color;
-            }
-
-            i {
-                color: $default-button-hover-color;
-                text-decoration: none;
-            }
-        }
-
-        &:focus,
-        &:active {
-            outline: none;
-            border: inherit;
-            background-color: transparent;
-            color: inherit;
+            text-decoration: none;
         }
     }
+
+    &:focus,
+    &:active {
+        outline: none;
+        border: inherit;
+        background-color: transparent;
+        color: inherit;
+    }
 }
+

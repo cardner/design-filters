@@ -25,12 +25,7 @@ $browser-context: 16;
 }
 
 body {
-    color: $default-text-color;
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    font-weight: $base-font-weight;
-    line-height: $base-line-height;
-    letter-spacing: $base-letter-spacing;
+    @include base-font-styling
 }
 
 // Type classes for reseting visual styles of elements

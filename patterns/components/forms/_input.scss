@@ -1,0 +1,34 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+input {
+    @extend %default-input-style;
+    line-height: $base-line-height;
+    
+
+    // override to visually hide the number spinner for mozilla browser
+    &[type=number] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    }
+
+    &[read-only],
+    &[readonly] {
+        background-color: $white;
+        border-color: transparent;
+        color: $default-text-color;
+        padding-left: 0;
+        &:hover {
+            border-color: $white !important;
+            background-color: $white;
+        }
+    }
+
+
+}

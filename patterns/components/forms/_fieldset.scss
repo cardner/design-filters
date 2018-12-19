@@ -1,0 +1,11 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+fieldset {
+    border: none;
+    margin: $size-8 0 $size-32;
+    padding: 0;
+    &.temp {
+        margin-top: 20px;
+    }
+}

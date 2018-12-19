@@ -1,0 +1,73 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+// Reset default styling of checkbox
+[type="checkbox"] {
+    @extend %default-input-style;
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: $size-16;
+    height: $size-16;
+    vertical-align: text-bottom;
+    line-height: 1;
+    border-radius: 3px;
+    background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
+    @include borders($border-color: $radio-check-border);
+
+    &:hover {
+        cursor: pointer;
+        border-color: $radio-check-hover-border;
+    }
+
+    &:focus {
+        border-radius: 15%;
+        box-shadow: none;
+        @include button-focus($focus-button-border);
+    }
+
+    &:checked {
+        background: $primary-button-color;
+        border-color: transparent;
+        &::after {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: $size-16;
+            height: $size-16;
+            font-family: $icon-font-family;
+            font-size: $smallest-font-size;
+            vertical-align: middle;
+            content: $confirm;
+            color: $white;
+        }
+
+        &:focus {
+            // inverse the border color to white because the background color is dark
+            border-color: $white;
+        }
+    }
+    
+    // this is to set the disabled state of a checkbox and it's label
+    &[disabled] {
+        background-color: $disabled-button-color;
+        border-color: $disabled-input-border;
+        font-style: normal;
+        &::after {
+            color: $disabled-text-color;
+        }
+        +p,
+        +label {
+            font-weight: $base-font-weight;
+            color: $disabled-text-color;
+        }
+    }
+}
+
+[type="checkbox"] {
+    + span,
+    + label {
+        margin-left: $size-8;
+    }
+}

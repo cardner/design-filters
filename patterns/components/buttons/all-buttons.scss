@@ -2,22 +2,54 @@
 @import "../../global/mixins";
 @import "../../global/extends";
 
+// TODO these are new name spaces and an expirement in variable inheritence
+// Local button variables
+// Button Colors
+$color-active-button-shadow-start: rgba(30, 80, 150, .5);
+$color-active-button-shadow-end: rgba(43, 73, 112, .5);
+$color-hover-gradient-button-start: $color-gradient-blue-medium-start;
+$color-hover-gradient-button-end: $color-gradient-blue-medium-end;
+
+$color-button-border: $default-table-button-border;
+$color-active-button-border: $color-active-button-shadow-end;
+$color-button-text: $default-link-color;
+$color-button-focus: $focus-button-border;
+// Background Colors
+$color-button-background-start: $color-gradient-grey-light-start;
+$color-button-background-end: $color-gradient-grey-light-end;
+// Button Sizes
+$size-button-height: $size-40;
+$size-button-line-height: $base-line-height;
+$size-button-font: $base-font-size;
+$size-button-border: 1px;
+// Button spacing
+$size-button-spacing-horizontal: $small-padding-spacing;
+$size-button-spacing-vertical: $mid-padding-spacing;
+// Button weights
+$weight-button-base: $base-font-weight;
+// Button Radius
+$radius-button: $border-radius;
+
 // Extend for button base styles
 %button {
-    @include border-radius;
-    @include transitions(background-color $fast-ease, border $fast-ease, box-shadow $slow-ease);
+    border-radius: $radius-button;
+    transition: background-color $transition-fast, border $transition-fast, box-shadow $transition-default;
     display: inline-block;
-    font-size: $base-font-size;
-    font-weight: $base-font-weight;
+    font-size: $size-button-font;
+    font-weight: $weight-button-base;
     text-decoration: none;
-    line-height: $size-24;
-    min-height: $size-40;
-    @include borders($border-color: $default-table-button-border);
-    padding: $size-8 $size-16; // 10/16, 20/16
-    color: $default-link-color;
-    background: linear-gradient($white, $gradient-table-button);
+    line-height: $size-button-line-height;
+    min-height: $size-button-height;
+    border: $size-button-border solid $color-button-border;
+    padding: $size-button-spacing-horizontal $size-button-spacing-vertical;
+    color: $color-button-text;
+    background-image: linear-gradient($color-button-background-start, $color-button-background-end);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-color: $hover-gradient-button-last;
     letter-spacing: .04em;
     outline: none;
+    transition: background-size $transition-xfast;
 }
 
 a,
@@ -30,9 +62,7 @@ button {
 
 
 .button,
-button:not(.link),
-input[type="button"],
-input[type="src"]:not(.link) input[type="reset"] {
+button {
     @extend %button;
 
     // Fix for IE11 and 10 (Edge works well):
@@ -40,21 +70,25 @@ input[type="src"]:not(.link) input[type="reset"] {
         line-height: 1.25em;
     }
 
-    &:hover {
+    &:hover,
+    &.\--is-hover {
+        background-size: auto 0;
+        border-color: $color-hover-gradient-button-start;
+        color: $color-button-focus;
         text-decoration: none;
-        background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
-        border-color: $hover-gradient-button-top;
-        color: $white;
         cursor: pointer;
     }
 
-    &:focus {
-        @include button-focus($border-color: $focus-button-border);
+    &:focus,
+    &.\--is-focus {
+        @include button-focus($border-color: $color-button-focus);
     }
 
-    &:active {
-        box-shadow: inset 0 1px 3px 0 $active-button-shadow-1, inset 0 1px 3px 0 $active-button-shadow-2;
-        border-color: $active-button-shadow-2;
+    &:active,
+    &.\--is-active {
+        box-shadow: inset 0 1px 3px 0 $color-active-button-shadow-start, inset 0 1px 3px 0 $color-active-button-shadow-end;
+
+        border-color: transparent;
     }
 
     &.icon:after,
@@ -67,30 +101,14 @@ input[type="src"]:not(.link) input[type="reset"] {
         padding-right: 6px;
     }
 
-    &.hidden {
+    &.hidden,
+    &.\--is-hidden {
         display: none;
     }
 
     // Hide the disabled tool tip if the button has been enabled
     i[role="tooltip"] {
         display: none;
-    }
-
-    &.square {
-        text-align: center;
-        padding-left: 4px;
-        padding-right: 4px;
-
-        i {
-            display: block;
-            font-size: 2rem;
-            height: 2rem;
-            margin-bottom: .5rem;
-        }
-    }
-
-    &.button--tiny {
-        @include button-tiny;
     }
 
     &.a--btn-icon-clear {
@@ -100,51 +118,17 @@ input[type="src"]:not(.link) input[type="reset"] {
         }
     }
 
-    &.full-width {
-        width: 100%;
-    }
-
-    &.\--is-active {
-        background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
-        border-color: transparent;
-        color: $white;
-
-        &:hover {
-            background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
-            border-color: $hover-gradient-button-top;
-        }
-
-        &:focus {
-            @include button-focus($focus-button-border);
-        }
-
-        &:active {
-            box-shadow: inset 0 1px 3px 0 $active-button-shadow-1, inset 0 1px 3px 0 $active-button-shadow-2;
-            border-color: $active-button-shadow-2;
-        }
-    }
-
-    //Add all imports here for different button types
-    @import 'primary';
-    @import 'disabled';
-
 }
 
-/* this is to create the new buttons style of button links */
-.c--button-link {
-    @include button-to-link-reset;
-
-    /* modifier for destructive button links TODO come back and fix inheritance with extends and buttons */
-
-    &.c--destruction:before {
-        content: $trashcan;
-        display: inline-block;
-        font-size: 1rem;
-        font-weight: $bold-font-weight;
-        padding-right: 6px;
-        margin-top: -.2em;
-    }
-}
+//Add all imports here for different button types
+@import 'primary';
+@import 'disabled';
+@import 'destructive';
+@import 'download';
+@import 'dropdowns';
+@import 'bulk-selector';
+@import 'navigational';
+@import 'pagination';
 
 .button-row {
     display: flex;
@@ -252,9 +236,73 @@ input[type="src"]:not(.link) input[type="reset"] {
     }
 }
 
-@import 'destructive';
-@import 'download';
-@import 'dropdowns';
-@import 'bulk-selector';
-@import 'navigational';
-@import 'pagination';
+
+// Button helper classes
+
+.square,
+.button--square {
+    text-align: center;
+    padding-left: $size-8;
+    padding-right: $size-8;
+    height: 100%;
+
+    i {
+        display: block;
+        font-size: 2rem;
+        height: 2rem;
+        margin-bottom: .5rem;
+    }
+}
+
+// Buttons that look like links
+.c--button-link,
+.button--link {
+    @include button-to-link-reset;
+
+    /* modifier for destructive button links TODO come back and fix inheritance with extends and buttons */
+
+    &.c--destruction:before {
+        content: $trashcan;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: $bold-font-weight;
+        padding-right: 6px;
+        margin-top: -.2em;
+    }
+}
+
+/* Button Resets */
+.button--reset {
+    border: none;
+    padding: unset;
+    height: unset;
+    min-height: unset;
+    background-color: unset;
+    background: none;
+    background-color: transparent;
+
+    &:hover {
+        color: inherit;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+}
+
+/* Button Size modifiers */
+.button--large {
+    min-height: $size-48;
+    line-height: $medium-line-height;
+    font-size: $large-font-size;
+}
+
+.button--small,
+.button--tiny {
+    min-height: $size-32;
+    line-height: $small-line-height;
+    font-size: $smaller-font-size;
+}
+
+.full-width,
+.button--width-full {
+    width: 100%;
+}

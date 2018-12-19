@@ -1,0 +1,34 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+// Specific classes for error messaging 
+// and the styling of form elements around input fields go here
+
+input,
+textarea {
+
+    &.error,
+    &.\--is-error {
+        border-color: $error-red-light;
+    }
+
+    &.valid,
+    &.\--is-valid,
+    .line.valid & {
+        border-color: $success-green;
+        background-color: $success-green-light;
+    }
+
+    &.invalid,
+    &.\--is-invalid,
+    .line.invalid & {
+        border-color: $error-red-dark;
+        background-color: $error-red-lightest;
+    }
+}
+
+.has_error,
+.\--has-error {
+    color: $error-text;
+    font-weight: $bold-font-weight;
+}

@@ -26,22 +26,8 @@ $animation-duration: 250ms;
 
     z-index: 1000;
 
-    transition-property: opacity;
-    transition-duration: $animation-duration;
-    transition-timing-function: ease-in-out;
-
-    &.hiding {
-        opacity: 0;
-    }
-
     &.hidden {
         display: none;
-        opacity: 0;
-        transition: none;
-    }
-
-    &.before-showing {
-        opacity: 0;
     }
 }
 
@@ -62,24 +48,8 @@ $animation-duration: 250ms;
     // whose z-index is 1000.
     z-index: 1001;
 
-    opacity: 1;
-
-    transition-property: opacity;
-    transition-duration: $animation-duration;
-    transition-timing-function: ease-in-out;
-
-    &.hiding {
-        opacity: 0;
-    }
-
     &.hidden {
-        opacity: 0;
         display: none;
-        transition: none;
-    }
-
-    &.before-showing {
-        opacity: 0;
     }
     .c--primary,
     .button,

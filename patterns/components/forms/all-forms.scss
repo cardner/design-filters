@@ -1,2 +1,54 @@
+@import "../../global/variables";
+@import "../../global/mixins";
+@import "../../global/extends";
+
+%default-input-style {
+    @include borders($border-color: $default-input-border-color);
+    @include border-radius;
+    @include transitions;
+    display: inline-block;
+    font-family: inherit;
+    background: $default-input-background;
+    color: $default-text-color;
+    padding: $small-padding-spacing;
+    outline: none;
+    width: 100%;
+    max-width: 26.25rem; //Based on basic calculation of readable line length and a base font size of 14px in input fields /* 420/16 */
+    &:focus {
+        outline: none;
+        border-color: $default-border-color;
+        @include button-focus($focus-input-border-color);
+    }
+
+    &:hover {
+        border-color: $hover-input-border-color;
+    }
+};
+
+form:not(.inline) {
+    @include box;
+    padding: 0;
+
+    &.c--box-reset {
+        @include unset($display-attr: border-radius);
+        @include unset($display-attr: padding);
+        @include unset($display-attr: margin-bottom);
+        @include unset($display-attr: border);
+        border: none;
+    }
+}
+
+
+@import 'input';
 @import 'select';
+@import 'textarea';
+@import 'checkbox';
+@import 'radio';
+@import 'fieldset';
 @import 'search';
+@import 'label';
+
+@import 'errors';
+
+@import 'select2';
+@import 'react-select';

@@ -20,3 +20,32 @@
         height: $size-16;
     }
 }
+
+.search {  
+    &:before {
+        @include duo-icons;
+        content: $magnify;
+        position: absolute;
+        width: 1rem;
+        top: 0;
+        left: .5rem;
+        font-size: $smallest-font-size;
+        line-height: 1em;
+        padding: .25em;
+        vertical-align: middle;
+        color: $default-text-color;
+    }
+}
+
+[type="search"]:not([type="hidden"]) {
+    height: 2.4rem;
+    max-width: 25rem;
+    padding: 0 0 0 2.25em;
+    background: $input-search-background;
+    border-color: $radio-check-border;
+
+    &:hover {
+        background: $white;
+        border-color: $radio-check-hover-border;
+    }
+}

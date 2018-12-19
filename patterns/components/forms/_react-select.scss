@@ -1,0 +1,77 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+// Custom Time Range dropdown
+// Override default styling of select element
+.dpl-filter--table--select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 11.5rem;
+}
+
+// Override styles of select react component
+// Select input style overrides
+.Select-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-color: $default-table-button-border;
+    background: linear-gradient($white, $gradient-table-button);
+    @include border-radius;
+    line-height: $size-16;
+    font-size: $small-font-size;
+    min-height: $size-32;
+    height: $size-32;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient($hover-gradient-select-top, $hover-gradient-select-bottom);
+        border-color: $default-table-button-border;
+    }
+}
+
+.Select-placeholder {
+    line-height: $size-16;
+    font-size: $small-font-size;
+    color: $default-text-color;
+    position: relative;
+}
+
+.Select-arrow {
+    border-width: $size-4 $size-4 2.5px;
+    border-color: $default-text-color transparent transparent;
+}
+
+// Dropdown list styles
+.Select-menu-outer {
+    max-height: initial;
+    z-index: 1000;
+    margin-top: $size-4;
+    border-color: $default-table-button-border;
+    box-shadow: 0 $size-4 $size-4 $color-dropdown-box-shadow;
+}
+
+.Select-menu {
+    // increase max height to stop scroll bar
+    max-height: 90vh; // fix dotted outline during focus
+    border: none;
+    outline: none;
+}
+
+.Select-option {
+    @include border(bottom);
+    padding: $size-16;
+    color: $default-text-color;
+    &.is-focused,
+    &:hover {
+        background-color: $table-item-background-hover;
+    }
+    &:last-child {
+        @include unset(border);
+    }
+}
+
+.Select-input > input {
+    transition: none;
+}

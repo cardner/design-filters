@@ -1,4 +1,8 @@
-&[disabled] {
+[disabled],
+button.disabled,
+button.\--is-disabled,
+.button.disabled,
+.button.\--is-disabled {
     @include no-box-shadow;
     background: $disabled-button-color;
     border-color: $disabled-border-color;
@@ -60,6 +64,6 @@
     }
 
     &:focus {
-        @include box-shadow;
+        @include button-focus;
     }
 }

@@ -17,11 +17,11 @@
         *zoom: 1;
     }
 }
-@mixin ellipsis ($max-width) {
+@mixin ellipsis ($max-width, $white-space: nowrap) {
     max-width: $max-width;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: $white-space;
 }
 
 @mixin unset($display-attr) {
@@ -130,7 +130,16 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin button-focus($border-color: currentColor, $border-width: 3px) {
+@mixin base-font-styling {
+    color: $default-text-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+    letter-spacing: $base-letter-spacing;
+}
+
+@mixin button-focus($border-color: currentColor, $border-width: 1px) {
     outline: none;
     border-color: $border-color;
     box-shadow: 0px 0px 0px $border-width $border-color;
@@ -338,8 +347,8 @@ $sizes: (
     background-color: transparent;
 
     &:hover {
-        color: inherit;
-        @include unset(background-color);
+        background: transparent;
+        color: $default-link-color;
         text-decoration: underline;
     }
 }

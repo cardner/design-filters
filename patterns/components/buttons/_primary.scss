@@ -1,23 +1,26 @@
-&.c--primary {
+.c--primary,
+.button--primary {
     color: $white;
-    background: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
-    border-color: transparent;
+    background-image: linear-gradient(
+        $hover-gradient-button-top,
+        $hover-gradient-button-bottom);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-color: $hover-gradient-button-last;
+    transition: background-size $transition-fast;
 
     &:hover {
-        background: linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
-        border-color: $hover-gradient-button-top;
+        background-size: auto 0;
+        color: $focus-button-border;
     }
 
     &:focus {
         @include button-focus($focus-button-border);
+        background-size: auto 0;
+        color: $focus-button-border;
     }
 
     &:active {
-        box-shadow: inset 0 1px 3px 0 $active-button-shadow-1,
-        inset 0 1px 3px 0 $active-button-shadow-2;
-        border-color: $active-button-shadow-2;
-        background-color: linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
-        border-color: transparent;
-        color: $white;
+        box-shadow: inset 0 1px 3px 0 $active-button-shadow-1, inset 0 1px 3px 0 $active-button-shadow-2;
     }
 }

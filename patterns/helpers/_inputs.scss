@@ -1,0 +1,53 @@
+@import '../global/variables';
+@import '../global/mixins';
+
+///Form Help Classes
+//Naming notes: layout--object--modifier-state/specifier
+.l--field--width-default {
+    width: 26.25rem; // 420/16 default width of 420px
+}
+
+.l--field--width-xs {
+    width: 2.75rem; // 44/16 1-2 characters, specifically digits - should be used with inline fields
+}
+
+.l--field--width-3digits {
+    width: 3.25rem; // 52/16 3 digits, specifically for time based input fields- should be used for inline fields
+}
+
+.l--field--width-sm {
+    width: 5.063rem; // 81/16  | 1-7 characters
+}
+
+.l--field--width-m,
+.l--field--width-phone {
+    width: 13.563rem; // 217/16 | 8-26 characters mixed
+}
+
+.l--field--width-lg {
+    width: 33.5rem; // 536/16 | 27-72 characters mixed
+    max-width: 33.5rem;
+}
+
+.l--field--width-xl {
+    width: 45.063rem; // 721/16  | 36 characters max mixed @ 36px font size
+    max-width: 45.063rem;
+}
+
+.l--field--width-full {
+    width: 100%; // TODO remove this in the future when a better grid design is relased
+    max-width: 100%;
+}
+
+.l--field--spacing-left {
+    margin-left: .313rem; // 5/16 add some breathing room left
+}
+
+.l--field--spacing-right {
+    margin-right: .313rem; // 5/16 add some breathing room right
+}
+
+.l--field--spacing-both {
+    @extend .l--field--spacing-right;
+    @extend .l--field--spacing-left;
+}

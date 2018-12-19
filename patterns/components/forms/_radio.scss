@@ -1,0 +1,58 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+input[type=radio] {
+    -webkit-appearance: unset;
+    -moz-appearance: unset;
+    appearance: unset;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    padding: 2px;
+    @include borders($border-color: #ccc);
+    vertical-align: text-bottom;
+    margin-right: $size-8;
+    margin-left: -1px;
+    background: linear-gradient($radio-check-background-gradient-top, $radio-check-background-gradient-bottom);
+
+    &:checked {
+        &:after {
+            content: '';
+            display: block;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $default-link-color;
+        }
+        &+label {
+            font-weight: $bold-font-weight;
+        }
+    }
+
+    &:focus:not([disabled]) {
+        @include button-focus($border-color: $focus-input-border-color, $border-width: 2px);
+    }
+
+    &:active:not([disabled]),
+    &:hover:not([disabled]) {
+        cursor: pointer;
+        @include no-box-shadow;
+        border-color: $radio-check-hover-border;
+    }
+
+    // this is to set the disabled state of a radio button and it's label
+    &[disabled] {
+        &::after {
+            //TODO XXX use an accessibility-friendly color from the dpl
+            background-color: map-get($map: $gray, $key: disabled);
+        }
+
+        + p,
+        + label {
+            font-weight: $base-font-weight;
+            color: $disabled-text-color;
+        }
+    }
+}

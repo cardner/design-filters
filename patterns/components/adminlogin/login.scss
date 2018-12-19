@@ -1,0 +1,265 @@
+// Styles shared between adminserv and adminshell for login
+// TODO should be reviewed when admin login v1 is retired to remove obsolete styles
+@import "../../global/variables";
+@import "../../global/mixins";
+@import "../../layout/grid";
+
+body {
+    background: $grey-lighter;
+    counter-reset: section;
+}
+
+h2 {
+    margin-top: 0;
+    margin-left: 1.1em;
+    margin-bottom: $mid-margin-spacing;
+
+    &:before {
+        counter-increment: section;
+        content: counter(section) ".";
+        display: inline-block;
+        width: 1.1em;
+        margin-left: -1.1em;
+    }
+
+    &.disabled {
+        margin-bottom: 0;
+    }
+}
+
+// add a class for clearing the counter if not wanted
+.a--reset-counter {
+    margin-left: 0;
+
+    &:before {
+        content: '';
+        display: none;
+    }
+}
+
+.centering-container {
+    width: 100vw;
+    height: 100vh;
+
+    .ie9 & {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.login-header {
+    // Use padding instead of margin since using margin causes the header to
+    // spill outside the body for some reason, resulting in the page always
+    // being scrollable
+    padding: 2rem 0;
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        height: 3rem;
+    }
+
+    .line {
+        display: block;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    .logo-path {
+        fill: $duo-green;
+    }
+
+    .logo-path-translucent {
+        fill: fade-out($duo-green, .2);
+    }
+}
+
+.login,
+.old-activation,
+.activation {
+    margin: 0 auto;
+}
+
+.login,
+.old-activation {
+    margin: 0 auto;
+
+    > form,
+    > .box {
+        background: $white;
+        padding: 2rem;
+        margin-bottom: 0;
+
+        &:last-child {
+            border-top: 0;
+            border-radius: 0 0 $border-radius $border-radius;
+        }
+
+        &.disabled {
+            background: transparentize($white, .35);
+        }
+    }
+
+    > form {
+        border-radius: $border-radius $border-radius 0 0;
+    }
+}
+
+.vertical {
+    input {
+        margin-top: .25rem;
+    }
+}
+
+.second-factor {
+    display: none;
+}
+
+.passcode {
+    .line > :first-child {
+        // adding additional gutter to line up with the factor buttons
+        @include column(2, 3, .5rem);
+        margin-top: .25rem;
+    }
+
+    .line > :last-child {
+        @include column(1, 3, .5rem);
+        margin-top: .25rem;
+    }
+}
+
+@mixin factor-form($width) {
+    width: $width;
+    .call-or-text {
+        @include call-or-text($width);
+    }
+}
+
+@mixin call-or-text($width) {
+    height: calc(((#{$width} - 4rem) * .33333) - (.5rem * (1 - .33333)));
+    margin-bottom: 1rem;
+    margin-right: 0;
+
+    > .factor-button {
+        @include column(1, 3, .25rem);
+        height: 100%;
+    }
+}
+
+.login {
+    @include factor-form(360px);
+}
+
+.old-activation {
+    @include factor-form(460px);
+}
+
+.activation {
+    @include factor-form(420px);
+}
+
+.c--divider {
+    width: 100%;
+    position: relative;
+    margin-bottom: $default-margin-spacing;
+
+    &:after {
+        position: absolute;
+        top: 8px;
+        background-color: $default-input-border-color;
+        height: 1px;
+        content: " ";
+        width: 100%;
+    }
+}
+
+.a--divider-text-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.a--divider-text {
+    padding: 0 5px;
+    background-color: $white;
+}
+
+.sso-login-button {
+    display: flex;
+    padding: 0;
+    line-height: 40px;
+}
+
+.sso-login-text {
+    flex: 1 0 0;
+    margin-left: -45px;
+    text-align: center;
+}
+
+.sso-login-icon {
+    @include transitions(background-color $fast-ease);
+    flex: 0 0 45px;
+    background-size: 20px 20px;
+    background: url('/static/images/sso_key.svg') no-repeat center,
+    linear-gradient($primary-button-gradient-start, $primary-button-gradient-end);
+
+    .sso-login-button:hover & {
+        background: url('/static/images/sso_key.svg') no-repeat center,
+        linear-gradient($hover-gradient-button-top, $hover-gradient-button-bottom);
+    }
+}
+
+.login-page-link {
+    margin-top: $small-margin-spacing;
+    font-size: $smaller-font-size;
+}
+
+.remember-me-checkbox:not(.hidden) {
+    display: block;
+    margin-bottom: $size-12;
+
+    & > input {
+        margin-right: $small-margin-spacing;
+        margin-top: $size-12;
+    }
+}
+
+.email-address-container {
+    margin-bottom: $size-24;
+}
+
+.read-only-email-address-container {
+    text-align: center;
+
+    .read-only-email-address {
+        font-weight: bold;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .login-as-someone-else-link {
+        margin-top: 0;
+    }
+}
+
+.passwordContainer {
+    // Because of its label, this leaves too much white-space above it
+    // compared to other arrangements, so pull that puppy up a bit.
+    margin-top: -$small-margin-spacing;
+}
+
+.disclaimer {
+    margin-left: 1.5rem;
+    font-size: $smallest-font-size;
+    color: $mid-text-color;
+    line-height: normal;
+}
+
+// Having the normal bottom margin would make the login page look weird when a flash message is displayed.
+.flash {
+    .message, .error, .warning {
+        margin-bottom: 0;
+    }
+}

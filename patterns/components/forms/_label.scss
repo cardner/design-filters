@@ -1,0 +1,15 @@
+@import '../../global/variables';
+@import '../../global/mixins';
+
+legend {
+    font-size: $base-font-size;
+    font-weight: $bold-font-weight;
+}
+
+label {
+    color: $default-text-color;
+    [type=checkbox]+&,
+    [type=radio]+& {
+        color: inherit;
+    }
+}

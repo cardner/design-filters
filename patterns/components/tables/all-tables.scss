@@ -18,6 +18,24 @@
     width: 100%;
     @include border(top, $border-color: $default-border);
 
+    // We should use this if we decided to do empty states via css
+    // tbody:empty::after {
+    //     content: 'No Results Found';
+    //     display: table-row;
+    //     white-space: nowrap;
+    //     font-weight: $bold-font-weight;
+    //     font-size: $large-font-size;
+    //     text-align: center;
+    // }
+
+    tr {
+        transition: background-color $fast-ease;
+        &:hover,
+        &.\--is-active {
+            background-color: $table-item-background-hover;
+        }
+    }
+
     td,
     th {
         white-space: nowrap;
@@ -25,6 +43,7 @@
         text-overflow: ellipsis;
         padding: $size-16 $size-8;
         min-width: $size-16;
+        min-height: $size-48;
         &:hover {
             white-space: normal;
             overflow: visible;
@@ -67,7 +86,8 @@ table {
 }
 
 %orderIndicator {
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4'%3E%3Cpath fill-rule='evenodd' d='M4 4l4-4H0z'/%3E%3C/svg%3E");
+    // We need to back this out for now until we know if we need to update the CSP or not
+    // content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='4'%3E%3Cpath fill-rule='evenodd' d='M4 4l4-4H0z'/%3E%3C/svg%3E");
     position: relative;
     display: inline-block;
     top: -2px;
@@ -78,17 +98,22 @@ table {
 
 th {
     @include tableHeaderFormat;
-    cursor: pointer;
+
+    &.\--is-sortable {
+        // Use this to identify table column that are sortable by the user
+        cursor: pointer;
+    }
 
     &.\--is-ascending {
-        &::after {
+        // Set table header order indicator to point up
+        svg {
             @extend %orderIndicator;
             transform: rotate(.5turn);
-            top: 2px;
         }
     }
     &.\--is-descending {
-        &::after {
+        // Set table header order indicator to point down
+        svg {
             @extend %orderIndicator;
         }
     }
@@ -102,14 +127,6 @@ th {
     top: 0;
     background-color: $white;
     z-index: 999;
-}
-
-tr {
-    transition: background-color $fast-ease;
-    &:hover,
-    &.\--is-active {
-        background-color: $table-item-background-hover;
-    }
 }
 
 .\--is-clickable {
@@ -148,7 +165,7 @@ tr {
             transition: background-color $fast-ease, visibility $fast-ease, opacity $fast-ease, font-size $fast-ease;
         }
         &:nth-child(1)::after,
-        &:nth-child(2)::after {
+        &.checkbox ~ td:nth-child(2)::after {
             content: '';
             @include border-radius;
             background-color: darken($placeholder-loading-background, 2%);

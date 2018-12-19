@@ -21,10 +21,10 @@
     background-color: $filter-panel-background;
     padding: $size-40 $size-32;
     &.\--is-closed {
-        transform: translateX(-$filter-container-width);
+        transform: translateX(-#{$filter-container-width + $size-32});
     }
     &.\--is-open {
-        transform: translateX(0);
+        transform: translateX(-$size-32);
     }
 }
 
