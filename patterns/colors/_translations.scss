@@ -13,7 +13,7 @@ $pagination-text-color: map-get($gray, mid);
 $button-text-color: map-get($blue, cta);
 
 // Link names
-$default-link-color: #0B69E5;
+$default-link-color: map-get($blue, link);
 $dropdown-link-hover-color: map-get($blue, cta-light);
 
 // Button names
