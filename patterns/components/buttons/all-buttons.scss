@@ -73,7 +73,7 @@ button {
     &:hover,
     &.\--is-hover {
         background-size: auto 0;
-        border-color: $color-hover-gradient-button-start;
+        border-color: $hover-gradient-button-last;
         color: $color-button-focus;
         text-decoration: none;
         cursor: pointer;
