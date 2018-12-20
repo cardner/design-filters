@@ -6,21 +6,24 @@
         $hover-gradient-button-bottom);
     background-size: auto 100%;
     background-repeat: no-repeat;
-    background-color: $hover-gradient-button-last;
-    transition: background-size $transition-fast;
+    background-color: $hover-gradient-button-bottom;
+    border-color: $hover-gradient-button-bottom;
 
     &:hover {
         background-size: auto 0;
-        color: $focus-button-border;
+        color: $white;
+        border-color: $hover-gradient-button-bottom;
+        box-shadow: 0 3px 0 0 darken($hover-gradient-button-bottom, 10%)
     }
 
     &:focus {
         @include button-focus($focus-button-border);
         background-size: auto 0;
-        color: $focus-button-border;
+        color: $white;
     }
 
     &:active {
         box-shadow: inset 0 1px 3px 0 $active-button-shadow-1, inset 0 1px 3px 0 $active-button-shadow-2;
+        color: $white;
     }
 }

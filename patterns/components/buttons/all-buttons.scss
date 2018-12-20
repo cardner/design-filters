@@ -49,7 +49,7 @@ $radius-button: $border-radius;
     background-color: $hover-gradient-button-last;
     letter-spacing: .04em;
     outline: none;
-    transition: background-size $transition-xfast;
+    transition: background-size $transition-fast, box-shadow $transition-default, border-color $transition-default;
 }
 
 a,
@@ -75,6 +75,7 @@ button {
         background-size: auto 0;
         border-color: $hover-gradient-button-last;
         color: $color-button-focus;
+        box-shadow: 0 3px 0 0 darken($hover-gradient-button-last, 10%);
         text-decoration: none;
         cursor: pointer;
     }
